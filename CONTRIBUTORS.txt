@@ -9,7 +9,8 @@
 # they accept any liabilities with respect to them.
 
 - Antonio Carretero Díaz (antcardia4@alum.us.es)
+- Guillermo Galeano de Paz (guigalde@alum.us.es)
+- Juan Romero González (juaromgon@alum.us.es)
 - Eduardo Pizarro López (edupizlop@alum.us.es)
 - David Reyes Alés (davreyale@alum.us.es)
-- Guillermo Galeano de Paz
-- Juan Romero Gutiérrez
+
