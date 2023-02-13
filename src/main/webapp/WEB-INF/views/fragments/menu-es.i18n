@@ -18,7 +18,11 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = 77933507P : Pizarro Lopez Eduardo
+
+master.menu.anonymous.favourite-link-1 = 77932269N: Carretero Díaz, Antonio
+master.menu.anonymous.favourite-link-2 = 77933507P: Pizarro Lopez, Eduardo
+master.menu.anonymous.favourite-link-3 = 29504757N: Reyes Alés, David
+
 
 # master.menu.administrator ###################################################
 
