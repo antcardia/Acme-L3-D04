@@ -18,4 +18,6 @@ account that you must link the appropriate version of the Acme-Framework excludi
 following resources:
 
 - **/fragments/**
+
+-Antaca
  
