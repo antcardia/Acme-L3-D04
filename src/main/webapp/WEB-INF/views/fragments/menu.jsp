@@ -19,13 +19,11 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-1" action="http://www.youtube.com/"/>
       <acme:menu-suboption code="master.menu.anonymous.favourite-link-2" action="https://es.wikipedia.org/wiki/Michael_Jackson"/>
       <acme:menu-suboption code="master.menu.anonymous.favourite-link-3" action="https://store.steampowered.com/?l=spanish"/>
       <acme:menu-suboption code="master.menu.anonymous.favourite-link-4" action="https://www.gorillaz.com/home/"/>
       <acme:menu-suboption code="master.menu.anonymous.favourite-link-5" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-		
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
