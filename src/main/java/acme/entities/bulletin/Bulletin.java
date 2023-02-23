@@ -26,11 +26,11 @@ public class Bulletin extends AbstractEntity {
 	protected Date		instantiation;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String	title;
 
 	@NotEmpty
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String	message;
 
 	// 1 to indicate that the message is critical, 0 in another case
