@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
@@ -44,6 +45,7 @@ public class Company extends AbstractRole {
 	@Length(max = 101)
 	protected String			summary;
 
+	@URL
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
