@@ -5,7 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -21,25 +21,31 @@ import lombok.Setter;
 @Setter
 public class Peep extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
+
+	protected static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
+
 	@NotNull
 	@Past
-	protected Date		instantiation;
+	protected Date				instantiation;
 
-	@NotEmpty
+	@NotBlank
 	@Length(max = 76)
-	protected String	title;
+	protected String			title;
 
-	@NotEmpty
+	@NotBlank
 	@Length(max = 76)
-	protected String	nick;
+	protected String			nick;
 
-	@NotEmpty
+	@NotBlank
 	@Length(max = 100)
-	protected String	message;
+	protected String			message;
 
 	@Email
-	protected String	email;
+	protected String			email;
 
 	@URL
-	protected String	link;
+	protected String			link;
 }
