@@ -26,11 +26,11 @@ public class Enrolment extends AbstractEntity {
 	protected String			code;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			motivation;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			goals;
 
 	@Min(0)
