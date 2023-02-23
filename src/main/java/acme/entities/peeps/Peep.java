@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.peeps;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class peep extends AbstractEntity {
+public class Peep extends AbstractEntity {
 
 	@NotNull
 	@Past
