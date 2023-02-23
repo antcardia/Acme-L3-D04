@@ -49,7 +49,6 @@ public class Company extends AbstractRole {
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
-
 	// Relationships ----------------------------------------------------------
 
 }
