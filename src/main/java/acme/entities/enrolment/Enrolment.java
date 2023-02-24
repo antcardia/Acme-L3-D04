@@ -1,8 +1,11 @@
 
 package acme.entities.enrolment;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -36,4 +39,6 @@ public class Enrolment extends AbstractEntity {
 	@Min(0)
 	protected Integer			hours;
 
+	@OneToMany
+	protected List<Activity>	activities;
 }
