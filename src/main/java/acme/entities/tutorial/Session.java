@@ -1,5 +1,5 @@
 
-package entities.tutorial;
+package acme.entities.tutorial;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Max;
