@@ -2,7 +2,8 @@
 package acme.entities.lectures;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -31,14 +32,15 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
-	@Min(1)
-	protected Integer			estimatedLearningTime;
+	@Digits(integer = 3, fraction = 2)
+	@DecimalMin("0.01")
+	protected Double			estimatedLearningTime;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			body;
 
-	protected LectureType		ltype;
+	protected Nature			nature;
 
 	@URL
 	protected String			furtherInformation;
