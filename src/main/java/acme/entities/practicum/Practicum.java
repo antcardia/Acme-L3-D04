@@ -44,8 +44,8 @@ public class Practicum extends AbstractEntity {
 	@Min(1)
 	protected Integer			estimatedTotalTime;
 
-	// Derived attributes -----------------------------------------------------
+	// Derived attributes ----------------------------------------------------
 
-	// Relationships ----------------------------------------------------------
+	// Relationships ---------------------------------------------------------
 
 }
