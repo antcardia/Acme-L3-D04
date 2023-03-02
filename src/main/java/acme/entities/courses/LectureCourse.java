@@ -7,13 +7,14 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.lectures.Lecture;
+import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class LectureCourse {
+public class LectureCourse extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 

@@ -13,6 +13,8 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.lectures.Nature;
+import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Course {
+public class Course extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
