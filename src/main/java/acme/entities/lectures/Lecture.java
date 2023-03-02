@@ -38,7 +38,7 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			body;
 
-	protected LectureType		ltype;
+	protected Nature			nature;
 
 	@URL
 	protected String			furtherInformation;
