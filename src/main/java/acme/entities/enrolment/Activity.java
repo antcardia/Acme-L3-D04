@@ -1,7 +1,7 @@
 
 package acme.entities.enrolment;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -31,7 +31,7 @@ public class Activity extends AbstractEntity {
 
 	protected ActivityType		atype;
 
-	protected LocalDateTime		time;
+	protected Date				time;
 
 	@URL
 	protected String			link;
