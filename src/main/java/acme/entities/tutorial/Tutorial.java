@@ -33,7 +33,7 @@ public class Tutorial extends AbstractEntity {
 	@Size(max = 101, message = "The goals must be shorter than 101 characters")
 	protected String			goals;
 
-	protected Integer			estimatedTime;
+	protected Double			estimatedTime;
 
 	// Derived attributes -----------------------------------------------------
 
