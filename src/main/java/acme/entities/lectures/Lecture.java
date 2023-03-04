@@ -2,13 +2,14 @@
 package acme.entities.lectures;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,14 +34,14 @@ public class Lecture extends AbstractEntity {
 	protected String			summary;
 
 	@Digits(integer = 3, fraction = 2)
-	@DecimalMin("0.01")
 	protected Double			estimatedLearningTime;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			body;
 
-	protected Nature			nature;
+	@NotNull
+	protected Nature			lectureType;
 
 	@URL
 	protected String			furtherInformation;
