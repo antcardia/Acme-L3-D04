@@ -31,7 +31,9 @@ public class Activity extends AbstractEntity {
 
 	protected ActivityType		atype;
 
-	protected Date				time;
+	protected Date				startPeriod;
+
+	protected Date				finishPeriod;
 
 	@URL
 	protected String			link;

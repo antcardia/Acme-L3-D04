@@ -3,6 +3,6 @@ package acme.entities.enrolment;
 
 public enum ActivityType {
 
-	THEORETICAL, HANDS_ON
+	THEORETICAL, HANDS_ON, BALANCE
 
 }
