@@ -1,5 +1,5 @@
 
-package acme.entities.lectures;
+package acme.datatypes;
 
 public enum Nature {
 
