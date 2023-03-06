@@ -1,5 +1,5 @@
 
-package acme.entities.tutorial;
+package acme.roles;
 
 import javax.validation.constraints.NotBlank;
 
@@ -17,15 +17,15 @@ public class Assistant extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			supervisor;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			expertiseFields;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			resume;
 
 	@URL
