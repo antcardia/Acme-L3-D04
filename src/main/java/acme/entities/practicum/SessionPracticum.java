@@ -1,9 +1,13 @@
 
-package acme.entities.sessionpracticums;
+package acme.entities.practicum;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Min;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -30,8 +34,11 @@ public class SessionPracticum extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
-	@Min(1)
-	protected Integer			timePeriod;
+	@NotNull
+	protected Date				startTime;
+
+	@NotNull
+	protected Date				finishTime;
 
 	@URL
 	protected String			furtherInformation;
@@ -39,5 +46,10 @@ public class SessionPracticum extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Practicum			practicum;
 
 }
