@@ -1,12 +1,10 @@
 
-package acme.entities.enrolment;
-
-import java.util.Date;
+package acme.entities.practicum;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -18,9 +16,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Enrolment extends AbstractEntity {
+public class Practicum extends AbstractEntity {
+
+	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Column(unique = true)
@@ -29,15 +31,21 @@ public class Enrolment extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			motivation;
+	protected String			title;
+
+	@NotBlank
+	@Length(max = 100)
+	protected String			summary;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
 
-	@NotNull
-	protected Date				startTime;
+	@Min(1)
+	protected Integer			estimatedTotalTime;
 
-	@NotNull
-	protected Date				finishTime;
+	// Derived attributes ----------------------------------------------------
+
+	// Relationships ---------------------------------------------------------
+
 }
