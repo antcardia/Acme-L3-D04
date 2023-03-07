@@ -1,5 +1,5 @@
 
-package acme.entities.audits;
+package acme.datatypes;
 
 public enum Mark {
 
