@@ -17,6 +17,7 @@ public class TutorialDashboard extends AbstractForm {
 
 	Map<SessionType, Integer>	totalTutorialsByType;
 	Statistic					calculationsOfTutorials;
+	Statistic					calculationOfSessions;
 
 	// Derived attributes -----------------------------------------------------
 
