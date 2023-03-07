@@ -1,0 +1,3 @@
+key,key:lecturer,code,title,summary,course-type,retail-price,further-information
+course-01,lecturer-02,ABC123,"Curso de informática","Este curso está dedicado para las personas que les guste trabajar en el ordenador",BALANCED,EUR 18.99,null
+course-02,lecturer-01,ABC124,"Curso de ciberseguridad","Curso preparado para aquellos que les interese la seguridad en internet",BALANCED,EUR 25.99,null
