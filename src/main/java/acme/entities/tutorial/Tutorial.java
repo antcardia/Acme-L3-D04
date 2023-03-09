@@ -1,7 +1,7 @@
 
 package acme.entities.tutorial;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
@@ -11,7 +11,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.entities.tutorial.Session;
 import acme.framework.data.AbstractEntity;
 
 public class Tutorial extends AbstractEntity {
@@ -23,11 +22,11 @@ public class Tutorial extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@OneToMany
-	protected Set<Session> session;
-	
+	@OneToMany(mappedBy = "session")
+	protected List<Session>		session;
+
 	@NotBlank(message = "A code must be specified")
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}", message = "Only images of type JPEG or GIF are supported.")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "Only images of type JPEG or GIF are supported.")
 	@Column(unique = true)
 	protected String			code;
 
