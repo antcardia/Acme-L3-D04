@@ -38,10 +38,12 @@ public class AuditRecord extends AbstractEntity {
 	@Length(max = 100)
 	protected String			assesment;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				periodStart;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				periodEnd;
@@ -50,6 +52,7 @@ public class AuditRecord extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	// Relationships ----------------------------------------------------------
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
