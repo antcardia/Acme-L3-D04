@@ -4,6 +4,7 @@ package acme.entities.tutorial;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
@@ -50,6 +51,10 @@ public class Session extends AbstractEntity {
 	// la la fecha final va después de la fecha de inicio, asía como algunas
 	// otras restricciones
 	protected Date				end;
+
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Tutorial			tutorial;
 
 	@URL
 	protected String			furtherInformation;
