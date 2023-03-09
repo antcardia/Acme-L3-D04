@@ -4,7 +4,6 @@ package acme.forms;
 import java.util.Map;
 
 import acme.datatypes.Nature;
-import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,8 +19,14 @@ public class LecturerDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	Map<Nature, Integer>		totalLecturesByType;
-	Statistic					calculationsOfLectures;
-	Statistic					calculationsOfCourses;
+	Double						averageLearningTimeOfLectures;
+	Double						deviationLearningTimeOfLectures;
+	Double						minimumLearningTimeOfLectures;
+	Double						maximumLearningTimeOfLectures;
+	Double						averageLearningTimeOfCourses;
+	Double						deviationLearningTimeOfCourses;
+	Double						minimumLearningTimeOfCourses;
+	Double						maximumLearningTimeOfCourses;
 
 	// Derived attributes -----------------------------------------------------
 
