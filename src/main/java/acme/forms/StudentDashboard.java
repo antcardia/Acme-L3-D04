@@ -4,7 +4,6 @@ package acme.forms;
 import java.util.Map;
 
 import acme.datatypes.Nature;
-import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +16,20 @@ public class StudentDashboard extends AbstractForm {
 
 	protected Map<Nature, Integer>	numberOfActivity;
 
-	protected Statistic				LearningTime;
+	protected Double				averageLearningTime;
 
-	protected Statistic				PeriodActivities;
+	protected Double				deviationLearningTime;
+
+	protected Double				minimumLearningTime;
+
+	protected Double				maximumLearningTime;
+
+	protected Double				averagePeriodActivities;
+
+	protected Double				deviationPeriodActivities;
+
+	protected Double				minimumPeriodActivities;
+
+	protected Double				maximumPeriodActivities;
 
 }

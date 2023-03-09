@@ -1,12 +1,9 @@
 
 package acme.entities.enrolment;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -24,7 +21,7 @@ public class Enrolment extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -35,9 +32,5 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	@NotNull
-	protected Date				startTime;
-
-	@NotNull
-	protected Date				finishTime;
+	protected Double			workTime;
 }

@@ -27,6 +27,7 @@ public class Offer extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@NotNull
 	protected Date				instantiationMoment;
 
 	@NotBlank
