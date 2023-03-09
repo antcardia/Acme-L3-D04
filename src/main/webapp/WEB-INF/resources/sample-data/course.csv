@@ -1,0 +1,4 @@
+key,key:lecturer,code,title,summary,course-type,retail-price,further-information
+course-01,lecturer-02,ABC123,Curso de informática,Este curso está dedicado para las personas que les guste trabajar en el ordenador,THEORETICAL,EUR 18.99,null
+course-02,lecturer-01,ABC124,Curso de ciberseguridad,Curso preparado para aquellos que les interese la seguridad en internet,THEORETICAL,EUR 25.99,null
+course-03,lecturer-01,ABC125,Curso de literatura,Este curso se enfoca en el aprendizaje y entendimiento de la historia al completo,THEORETICAL,EUR 15.99,https://www.rae.es

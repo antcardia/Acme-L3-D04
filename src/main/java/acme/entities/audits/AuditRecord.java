@@ -1,15 +1,21 @@
 
-package acme.entities.lectures;
+package acme.entities.audits;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Digits;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
+import acme.datatypes.Mark;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Lecture extends AbstractEntity {
+public class AuditRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,27 +33,28 @@ public class Lecture extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
-
+	protected String			subject;
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
-
-	@Digits(integer = 3, fraction = 2)
-	protected Double			estimatedLearningTime;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			body;
+	protected String			assesment;
 
 	@NotNull
-	protected Nature			lectureType;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	protected Date				periodStart;
 
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	protected Date				periodEnd;
+
+	protected Mark				mark;
 	@URL
-	protected String			furtherInformation;
-
-	// Derived attributes -----------------------------------------------------
+	protected String			link;
 
 	// Relationships ----------------------------------------------------------
-
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Audit				audit;
 }
