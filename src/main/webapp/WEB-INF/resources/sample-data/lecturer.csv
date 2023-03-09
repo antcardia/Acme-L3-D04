@@ -1,0 +1,3 @@
+key,key:user-account,alma-mater,resume,list-of-qualifications,further-information
+lecturer-01,user-account-lecturer-1,"Universidad de Sevilla","Uno de los profesores más cualificados de la Universidad","La nota media que ha obtenido ha sido de 8",null
+lecturer-02,user-account-lecturer-2,"Universidad de Sevilla","Uno de los profesores menos cualificados de la Universidad","La nota media que ha obtenido ha sido de 5","https://lecturer2-acme.com"
