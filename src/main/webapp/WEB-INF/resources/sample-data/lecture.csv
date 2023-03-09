@@ -1,3 +1,4 @@
 key,title,summary,estimated-learning-time,body,lecture-type,further-information
 lecture-01,"Clase de iniciación","Esta es la primera clase del curso donde se da a conocer los criterios de evaluación del curso",25.40,"Aquí desarrollamos en qué va a consistir la clase",BALANCED,null
 lecture-02,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",39.80,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", THEORETICAL, null
+lecture-03,"Clase de la generación del 27","Dar a conocer a la generación del 27",15.60,"Vamos a dar una clase sobre la historia de cada uno de los que componen la generación del 27", THEORETICAL, null
