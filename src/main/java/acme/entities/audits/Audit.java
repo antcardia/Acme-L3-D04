@@ -10,7 +10,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -33,7 +35,7 @@ public class Audit extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -48,12 +50,15 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
-	@OneToMany(mappedBy = "auditReference")
+	@NotNull
+	@Valid
+	@OneToMany(mappedBy = "audit")
 	protected List<AuditRecord>	auditRecords;
 
 
+	// Derived attributes -----------------------------------------------------
 	@Transient
-	protected String computedMark() {
+	protected Mark computedMark() {
 		final List<Mark> marks = new ArrayList<>();
 		for (final AuditRecord aR : this.auditRecords)
 			marks.add(aR.getMark());
@@ -70,8 +75,7 @@ public class Audit extends AbstractEntity {
 				mode = mark;
 			}
 		}
-
-		return mode.toString();
+		return mode;
 	}
 
 }
