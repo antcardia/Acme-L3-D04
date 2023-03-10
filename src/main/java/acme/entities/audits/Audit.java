@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.Mark;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,6 +51,12 @@ public class Audit extends AbstractEntity {
 	@NotBlank
 	@Length(max = 100)
 	protected String			weakPoints;
+
+	// Relationships ----------------------------------------------------------
+	@NotNull
+	@Valid
+	@ManyToOne
+	protected Auditor			auditor;
 
 	@NotNull
 	@Valid
