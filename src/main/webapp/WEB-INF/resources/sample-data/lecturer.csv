@@ -1,3 +1,11 @@
 key,key:user-account,alma-mater,resume,list-of-qualifications,further-information
 lecturer-01,user-account-lecturer-1,"Universidad de Sevilla","Uno de los profesores más cualificados de la Universidad","La nota media que ha obtenido ha sido de 8",null
-lecturer-02,user-account-lecturer-2,"Universidad de Sevilla","Uno de los profesores menos cualificados de la Universidad","La nota media que ha obtenido ha sido de 5","https://lecturer2-acme.com"
+lecturer-02,user-account-lecturer-2,"Universidad Complutense de Valladolid y Universidad Politécnica de Córdoba","Uno de los profesores menos cualificados de la Universidad","La nota media que ha obtenido ha sido de 5",null
+lecturer-03,user-account-lecturer-3,"Complutense University of Valladolid and Polytechnic University of Córdoba","Uno de los profesores menos cualificados de la Universidad","La nota media que ha obtenido ha sido de 5",null
+lecturer-04,user-account-lecturer-4,"A Valladolid-i Complutense Egyetem és a Córdoba műszaki Egyetem","Uno de los profesores menos cualificados de la Universidad","La nota media que ha obtenido ha sido de 5",null
+lecturer-05,user-account-lecturer-5,"Universidad de Sevilla","Üniversitenin en az nitelikli öğretmenlerinden biri","La nota media que ha obtenido ha sido de 5",null
+lecturer-06,user-account-lecturer-6,"Universidad de Sevilla","Uno dei professori meno qualificati dell'Università","La nota media que ha obtenido ha sido de 5",null
+lecturer-07,user-account-lecturer-7,"Universidad de Sevilla","Uno de los profesores más cualificados de la Universidad","Entre todos los profesores que han opositado ha sido escogido con una nota superior a la media local",null
+lecturer-08,user-account-lecturer-8,"Universidad de Sevilla","Uno de los profesores más cualificados de la Universidad","これまでに出場した教師の中から、地元の平均以上の成績で選ばれている",null
+lecturer-09,user-account-lecturer-9,"Universidad de Sevilla","Uno de los profesores más cualificados de la Universidad","La nota media que ha obtenido ha sido de 8","https://ev.us.es"
+lecturer-10,user-account-lecturer-10,"Universidad de Sevilla","Uno de los profesores más cualificados de la Universidad","La nota media que ha obtenido ha sido de 8","http://google.com"

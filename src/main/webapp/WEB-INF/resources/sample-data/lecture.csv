@@ -1,4 +1,11 @@
 key,title,summary,estimated-learning-time,body,lecture-type,further-information
 lecture-01,"Clase de iniciación","Esta es la primera clase del curso donde se da a conocer los criterios de evaluación del curso",25.40,"Aquí desarrollamos en qué va a consistir la clase",BALANCED,null
 lecture-02,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",39.80,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", THEORETICAL, null
-lecture-03,"Clase de la generación del 27","Dar a conocer a la generación del 27",15.60,"Vamos a dar una clase sobre la historia de cada uno de los que componen la generación del 27", THEORETICAL, null
+lecture-03,"IDE configuration class","Explicación de cómo se configura el entorno de desarrollo",87.99,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", THEORETICAL, null
+lecture-04,"Clase de configuración del entorno","Explaining how the IDE is configured",23.11,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", THEORETICAL, null
+lecture-05,"Clase de configuración del entorno","Forklare hvordan IDE-enheden er konfigureret",39.80,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", THEORETICAL, null
+lecture-06,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",28.75,"Hier zullen we in detail alle programma's uitleggen die nodig zijn om het project uit te voeren", HANDS_ON, null
+lecture-07,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",11.30,"ในส่วนนี้เราจะอธิบายโดยละเอียดถึงโปรแกรมทั้งหมดที่จำเป็นในการดำเนินโครงการ", BALANCED, null
+lecture-08,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",49.99,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", HANDS_ON, "https://ev.us.es"
+lecture-09,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",34.38,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", HANDS_ON, "http://conn3ct-acme.es"
+lecture-10,"Clase de configuración del entorno","Explicación de cómo se configura el entorno de desarrollo",19.25,"Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto", BALANCED, "http://google.com"

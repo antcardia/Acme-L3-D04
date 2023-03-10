@@ -12,7 +12,6 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -32,7 +31,7 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
 	protected String			code;
 
 	@NotBlank
@@ -43,8 +42,7 @@ public class Course extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
-	@NotNull
-	protected Nature			courseType;
+	protected boolean			draftMode;
 
 	@NotNull
 	protected Money				retailPrice;
