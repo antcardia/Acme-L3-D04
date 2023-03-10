@@ -1,3 +1,11 @@
 key,enabled,identity,password,username
 user-account-lecturer-1,true,"UserIdentity{name: 'Lecturer1', surname: 'Lecturer1', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
 user-account-lecturer-2,true,"UserIdentity{name: 'Lecturer2', surname: 'Lecturer2', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
+user-account-lecturer-3,false,"UserIdentity{name: 'ProfesorNº3', surname: 'Lecturer3', email: 'lecturer3@acme.com'}",lecturer3,lecturer3
+user-account-lecturer-4,false,"UserIdentity{name: 'Lecturer4', surname: 'Викладач', email: 'lecturer4@acme.com'}",lecturer4,lecturer4
+user-account-lecturer-5,false,"UserIdentity{name: 'Lecturer5', surname: 'Lecturer5', email: 'lecturer5@acme.com'}",lecturer5,lecturer5
+user-account-lecturer-6,false,"UserIdentity{name: 'Lecturer6', surname: 'Lecturer6', email: 'null@notblank.com'}",lecturer6,lecturer6
+user-account-lecturer-7,false,"UserIdentity{name: 'Lecturer7', surname: 'Lecturer7', email: 'prof.7@hotmail.com'}",lecturer7,lecturer7
+user-account-lecturer-8,false,"UserIdentity{name: 'Lecturer8', surname: 'Lecturer8', email: 'th3r341l3ctur3r@500.es'}",lecturer8,lecturer8
+user-account-lecturer-9,false,"UserIdentity{name: 'Lecturer9', surname: 'Lecturer9', email: 'lecturer9@acme.com'}",lecturer9,lecturer9
+user-account-lecturer-10,false,"UserIdentity{name: 'Lecturer10', surname: 'Lecturer10', email: 'lecturer10@acme.com'}",lecturer10,lecturer10
