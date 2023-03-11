@@ -17,21 +17,21 @@ public class Tutorial extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank(message = "A code must be specified")
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}", message = "Only images of type JPEG or GIF are supported.")
+	@NotBlank
+	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
 	@Column(unique = true)
 	protected String			code;
 
-	@NotBlank(message = "A title must be specified")
-	@Length(max = 76, message = "The title must be shorter than 76 characters")
+	@NotBlank
+	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank(message = "A summary must be specified")
-	@Length(max = 101, message = "The title must be shorter than 101 characters")
+	@NotBlank
+	@Length(max = 100)
 	protected String			summary;
 
-	@NotBlank(message = "A summary must be specified")
-	@Length(max = 101, message = "The goals must be shorter than 101 characters")
+	@NotBlank
+	@Length(max = 100)
 	protected String			goals;
 
 	protected Double			estimatedTime;
