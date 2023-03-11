@@ -4,7 +4,6 @@ package acme.forms;
 import java.util.Map;
 
 import acme.datatypes.Nature;
-import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 
 public class TutorialDashboard extends AbstractForm {
@@ -16,8 +15,22 @@ public class TutorialDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	Map<Nature, Integer>		totalTutorialsByType;
-	Statistic					calculationsOfTutorials;
-	Statistic					calculationOfSessions;
+
+	protected Double			averageSessionTime;
+
+	protected Double			deviationSessionTime;
+
+	protected Double			minimumSessionTime;
+
+	protected Double			maximumSessionTime;
+
+	protected Double			averageTutorialActivities;
+
+	protected Double			deviationTutorialActivities;
+
+	protected Double			minimumTutorialActivities;
+
+	protected Double			maximumTutorialActivities;
 
 	// Derived attributes -----------------------------------------------------
 
