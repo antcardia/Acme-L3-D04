@@ -30,12 +30,12 @@ public class Session extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank(message = "Title must be specified")
-	@Size(max = 75, message = "Title must be shorter than 76 characters")
+	@NotBlank
+	@Size(max = 75)
 	protected String			title;
 
-	@NotBlank(message = "A summary must be specified")
-	@Size(max = 100, message = "The summary must be shorter than 101 characters")
+	@NotBlank
+	@Size(max = 100)
 	protected String			summary;
 
 	protected Nature			sessionType;
