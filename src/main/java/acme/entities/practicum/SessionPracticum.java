@@ -2,7 +2,6 @@
 package acme.entities.practicum;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -46,18 +45,11 @@ public class SessionPracticum extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	protected Long durationInHours() {
-		final long durationInMillis = this.finishTime.getTime() - this.startTime.getTime();
-		return TimeUnit.MILLISECONDS.toHours(durationInMillis);
-	}
-
 	// Relationships ----------------------------------------------------------
-
 
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
-	protected Practicum practicum;
+	protected Practicum			practicum;
 
 }
