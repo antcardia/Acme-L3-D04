@@ -5,7 +5,11 @@ import java.util.Map;
 
 import acme.datatypes.Nature;
 import acme.framework.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TutorialDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
