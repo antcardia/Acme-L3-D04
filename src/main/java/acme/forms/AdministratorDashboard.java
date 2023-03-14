@@ -14,18 +14,18 @@ public class AdministratorDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<UserIdentity, Integer>	totalNumberOfPrincipalsByRole;
-	Double						peepsWithEmailAddressAndLinkRatio;
-	Double						criticalBulletinsRatio;
-	Double						nonCriticalBulletinsRatio;
-	Map<Money, Double>			averageBudgetDeviationByCurrency;
-	Map<Money, Double>			minBudgetDeviationByCurrency;
-	Map<Money, Double>			maxBudgetDeviationByCurrency;
+	Map<UserIdentity, Integer>		totalNumberOfPrincipalsByRole;
+	Double					peepsWithEmailAddressAndLinkRatio;
+	Double					criticalBulletinsRatio;
+	Double					nonCriticalBulletinsRatio;
+	Map<Money, Double>			averageBudgetByCurrency;
+	Map<Money, Double>			minBudgetByCurrency;
+	Map<Money, Double>			maxBudgetByCurrency;
 	Map<Money, Double>			budgetDeviationByCurrency;
-	Double						averageNotesPostedDeviation;
-	Double						minNotesPostedDeviation;
-	Double						maxNotesPostedDeviation;
-	Double						notesPostedDeviation;
+	Double					averageNotesPosted;
+	Double					minNotesPosted;
+	Double					maxNotesPosted;
+	Double					notesPosted;
 
 	// Derived attributes -----------------------------------------------------
 
