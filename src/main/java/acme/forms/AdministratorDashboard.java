@@ -25,7 +25,7 @@ public class AdministratorDashboard extends AbstractForm {
 	Double					averageNotesPosted;
 	Double					minNotesPosted;
 	Double					maxNotesPosted;
-	Double					notesPosted;
+	Double					notesPostedDeviation;
 
 	// Derived attributes -----------------------------------------------------
 
