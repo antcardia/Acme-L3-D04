@@ -40,6 +40,7 @@ public class Note extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
+	// El autor debe ser computado de la siguiente manera:“〈username〉 - 〈surname, name〉”
 	protected String			author;
 
 	@NotBlank
