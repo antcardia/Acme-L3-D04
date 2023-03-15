@@ -1,15 +1,8 @@
-key,name,VAT_number,summary,link
-company-01,Acme Inc.,1234567890,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",http://www.acme.com
-company-02,Globex Corporation,0987654321,"Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",http://www.globex.com
-company-03,Initech,1357924680,"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",http://www.initech.com
-company-04,Wayne Enterprises,2468013579,"Nullam dictum felis eu pede mollis pretium.",http://www.wayneenterprises.com
-company-05,Stark Industries,9876543210,"Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.",http://www.starkindustries.com
-company-06,Umbrella Corporation,0123456789,"Maecenas nec odio et ante tincidunt tempus.",http://www.umbrellacorp.com
-company-07,Oscorp Industries,5678901234,"Ut varius tincidunt libero. Curabitur turpis.",http://www.oscorp.com
-company-08,Spacely Sprockets,3141592653,"Donec posuere vulputate arcu. Phasellus gravida.",http://www.spacelysprockets.com
-company-09,Acme Products,2468024680,"Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.",http://www.acmeproducts.com
-company-10,Monarch Solutions,4567890123,"Nam eget dui. Etiam rhoncus.",http://www.monarchsolutions.com
-company-11,Lambda Inc,111111111111111111111111,"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",https://www.lambda-inc.com
-company-12,Mu Co,222222222222222222222222,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",https://www.mu-co.com
-company-13,Nu Corp,333333333333333333333333,"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",https://www.nu-corp.com
-company-14,Xi Enterprises,444444444444444444444444,"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.",https://www.xi-enterprises.com
+key,key:user-account,name,vatNumber,summary,link
+company-01,user-account-company-1,Acme Inc.,"1234567890","Lorem ipsum dolor sit amet, consectetur adipiscing elit.",http://www.acme.com
+company-02,user-account-company-2,Globex Corporation,"0987654321","Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",http://www.globex.com
+company-03,user-account-company-3,Initech,"1357924680","At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",http://www.initech.com
+company-04,user-account-company-4,Wayne Enterprises,"2468019","Nullam dictum felis eu pede mollis pretium.",http://www.wayneenterprises.com
+company-05,user-account-company-5,Stark Industries,"983210","Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.",http://www.starkindustries.com
+company-06,user-account-company-6,Umbrella Corporation,"0123456789","Maecenas nec odio et ante tincidunt tempus.",http://www.umbrellacorp.com
+company-07,user-account-company-1,Oscorp Industries,"5678234","Ut varius tincidunt libero. Curabitur turpis.",http://www.oscorp.com
