@@ -9,3 +9,5 @@ user-account-lecturer-7,false,"UserIdentity{name: 'Lecturer7', surname: 'Lecture
 user-account-lecturer-8,false,"UserIdentity{name: 'Lecturer8', surname: 'Lecturer8', email: 'th3r341l3ctur3r@500.es'}",lecturer8,lecturer8
 user-account-lecturer-9,false,"UserIdentity{name: 'Lecturer9', surname: 'Lecturer9', email: 'lecturer9@acme.com'}",lecturer9,lecturer9
 user-account-lecturer-10,false,"UserIdentity{name: 'Lecturer10', surname: 'Lecturer10', email: 'lecturer10@acme.com'}",lecturer10,lecturer10
+user-account-auditor-1,true,"UserIdentity{name: 'auditor1', surname: 'auditor1', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor-2,true,"UserIdentity{name: 'auditor2', surname: 'auditor2', email: 'auditor2@acme.com'}",auditor2,auditor2
