@@ -1,26 +1,25 @@
 
-package acme.roles;
+package acme.entities.practicum;
 
-import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.audits.Audit;
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Auditor extends AbstractRole {
-
+public class SessionPracticum extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
@@ -29,21 +28,28 @@ public class Auditor extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			firm;
-
-	@NotBlank
-	@Length(max = 25)
-	protected String			professionalId;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			certificates;
+	protected String			summary;
+
+	@NotNull
+	protected Date				startTime;
+
+	@NotNull
+	protected Date				finishTime;
 
 	@URL
 	protected String			furtherInformation;
 
+	// Derived attributes -----------------------------------------------------
+
 	// Relationships ----------------------------------------------------------
+
+	@ManyToOne(optional = false)
+	@NotNull
 	@Valid
-	@OneToMany(mappedBy = "auditor")
-	protected List<Audit>		audits;
+	protected Practicum			practicum;
+
 }

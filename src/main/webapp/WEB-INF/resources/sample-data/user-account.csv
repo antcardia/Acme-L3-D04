@@ -9,3 +9,15 @@ user-account-lecturer-7,false,"UserIdentity{name: 'Lecturer7', surname: 'Lecture
 user-account-lecturer-8,false,"UserIdentity{name: 'Lecturer8', surname: 'Lecturer8', email: 'th3r341l3ctur3r@500.es'}",lecturer8,lecturer8
 user-account-lecturer-9,false,"UserIdentity{name: 'Lecturer9', surname: 'Lecturer9', email: 'lecturer9@acme.com'}",lecturer9,lecturer9
 user-account-lecturer-10,false,"UserIdentity{name: 'Lecturer10', surname: 'Lecturer10', email: 'lecturer10@acme.com'}",lecturer10,lecturer10
+user-account-student-1,true,"UserIdentity{name: 'Student1', surname: 'Student1', email: 'student1@acme.com'}",student1,student1
+user-account-student-2,true,"UserIdentity{name: 'Student2', surname: 'Student2', email: 'student2@acme.com'}",student2,student2
+user-account-student-3,false,"UserIdentity{name: 'StudentNº3', surname: 'Student3', email: 'student3@acme.com'}",student3,student3
+user-account-student-4,false,"UserIdentity{name: 'Student4', surname: 'Викладач', email: 'student4@acme.com'}",student4,student4
+user-account-student-5,false,"UserIdentity{name: 'Student5', surname: 'Student5', email: 'student5@acme.com'}",student5,student5
+user-account-student-6,false,"UserIdentity{name: 'Student6', surname: 'Student6', email: 'null@notblank.com'}",student6,student6
+user-account-student-7,false,"UserIdentity{name: 'Student7', surname: 'Student7', email: 'stud.7@hotmail.com'}",student7,student7
+user-account-student-8,false,"UserIdentity{name: 'Student8', surname: 'Student8', email: 'th3r341student@500.es'}",student8,student8
+user-account-student-9,false,"UserIdentity{name: 'Student9', surname: 'Student9', email: 'student9@acme.com'}",student9,student9
+user-account-student-10,false,"UserIdentity{name: 'Student10', surname: 'Student10', email: 'student10@acme.com'}",student10,student10
+user-account-auditor-1,true,"UserIdentity{name: 'auditor1', surname: 'auditor1', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor-2,true,"UserIdentity{name: 'auditor2', surname: 'auditor2', email: 'auditor2@acme.com'}",auditor2,auditor2
