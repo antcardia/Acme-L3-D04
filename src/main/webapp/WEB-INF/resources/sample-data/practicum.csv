@@ -1,3 +1,13 @@
-key,code,title,summary,goals,estimated_total_time
-practicum-01,KYS666,Practicum Python,Curso de Python,Obtener conocimientos avanzados sobre el uso de librerias de Python, 70
-practicum-02,NVM547,Practicum Java,Curso de Java,Obtener conocimientos avanzados sobre el uso de librerias de Java, 90
+key,code,title,summary,goals,estimatedTotalTime
+practicum-01,ABC123,Practicum de desarrollo web,Practicum enfocado en el desarrollo de aplicaciones web,Desarrollar aplicaciones web utilizando tecnologias modernas,120
+practicum-02,DEF456,Practicum de analisis de datos,Practicum enfocado en el analisis de datos y estadisticas,Analizar conjuntos de datos utilizando herramientas estadisticas,90
+practicum-03,GHI789,Practicum de diseno grafico,Practicum enfocado en el diseno grafico y la creacion de contenido visual,Crear diseños graficos utilizando software especializado,150
+practicum-04,JKL012,Practicum de programacion movil,Practicum enfocado en el desarrollo de aplicaciones moviles,Desarrollar aplicaciones moviles utilizando plataformas como Android o iOS,180
+practicum-05,MNO345,Practicum de marketing digital,Practicum enfocado en estrategias de marketing digital,Crear campanas de marketing en linea para empresas y marcas,120
+practicum-06,PQR678,Practicum de finanzas corporativas,Practicum enfocado en finanzas corporativas y analisis financiero,Realizar analisis financiero para empresas y proyectos de inversion,150
+practicum-07,STU901,Practicum de desarrollo de videojuegos,Practicum enfocado en el desarrollo de videojuegos,Desarrollar videojuegos utilizando herramientas de programacion y diseno,210
+practicum-08,VWX234,Practicum de gestion de proyectos,Practicum enfocado en la gestion de proyectos y liderazgo,Liderar proyectos de diversos tipos y aplicar herramientas de gestion,90
+practicum-09,YZ0123,Practicum de seguridad informatica,Practicum enfocado en la seguridad informatica y prevencion de ataques,Realizar analisis de vulnerabilidades y aplicar medidas de prevencion de ciberataques,180
+practicum-10,ABC456,Practicum de inteligencia artificial,Practicum enfocado en la inteligencia artificial y el aprendizaje automatico,Desarrollar algoritmos de aprendizaje automatico para procesar datos y tomar decisiones,240
+practicum-11,DEF789,Practicum de diseno de interfaces de usuario,Practicum enfocado en el diseno de interfaces de usuario,Disenar interfaces de usuario atractivas y faciles de usar para aplicaciones y sitios web,120
+practicum-12,GHI012,Practicum de gestion de datos,Practicum enfocado en la gestion de bases de datos y analisis de datos,Administrar bases de datos y realizar analisis de datos utilizando lenguajes de programacion y herramientas especializadas,150
