@@ -4,6 +4,8 @@ package acme.entities.peeps;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -28,6 +30,7 @@ public class Peep extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				instantiation;
 
