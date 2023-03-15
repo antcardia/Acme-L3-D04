@@ -58,7 +58,6 @@ public class Audit extends AbstractEntity {
 	@ManyToOne
 	protected Auditor			auditor;
 
-	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "audit")
 	protected List<AuditRecord>	auditRecords;

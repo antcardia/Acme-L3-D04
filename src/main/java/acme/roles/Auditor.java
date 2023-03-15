@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -34,7 +33,7 @@ public class Auditor extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 25)
-	protected Integer			professionalId;
+	protected String			professionalId;
 
 	@NotBlank
 	@Length(max = 100)
@@ -44,7 +43,6 @@ public class Auditor extends AbstractRole {
 	protected String			furtherInformation;
 
 	// Relationships ----------------------------------------------------------
-	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "auditor")
 	protected List<Audit>		audits;

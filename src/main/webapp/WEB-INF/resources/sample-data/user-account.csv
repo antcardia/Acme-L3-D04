@@ -19,3 +19,5 @@ user-account-student-7,false,"UserIdentity{name: 'Student7', surname: 'Student7'
 user-account-student-8,false,"UserIdentity{name: 'Student8', surname: 'Student8', email: 'th3r341student@500.es'}",student8,student8
 user-account-student-9,false,"UserIdentity{name: 'Student9', surname: 'Student9', email: 'student9@acme.com'}",student9,student9
 user-account-student-10,false,"UserIdentity{name: 'Student10', surname: 'Student10', email: 'student10@acme.com'}",student10,student10
+user-account-auditor-1,true,"UserIdentity{name: 'auditor1', surname: 'auditor1', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor-2,true,"UserIdentity{name: 'auditor2', surname: 'auditor2', email: 'auditor2@acme.com'}",auditor2,auditor2
