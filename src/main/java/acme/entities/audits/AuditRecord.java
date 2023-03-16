@@ -34,22 +34,28 @@ public class AuditRecord extends AbstractEntity {
 	@NotBlank
 	@Length(max = 75)
 	protected String			subject;
+
 	@NotBlank
 	@Length(max = 100)
 	protected String			assesment;
 
+	//La validez del periodo temporal deberá comprobarse con un validador complejo en el futuro ya que por ahora no se ha dado en clase
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				periodStart;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				periodEnd;
 
 	protected Mark				mark;
+
 	@URL
 	protected String			link;
 
+	// Relationships ----------------------------------------------------------
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)

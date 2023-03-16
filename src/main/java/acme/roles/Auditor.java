@@ -1,20 +1,25 @@
 
 package acme.roles;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.audits.Audit;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class Assistant extends AbstractRole {
+public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -24,17 +29,21 @@ public class Assistant extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			supervisor;
+	protected String			firm;
+
+	@NotBlank
+	@Length(max = 25)
+	protected String			professionalId;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			expertiseFields;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			resume;
+	protected String			certificates;
 
 	@URL
 	protected String			furtherInformation;
 
+	// Relationships ----------------------------------------------------------
+	@Valid
+	@OneToMany(mappedBy = "auditor")
+	protected List<Audit>		audits;
 }

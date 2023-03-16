@@ -32,7 +32,7 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
 	protected String			code;
 
 	@NotBlank
@@ -43,8 +43,11 @@ public class Course extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
+	//Los cursos puramente teóricos deben ser rechazados por el sistema
 	@NotNull
 	protected Nature			courseType;
+
+	protected boolean			draftMode;
 
 	@NotNull
 	protected Money				retailPrice;

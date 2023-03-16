@@ -1,3 +1,15 @@
-key,key:lecturer,code,title,summary,course-type,retail-price,further-information
-course-01,lecturer-02,ABC123,"Curso de informática","Este curso está dedicado para las personas que les guste trabajar en el ordenador",BALANCED,EUR 18.99,null
-course-02,lecturer-01,ABC124,"Curso de ciberseguridad","Curso preparado para aquellos que les interese la seguridad en internet",BALANCED,EUR 25.99,null
+key,key:lecturer,code,title,summary,course-type,draft-mode,retail-price,further-information
+course-01,lecturer-02,ABC123,Curso de informática,Este curso está dedicado para las personas que les guste trabajar en el ordenador,BALANCED,true,EUR 15.99,null
+course-02,lecturer-01,ZZZ999,Curso de ciberseguridad,Curso preparado para aquellos que les interese la seguridad en internet,BALANCED,true,EUR 15.99,null
+course-03,lecturer-03,ZZZ000,Curso de literatura,Este curso se enfoca en el aprendizaje y entendimiento de la historia al completo,BALANCED,true,EUR 15.99,null
+course-04,lecturer-01,AAA000,Curso de ciber,Curso preparado para aquellos que les interese la seguridad en internet,BALANCED,true,EUR 15.99,null
+course-05,lecturer-03,AAA001,Curso de videojuegos para todas las edades y asequible para todo el mundo,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,BALANCED,false,EUR 15.99,null
+course-06,lecturer-03,AAA002,Video game course for all ages and affordable for everyone!,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,HANDS_ON,true,EUR 15.99,null
+course-07,lecturer-02,AAA003,Курсы видеоигр для всех возрастов и доступные для всех,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,THEORETICAL,true,EUR 15.99,null
+course-08,lecturer-02,AAA004,Curso de videojuegos para todas las edades y asequible para todo el mundo,This course is designed for all audiences. Also for those who have previous knowledge,THEORETICAL,true,EUR 15.99,null
+course-09,lecturer-01,AAA005,Curso de videojuegos para todas las edades y asequible para todo el mundo,Acest curs este conceput pentru toate audiențele. Pentru cei care au cunoștințe anterioare,BALANCED,true,EUR 15.99,null
+course-10,lecturer-01,AAA006,Curso de videojuegos para todas las edades y asequible para todo el mundo,Acest curs este conceput pentru toate audiențele. Pentru cei care au cunoștințe anterioare,BALANCED,false,GBP 18.99,null
+course-11,lecturer-01,AAA007,Curso de videojuegos para todas las edades y asequible para todo el mundo,Acest curs este conceput pentru toate audiențele. Pentru cei care au cunoștințe anterioare,HANDS_ON,false,USD 23.00,null
+course-12,lecturer-03,AAA008,Curso de videojuegos para todas las edades y asequible para todo el mundo,Acest curs este conceput pentru toate audiențele. Pentru cei care au cunoștințe anterioare,HANDS_ON,true,USD 01.99,null
+course-13,lecturer-02,AAA009,Curso de videojuegos para todas las edades y asequible para todo el mundo,Acest curs este conceput pentru toate audiențele. Pentru cei care au cunoștințe anterioare,HANDS_ON,true,USD 11.99,https://www.rae.es
+course-14,lecturer-03,AAA010,Curso de videojuegos para todas las edades y asequible para todo el mundo,Acest curs este conceput pentru toate audiențele. Pentru cei care au cunoștințe anterioare,THEORETICAL,true,USD 11.99,http://hola-acme-l3.com

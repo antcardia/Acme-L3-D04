@@ -1,10 +1,8 @@
 
 package acme.entities.tutorial;
 
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.OneToMany;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -12,7 +10,12 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+@Entity
 public class Tutorial extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -22,24 +25,20 @@ public class Tutorial extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@OneToMany(mappedBy = "session")
-	protected List<Session>		session;
-
-	@NotBlank(message = "A code must be specified")
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "Only images of type JPEG or GIF are supported.")
+	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
 	@Column(unique = true)
 	protected String			code;
 
-	@NotBlank(message = "A title must be specified")
-	@Length(max = 75, message = "The title must be shorter than 76 characters")
+	@NotBlank
+	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank(message = "A summary must be specified")
-	@Length(max = 100, message = "The title must be shorter than 101 characters")
+	@NotBlank
+	@Length(max = 100)
 	protected String			summary;
 
-	@NotBlank(message = "A summary must be specified")
-	@Length(max = 100, message = "The goals must be shorter than 101 characters")
+	@NotBlank
+	@Length(max = 100)
 	protected String			goals;
 
 	@NotNull

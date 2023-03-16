@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LecturerDashboard extends AbstractForm {
+public class CompanyDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -18,15 +18,23 @@ public class LecturerDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<Nature, Integer>		totalLecturesByType;
-	Double						averageLearningTimeOfLectures;
-	Double						deviationLearningTimeOfLectures;
-	Double						minimumLearningTimeOfLectures;
-	Double						maximumLearningTimeOfLectures;
-	Double						averageLearningTimeOfCourses;
-	Double						deviationLearningTimeOfCourses;
-	Double						minimumLearningTimeOfCourses;
-	Double						maximumLearningTimeOfCourses;
+	Map<Integer, Integer>		totalPracticasWithTheoryOrHandsOnByMonth;
+
+	protected Double			averageSessionPracticumTime;
+
+	protected Double			deviationSessionPracticumTime;
+
+	protected Double			minimumSessionPracticumTime;
+
+	protected Double			maximumSessionPracticumTime;
+
+	protected Double			averagePracticaLength;
+
+	protected Double			deviationPracticaLength;
+
+	protected Double			minimumPracticaLength;
+
+	protected Double			maximumPracticaLength;
 
 	// Derived attributes -----------------------------------------------------
 
