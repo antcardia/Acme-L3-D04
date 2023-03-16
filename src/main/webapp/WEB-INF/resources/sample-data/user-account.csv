@@ -27,3 +27,13 @@ user-account-company-3,true,"UserIdentity{name: 'company3', surname: 'company3',
 user-account-company-4,true,"UserIdentity{name: 'company4', surname: 'company4', email: 'company4@acme.com'}",company4,company4
 user-account-company-5,true,"UserIdentity{name: 'company5', surname: 'company5', email: 'company5@acme.com'}",company5,company5
 user-account-company-6,true,"UserIdentity{name: 'company6', surname: 'company6', email: 'company6@acme.com'}",company6,company6
+user-account-assistant-1,true,"UserIdentity{name: 'Assistant1', surname: 'Assistant1', email: 'assistant1@acme.com'}",assistant1,assistant1
+user-account-assistant-2,true,"UserIdentity{name: 'Asisstant2', surname: 'Asisstant2', email: 'assistant2@acme.com'}",assistant2,assistant2
+user-account-assistant-3,false,"UserIdentity{name: 'Asisstant3', surname: 'Asisstant3', email: 'assistant3@acme.com'}",assistant3,assistant3
+user-account-assistant-4,false,"UserIdentity{name: 'Asisstant4', surname: 'Викладач', email: 'assistant4@acme.com'}",assistant4,assistant4
+user-account-assistant-5,false,"UserIdentity{name: 'AsisstantNº5', surname: 'AsisstantNº5', email: 'num5@acme.com'}",assistant5,assistant5
+user-account-assistant-6,false,"UserIdentity{name: 'Asisstant6', surname: 'Asisstant6', email: 'assistant6@acme.com'}",assistant6,assistant6
+user-account-assistant-7,false,"UserIdentity{name: 'Asisstant7', surname: 'Asisstant7', email: 'elasistente@acme.com'}",assistant7,assistant7
+user-account-assistant-8,false,"UserIdentity{name: 'Asisstant8', surname: 'Asisstant8', email: 'null@acme.com'}",assistant8,assistant8
+user-account-assistant-9,false,"UserIdentity{name: 'Asisstant9', surname: 'Asisstant9', email: 'assistant9@acme.com'}",assistant9,assistant9
+user-account-assistant-10,false,"UserIdentity{name: 'Asisstant10', surname: 'Asisstant10', email: 'assistant10@acme.com'}",assistant10,assistant10

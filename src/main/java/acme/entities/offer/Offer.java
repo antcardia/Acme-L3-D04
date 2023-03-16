@@ -38,12 +38,17 @@ public class Offer extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
+	// validacion de que empiece un dia despues de que se instancie la oferta
 	protected Date				startDay;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
+	// validacion debe durar al menos una semana
 	protected Date				lastDay;
 
+	@NotNull
 	protected Money				price;
 
 	@URL
