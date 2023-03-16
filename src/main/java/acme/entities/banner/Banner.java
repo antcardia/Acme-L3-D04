@@ -37,6 +37,11 @@ public class Banner extends AbstractEntity {
 	@NotNull
 	protected Date				startPeriod;
 
+	//Las siguientes dos propiedades representan un periodo de tiempo
+	//siendo la primera el momento de comienzo y la segunda, el momento
+	//de finalización. En un futuro, se implentarán restricciones custom
+	//para implementar la validación y que la fecha final no pueda ser 
+	//después que la inicial
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				endPeriod;
