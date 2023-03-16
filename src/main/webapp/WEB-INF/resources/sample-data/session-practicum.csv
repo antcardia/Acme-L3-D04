@@ -1,4 +1,4 @@
-key,key:practicum,title,abstract$,start-time,finish-time,furtherInformation
+key,key:practicum,title,abstract$,start-time,finish-time,further-information
 session-practicum-01,practicum-01,"Sesion 1","Esta es una sesion introductoria",2023/03/20 10:00,2023/03/20 12:00,null
 session-practicum-02,practicum-01,"Sesion 2","Esta sesion cubrira los fundamentos de la programacion",2023/03/27 10:00,2023/03/27 12:00,https://example.com/session2
 session-practicum-03,practicum-02,"Sesion 3","En esta sesion hablaremos sobre patrones de diseno",2023/04/01 14:00,2023/04/01 16:00,https://example.com/session3
