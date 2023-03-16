@@ -46,6 +46,8 @@ public class Practicum extends AbstractEntity {
 	protected String			goals;
 
 	@Min(1)
+	// Esperaremos a las restricciones custom para decir al sistema que
+	// haga un cálculo del tiempo total con todas las sesiones +/- 10%
 	protected Integer			estimatedTotalTime;
 
 	// Derived attributes ----------------------------------------------------
