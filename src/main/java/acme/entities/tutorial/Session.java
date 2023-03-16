@@ -39,6 +39,7 @@ public class Session extends AbstractEntity {
 	@Size(max = 100)
 	protected String			summary;
 
+	@NotNull
 	protected Nature			sessionType;
 
 	@NotNull
