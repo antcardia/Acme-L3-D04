@@ -50,6 +50,7 @@ public class AuditRecord extends AbstractEntity {
 	@Past
 	protected Date				periodEnd;
 
+	@NotNull
 	protected Mark				mark;
 
 	@URL

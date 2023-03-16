@@ -2,9 +2,7 @@
 package acme.entities.audits;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -65,24 +63,11 @@ public class Audit extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 	@Transient
-	protected Mark computedMark() {
+	protected List<Mark> computedMark() {
 		final List<Mark> marks = new ArrayList<>();
 		for (final AuditRecord aR : this.auditRecords)
 			marks.add(aR.getMark());
-		final Map<Mark, Integer> countMap = new EnumMap<>(Mark.class);
-		Integer maxCount = 0;
-		Mark mode = null;
-
-		for (final Mark mark : marks) {
-			final Integer count = countMap.getOrDefault(mark, 0) + 1;
-			countMap.put(mark, count);
-
-			if (count > maxCount) {
-				maxCount = count;
-				mode = mark;
-			}
-		}
-		return mode;
+		return marks;
 	}
 
 }
