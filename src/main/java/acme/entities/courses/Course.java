@@ -4,6 +4,7 @@ package acme.entities.courses;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -41,11 +42,7 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
-
-	//Los cursos puramente teóricos deben ser rechazados por el sistema
-	@NotNull
-	protected Nature			courseType;
+	protected String			abstract$;
 
 	protected boolean			draftMode;
 
@@ -56,6 +53,10 @@ public class Course extends AbstractEntity {
 	protected String			furtherInformation;
 
 	// Derived attributes -----------------------------------------------------
+
+	//Los cursos puramente teóricos deben ser rechazados por el sistema
+	@Transient
+	protected Nature			courseType;
 
 	// Relationships ----------------------------------------------------------
 
