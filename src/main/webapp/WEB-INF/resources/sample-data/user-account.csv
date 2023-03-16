@@ -27,5 +27,3 @@ user-account-company-3,true,"UserIdentity{name: 'company3', surname: 'company3',
 user-account-company-4,true,"UserIdentity{name: 'company4', surname: 'company4', email: 'company4@acme.com'}",company4,company4
 user-account-company-5,true,"UserIdentity{name: 'company5', surname: 'company5', email: 'company5@acme.com'}",company5,company5
 user-account-company-6,true,"UserIdentity{name: 'company6', surname: 'company6', email: 'company6@acme.com'}",company6,company6
-user-account-administrator-1,true,"UserIdentity{name: 'administrator1', surname: 'administrator1', email: 'administrator1@acme.com'}",administrator1,administrator1
-user-account-administrator-2,true,"UserIdentity{name: 'administrator2', surname: 'administrator2', email: 'administrator2@acme.com'}",administrator2,administrator2
