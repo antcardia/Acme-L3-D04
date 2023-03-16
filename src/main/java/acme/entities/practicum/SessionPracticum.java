@@ -38,6 +38,8 @@ public class SessionPracticum extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	// Esperaremos a las restricciones custom para decir al sistema que
+	// teniendo las dos fechas haga un cálculo del tiempo total, y que dure una semana como mínimo
 	protected Date				startTime;
 
 	@NotNull

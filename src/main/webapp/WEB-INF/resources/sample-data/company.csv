@@ -1,4 +1,4 @@
-key,key:user-account,name,vatNumber,summary,link
+key,key:user-account,name,vat-number,summary,link
 company-01,user-account-company-1,Acme Inc.,"1234567890","Lorem ipsum dolor sit amet, consectetur adipiscing elit.",http://www.acme.com
 company-02,user-account-company-2,Globex Corporation,"0987654321","Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",http://www.globex.com
 company-03,user-account-company-3,Initech,"1357924680","At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",http://www.initech.com
