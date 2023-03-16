@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -38,7 +37,7 @@ public class Bulletin extends AbstractEntity {
 	@Length(max = 75)
 	protected String			title;
 
-	@NotEmpty
+	@NotBlank
 	@Length(max = 100)
 	protected String			message;
 
