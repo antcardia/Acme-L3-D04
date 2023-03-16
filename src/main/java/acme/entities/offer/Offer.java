@@ -38,12 +38,15 @@ public class Offer extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				startDay;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				lastDay;
 
+	@NotNull
 	protected Money				price;
 
 	@URL
