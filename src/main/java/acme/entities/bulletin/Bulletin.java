@@ -30,7 +30,7 @@ public class Bulletin extends AbstractEntity {
 
 	@NotNull
 	@Past
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
 
 	@NotBlank
