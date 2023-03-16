@@ -3,12 +3,16 @@ package acme.entities.practicum;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,7 +39,7 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			abstract$;
 
 	@NotBlank
 	@Length(max = 100)
@@ -48,4 +52,8 @@ public class Practicum extends AbstractEntity {
 
 	// Relationships ---------------------------------------------------------
 
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Course			course;
 }
