@@ -1,14 +1,20 @@
 
 package acme.roles;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.data.AbstractEntity;
+import acme.framework.data.AbstractRole;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Assistant extends AbstractEntity {
+@Getter
+@Setter
+@Entity
+public class Assistant extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
