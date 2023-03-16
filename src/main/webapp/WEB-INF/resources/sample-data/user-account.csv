@@ -21,6 +21,12 @@ user-account-student-9,false,"UserIdentity{name: 'Student9', surname: 'Student9'
 user-account-student-10,false,"UserIdentity{name: 'Student10', surname: 'Student10', email: 'student10@acme.com'}",student10,student10
 user-account-auditor-1,true,"UserIdentity{name: 'auditor1', surname: 'auditor1', email: 'auditor1@acme.com'}",auditor1,auditor1
 user-account-auditor-2,true,"UserIdentity{name: 'auditor2', surname: 'auditor2', email: 'auditor2@acme.com'}",auditor2,auditor2
+user-account-company-1,true,"UserIdentity{name: 'company1', surname: 'company1', email: 'company1@acme.com'}",company1,company1
+user-account-company-2,true,"UserIdentity{name: 'company2', surname: 'company2', email: 'company2@acme.com'}",company2,company2
+user-account-company-3,true,"UserIdentity{name: 'company3', surname: 'company3', email: 'company3@acme.com'}",company3,company3
+user-account-company-4,true,"UserIdentity{name: 'company4', surname: 'company4', email: 'company4@acme.com'}",company4,company4
+user-account-company-5,true,"UserIdentity{name: 'company5', surname: 'company5', email: 'company5@acme.com'}",company5,company5
+user-account-company-6,true,"UserIdentity{name: 'company6', surname: 'company6', email: 'company6@acme.com'}",company6,company6
 user-account-assistant-1,true,"UserIdentity{name: 'Assistant1', surname: 'Assistant1', email: 'assistant1@acme.com'}",assistant1,assistant1
 user-account-assistant-2,true,"UserIdentity{name: 'Asisstant2', surname: 'Asisstant2', email: 'assistant2@acme.com'}",assistant2,assistant2
 user-account-assistant-3,false,"UserIdentity{name: 'Asisstant3', surname: 'Asisstant3', email: 'assistant3@acme.com'}",assistant3,assistant3

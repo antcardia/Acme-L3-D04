@@ -1,0 +1,13 @@
+key,instantiation,title,message,flag,link
+bulletin-01,2022/05/20 10:00,Actualización del sistema,Se ha actualizado el sistema para mejorar la seguridad y estabilidad del sistema.,1,https://ejemplo.com/actualizacion-del-sistema
+bulletin-02,2022/04/15 10:00,Mantenimiento programado,Se realizará un mantenimiento programado del sistema el próximo fin de semana.,1,https://ejemplo.com/mantenimiento-programado
+bulletin-03,2022/03/08 10:00,Nueva función disponible,Ahora está disponible una nueva función para los usuarios del sistema.,0,https://ejemplo.com/nueva-funcion
+bulletin-04,2022/02/14 10:00,Fallo en el sistema,Se ha producido un fallo en el sistema que afecta a la funcionalidad del sistema.,1,https://ejemplo.com/fallo-en-el-sistema
+bulletin-05,2022/01/05 10:00,Actualización de política de privacidad,Se ha actualizado la política de privacidad del sistema para cumplir con la protección de datos.,0,https://ejemplo.com/politica-de-privacidad
+bulletin-06,2021/12/1 10:00,Vacaciones de Navidad,Se recuerda a todos que la oficina permanecerá cerrada durante las vacaciones de Navidad.,1,https://ejemplo.com/vacaciones-de-navidad
+bulletin-07,2021/11/15 10:00,Día festivo,La oficina permanecerá cerrada el próximo lunes debido a un día festivo.,0,https://ejemplo.com/dia-festivo
+bulletin-08,2021/10/20 10:00,Cambio en los horarios de trabajo,"A partir de mañana, los horarios de trabajo se adelantarán una hora debido al cambio de horario.",1,https://ejemplo.com/cambio-en-los-horarios-de-trabajo
+bulletin-09,2021/09/15 10:00,Nuevos miembros del equipo,Damos la bienvenida a dos nuevos miembros del equipo que se han unido recientemente.,0,https://ejemplo.com/nuevos-miembros-del-equipo
+bulletin-10,2021/08/20 10:00,Cambio en la política de teletrabajo,Se ha actualizado la política de teletrabajo para permitir a los empleados trabajar desde casa.,1,https://ejemplo.com/cambio-en-la-politica-de-teletrabajo
+bulletin-11,2021/07/15 10:00,Aniversario de la empresa,Habrá un evento especial para los empleados el próximo viernes.,0,https://ejemplo.com/aniversario-de-la-empresa
+bulletin-12,2021/06/10 10:00,Feria de empleo,La empresa participará en una feria de empleo la próxima semana.,1,https://ejemplo.com/feria-de-empleo
