@@ -1,7 +1,6 @@
 
 package acme.entities.audits;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,7 +15,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.datatypes.Mark;
+import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -60,13 +59,18 @@ public class Audit extends AbstractEntity {
 	@OneToMany(mappedBy = "audit")
 	protected List<AuditRecord>	auditRecords;
 
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
+
 
 	// Derived attributes -----------------------------------------------------
 	@Transient
-	protected List<Mark> computedMark() {
-		final List<Mark> marks = new ArrayList<>();
+	protected String computedMark() {
+		String marks = "";
 		for (final AuditRecord aR : this.auditRecords)
-			marks.add(aR.getMark());
+			marks = marks + ", " + aR.getMark().toString();
 		return marks;
 	}
 
