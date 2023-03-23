@@ -44,7 +44,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
-			<acme:menu-suboption code="master.menu.lecturer.user-accounts" action="/lecturer/user-account/update"/>
+			<acme:menu-suboption code="master.menu.lecturer.user-accounts" action="/lecturer/lecturer/update"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

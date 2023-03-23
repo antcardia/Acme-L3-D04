@@ -8,11 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.user-account.form.label.username = Username:
-lecturer.user-account.form.label.name = Name:
-lecturer.user-account.form.label.surname = Surname:
-lecturer.user-account.form.label.email = Email:
-lecturer.user-account.form.label.password = Password:
-lecturer.user-account.form.label.confirmation = Confirmation:
+lecturer.lecturer.form.label.almaMater = Alma mater:
+lecturer.lecturer.form.label.resume = Resume:
+lecturer.lecturer.form.label.listOfQualifications = List of qualifications:
+lecturer.lecturer.form.label.furtherInformation = Further information:
 
-lecturer.user-account.form.button.update = Update
+lecturer.lecturer.form.button.update = Update

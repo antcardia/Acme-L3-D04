@@ -1,5 +1,8 @@
+
+package acme.features.lecturer;
+
 /*
- * AuthenticatedUserAccountUpdateService.java
+ * AuthenticatedConsumerUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,34 +13,27 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.accounts.UserAccount;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
+import acme.framework.helpers.BinderHelper;
 import acme.framework.helpers.PrincipalHelper;
-import acme.framework.helpers.UserIdentityHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerUserAccountUpdateService extends AbstractService<Lecturer, UserAccount> {
+public class LecturerUserAccountUpdateService extends AbstractService<Lecturer, Lecturer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected LecturerUserAccountRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService interface ----------------------------------------------ç
 
-
-	@Override
-	public void check() {
-		super.getResponse().setChecked(true);
-	}
 
 	@Override
 	public void authorise() {
@@ -45,75 +41,50 @@ public class LecturerUserAccountUpdateService extends AbstractService<Lecturer, 
 	}
 
 	@Override
+	public void check() {
+		super.getResponse().setChecked(true);
+	}
+
+	@Override
 	public void load() {
-		UserAccount userAccount;
-		int principalId;
+		Lecturer object;
+		Principal principal;
+		int userAccountId;
 
-		principalId = super.getRequest().getPrincipal().getAccountId();
-		userAccount = this.repository.findOneUserAccountById(principalId);
-		// HINT: the following instruction forces the roles to be loaded.
-		userAccount.getUserRoles().size(); // NOSONAR
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
+		object = this.repository.findOneLecturerByUserAccountId(userAccountId);
 
-		super.getBuffer().setData(userAccount);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final UserAccount object) {
+	public void bind(final Lecturer object) {
 		assert object != null;
 
-		String password;
-		String[] properties;
-
-		properties = UserIdentityHelper.computeProperties();
-		super.bind(object, properties);
-		password = this.getRequest().getData("password", String.class);
-		if (!password.equals("[MASKED-PASWORD]"))
-			object.setPassword(password);
+		super.bind(object, "almaMater", "resume", "listOfQualifications", "furtherInformation");
 	}
 
 	@Override
-	public void validate(final UserAccount object) {
+	public void validate(final Lecturer object) {
 		assert object != null;
-
-		int passwordLength;
-		String password, confirmation;
-		boolean isMatching;
-
-		passwordLength = super.getRequest().getData("password", String.class).length();
-		super.state(passwordLength >= 5 && passwordLength <= 60, "password", "acme.validation.length", 6, 60);
-
-		password = super.getRequest().getData("password", String.class);
-		confirmation = super.getRequest().getData("confirmation", String.class);
-		isMatching = password.equals(confirmation);
-		super.state(isMatching, "confirmation", "authenticated.user-account.form.error.confirmation-no-match");
 	}
 
 	@Override
-	public void perform(final UserAccount object) {
+	public void perform(final Lecturer object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final UserAccount object) {
+	public void unbind(final Lecturer object) {
 		assert object != null;
 
-		Tuple record;
-		String[] properties;
+		Tuple tuple;
 
-		properties = UserIdentityHelper.computeProperties("username");
-		record = super.unbind(object, properties);
-
-		if (super.getRequest().getMethod().equals(HttpMethod.GET)) {
-			record.put("password", "[MASKED-PASWORD]");
-			record.put("confirmation", "[MASKED-PASWORD]");
-		} else {
-			record.put("password", super.getRequest().getData("password", String.class));
-			record.put("confirmation", super.getRequest().getData("confirmation", String.class));
-		}
-
-		super.getResponse().setData(record);
+		tuple = BinderHelper.unbind(object, "almaMater", "resume", "listOfQualifications", "furtherInformation");
+		super.getResponse().setData(tuple);
 	}
 
 	@Override
