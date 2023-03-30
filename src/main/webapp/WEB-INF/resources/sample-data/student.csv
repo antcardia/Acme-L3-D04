@@ -1,0 +1,11 @@
+key,key:user-account,statement,strong-features,weak-features,optional-link
+student-01,user-account-student-1,Sacarse la ESO,Atento,No estudia mucho,null
+student-02,user-account-student-2,Sacarse la ESO,Buena memoria,Se distrae,null
+student-03,user-account-student-3,Sacarse la Bachillerato,Estudioso,Se distrae,null
+student-04,user-account-student-4,Sacarse la ESO,Dedicado,No estudia mucho,null
+student-05,user-account-student-5,Sacarse la ESO,Dedicado,Se distrae,null
+student-06,user-account-student-6,Sacarse la Bachillerato,Atento,Se distrae,null
+student-07,user-account-student-7,Sacarse la ESO,Buena memoria,No estudia mucho,null
+student-08,user-account-student-8,Sacarse la ESO,Dedicado,Se distrae,null
+student-09,user-account-student-9,Sacarse la Bachillerato,Atento,Se distrae,https://ev.us.es
+student-10,user-account-student-10,Sacarse la Bachillerato,Estudioso,Se distrae,http://google.com

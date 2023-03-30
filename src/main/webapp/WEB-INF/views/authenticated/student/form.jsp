@@ -17,8 +17,8 @@
 
 <acme:form>
 	<acme:input-textbox code="authenticated.student.form.label.statement" path="statement"/>
-	<acme:input-textbox code="authenticated.student.form.label.strongFeatures" path="strongFeatures"/>
-	<acme:input-textbox code="authenticated.student.form.label.weakFeatures" path="weakFeatures"/>
+	<acme:input-textarea code="authenticated.student.form.label.strongFeatures" path="strongFeatures"/>
+	<acme:input-textarea code="authenticated.student.form.label.weakFeatures" path="weakFeatures"/>
 	<acme:input-textbox code="authenticated.student.form.label.optionalLink" path="optionalLink"/>
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.student.form.button.create" action="/authenticated/student/create"/>
