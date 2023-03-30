@@ -24,6 +24,11 @@ master.menu.anonymous.favourite-link-2 = 77933507P: Pizarro Lopez, Eduardo
 master.menu.anonymous.favourite-link-3 = 29504757N: Reyes Alés, David
 master.menu.anonymous.favourite-link-4 = 49729535Q: Romero González, Juan
 master.menu.anonymous.favourite-link-5 = 54437473S: Galeano de Paz, Guillermo
+master.menu.anonymous.all-courses = Ver cursos
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autentificado
 
 # master.menu.administrator ###################################################
 
