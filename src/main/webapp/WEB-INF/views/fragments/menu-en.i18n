@@ -61,3 +61,6 @@ master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
+
+master.menu.lecturer.my-courses = My courses
+master.menu.lecturer = Lecturer
