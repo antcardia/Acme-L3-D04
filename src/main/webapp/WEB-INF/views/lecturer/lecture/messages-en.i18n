@@ -1,0 +1,33 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+lecturer.lecture.list.label.title = Title:
+lecturer.lecture.list.label.estimatedLearningTime = Estimated learning time:
+lecturer.lecture.list.label.lectureType = Type:
+
+lecturer.lecture.list.button.create = Create lecture
+lecturer.lecture.list.button.add = Add lecture
+
+lecturer.lecture.form.label.title = Title:
+lecturer.lecture.form.label.abstract$ = Abstract:
+lecturer.lecture.form.label.estimatedLearningTime = Estimated learning time:
+lecturer.lecture.form.label.body = Body:
+lecturer.lecture.form.label.lectureType = Type:
+lecturer.lecture.form.label.furtherInformation = Further information:
+
+lecturer.lecture.form.button.update = Update
+lecturer.lecture.form.button.delete = Delete
+lecturer.lecture.form.button.publish = Publish
+lecturer.lecture.form.button.create = Create
+lecturer.lecture.form.button.add = Add course
+lecturer.lecture.form.button.deleteLectureFromCourse = Delete from course
+
+lecturer.lecture.form.error.estimatedLearningTime = Must be greater than 0
+lecturer.lecture.form.error.lectureType = You can't choose that option
