@@ -18,6 +18,8 @@ lecturer.course.form.label.title = Title:
 lecturer.course.form.label.abstract$ = Abstract:
 lecturer.course.form.label.retailPrice = Retail price:
 lecturer.course.form.label.furtherInformation = Further information:
+lecturer.course.form.label.draftMode = Draft mode:
+lecturer.course.form.label.courseNature = Course nature:
 
 lecturer.course.form.button.lectures = Lectures
 lecturer.course.form.button.update = Update
@@ -28,3 +30,5 @@ lecturer.course.form.button.create = Create
 lecturer.course.form.error.duplicated = This code is taken
 lecturer.course.form.error.negative-retailPrice = The retail price must be positive
 lecturer.course.form.error.lecture-not-found = No lectures have been found
+lecturer.course.form.error.no-hands-on-lecture = The course must contain at least one hands-on lecture
+lecturer.course.form.error.no-published-lecture = All the lectures in the course must be published

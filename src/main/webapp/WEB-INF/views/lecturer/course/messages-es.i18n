@@ -18,6 +18,8 @@ lecturer.course.form.label.title = Título:
 lecturer.course.form.label.abstract$ = Resumen:
 lecturer.course.form.label.retailPrice = Precio de venta al público:
 lecturer.course.form.label.furtherInformation = Más información:
+lecturer.course.form.label.draftMode = Modo edición:
+lecturer.course.form.label.courseNature = Tipo de curso:
 
 lecturer.course.form.button.lectures = Clases
 lecturer.course.form.button.update = Actualizar
@@ -28,3 +30,5 @@ lecturer.course.form.button.create = Crear
 lecturer.course.form.error.duplicated = Este código no está libre
 lecturer.course.form.error.negative-retailPrice = El precio de venta al público debe ser positivo
 lecturer.course.form.error.lecture-not-found = No se han encontrado clases
+lecturer.course.form.error.no-hands-on-lecture = El curso debe contener al menos una clase de tipo hands-on
+lecturer.course.form.error.no-published-lecture = Todas las clases del curso deben ser publicadas

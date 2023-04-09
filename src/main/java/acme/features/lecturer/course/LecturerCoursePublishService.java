@@ -76,7 +76,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "draftMode", "retailPrice", "furtherInformation");
+		super.bind(object, "code", "title", "abstract$", "retailPrice", "furtherInformation", "courseNature");
 	}
 
 	@Override
@@ -84,12 +84,12 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		assert object != null;
 
 		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
-		super.state(lectures.isEmpty(), "courseNature", "lecturer.course.form.error.lecture-not-found");
+		super.state(!lectures.isEmpty(), "courseNature", "lecturer.course.form.error.lecture-not-found");
 		if (!lectures.isEmpty()) {
 			final boolean handsOnLecture = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
-			super.state(!handsOnLecture, "courseNature", "lecturer.course.form.error.no-hands-on-lecture");
+			super.state(handsOnLecture, "courseNature", "lecturer.course.form.error.no-hands-on-lecture");
 			final boolean publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
-			super.state(!publishedLectures, "courseNature", "lecturer.course.form.error.no-published-lecture");
+			super.state(publishedLectures, "courseNature", "lecturer.course.form.error.no-published-lecture");
 		}
 	}
 

@@ -80,7 +80,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		tuple = super.unbind(object, "code", "title", "abstract$", "draftMode", "retailPrice", "furtherInformation");
 		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final Nature nature = object.courseNature(lectures);
-		tuple.put("nature", nature);
+		tuple.put("courseNature", nature);
 		super.getResponse().setData(tuple);
 	}
 

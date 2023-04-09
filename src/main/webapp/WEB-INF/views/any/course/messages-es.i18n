@@ -14,5 +14,6 @@ any.course.list.label.retailPrice = Precio de venta al público:
 any.course.form.label.code = Código:
 any.course.form.label.title = Título:
 any.course.form.label.abstract$ = Resumen:
+any.course.form.label.draftMode = Modo edición:
 any.course.form.label.retailPrice = Precio de venta al público:
 any.course.form.label.furtherInformation = Más información:
