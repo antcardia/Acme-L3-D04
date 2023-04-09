@@ -40,6 +40,8 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			body;
 
+	protected boolean			draftMode;
+
 	@NotNull
 	protected Nature			lectureType;
 
