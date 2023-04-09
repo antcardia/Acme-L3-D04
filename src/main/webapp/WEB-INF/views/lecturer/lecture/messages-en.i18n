@@ -19,6 +19,7 @@ lecturer.lecture.form.label.title = Title:
 lecturer.lecture.form.label.abstract$ = Abstract:
 lecturer.lecture.form.label.estimatedLearningTime = Estimated learning time:
 lecturer.lecture.form.label.body = Body:
+lecturer.lecture.form.label.draftMode = Draft mode:
 lecturer.lecture.form.label.lectureType = Type:
 lecturer.lecture.form.label.furtherInformation = Further information:
 
