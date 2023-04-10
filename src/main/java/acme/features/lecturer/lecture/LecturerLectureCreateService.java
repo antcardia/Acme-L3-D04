@@ -16,8 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
-import acme.entities.courses.Course;
-import acme.entities.courses.LectureCourse;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -37,24 +35,12 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void check() {
-		boolean status;
-		status = super.getRequest().hasData("masterId", int.class);
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Course course;
-		Lecturer lecturer;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		course = this.repository.findOneCourseById(masterId);
-		lecturer = course == null ? null : course.getLecturer();
-		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -63,7 +49,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 		object = new Lecture();
 		object.setDraftMode(true);
-
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
 
@@ -87,15 +74,6 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 		this.repository.save(object);
-		Course course;
-		int masterId;
-		final LectureCourse lc = new LectureCourse();
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		course = this.repository.findOneCourseById(masterId);
-		lc.setLecture(object);
-		lc.setCourse(course);
-		this.repository.save(lc);
 	}
 
 	@Override
@@ -103,8 +81,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstract$", "estimatedLearningTime", "body", "draftMode", "lectureType", "furtherInformation");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		tuple = super.unbind(object, "title", "abstract$", "estimatedLearningTime", "body", "lecturer", "draftMode", "lectureType", "furtherInformation");
 
 		final SelectChoices choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());
