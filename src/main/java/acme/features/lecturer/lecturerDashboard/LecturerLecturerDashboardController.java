@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.dashboard;
+package acme.features.lecturer.lecturerDashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -22,12 +22,12 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Lecturer;
 
 @Controller
-public class LecturerDashboardController extends AbstractController<Lecturer, LecturerDashboard> {
+public class LecturerLecturerDashboardController extends AbstractController<Lecturer, LecturerDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerDashboardShowService showService;
+	protected LecturerLecturerDashboardShowService showService;
 
 	// Constructors -----------------------------------------------------------
 
