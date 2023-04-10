@@ -93,4 +93,5 @@ public class Course extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Lecturer lecturer;
+
 }
