@@ -96,7 +96,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstract$", "estimatedLearningTime", "body", "draftMode", "lectureType", "furtherInformation");
+		tuple = super.unbind(object, "title", "abstract$", "estimatedLearningTime", "body", "lecturer", "draftMode", "lectureType", "furtherInformation");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		final SelectChoices choices = SelectChoices.from(Nature.class, object.getLectureType());

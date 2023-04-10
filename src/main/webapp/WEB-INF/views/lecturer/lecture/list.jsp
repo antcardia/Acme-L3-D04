@@ -21,6 +21,6 @@
 	<acme:list-column code="lecturer.lecture.list.label.estimatedLearningTime" path="estimatedLearningTime" width="20%"/>
 	<acme:list-column code="lecturer.lecture.list.label.lectureType" path="lectureType" width="20%"/>		
 </acme:list>
-<jstl:if test="${_command == 'list' }">
-	<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create?masterId=${masterId}"/>	
+<jstl:if test="${_command == 'list-mine' }">
+	<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create"/>	
 </jstl:if>
