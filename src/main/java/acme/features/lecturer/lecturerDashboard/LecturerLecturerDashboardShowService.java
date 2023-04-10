@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.dashboard;
+package acme.features.lecturer.lecturerDashboard;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -26,12 +26,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerDashboardShowService extends AbstractService<Lecturer, LecturerDashboard> {
+public class LecturerLecturerDashboardShowService extends AbstractService<Lecturer, LecturerDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerDashboardRepository repository;
+	protected LecturerLecturerDashboardRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -68,11 +68,11 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 		dashboard.minimumCalc(courseEstimatedLearningTime);
 		dashboard.maximumCalc(courseEstimatedLearningTime);
 
-		final Map<Nature, Integer> lecturesByType = new HashMap<Nature, Integer>();
+		final Map<String, Integer> lecturesByType = new HashMap<String, Integer>();
 		final Integer handsOnLectures = this.repository.totalLecturesByType(lecturer, Nature.HANDS_ON).orElse(0);
 		final Integer theoreticalLectures = this.repository.totalLecturesByType(lecturer, Nature.THEORETICAL).orElse(0);
-		lecturesByType.put(Nature.HANDS_ON, handsOnLectures);
-		lecturesByType.put(Nature.THEORETICAL, theoreticalLectures);
+		lecturesByType.put("HANDS_ON", handsOnLectures);
+		lecturesByType.put("THEORETICAL", theoreticalLectures);
 		dashboard.setTotalLecturesByType(lecturesByType);
 
 		super.getBuffer().setData(dashboard);
