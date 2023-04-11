@@ -29,6 +29,7 @@ master.menu.anonymous.all-courses = List courses
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
+master.menu.authenticated.note.list = List notes
 
 # master.menu.administrator ###################################################
 
