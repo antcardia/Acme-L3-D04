@@ -25,9 +25,14 @@ master.menu.anonymous.favourite-link-3 = 29504757N: Reyes Alés, David
 master.menu.anonymous.favourite-link-4 = 49729535Q: Romero González, Juan
 master.menu.anonymous.favourite-link-5 = 54437473S: Galeano de Paz, Guillermo
 
+# master.menu.authenticated ###################################################
+master.menu.authenticated = Authenticated
+master.menu.authenticated.bulletin = List Bulletin
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
+master.menu.administrator.bulletin = Create Bulletin
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)

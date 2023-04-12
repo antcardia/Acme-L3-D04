@@ -12,6 +12,6 @@ authenticated.bulletin.list.label.title=Title
 authenticated.bulletin.list.label.message=Message
 authenticated.bulletin.form.label.title=Title
 authenticated.bulletin.form.label.message=Message
-authenticated.bulletin.list.label.instantiation=Instantiation
+authenticated.bulletin.form.label.instantiation=Instantiation
 authenticated.bulletin.form.label.flag=Flag
 authenticated.bulletin.form.label.link=Link

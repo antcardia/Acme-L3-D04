@@ -8,10 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.bulletin.list.label.title=Title
-authenticated.bulletin.list.label.message=Message
-authenticated.bulletin.form.label.title=Title
-authenticated.bulletin.form.label.message=Message
-authenticated.bulletin.list.label.instantiation=Instantiation
-authenticated.bulletin.form.label.flag=Flag
-authenticated.bulletin.form.label.link=Link
+administrator.bulletin.list.label.title=Title
+administrator.bulletin.list.label.message=Message
+administrator.bulletin.form.label.title=Title
+administrator.bulletin.form.label.message=Message
+administrator.bulletin.form.label.instantiation=Instantiation
+administrator.bulletin.form.label.flag=Flag
+administrator.bulletin.form.label.link=Link
+administrator.bulletin.form.label.confirmation=Confirm
+administrator.bulletin.form.button.create=Create

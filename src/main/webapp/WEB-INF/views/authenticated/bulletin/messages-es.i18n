@@ -12,6 +12,6 @@ authenticated.bulletin.list.label.title=Titulo
 authenticated.bulletin.list.label.message=Mensaje
 authenticated.bulletin.form.label.title=Titulo
 authenticated.bulletin.form.label.message=Mensaje
-authenticated.bulletin.list.label.instantiation=Instancia
+authenticated.bulletin.form.label.instantiation=Instancia
 authenticated.bulletin.form.label.flag=Importante
 authenticated.bulletin.form.label.link=Link

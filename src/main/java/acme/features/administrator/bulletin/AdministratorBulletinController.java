@@ -23,4 +23,5 @@ public class AdministratorBulletinController extends AbstractController<Administ
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
 	}
+
 }
