@@ -17,7 +17,6 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:footer-panel>
-<acme:message code="MENSAJE DE PRUEBA"/>
 </acme:footer-panel>
 <acme:footer-panel>
 	<acme:footer-subpanel code="master.footer.title.about">
