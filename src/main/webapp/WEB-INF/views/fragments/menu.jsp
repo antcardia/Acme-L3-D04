@@ -56,6 +56,10 @@
 			<acme:menu-suboption code="master.menu.lecturer.my-dashboard" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			<acme:menu-suboption code="master.menu.company.user-accounts" action="/company/company/update"/>
+		</acme:menu-option>		
+		
 	</acme:menu-left>
 
 	<acme:menu-right>
