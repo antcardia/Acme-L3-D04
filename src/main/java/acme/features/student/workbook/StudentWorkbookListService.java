@@ -1,21 +1,22 @@
 
-package acme.features.student.lecture;
+package acme.features.student.workbook;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.lectures.Lecture;
+import acme.entities.courses.Course;
+import acme.entities.enrolment.Activity;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentLectureListService extends AbstractService<Student, Lecture> {
+public class StudentWorkbookListService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected StudentLectureRepository repository;
+	protected StudentWorkbookRepository repository;
 
 
 	@Override
@@ -30,20 +31,19 @@ public class StudentLectureListService extends AbstractService<Student, Lecture>
 
 	@Override
 	public void load() {
-		List<Lecture> objects;
-		final Integer courseId = super.getRequest().getData("id", int.class);
-		objects = this.repository.findAllLectureByCourseId(courseId);
+		Collection<Course> objects;
+		objects = this.repository.findAllCourse();
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Lecture object) {
+	public void unbind(final Course object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstract$");
+		tuple = super.unbind(object, "code", "title");
 
 		super.getResponse().setData(tuple);
 	}

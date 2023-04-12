@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface StudentLectureRepository extends AbstractRepository {
 
-	@Query("select l from Lecture l inner join LectureCourse lc on lc.lecture = l inner join Course c on lc.course = c where lc.course.id = :courseId")
+	@Query("select l from Lecture l inner join LectureCourse lc on lc.lecture = l inner join Course c on  c = lc.course where lc.course.id = :courseId")
 	List<Lecture> findAllLectureByCourseId(Integer courseId);
 
 	@Query("select l from Lecture l where l.id = :id")

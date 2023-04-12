@@ -25,4 +25,4 @@
 	<acme:input-textbox code="student.course.form.label.lecturer" path="lecturer" readonly="true"/>
 </acme:form>
 
-<acme:button code="student.course.form.button.lecture" action="/student/lecture/list"/>
+<acme:button code="student.course.form.button.lecture" action="/student/lecture/list?id=${id}"/>

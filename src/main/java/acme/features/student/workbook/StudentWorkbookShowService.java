@@ -1,19 +1,20 @@
 
-package acme.features.student.course;
+package acme.features.student.workbook;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.entities.enrolment.Activity;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentCourseShowService extends AbstractService<Student, Course> {
+public class StudentWorkbookShowService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected StudentCourseRepository repository;
+	protected StudentWorkbookRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -54,8 +55,6 @@ public class StudentCourseShowService extends AbstractService<Student, Course> {
 
 		final String lecturer = object.getLecturer().getUserAccount().getUsername();
 		tuple.put("lecturer", lecturer);
-		final Integer id = super.getRequest().getData("id", int.class);
-		super.getResponse().setGlobal("id", id);
 		super.getResponse().setData(tuple);
 	}
 }
