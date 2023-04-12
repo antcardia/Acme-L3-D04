@@ -12,6 +12,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface StudentEnrolmentRepository extends AbstractRepository {
 
-	@Query("select e from Enrolment e where e.student.id = :id ")
-	List<Enrolment> findAllEnrolmentByStudentId(Integer id);
+	@Query("select e from Enrolment e where e.id = :id")
+	Enrolment findEnrolmentById(int id);
+
+	@Query("select e from Enrolment e where e.student.id = :idStudent")
+	List<Enrolment> findAllEnrolmentByStudentId(Integer idStudent);
+
 }

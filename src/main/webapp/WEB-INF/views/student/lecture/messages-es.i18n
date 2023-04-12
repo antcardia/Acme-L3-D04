@@ -14,5 +14,6 @@ student.lecture.form.label.title=Titulo
 student.lecture.form.label.abstract$=Resumen
 student.lecture.form.label.estimatedLearningTime=Tiempo estimado de aprendizaje
 student.lecture.form.label.body=Cuerpo
+student.lecture.form.label.draftMode=Modo de edicion
 student.lecture.form.label.lectureType=Tipo de asignatura
 student.lecture.form.label.furtherInformation=Mas informacion
