@@ -17,10 +17,10 @@
 
 <acme:form>
 	<acme:input-textbox code="authenticated.tutorial.form.label.code" path="code"/>	
-	<acme:input-moment code="authenticated.tutorial.form.label.title" path="title"/>
+	<acme:input-textbox code="authenticated.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="authenticated.tutorial.form.label.summary" path="summary"/>
-	<acme:input-moment code="authenticated.tutorial.form.label.goal" path="goal"/>
-	<acme:input-moment code="authenticated.tutorial.form.label.estimatedTime" path="estimatedTime"/>
-	<acme:input-money code="authenticated.tutorial.form.label.course" path="course.title"/>
-	<acme:input-url code="authenticated.tutorial.form.label.assistant" path="assistant.id"/>
+	<acme:input-textarea code="authenticated.tutorial.form.label.goals" path="goals"/>
+	<acme:input-textbox code="authenticated.tutorial.form.label.estimatedTime" path="estimatedTime"/>
+	<acme:input-textbox code="authenticated.tutorial.form.label.course" path="courseTitle"/>
+	<acme:input-textbox code="authenticated.tutorial.form.label.assistant" path="assistantName"/>
 </acme:form>

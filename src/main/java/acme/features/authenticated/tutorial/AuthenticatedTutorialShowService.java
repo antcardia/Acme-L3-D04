@@ -49,8 +49,12 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 		assert object != null;
 
 		Tuple tuple;
+		final String courseTitle = object.getCourse().getTitle();
+		final String assistantName = object.getAssistant().getUserAccount().getUsername();
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "course", "assistant");
+		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime");
+		tuple.put("courseTitle", courseTitle);
+		tuple.put("assistantName", assistantName);
 
 		super.getResponse().setData(tuple);
 	}
