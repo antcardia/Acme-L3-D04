@@ -54,12 +54,13 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 	public void bind(final Bulletin object) {
 		assert object != null;
 
-		super.bind(object, "title", "instantiation", "message$", "flag", "link");
+		super.bind(object, "title", "instantiation", "message", "flag", "link");
 	}
 
 	@Override
 	public void validate(final Bulletin object) {
 		assert object != null;
+		super.state(super.getRequest().getData("confirmation", boolean.class), "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override
@@ -75,9 +76,17 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "instantiation", "message$", "flag", "link");
+		tuple = super.unbind(object, "title", "instantiation", "message", "flag", "link");
+
+		tuple.put("confirmation", false);
 
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
 	}
 
 }
