@@ -1,8 +1,6 @@
 
 package acme.entities.enrolment;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -54,5 +52,5 @@ public class Enrolment extends AbstractEntity {
 	@ManyToOne
 	@NotNull
 	@Valid
-	protected List<Course>		courses;
+	protected Course			course;
 }
