@@ -8,16 +8,17 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = Indicadores generales
-administrator.dashboard.form.title.application-statuses = Estados de solicitud
+lecturer.lecturer-dashboard.form.title.general-indicators = Indicadores generales
+lecturer.lecturer-dashboard.form.title.application-statuses = Estados de solicitud
 
-administrator.dashboard.form.label.totalLecturesByType =  Clases totales por tipo
-administrator.dashboard.form.label.averageLearningTimeOfLectures =  Tiempo de aprendizaje medio de las clases
-administrator.dashboard.form.label.deviationLearningTimeOfLectures = Desviación del tiempo de aprendizaje de las clases
-administrator.dashboard.form.label.minimumLearningTimeOfLectures = Tiempo de aprendizaje mínimo de las clases
-administrator.dashboard.form.label.maximumLearningTimeOfLectures = Tiempo ode aprendizaje máximo de las clases
-administrator.dashboard.form.label.averageLearningTimeOfCourses = Tiempo de aprendizaje medio de los cursos
-administrator.dashboard.form.label.deviationLearningTimeOfCourses = Desviación del tiempo de aprendizaje de los cursos
-administrator.dashboard.form.label.minimumLearningTimeOfCourses = Tiempo de aprendizaje mínimo de los cursos
-administrator.dashboard.form.label.maximumLearningTimeOfCourses = Tiempo de aprendizaje máximo de los cursos
+lecturer.lecturer-dashboard.form.label.totalTheoreticalLectures =  Total de clases theoretical
+lecturer.lecturer-dashboard.form.label.totalHandsOnLectures =  Total de clases hands-on
+lecturer.lecturer-dashboard.form.label.averageLearningTimeOfLectures =  Tiempo de aprendizaje medio de las clases
+lecturer.lecturer-dashboard.form.label.deviationLearningTimeOfLectures = Desviación del tiempo de aprendizaje de las clases
+lecturer.lecturer-dashboard.form.label.minimumLearningTimeOfLectures = Tiempo de aprendizaje mínimo de las clases
+lecturer.lecturer-dashboard.form.label.maximumLearningTimeOfLectures = Tiempo de aprendizaje máximo de las clases
+lecturer.lecturer-dashboard.form.label.averageLearningTimeOfCourses = Tiempo de aprendizaje medio de los cursos
+lecturer.lecturer-dashboard.form.label.deviationLearningTimeOfCourses = Desviación del tiempo de aprendizaje de los cursos
+lecturer.lecturer-dashboard.form.label.minimumLearningTimeOfCourses = Tiempo de aprendizaje mínimo de los cursos
+lecturer.lecturer-dashboard.form.label.maximumLearningTimeOfCourses = Tiempo de aprendizaje máximo de los cursos
 

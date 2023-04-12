@@ -8,16 +8,17 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = General indicators
-administrator.dashboard.form.title.application-statuses = Application statuses  
+lecturer.lecturer-dashboard.form.title.general-indicators = General indicators
+lecturer.lecturer-dashboard.form.title.application-statuses = Application statuses  
 
-administrator.dashboard.form.label.totalLecturesByType =  Total lectures by type
-administrator.dashboard.form.label.averageLearningTimeOfLectures =  Average learning time of lectures
-administrator.dashboard.form.label.deviationLearningTimeOfLectures = Deviation learning time of lectures
-administrator.dashboard.form.label.minimumLearningTimeOfLectures = Minimum learning time of lectures
-administrator.dashboard.form.label.maximumLearningTimeOfLectures = Maximum learning time of lectures
-administrator.dashboard.form.label.averageLearningTimeOfCourses = Average learning time of courses
-administrator.dashboard.form.label.deviationLearningTimeOfCourses = Deviation learning time of courses
-administrator.dashboard.form.label.minimumLearningTimeOfCourses = Minimum learning time of courses
-administrator.dashboard.form.label.maximumLearningTimeOfCourses = Maximum learning time of courses
+lecturer.lecturer-dashboard.form.label.totalTheoreticalLectures =  Total theoretical lectures
+lecturer.lecturer-dashboard.form.label.totalHandsOnLectures =  Total hands-on lectures
+lecturer.lecturer-dashboard.form.label.averageLearningTimeOfLectures =  Average learning time of lectures
+lecturer.lecturer-dashboard.form.label.deviationLearningTimeOfLectures = Deviation learning time of lectures
+lecturer.lecturer-dashboard.form.label.minimumLearningTimeOfLectures = Minimum learning time of lectures
+lecturer.lecturer-dashboard.form.label.maximumLearningTimeOfLectures = Maximum learning time of lectures
+lecturer.lecturer-dashboard.form.label.averageLearningTimeOfCourses = Average learning time of courses
+lecturer.lecturer-dashboard.form.label.deviationLearningTimeOfCourses = Deviation learning time of courses
+lecturer.lecturer-dashboard.form.label.minimumLearningTimeOfCourses = Minimum learning time of courses
+lecturer.lecturer-dashboard.form.label.maximumLearningTimeOfCourses = Maximum learning time of courses
 

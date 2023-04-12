@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.dashboard;
+package acme.features.lecturer.lecturerDashboard;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -24,7 +24,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
 @Repository
-public interface LecturerDashboardRepository extends AbstractRepository {
+public interface LecturerLecturerDashboardRepository extends AbstractRepository {
 
 	@Query("select count(distinct l) from Lecture l inner join LectureCourse lc on l = lc.lecture inner join Course c on lc.course = c where c.lecturer = :lecturer and l.lectureType = :nature")
 	Optional<Integer> totalLecturesByType(Lecturer lecturer, Nature nature);

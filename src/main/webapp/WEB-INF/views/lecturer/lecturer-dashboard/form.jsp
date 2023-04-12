@@ -1,4 +1,4 @@
-<%--
+ <%--
 - form.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
@@ -16,21 +16,29 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <h2>
-	<acme:message code="administrator.dashboard.form.title.general-indicators"/>
+	<acme:message code="lecturer.lecturer-dashboard.form.title.general-indicators"/>
 </h2>
 
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.totalLecturesByType"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.totalTheoreticalLectures"/>
 		</th>
 		<td>
-			<acme:print value="${totalLecturesByType}"/>
+			<acme:print value="${totalLecturesByType.get('THEORETICAL')}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.averageLearningTimeOfLectures"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.totalHandsOnLectures"/>
+		</th>
+		<td>
+			<acme:print value="${totalLecturesByType.get('HANDS_ON')}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="lecturer.lecturer-dashboard.form.label.averageLearningTimeOfLectures"/>
 		</th>
 		<td>
 			<acme:print value="${averageLearningTimeOfLectures}"/>
@@ -38,7 +46,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.deviationLearningTimeOfLectures"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.deviationLearningTimeOfLectures"/>
 		</th>
 		<td>
 			<acme:print value="${deviationLearningTimeOfLectures}"/>
@@ -46,7 +54,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.minimumLearningTimeOfLectures"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.minimumLearningTimeOfLectures"/>
 		</th>
 		<td>
 			<acme:print value="${minimumLearningTimeOfLectures}"/>
@@ -54,7 +62,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.maximumLearningTimeOfLectures"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.maximumLearningTimeOfLectures"/>
 		</th>
 		<td>
 			<acme:print value="${maximumLearningTimeOfLectures}"/>
@@ -62,7 +70,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.averageLearningTimeOfCourses"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.averageLearningTimeOfCourses"/>
 		</th>
 		<td>
 			<acme:print value="${averageLearningTimeOfCourses}"/>
@@ -70,7 +78,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.deviationLearningTimeOfCourses"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.deviationLearningTimeOfCourses"/>
 		</th>
 		<td>
 			<acme:print value="${deviationLearningTimeOfCourses}"/>
@@ -78,7 +86,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.minimumLearningTimeOfCourses"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.minimumLearningTimeOfCourses"/>
 		</th>
 		<td>
 			<acme:print value="${minimumLearningTimeOfCourses}"/>
@@ -86,7 +94,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.maximumLearningTimeOfCourses"/>
+			<acme:message code="lecturer.lecturer-dashboard.form.label.maximumLearningTimeOfCourses"/>
 		</th>
 		<td>
 			<acme:print value="${maximumLearningTimeOfCourses}"/>
@@ -95,7 +103,7 @@
 </table>
 
 <h2>
-	<acme:message code="administrator.dashboard.form.title.application-statuses"/>
+	<acme:message code="lecturer.lecturer-dashboard.form.title.application-statuses"/>
 </h2>
 
 <div>
@@ -106,16 +114,22 @@
 	$(document).ready(function() {
 		var data = {
 			labels : [
-					"average", "deviation", "minimum", "maximum"
+					"AVERAGE", "DEVIATION", "MINIMUM", "MAXIMUM"
 			],
 			datasets : [
 				{
 					data : [
 						<jstl:out value="${averageLearningTimeOfCourses}"/>, 
 						<jstl:out value="${deviationLearningTimeOfCourses}"/>, 
-						<jstl:out value="${minimumLearningTimeOfCourses}"/>
+						<jstl:out value="${minimumLearningTimeOfCourses}"/>,
 						<jstl:out value="${maximumLearningTimeOfCourses}"/>
-					]
+					],
+					backgroundColor: [
+					      'rgb(40, 180, 99)',
+				    	  'rgb(54, 162, 235)',
+				    	  'rgb(255, 205, 86)',
+				      	  'rgb(230, 170, 243)'
+				    ]
 				}
 			]
 		};
@@ -125,7 +139,7 @@
 					{
 						ticks : {
 							suggestedMin : 0.0,
-							suggestedMax : 1.0
+							suggestedMax : 100.0
 						}
 					}
 				]
@@ -146,6 +160,5 @@
 		});
 	});
 </script>
-
 <acme:return/>
 
