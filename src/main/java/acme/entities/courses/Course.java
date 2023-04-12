@@ -78,10 +78,10 @@ public class Course extends AbstractEntity {
 					res = Nature.HANDS_ON;
 				else if (lecturesByNature.get(Nature.THEORETICAL) > lecturesByNature.get(Nature.HANDS_ON))
 					res = Nature.THEORETICAL;
-				else if (lecturesByNature.containsKey(Nature.THEORETICAL))
-					res = Nature.THEORETICAL;
-				else if (lecturesByNature.containsKey(Nature.HANDS_ON))
-					res = Nature.HANDS_ON;
+			if (lecturesByNature.containsKey(Nature.HANDS_ON) && !lecturesByNature.containsKey(Nature.THEORETICAL))
+				res = Nature.HANDS_ON;
+			if (!lecturesByNature.containsKey(Nature.HANDS_ON) && lecturesByNature.containsKey(Nature.THEORETICAL))
+				res = Nature.THEORETICAL;
 		}
 		return res;
 	}

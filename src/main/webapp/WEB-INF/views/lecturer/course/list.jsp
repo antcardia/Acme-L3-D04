@@ -17,8 +17,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="lecturer.course.list.label.title" path="title" width="70%"/>
-	<acme:list-column code="lecturer.course.list.label.retailPrice" path="retailPrice" width="30%"/>		
+	<acme:list-column code="lecturer.course.list.label.title" path="title" width="80%"/>
+	<acme:list-column code="lecturer.course.list.label.retailPrice" path="retailPrice" width="20%"/>		
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

@@ -19,12 +19,14 @@
 	<acme:input-textbox code="lecturer.course.form.label.code" path="code"/>
 	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>
 	<acme:input-textarea code="lecturer.course.form.label.abstract$" path="abstract$"/>	
+	<acme:input-textbox code = "lecturer.course.form.label.draftMode" path="draftMode" readonly="true"/>
 	<acme:input-money code="lecturer.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-url code="lecturer.course.form.label.furtherInformation" path="furtherInformation"/>
+	<acme:input-textbox code = "lecturer.course.form.label.courseNature" path="courseNature" readonly="true"/>			
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>			
+			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>
