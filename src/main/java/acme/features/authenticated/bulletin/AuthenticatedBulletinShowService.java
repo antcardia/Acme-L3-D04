@@ -4,10 +4,10 @@ package acme.features.authenticated.bulletin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.common.util.concurrent.AbstractService;
-
 import acme.entities.bulletin.Bulletin;
 import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.models.Tuple;
+import acme.framework.services.AbstractService;
 
 @Service
 public class AuthenticatedBulletinShowService extends AbstractService<Authenticated, Bulletin> {
