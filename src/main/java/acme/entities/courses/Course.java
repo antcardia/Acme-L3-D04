@@ -94,10 +94,4 @@ public class Course extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Lecturer lecturer;
 
-
-	@Override
-	public String toString() {
-		return this.title;
-	}
-
 }
