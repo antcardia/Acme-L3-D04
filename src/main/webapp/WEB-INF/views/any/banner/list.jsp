@@ -1,5 +1,5 @@
 <%--
-- welcome.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -15,8 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-
-<div class="jumbotron">
-	<h1><acme:message code="master.welcome.title"/></h1>
-	<acme:message code="master.welcome.text"/> 
-</div>
+<acme:list>
+	<acme:list-column code="any.duty.list.label.title" path="title" width="80%"/>	
+	<acme:list-column code="any.duty.list.label.workLoad" path="workLoad" width="20%"/>
+</acme:list>
