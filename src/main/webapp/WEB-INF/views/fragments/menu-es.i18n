@@ -65,8 +65,10 @@ master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.become-assistant = Hazte asistente
-
 master.menu.lecturer.my-courses = Mis cursos
 master.menu.lecturer.my-lectures = Mis clases
 master.menu.lecturer.my-dashboard = Mi panel
 master.menu.lecturer = Profesor
+
+# Peeps ####################################################
+any.menu.peep.list=Comentarios

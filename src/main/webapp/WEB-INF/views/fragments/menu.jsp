@@ -49,13 +49,15 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
-		
+    
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
 			<acme:menu-suboption code="master.menu.lecturer.my-courses" action="/lecturer/course/list-mine"/>
 			<acme:menu-suboption code="master.menu.lecturer.my-lectures" action="/lecturer/lecture/list-mine"/>
 			<acme:menu-suboption code="master.menu.lecturer.my-dashboard" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
+    <acme:menu-option code="any.menu.peep.list" action="/any/peep/list"/>
+    
 	</acme:menu-left>
 
 	<acme:menu-right>
