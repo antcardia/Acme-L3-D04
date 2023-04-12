@@ -14,6 +14,7 @@ administrator.banner.list.label.endPeriod=End
 administrator.banner.list.label.linkPicture=Image Link
 administrator.banner.list.label.slogan=Slogan
 administrator.banner.list.label.linkWebDocument=Doc
+administrator.banner.list.button.create = Create
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
