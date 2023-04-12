@@ -1,8 +1,6 @@
 
 package acme.features.student.enrolment;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +20,8 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 	@Override
 	public void check() {
-		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -38,11 +33,13 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	@Override
 	public void load() {
 
-		final Enrolment object = null;
-		final Integer id = object.getStudent().getId();
-		final List<Enrolment> objects = this.repository.findAllEnrolmentByStudentId(id);
+		Enrolment object;
+		int id;
 
-		super.getBuffer().setData(objects);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findEnrolmentById(id);
+
+		super.getBuffer().setData(object);
 	}
 
 	@Override
@@ -51,7 +48,12 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "course");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
+
+		final String studentName = object.getStudent().getUserAccount().getUsername();
+		final String titleCourse = object.getCourse().getTitle();
+		tuple.put("studentName", studentName);
+		tuple.put("courseTitle", titleCourse);
 
 		super.getResponse().setData(tuple);
 	}

@@ -10,4 +10,9 @@
 
 student.enrolment.list.label.code=Code
 student.enrolment.list.label.motivation=Motivation
-
+student.enrolment.form.label.code=Code
+student.enrolment.form.label.motivation=Motivation
+student.enrolment.form.label.goals=Goals
+student.enrolment.form.label.workTime=Work time
+student.enrolment.form.label.draftMode=Draft mode
+student.enrolment.form.label.course=Course title
