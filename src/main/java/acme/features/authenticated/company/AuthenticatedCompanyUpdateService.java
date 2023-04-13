@@ -15,10 +15,12 @@ package acme.features.authenticated.company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.common.util.concurrent.AbstractService;
-
 import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
+import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
