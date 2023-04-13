@@ -41,6 +41,10 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.systemConfiguration = Mostrar configuración del sistema
 master.menu.administrator.shut-down = Parar el sistema
 
+# master.menu.company ########################################################
+master.menu.company = Compañía
+master.menu.company.user-accounts = Perfil
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -63,6 +67,8 @@ master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
 master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
+master.menu.user-account.company = Datos de compañía
+
 
 master.menu.lecturer.my-courses = Mis cursos
 master.menu.lecturer.my-lectures = Mis clases

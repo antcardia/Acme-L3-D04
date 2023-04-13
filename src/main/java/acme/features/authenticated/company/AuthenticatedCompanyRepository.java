@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.company;
+package acme.features.authenticated.company;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -19,7 +19,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Company;
 
 @Repository
-public interface CompanyUserAccountRepository extends AbstractRepository {
+public interface AuthenticatedCompanyRepository extends AbstractRepository {
 
 	@Query("select l from Company l where l.userAccount.id = :id")
 	Company findOneCompanyByUserAccountId(int id);
