@@ -32,10 +32,6 @@ master.menu.authenticated = Authenticated
 
 master.menu.authenticated.tutorials = List tutorials
 master.menu.authenticated.note.list = List notes
-
-
-# master.menu.authenticated ###################################################
-master.menu.authenticated = Authenticated
 master.menu.authenticated.bulletin = List Bulletin
 
 # master.menu.administrator ###################################################
