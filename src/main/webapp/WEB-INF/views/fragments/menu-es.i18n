@@ -28,13 +28,9 @@ master.menu.anonymous.all-courses = Ver cursos
 
 # master.menu.authenticated #######################################################
 
-master.menu.authenticated = Autentificado
+master.menu.authenticated = Autenticado
 master.menu.authenticated.note.list = Ver notas
-
-# master.menu.authenticated ###################################################
-master.menu.authenticated = Autentificado
-master.menu.authenticated.bulletin = Listar Bulletin
-
+master.menu.authenticated.bulletin = Ver boletín
 
 # master.menu.administrator ###################################################
 
