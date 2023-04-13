@@ -15,6 +15,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+<acme:footer-panel>
+<div>
+	<img src="banners/AcmeSL.png" alt="<acme:message code='master.banner.alt'/>" height="100" width="800" style="margin-left: 90px"/>
+</div>
+</acme:footer-panel>
 
 <acme:footer-panel>
 	<acme:footer-subpanel code="master.footer.title.about">
