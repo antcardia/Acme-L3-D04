@@ -1,11 +1,11 @@
-key,code,motivation,goals,work-time,draft-mode
-enrolment-01,ZBT156,Esto es para ver hasta setenta y cinco palabras de limite como restriccions,Ganar,2.5,true
-enrolment-02,VDT135,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.5,false
-enrolment-03,AFC222,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sol,5.9,true
-enrolment-04,ZZZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true
-enrolment-05,AAA000,quiero ganar,Ganar,2.0,true
-enrolment-06,ZZZ000,quiero ganar,Perder,6.4,true
-enrolment-07,FEW568,quiero ganar,Ganar,2.3,true
-enrolment-08,FGR125,quiero ganar,Perder,4.2,false
-enrolment-09,WTH236,quiero ganar,Perder,6.7,true
-enrolment-10,FDB158,quiero ganar,Ganar,5.6,false
+key,key:student,key:course,code,motivation,goals,work-time,draft-mode
+enrolment-01,student-01,course-01,ZBT156,Esto es para ver hasta setenta y cinco palabras de limite como restriccions,Ganar,2.5,true
+enrolment-02,student-02,course-02,VDT135,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.5,false
+enrolment-03,student-03,course-03,AFC222,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sol,5.9,true
+enrolment-04,student-04,course-04,ZZZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true
+enrolment-05,student-05,course-05,AAA000,quiero ganar,Ganar,2.0,true
+enrolment-06,student-06,course-06,ZZZ000,quiero ganar,Perder,6.4,true
+enrolment-07,student-07,course-07,FEW568,quiero ganar,Ganar,2.3,true
+enrolment-08,student-08,course-08,FGR125,quiero ganar,Perder,4.2,false
+enrolment-09,student-09,course-09,WTH236,quiero ganar,Perder,6.7,true
+enrolment-10,student-10,course-10,FDB158,quiero ganar,Ganar,5.6,false

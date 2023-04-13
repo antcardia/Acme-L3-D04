@@ -1,4 +1,3 @@
-
 package acme.features.authenticated.company;
 
 /*
@@ -17,7 +16,6 @@ import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.BinderHelper;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -81,7 +79,7 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 
 		Tuple tuple;
 
-		tuple = BinderHelper.unbind(object, "name", "vatNumber", "summary", "link");
+		tuple = super.unbind(object, "name", "vatNumber", "summary", "link");
 		super.getResponse().setData(tuple);
 	}
 
@@ -90,4 +88,5 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 		if (super.getRequest().getMethod().equals(HttpMethod.POST))
 			PrincipalHelper.handleUpdate();
 	}
+
 }
