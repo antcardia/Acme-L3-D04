@@ -16,11 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.company.form.label.name" path="name"/>
-	<acme:input-textarea code="authenticated.company.form.label.VATnumber" path="vatNumber"/>
-	<acme:input-textarea code="authenticated.company.form.label.summary" path="summary"/>
-	<acme:input-url code="authenticated.company.form.label.link" path="link"/>
-	
-	<acme:submit test="${_command == 'create'}" code="authenticated.company.form.button.create" action="/authenticated/company/create"/>
-	<acme:submit test="${_command == 'update'}" code="authenticated.company.form.button.update" action="/authenticated/company/update"/>
+	<acme:input-textbox code="company.company.form.label.name" path="name"/>
+	<acme:input-textarea code="company.company.form.label.VATnumber" path="vatNumber"/>
+	<acme:input-textarea code="company.company.form.label.summary" path="summary"/>
+	<acme:input-url code="company.company.form.label.link" path="link"/>			
+	<acme:submit code="company.company.form.button.update" action="/authenticated/company/update"/>
 </acme:form>

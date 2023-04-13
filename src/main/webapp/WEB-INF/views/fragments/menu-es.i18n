@@ -44,6 +44,10 @@ master.menu.administrator.systemConfiguration = Mostrar configuración del siste
 master.menu.administrator.shut-down = Parar el sistema 
 master.menu.administrator.banner-list = Lista de banners
 
+# master.menu.company ########################################################
+master.menu.company = Compañía
+master.menu.company.user-accounts = Perfil
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor

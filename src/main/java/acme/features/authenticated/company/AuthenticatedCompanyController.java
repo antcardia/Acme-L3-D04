@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderController.java
+ * AuthenticatedUserAccountController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -27,18 +27,12 @@ public class AuthenticatedCompanyController extends AbstractController<Authentic
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedCompanyCreateService	createService;
+	protected AuthenticatedCompanyUpdateService updateService;
 
-	@Autowired
-	protected AuthenticatedCompanyUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
-
-
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 	}
-
 }
