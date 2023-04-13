@@ -32,11 +32,12 @@ master.menu.authenticated = Authenticated
 
 master.menu.authenticated.tutorials = List tutorials
 master.menu.authenticated.note.list = List notes
-
+master.menu.authenticated.bulletin = List Bulletin
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
+master.menu.administrator.bulletin = Create Bulletin
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)

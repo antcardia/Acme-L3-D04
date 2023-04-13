@@ -28,12 +28,14 @@ master.menu.anonymous.all-courses = Ver cursos
 
 # master.menu.authenticated #######################################################
 
-master.menu.authenticated = Autentificado
+master.menu.authenticated = Autenticado
 master.menu.authenticated.note.list = Ver notas
+master.menu.authenticated.bulletin = Ver boletín
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
+master.menu.administrator.bulletin = Crear Boletín
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
