@@ -38,4 +38,5 @@ public class Student extends AbstractRole {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
 }
