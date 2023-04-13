@@ -1,0 +1,23 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.offer.list.label.heading=Heading
+administrator.offer.list.label.price=Price
+administrator.offer.list.button.create = Create
+administrator.offer.form.label.heading=Heading
+administrator.offer.form.label.price=Price
+administrator.offer.form.label.instantiationMoment=Intantiation Moment
+administrator.offer.form.label.abstract$=Abstract
+administrator.offer.form.label.startDay=Start Day
+administrator.offer.form.label.lastDay=Last Day
+administrator.offer.form.label.link=Link
+administrator.offer.form.button.create = Create
+administrator.offer.form.button.update = Update
+administrator.offer.form.button.delete = Delete

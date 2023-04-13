@@ -24,6 +24,8 @@
 </acme:footer-panel>
 
 <acme:footer-panel>
+</acme:footer-panel>
+<acme:footer-panel>
 	<acme:footer-subpanel code="master.footer.title.about">
 		<acme:footer-option icon="fa fa-building" code="master.footer.label.company" action="/master/company"/>
 		<acme:footer-option icon="fa fa-file" code="master.footer.label.license" action="/master/license"/>		
@@ -44,6 +46,7 @@
 	<acme:footer-logo logo="images/logo.png">
 		<acme:footer-copyright code="master.company.name"/>
 	</acme:footer-logo>		
+	
 
 </acme:footer-panel>
 

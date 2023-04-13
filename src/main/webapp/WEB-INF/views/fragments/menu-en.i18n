@@ -24,15 +24,31 @@ master.menu.anonymous.favourite-link-2 = 77933507P: Pizarro Lopez, Eduardo
 master.menu.anonymous.favourite-link-3 = 29504757N: Reyes Alés, David
 master.menu.anonymous.favourite-link-4 = 49729535Q: Romero González, Juan
 master.menu.anonymous.favourite-link-5 = 54437473S: Galeano de Paz, Guillermo
+master.menu.anonymous.all-courses = List courses
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+
+master.menu.authenticated.tutorials = List tutorials
+master.menu.authenticated.note.list = List notes
+master.menu.authenticated.bulletin = List Bulletin
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
+master.menu.administrator.bulletin = Create Bulletin
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
+master.menu.administrator.systemConfiguration = Show system configuration
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.banner-list = Banner List
+
+# master.menu.company ########################################################
+master.menu.company = Company
+master.menu.company.user-accounts = Profile
 
 # master.menu.provider ########################################################
 
@@ -44,6 +60,12 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.student ##########################################################
+
+master.menu.student = Student
+master.menu.student.my-courses = My courses
+master.menu.student.my-enrolments = My enrolments
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -52,3 +74,20 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become a student
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
+master.menu.user-account.company = Company data
+master.menu.user-account.become-company = Become a company
+
+master.menu.lecturer.my-courses = My courses
+master.menu.lecturer.my-lectures = My lectures
+master.menu.lecturer.my-dashboard = My dashboard
+master.menu.lecturer = Lecturer
+
+# Peeps ####################################################
+any.menu.peep.list=Peeps
+

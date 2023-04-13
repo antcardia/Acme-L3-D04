@@ -1,8 +1,7 @@
 key,key:user-account,name,vat-number,summary,link
-company-01,user-account-company-1,Acme Inc.,"1234567890","Lorem ipsum dolor sit amet, consectetur adipiscing elit.",http://www.acme.com
-company-02,user-account-company-2,Globex Corporation,"0987654321","Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",http://www.globex.com
-company-03,user-account-company-3,Initech,"1357924680","At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",http://www.initech.com
-company-04,user-account-company-4,Wayne Enterprises,"2468019","Nullam dictum felis eu pede mollis pretium.",http://www.wayneenterprises.com
-company-05,user-account-company-5,Stark Industries,"983210","Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.",http://www.starkindustries.com
-company-06,user-account-company-6,Umbrella Corporation,"0123456789","Maecenas nec odio et ante tincidunt tempus.",http://www.umbrellacorp.com
-company-07,user-account-company-1,Oscorp Industries,"5678234","Ut varius tincidunt libero. Curabitur turpis.",http://www.oscorp.com
+company-01,user-account-company-1,Acme Inc.,1234567890,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",http://www.acme.com
+company-02,user-account-company-2,Globex Corporation,0987654321,Sed ut perspiciatis unde omnis iste natus error sit voluptatem.,http://www.globex.com
+company-03,user-account-company-3,Initech,1357924680,At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.,http://www.initech.com
+company-04,user-account-company-4,Wayne Enterprises,2468019,Nullam dictum felis eu pede mollis pretium.,http://www.wayneenterprises.com
+company-05,user-account-company-5,Stark Industries,983210,"Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.",http://www.starkindustries.com
+company-06,user-account-company-6,Umbrella Corporation,0123456789,Maecenas nec odio et ante tincidunt tempus.,http://www.umbrellacorp.com
