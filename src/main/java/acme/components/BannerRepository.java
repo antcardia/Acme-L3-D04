@@ -13,6 +13,7 @@
 package acme.components;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -35,11 +36,12 @@ public interface BannerRepository extends AbstractRepository {
 
 		final List<Banner> banners = this.findManyBanners();
 		final List<Banner> options = new ArrayList<Banner>();
+		final Date now = new Date();
 		int counter = 0;
 		Banner result = new Banner();
 
 		for (final Banner b : banners)
-			if (b.getLinkPicture() != null) {
+			if (b.getLinkPicture() != null && b.getStartPeriod().compareTo(now) <= 0 && b.getEndPeriod().compareTo(now) >= 0) {
 				options.add(b);
 				counter++;
 			}
@@ -47,6 +49,7 @@ public interface BannerRepository extends AbstractRepository {
 		final int randomNum = ThreadLocalRandom.current().nextInt(0, counter);
 		System.out.println(counter);
 		System.out.println(randomNum);
+		System.out.println(now);
 		result = options.get(randomNum);
 		return result;
 	}
