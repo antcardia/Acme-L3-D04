@@ -31,6 +31,7 @@ master.menu.anonymous.all-courses = List courses
 master.menu.authenticated = Authenticated
 
 master.menu.authenticated.tutorials = List tutorials
+master.menu.authenticated.practicum = List practicas
 master.menu.authenticated.note.list = List notes
 master.menu.authenticated.bulletin = List Bulletin
 
