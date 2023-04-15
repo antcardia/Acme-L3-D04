@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.notes.Note;
+import acme.entities.system.SystemConfiguration;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.accounts.UserAccount;
@@ -24,6 +25,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
+import antiSpamFilter.AntiSpamFilter;
 
 @Service
 public class AuthenticatedNoteCreateService extends AbstractService<Authenticated, Note> {
@@ -73,6 +75,19 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	@Override
 	public void validate(final Note object) {
 		assert object != null;
+		final SystemConfiguration config = this.repository.findSystemConfiguration();
+		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			final String title = object.getTitle();
+			super.state(!antiSpam.isSpam(title), "title", "authenticated.note.form.error.spamTitle");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("message")) {
+			final String message = object.getMessage();
+			super.state(!antiSpam.isSpam(message), "message", "authenticated.note.form.error.spamMessage");
+		}
+
 		super.state(super.getRequest().getData("confirmation", boolean.class), "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 

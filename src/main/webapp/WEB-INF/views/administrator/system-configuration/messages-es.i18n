@@ -10,5 +10,8 @@
 
 administrator.systemConfiguration.form.label.systemCurrency = Moneda del sistema:
 administrator.systemConfiguration.form.label.acceptedCurrencies = Monedas aceptadas:
+administrator.systemConfiguration.form.label.threshold = Umbral:
+administrator.systemConfiguration.form.label.spamWords = Palabras spam:
 
 administrator.systemConfiguration.form.button.update = Actualizar
+administrator.systemConfiguration.form.error.systemCurrency = La moneda no es una moneda aceptada

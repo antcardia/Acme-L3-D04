@@ -10,5 +10,9 @@
 
 administrator.systemConfiguration.form.label.systemCurrency = System currency:
 administrator.systemConfiguration.form.label.acceptedCurrencies = Accepted currencies:
+administrator.systemConfiguration.form.label.threshold = Threshold:
+administrator.systemConfiguration.form.label.spamWords = Spam words:
 
 administrator.systemConfiguration.form.button.update = Update
+
+administrator.systemConfiguration.form.error.systemCurrency = The currency is not an accepted currency

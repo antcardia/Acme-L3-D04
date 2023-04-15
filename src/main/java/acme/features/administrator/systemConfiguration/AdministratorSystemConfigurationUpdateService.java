@@ -12,6 +12,8 @@
 
 package acme.features.administrator.systemConfiguration;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,12 +55,16 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 	public void bind(final SystemConfiguration object) {
 		assert object != null;
 
-		super.bind(object, "systemCurrency", "acceptedCurrencies");
+		super.bind(object, "systemCurrency", "acceptedCurrencies", "threshold", "spamWords");
 	}
 
 	@Override
 	public void validate(final SystemConfiguration object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("systemCurrency")) {
+			final String[] accepted = object.getAcceptedCurrencies().split(",");
+			super.state(Arrays.asList(accepted).contains(object.getSystemCurrency()), "systemCurrency", "administrator.systemConfiguration.form.error.systemCurrency");
+		}
 	}
 
 	@Override
@@ -74,7 +80,7 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "systemCurrency", "acceptedCurrencies");
+		tuple = super.unbind(object, "systemCurrency", "acceptedCurrencies", "threshold", "spamWords");
 
 		super.getResponse().setData(tuple);
 	}
