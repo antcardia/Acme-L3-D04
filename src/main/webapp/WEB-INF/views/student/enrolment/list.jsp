@@ -20,4 +20,8 @@
 	<acme:list-column code="student.enrolment.list.label.motivation" path="motivation" width="30%"/>
 </acme:list>
 
-
+<jstl:choose>
+	<jstl:when test="${_command == 'list'}">
+		<acme:button code="student.enrolment.form.button.create" action="/student/enrolment/create"/>
+	</jstl:when>
+</jstl:choose>

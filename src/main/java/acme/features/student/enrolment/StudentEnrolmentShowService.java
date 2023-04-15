@@ -48,7 +48,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
 
 		final String studentName = object.getStudent().getUserAccount().getUsername();
 		final String titleCourse = object.getCourse().getTitle();
