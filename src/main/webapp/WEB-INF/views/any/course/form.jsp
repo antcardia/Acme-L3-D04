@@ -19,7 +19,7 @@
 	<acme:input-textbox code="any.course.form.label.code" path="code"/>
 	<acme:input-textbox code="any.course.form.label.title" path="title"/>
 	<acme:input-textarea code="any.course.form.label.abstract$" path="abstract$"/>
-	<acme:input-textbox code="any.course.form.label.draftMode" path="draftMode" readonly="true"/>	
+	<acme:input-checkbox code="any.course.form.label.draftMode" path="draftMode" readonly="true"/>	
 	<acme:input-money code="any.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-url code="any.course.form.label.furtherInformation" path="furtherInformation"/>
 </acme:form>

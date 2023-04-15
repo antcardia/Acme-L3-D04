@@ -20,7 +20,7 @@
 	<acme:input-textarea code="lecturer.lecture.form.label.abstract$" path="abstract$"/>
 	<acme:input-double code="lecturer.lecture.form.label.estimatedLearningTime" path="estimatedLearningTime"/>
 	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"/>
-	<acme:input-textbox code="lecturer.lecture.form.label.draftMode" path="draftMode" readonly="true"/>	
+	<acme:input-checkbox code="lecturer.lecture.form.label.draftMode" path="draftMode" readonly="true"/>	
 	<acme:input-select code="lecturer.lecture.form.label.lectureType" path="lectureType" choices="${lecturesType}"/>
 	<acme:input-url code="lecturer.lecture.form.label.furtherInformation" path="furtherInformation"/>
 	
