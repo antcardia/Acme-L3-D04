@@ -1,10 +1,10 @@
-key,code,title,summary,goals,estimated-time
-tutorial-01,AAA111,"Tutorial de ejemplo 1","Hacer ejemplos de tutoriales","Meta de ejemplo",1.5
-tutorial-02,AAA112,"Tutorial de ejemplo 2","Como crear ficheros","Meta de ejemplo",2.3
-tutorial-03,AAA113,"Tutorial de ejemplo 3","Hacer ejemplos de tutoriales","Meta",2.2
-tutorial-04,ABC123,"Tutorial de ejemplo 4","Hacer ejemplos de tutoriales","Meta de ejemplo",1.8
-tutorial-05,ZZZ555,"Tutorial de ejemplo 5","Hacer ejemplos de tutoriales","Meta de ejemplo",1.5
-tutorial-06,ABC124,"Tutorial de ejemplo 6","Hacer ejemplos de tutoriales","Meta de ejemplo",2.0
-tutorial-07,ABC125,"Tutorial de ejemplo 7","Hacer ejemplos de tutoriales","Meta de ejemplo",1.2
-tutorial-08,ABC126,"Tutorial de ejemplo 8","Hacer ejemplos de tutoriales","Meta de ejemplo",1.6
-tutorial-09,ABC127,"Tutorial de ejemplo 9","Hacer ejemplos de tutoriales","Meta de ejemplo",1.2
+key,code,title,summary,goals,estimated-time,key:assistant,key:course
+tutorial-01,AAA111,"Tutorial de ejemplo 1","Hacer ejemplos de tutoriales","Meta de ejemplo",1.5,assistant-01,course-01
+tutorial-02,AAA112,"Tutorial de ejemplo 2","Como crear ficheros","Meta de ejemplo",2.3,assistant-02,course-02
+tutorial-03,AAA113,"Tutorial de ejemplo 3","Hacer ejemplos de tutoriales","Meta",2.2,assistant-03,course-03
+tutorial-04,ABC123,"Tutorial de ejemplo 4","Hacer ejemplos de tutoriales","Meta de ejemplo",1.8,assistant-04,course-04
+tutorial-05,ZZZ555,"Tutorial de ejemplo 5","Hacer ejemplos de tutoriales","Meta de ejemplo",1.5,assistant-05,course-05
+tutorial-06,ABC124,"Tutorial de ejemplo 6","Hacer ejemplos de tutoriales","Meta de ejemplo",2.0,assistant-06,course-06
+tutorial-07,ABC125,"Tutorial de ejemplo 7","Hacer ejemplos de tutoriales","Meta de ejemplo",1.2,assistant-07,course-07
+tutorial-08,ABC126,"Tutorial de ejemplo 8","Hacer ejemplos de tutoriales","Meta de ejemplo",1.6,assistant-08,course-08
+tutorial-09,ABC127,"Tutorial de ejemplo 9","Hacer ejemplos de tutoriales","Meta de ejemplo",1.2,assistant-09,course-09
