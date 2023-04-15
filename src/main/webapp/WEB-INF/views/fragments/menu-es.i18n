@@ -85,5 +85,7 @@ master.menu.lecturer.my-lectures = Mis clases
 master.menu.lecturer.my-dashboard = Mi panel
 master.menu.lecturer = Profesor
 
+master.menu.user-account.become-auditor = Hazte auditor
+
 # Peeps ####################################################
-any.menu.peep.list=Comentarios
+master.menu.peep.list=Comentarios
