@@ -28,7 +28,9 @@ lecturer.course.form.button.publish = Publicar
 lecturer.course.form.button.create = Crear
 
 lecturer.course.form.error.duplicated = Este código no está libre
-lecturer.course.form.error.negative-retailPrice = El precio de venta al público debe ser positivo
+lecturer.course.form.error.spamTitle = El título contiene spam
+lecturer.course.form.error.spamAbstract = El resumen contiene spam
+lecturer.course.form.error.outOfRangeRetailPrice = El precio de venta al público está fuera del rango
 lecturer.course.form.error.lecture-not-found = No se han encontrado clases
 lecturer.course.form.error.no-hands-on-lecture = El curso debe contener al menos una clase de tipo hands-on
 lecturer.course.form.error.no-published-lecture = Todas las clases del curso deben ser publicadas

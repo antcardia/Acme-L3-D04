@@ -28,7 +28,9 @@ lecturer.course.form.button.publish = Publish
 lecturer.course.form.button.create = Create
 
 lecturer.course.form.error.duplicated = This code is taken
-lecturer.course.form.error.negative-retailPrice = The retail price must be positive
+lecturer.course.form.error.spamTitle = The title contains spam
+lecturer.course.form.error.spamAbstract = The abstract contains spam
+lecturer.course.form.error.outOfRangeRetailPrice = The retail price is out of range
 lecturer.course.form.error.lecture-not-found = No lectures have been found
 lecturer.course.form.error.no-hands-on-lecture = The course must contain at least one hands-on lecture
 lecturer.course.form.error.no-published-lecture = All the lectures in the course must be published

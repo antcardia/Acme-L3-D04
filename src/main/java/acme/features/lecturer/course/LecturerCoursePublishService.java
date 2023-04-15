@@ -22,9 +22,11 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.Nature;
 import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
+import acme.entities.system.SystemConfiguration;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import antiSpamFilter.AntiSpamFilter;
 
 @Service
 public class LecturerCoursePublishService extends AbstractService<Lecturer, Course> {
@@ -82,6 +84,28 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		final SystemConfiguration config = this.repository.findSystemConfiguration();
+		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			final String title = object.getTitle();
+			super.state(!antiSpam.isSpam(title), "title", "lecturer.course.form.error.spamTitle");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("abstract$")) {
+			final String summary = object.getAbstract$();
+			super.state(!antiSpam.isSpam(summary), "abstract$", "lecturer.course.form.error.spamAbstract");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
+
+			existing = this.repository.findOneCourseByCode(object.getCode());
+			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
 
 		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
 		super.state(!lectures.isEmpty(), "courseNature", "lecturer.course.form.error.lecture-not-found");

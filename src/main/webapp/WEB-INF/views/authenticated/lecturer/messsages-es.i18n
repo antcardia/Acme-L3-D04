@@ -15,3 +15,7 @@ authenticated.lecturer.form.label.furtherInformation = Más información:
 
 authenticated.lecturer.form.button.create = Registrar
 authenticated.lecturer.form.button.update = Actualizar
+
+authenticated.lecturer.form.error.spamAlmaMater = La universidad contiene spam
+authenticated.lecturer.form.error.spamResume = El resumen contiene spam
+authenticated.lecturer.form.error.spamListOfQualifications = La lista de calificaciones contiene spam
