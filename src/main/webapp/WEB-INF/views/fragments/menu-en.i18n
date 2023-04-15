@@ -88,6 +88,8 @@ master.menu.lecturer.my-lectures = My lectures
 master.menu.lecturer.my-dashboard = My dashboard
 master.menu.lecturer = Lecturer
 
+master.menu.user-account.become-auditor = Become an auditor
+
 # Peeps ####################################################
-any.menu.peep.list=Peeps
+master.menu.peep.list=Peeps
 
