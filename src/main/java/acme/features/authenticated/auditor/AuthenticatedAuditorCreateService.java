@@ -56,7 +56,7 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 	public void bind(final Auditor object) {
 		assert object != null;
 
-		super.bind(object, "firm", "professionalId", "certifications", "link");
+		super.bind(object, "firm", "professionalId", "certificates", "furtherInformation");
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 	public void unbind(final Auditor object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "firm", "professionalId", "certifications", "link");
+		tuple = super.unbind(object, "firm", "professionalId", "certificates", "furtherInformation");
 
 		super.getResponse().setData(tuple);
 	}
