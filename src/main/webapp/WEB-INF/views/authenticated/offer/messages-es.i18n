@@ -10,6 +10,7 @@
 
 authenticated.offer.list.label.heading=Titulo
 authenticated.offer.list.label.price=Precio
+authenticated.offer.list.button.create = Crear
 authenticated.offer.form.label.heading=Titulo
 authenticated.offer.form.label.price=Precio
 authenticated.offer.form.label.instantiationMoment=Momento Inicial
@@ -17,3 +18,6 @@ authenticated.offer.form.label.abstract$=Cuerpo
 authenticated.offer.form.label.startDay=Primer Dia
 authenticated.offer.form.label.lastDay=Ultimo Dia
 authenticated.offer.form.label.link=Link
+authenticated.offer.form.button.create = Crear
+authenticated.offer.form.button.update = Actualizar
+authenticated.offer.form.button.delete = Eliminar
