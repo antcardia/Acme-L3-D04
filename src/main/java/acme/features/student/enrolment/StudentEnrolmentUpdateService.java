@@ -99,7 +99,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
-		final String courseCode = object.getCourse().getCode();
+		final String courseCode = object.getCourse().getTitle();
 		tuple.put("courseCode", courseCode);
 
 		super.getResponse().setData(tuple);
