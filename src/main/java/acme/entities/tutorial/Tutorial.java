@@ -50,7 +50,7 @@ public class Tutorial extends AbstractEntity {
 	protected Double			estimatedTime;
 
 	@NotNull
-	protected Boolean			draftMode;
+	protected boolean			draftMode;
 
 	@NotNull
 	@OneToOne
