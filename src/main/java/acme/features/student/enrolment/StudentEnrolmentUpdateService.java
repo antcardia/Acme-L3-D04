@@ -17,8 +17,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.enrolment.Enrolment;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -70,7 +68,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "workTime");
+		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "courseCode");
 	}
 
 	@Override
@@ -96,17 +94,14 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	@Override
 	public void unbind(final Enrolment object) {
+		assert object != null;
+
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
+		final String courseCode = object.getCourse().getTitle();
+		tuple.put("courseCode", courseCode);
 
 		super.getResponse().setData(tuple);
 	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
-	}
-
 }
