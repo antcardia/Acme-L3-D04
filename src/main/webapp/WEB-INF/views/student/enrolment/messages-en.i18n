@@ -10,6 +10,7 @@
 
 student.enrolment.list.label.code=Code
 student.enrolment.list.label.motivation=Motivation
+student.enrolment.list.button.create = Create
 student.enrolment.form.label.code=Code
 student.enrolment.form.label.motivation=Motivation
 student.enrolment.form.label.goals=Goals

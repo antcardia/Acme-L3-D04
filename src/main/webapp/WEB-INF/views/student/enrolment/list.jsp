@@ -22,6 +22,6 @@
 
 <jstl:choose>
 	<jstl:when test="${_command == 'list'}">
-		<acme:button code="student.enrolment.form.button.create" action="/student/enrolment/create"/>
+		<acme:button code="student.enrolment.list.button.create" action="/student/enrolment/create"/>
 	</jstl:when>
 </jstl:choose>
