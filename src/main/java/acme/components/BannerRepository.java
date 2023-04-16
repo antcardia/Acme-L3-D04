@@ -47,9 +47,6 @@ public interface BannerRepository extends AbstractRepository {
 			}
 
 		final int randomNum = ThreadLocalRandom.current().nextInt(0, counter);
-		System.out.println(counter);
-		System.out.println(randomNum);
-		System.out.println(now);
 		result = options.get(randomNum);
 		return result;
 	}
