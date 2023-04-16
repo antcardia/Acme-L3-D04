@@ -50,6 +50,9 @@ public class Tutorial extends AbstractEntity {
 	protected Double			estimatedTime;
 
 	@NotNull
+	protected Boolean			draftMode;
+
+	@NotNull
 	@OneToOne
 	@Valid
 	protected Course			course;
@@ -58,6 +61,7 @@ public class Tutorial extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Assistant			assistant;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

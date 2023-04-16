@@ -1,4 +1,4 @@
-<%--
+ 	<%--
 - form.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
@@ -23,6 +23,5 @@
 	<acme:input-money code="student.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-textbox code="student.course.form.label.furtherInformation" path="furtherInformation"/>
 	<acme:input-textbox code="student.course.form.label.lecturer" path="lecturer" readonly="true"/>
+	<acme:button code="student.course.form.button.lecture" action="/student/lecture/list?id=${id}"/>
 </acme:form>
-
-<acme:button code="student.course.form.button.lecture" action="/student/lecture/list?id=${id}"/>
