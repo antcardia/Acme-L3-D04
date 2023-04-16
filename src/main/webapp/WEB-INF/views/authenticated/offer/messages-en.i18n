@@ -10,6 +10,7 @@
 
 authenticated.offer.list.label.heading=Heading
 authenticated.offer.list.label.price=Price
+authenticated.offer.list.button.create = Create
 authenticated.offer.form.label.heading=Heading
 authenticated.offer.form.label.price=Price
 authenticated.offer.form.label.instantiationMoment=Intantiation Moment
@@ -17,3 +18,6 @@ authenticated.offer.form.label.abstract$=Abstract
 authenticated.offer.form.label.startDay=Start Day
 authenticated.offer.form.label.lastDay=Last Day
 authenticated.offer.form.label.link=Link
+authenticated.offer.form.button.create = Create
+authenticated.offer.form.button.update = Update
+authenticated.offer.form.button.delete = Delete
