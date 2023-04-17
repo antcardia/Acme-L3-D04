@@ -38,7 +38,6 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	//	in hours, computed from the corresponding activities. Propiedad que será derivada
 	protected Double			workTime;
 
 	protected boolean			draftMode;

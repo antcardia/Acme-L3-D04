@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.courses.Course;
 import acme.entities.courses.LectureCourse;
 import acme.entities.lectures.Lecture;
+import acme.entities.system.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
@@ -46,4 +47,7 @@ public interface LecturerLectureRepository extends AbstractRepository {
 
 	@Query("select lc from LectureCourse lc where lc.lecture = :lecture")
 	Collection<LectureCourse> findManyLectureCourseByLecture(Lecture lecture);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 }

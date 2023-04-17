@@ -1,20 +1,19 @@
 
-package acme.features.student.workbook;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.enrolment.Activity;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentWorkbookShowService extends AbstractService<Student, Activity> {
+public class StudentActivityShowService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected StudentWorkbookRepository repository;
+	protected StudentActivityRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -36,25 +35,23 @@ public class StudentWorkbookShowService extends AbstractService<Student, Activit
 
 	@Override
 	public void load() {
-		Course object;
+		Activity object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findCourseById(id);
+		object = this.repository.findActivityById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void unbind(final Activity object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "draftMode", "retailPrice", "furtherInformation");
+		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
 
-		final String lecturer = object.getLecturer().getUserAccount().getUsername();
-		tuple.put("lecturer", lecturer);
 		super.getResponse().setData(tuple);
 	}
 }

@@ -30,5 +30,8 @@ lecturer.lecture.form.button.create = Create
 lecturer.lecture.form.button.add = Add course
 lecturer.lecture.form.button.deleteLectureFromCourse = Delete from course
 
+lecturer.lecture.form.error.spamTitle = The title contains spam
+lecturer.lecture.form.error.spamAbstract = The abstract contains spam
+lecturer.lecture.form.error.spamBody = The body contains spam
 lecturer.lecture.form.error.estimatedLearningTime = Must be greater than 0
 lecturer.lecture.form.error.lectureType = You can't choose that option

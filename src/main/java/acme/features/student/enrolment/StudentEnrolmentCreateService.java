@@ -15,14 +15,9 @@ package acme.features.student.enrolment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.enrolment.Enrolment;
-import acme.features.lecturer.course.LecturerCourseRepository;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Lecturer;
 import acme.roles.Student;
 
 @Service
@@ -31,7 +26,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected StudentEnrolmentRepository repository;
 
 	// AbstractService<Authenticated, Provider> ---------------------------
 
@@ -48,58 +43,51 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void load() {
-		Course object;
-		Lecturer lecturer;
-
-		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Course();
+		Enrolment object;
+		object = new Enrolment();
 		object.setDraftMode(true);
-		object.setLecturer(lecturer);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Course object) {
+	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "retailPrice", "furtherInformation");
+		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "courseCode");
 	}
 
 	@Override
-	public void validate(final Course object) {
+	public void validate(final Enrolment object) {
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Course existing;
+			Enrolment existing;
 
-			existing = this.repository.findOneCourseByCode(object.getCode());
-			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
+			existing = this.repository.findOneEnrolmentByCode(object.getCode());
+			super.state(existing == null, "code", "student.enrolment.form.error.duplicated");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.course.form.error.negative-retailPrice");
+		if (!super.getBuffer().getErrors().hasErrors("workTime"))
+			super.state(object.getWorkTime() > 0, "workTime", "student.enrolment.form.error.negative-workTime");
 	}
 
 	@Override
-	public void perform(final Course object) {
+	public void perform(final Enrolment object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void unbind(final Enrolment object) {
+		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "draftMode", "retailPrice", "furtherInformation");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
+		final String courseCode = object.getCourse().getTitle();
+		tuple.put("courseCode", courseCode);
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }

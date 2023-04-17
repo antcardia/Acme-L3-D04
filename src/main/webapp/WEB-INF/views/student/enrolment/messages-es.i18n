@@ -10,9 +10,16 @@
 
 student.enrolment.list.label.code=Codigo
 student.enrolment.list.label.motivation=Motivacion
+student.enrolment.list.button.create = Crear
 student.enrolment.form.label.code=Codigo
 student.enrolment.form.label.motivation=Motivacion
 student.enrolment.form.label.goals=Metas
 student.enrolment.form.label.workTime=Tiempo de trabajo
 student.enrolment.form.label.draftMode=Modo de edicion
-student.enrolment.form.label.course=Titulo del curso
+student.enrolment.form.label.courseCode=Nombre del curso
+
+student.enrolment.form.button.create = Crear
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.delete = Eliminar
+
+student.enrolment.form.error.workTime = Debe ser mayor que 0

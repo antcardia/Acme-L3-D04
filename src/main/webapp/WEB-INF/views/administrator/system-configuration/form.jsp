@@ -18,6 +18,8 @@
 <acme:form>
 	<acme:input-textbox code="administrator.systemConfiguration.form.label.systemCurrency" path="systemCurrency"/>	
 	<acme:input-textbox code="administrator.systemConfiguration.form.label.acceptedCurrencies" path="acceptedCurrencies"/>
+	<acme:input-double code="administrator.systemConfiguration.form.label.threshold" path="threshold"/>
+	<acme:input-textarea code="administrator.systemConfiguration.form.label.spamWords" path="spamWords"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
 			<acme:submit code="administrator.systemConfiguration.form.button.update" action="/administrator/system-configuration/update"/>

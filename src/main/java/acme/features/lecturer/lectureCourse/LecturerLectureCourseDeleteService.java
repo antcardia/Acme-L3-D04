@@ -85,12 +85,17 @@ public class LecturerLectureCourseDeleteService extends AbstractService<Lecturer
 	@Override
 	public void validate(final LectureCourse object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
-			final Collection<Lecture> lectures = this.repository.findManyLecturesByMasterId(object.getCourse().getId());
-			super.state(lectures.contains(object.getLecture()), "course", "lecturer.lectureCourse.form.error.lectureDeleted");
-		}
 		if (!super.getBuffer().getErrors().hasErrors("course"))
-			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
+			super.state(object.getCourse() != null, "course", "lecturer.lectureCourse.form.error.courseNotNull");
+
+		if (object.getCourse() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("course"))
+				super.state(object.getCourse().isDraftMode(), "course", "lecturer.lectureCourse.form.error.course");
+			if (!super.getBuffer().getErrors().hasErrors("lecture")) {
+				final Collection<Lecture> lectures = this.repository.findManyLecturesByMasterId(object.getCourse().getId());
+				super.state(lectures.contains(object.getLecture()), "course", "lecturer.lectureCourse.form.error.lectureDeleted");
+			}
+		}
 	}
 
 	@Override

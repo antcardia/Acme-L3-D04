@@ -16,3 +16,4 @@ lecturer.lectureCourse.form.button.add = Añadir
 lecturer.lectureCourse.form.error.lecture = El curso seleccionado contiene a la clase
 lecturer.lectureCourse.form.error.lectureDeleted = El curso seleccionado no contiene a la clase
 lecturer.lectureCourse.form.error.course = El curso seleccionado está público
+lecturer.lectureCourse.form.error.courseNotNull = No hay ningún curso seleccionado

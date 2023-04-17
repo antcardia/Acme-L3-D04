@@ -32,6 +32,7 @@ master.menu.authenticated = Autenticado
 master.menu.authenticated.practicum = Ver prácticas
 master.menu.authenticated.note.list = Ver notas
 master.menu.authenticated.bulletin = Ver boletín
+master.menu.authenticated.offer.list = Ver ofertas
 
 # master.menu.administrator ###################################################
 
@@ -44,6 +45,7 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.systemConfiguration = Mostrar configuración del sistema
 master.menu.administrator.shut-down = Parar el sistema 
 master.menu.administrator.banner-list = Lista de banners
+master.menu.administrator.offer.list = Lista de ofertas
 
 # master.menu.company ########################################################
 master.menu.company = Compañía
@@ -64,6 +66,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.student = Estudiante
 master.menu.student.my-courses = Mis cursos
 master.menu.student.my-enrolments = Mis registros
+master.menu.student.my-workbooks = Mis libros de trabajo
+
 
 # master.menu.user-account ####################################################
 
@@ -86,5 +90,7 @@ master.menu.lecturer.my-lectures = Mis clases
 master.menu.lecturer.my-dashboard = Mi panel
 master.menu.lecturer = Profesor
 
+master.menu.user-account.become-auditor = Hazte auditor
+
 # Peeps ####################################################
-any.menu.peep.list=Comentarios
+master.menu.peep.list=Comentarios

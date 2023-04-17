@@ -21,3 +21,6 @@ authenticated.note.form.label.email = Email:
 authenticated.note.form.label.furtherInformation = Más información:
 authenticated.note.form.label.confirmation = Confirmación:
 authenticated.note.form.button.create = Crear
+
+authenticated.note.form.error.spamTitle = El título contiene spam
+authenticated.note.form.error.spamMessage = El mensaje contiene spam

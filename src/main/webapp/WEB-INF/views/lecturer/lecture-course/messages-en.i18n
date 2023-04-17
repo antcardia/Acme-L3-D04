@@ -16,3 +16,4 @@ lecturer.lectureCourse.form.button.add = Add
 lecturer.lectureCourse.form.error.lecture = The selected course contains the lecture
 lecturer.lectureCourse.form.error.lectureDeleted = The selected course doesn't contain the lecture
 lecturer.lectureCourse.form.error.course = The selected course is published
+lecturer.lectureCourse.form.error.courseNotNull = There is no course selected

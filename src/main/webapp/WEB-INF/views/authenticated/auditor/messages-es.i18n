@@ -1,0 +1,6 @@
+authenticated.auditor.form.label.firm = Empresa
+authenticated.auditor.form.label.professionalId = ID Profesional
+authenticated.auditor.form.label.certifications = Certificaciones
+authenticated.auditor.form.label.link = Enlace
+
+authenticated.auditor.form.button.create = Registrarse

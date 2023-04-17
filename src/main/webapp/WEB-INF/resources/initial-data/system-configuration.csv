@@ -1,2 +1,2 @@
-key,system_currency,accepted_currencies
-system-configuration-01,EUR,"EUR,GBP,USD"
+key,system_currency,accepted_currencies,threshold,spamWords
+system-configuration-01,EUR,"EUR,GBP,USD",0.1,"sex, viagra, cialis, one million, you've won, nigeria, sexo, un millón, has ganado"
