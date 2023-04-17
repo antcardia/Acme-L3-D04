@@ -16,26 +16,25 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="lecturer.course.form.label.code" path="code"/>
-	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>
-	<acme:input-textarea code="lecturer.course.form.label.abstract$" path="abstract$"/>	
-	<acme:input-checkbox code = "lecturer.course.form.label.draftMode" path="draftMode" readonly="true"/>
-	<acme:input-money code="lecturer.course.form.label.retailPrice" path="retailPrice"/>
-	<acme:input-url code="lecturer.course.form.label.furtherInformation" path="furtherInformation"/>
-	<acme:input-textbox code = "lecturer.course.form.label.courseNature" path="courseNature" readonly="true"/>			
+	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.summary" path="summary"/>	
+	<acme:input-checkbox code = "assistant.tutorial.form.label.draftMode" path="draftMode" readonly="true"/>
+	<acme:input-money code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.assistant" path="assistantName"/>
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courseList}"/>
+	
+	
 	
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>
-		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>
-			<acme:submit code="lecturer.course.form.button.update" action="/lecturer/course/update"/>
-			<acme:submit code="lecturer.course.form.button.delete" action="/lecturer/course/delete"/>
-			<acme:submit code="lecturer.course.form.button.publish" action="/lecturer/course/publish"/>
+			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
+			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
+			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.course.form.button.create" action="/lecturer/course/create"/>
+			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

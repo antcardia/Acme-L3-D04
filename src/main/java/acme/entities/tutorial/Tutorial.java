@@ -52,7 +52,7 @@ public class Tutorial extends AbstractEntity {
 	@NotNull
 	protected boolean			draftMode;
 
-	@NotNull
+	@ManyToOne
 	@OneToOne
 	@Valid
 	protected Course			course;

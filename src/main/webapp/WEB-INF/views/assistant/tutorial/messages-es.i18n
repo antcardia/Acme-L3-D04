@@ -8,29 +8,30 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.course.list.label.title = Título:
-lecturer.course.list.label.retailPrice = Precio de venta al público:
+assistant.tutorial.list.label.title = Title
+assistant.tutorial.list.label.estimatedTime = Estimated Time
 
-lecturer.course.list.button.create = Crear
+assistant.tutorial.list.button.create = Create
 
-lecturer.course.form.label.code = Código:
-lecturer.course.form.label.title = Título:
-lecturer.course.form.label.abstract$ = Resumen:
-lecturer.course.form.label.retailPrice = Precio de venta al público:
-lecturer.course.form.label.furtherInformation = Más información:
-lecturer.course.form.label.draftMode = Modo edición:
-lecturer.course.form.label.courseNature = Tipo de curso:
 
-lecturer.course.form.button.lectures = Clases
-lecturer.course.form.button.update = Actualizar
-lecturer.course.form.button.delete = Borrar
-lecturer.course.form.button.publish = Publicar
-lecturer.course.form.button.create = Crear
+assistant.tutorial.form.label.code = Código:
+assistant.tutorial.form.label.title = Titulo:
+assistant.tutorial.form.label.summary = Resumen:
+assistant.tutorial.form.label.estimatedTime = Tiempo estimado:
+assistant.tutorial.form.label.goals = Objetivos:
+assistant.tutorial.form.label.draftMode = Borrador:
+assistant.tutorial.form.label.courseTitle = Título del curso:
+assistant.tutorial.form.label.assistantName = Nombre de asistente:
+assistant.tutorial.form.label.courseList = Lista de cursos:
 
-lecturer.course.form.error.duplicated = Este código no está libre
-lecturer.course.form.error.spamTitle = El título contiene spam
-lecturer.course.form.error.spamAbstract = El resumen contiene spam
-lecturer.course.form.error.outOfRangeRetailPrice = El precio de venta al público está fuera del rango
-lecturer.course.form.error.lecture-not-found = No se han encontrado clases
-lecturer.course.form.error.no-hands-on-lecture = El curso debe contener al menos una clase de tipo hands-on
-lecturer.course.form.error.no-published-lecture = Todas las clases del curso deben ser publicadas
+
+assistant.tutorial.form.button.update = Actualizar
+assistant.tutorial.form.button.delete = Borrar
+assistant.tutorial.form.button.publish = Publicar
+assistant.tutorial.form.button.create = Crear
+
+assistant.tutorial.form.error.duplicated = Este código ya está siendo utilizado
+assistant.tutorial.form.error.spamTitle = Este título contiene spam
+assistant.tutorial.form.error.spamSummary = El resumen contiene spam
+assistant.tutorial.form.error.outOfRangeEstimatedTime = El tiempo estimado está fuera de rango
+assistant.tutorial.form.error.tutorial-not-found = No se han encontrado tutoriales

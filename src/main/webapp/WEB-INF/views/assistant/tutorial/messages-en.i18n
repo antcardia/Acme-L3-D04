@@ -8,29 +8,30 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.course.list.label.title = Title:
-lecturer.course.list.label.retailPrice = Retail price:
+assistant.tutorial.list.label.title = Title
+assistant.tutorial.list.label.estimatedTime = Estimated Time
 
-lecturer.course.list.button.create = Create
+assistant.tutorial.list.button.create = Create
 
-lecturer.course.form.label.code = Code:
-lecturer.course.form.label.title = Title:
-lecturer.course.form.label.abstract$ = Abstract:
-lecturer.course.form.label.retailPrice = Retail price:
-lecturer.course.form.label.furtherInformation = Further information:
-lecturer.course.form.label.draftMode = Draft mode:
-lecturer.course.form.label.courseNature = Course nature:
 
-lecturer.course.form.button.lectures = Lectures
-lecturer.course.form.button.update = Update
-lecturer.course.form.button.delete = Delete
-lecturer.course.form.button.publish = Publish
-lecturer.course.form.button.create = Create
+assistant.tutorial.form.label.code = Code:
+assistant.tutorial.form.label.title = Title:
+assistant.tutorial.form.label.summary = Summary:
+assistant.tutorial.form.label.estimatedTime = Estimated time:
+assistant.tutorial.form.label.goals = Goals:
+assistant.tutorial.form.label.draftMode = Draft mode:
+assistant.tutorial.form.label.courseTitle = Course title:
+assistant.tutorial.form.label.assistantName = Assistant name:
+assistant.tutorial.form.label.courseList = Course List:
 
-lecturer.course.form.error.duplicated = This code is taken
-lecturer.course.form.error.spamTitle = The title contains spam
-lecturer.course.form.error.spamAbstract = The abstract contains spam
-lecturer.course.form.error.outOfRangeRetailPrice = The retail price is out of range
-lecturer.course.form.error.lecture-not-found = No lectures have been found
-lecturer.course.form.error.no-hands-on-lecture = The course must contain at least one hands-on lecture
-lecturer.course.form.error.no-published-lecture = All the lectures in the course must be published
+
+assistant.tutorial.form.button.update = Update
+assistant.tutorial.form.button.delete = Delete
+assistant.tutorial.form.button.publish = Publish
+assistant.tutorial.form.button.create = Create
+
+assistant.tutorial.form.error.duplicated = This code is taken
+assistant.tutorial.form.error.spamTitle = The title contains spam
+assistant.tutorial.form.error.spamSummary = The summary contains spam
+assistant.tutorial.form.error.outOfRangeEstimatedTime = The estimated time is out of range
+assistant.tutorial.form.error.tutorial-not-found = No tutorials have been found

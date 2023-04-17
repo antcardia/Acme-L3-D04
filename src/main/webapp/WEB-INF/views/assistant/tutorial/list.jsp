@@ -22,5 +22,5 @@
 </acme:list>
 
 
-<acme:button code="lecturer.course.list.button.create" action="/lecturer/course/create"/>
+<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create"/>
 

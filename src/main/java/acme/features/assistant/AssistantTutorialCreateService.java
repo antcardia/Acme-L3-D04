@@ -12,11 +12,16 @@
 
 package acme.features.assistant;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
 import acme.entities.system.SystemConfiguration;
 import acme.entities.tutorial.Tutorial;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
@@ -62,7 +67,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode", "course");
 	}
 
 	@Override
@@ -101,12 +106,19 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void unbind(final Tutorial object) {
 		Tuple tuple;
+		Collection<Course> courses;
+		SelectChoices choices;
 		final String assistantName = object.getAssistant().getUserAccount().getUsername();
-		final String courseTitle = object.getCourse().getTitle();
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		courses = this.repository.findAllCourse().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+
+		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode", "course");
+		tuple.put("courseList", choices);
+		tuple.put("selectedCourse", choices.getSelected().getKey());
+		System.out.println(choices.getSelected().getLabel());
+		System.out.println(choices.getSelected().getKey());
 		tuple.put("assistantName", assistantName);
-		tuple.put("courseTitle", courseTitle);
 
 		super.getResponse().setData(tuple);
 	}
