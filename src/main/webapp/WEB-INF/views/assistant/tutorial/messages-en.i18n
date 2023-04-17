@@ -23,7 +23,8 @@ assistant.tutorial.form.label.draftMode = Draft mode:
 assistant.tutorial.form.label.courseTitle = Course title:
 assistant.tutorial.form.label.assistantName = Assistant name:
 assistant.tutorial.form.label.courseList = Course List:
-
+assistant.tutorial.form.label.assistant = Assistant:
+assistant.tutorial.form.label.course = Course:
 
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete

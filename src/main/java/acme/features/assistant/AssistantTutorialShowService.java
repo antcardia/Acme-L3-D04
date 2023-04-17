@@ -73,23 +73,19 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 
 	@Override
 	public void unbind(final Tutorial object) {
-		Tuple tuple;
 		Collection<Course> courses;
+		String assistant;
 		SelectChoices choices;
-		final String assistantName = object.getAssistant().getUserAccount().getUsername();
-		final String courseTitle = object.getCourse().getTitle();
+		Tuple tuple;
 
-		courses = this.repository.findAllCourse().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
+		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
 		choices = SelectChoices.from(courses, "title", object.getCourse());
+		assistant = object.getAssistant().getUserAccount().getUsername();
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode", "course");
-		tuple.put("courseList", choices);
-		tuple.put("selectedCourse", choices.getSelected().getKey());
-		System.out.println(choices.getSelected());
-		System.out.println(choices.getSelected().getKey());
-		System.out.println();
-		tuple.put("assistantName", assistantName);
-		tuple.put("courseTitle", courseTitle);
+		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+		tuple.put("assistant", assistant);
 
 		super.getResponse().setData(tuple);
 

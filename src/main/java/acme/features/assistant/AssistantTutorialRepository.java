@@ -39,7 +39,7 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	Collection<Tutorial> findAllTutorial();
 
 	@Query("select c from Course c")
-	Collection<Course> findAllCourse();
+	Collection<Course> findAllCourses();
 
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration findSystemConfiguration();

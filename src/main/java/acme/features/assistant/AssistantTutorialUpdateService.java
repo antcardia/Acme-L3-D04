@@ -12,11 +12,16 @@
 
 package acme.features.assistant;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
 import acme.entities.system.SystemConfiguration;
 import acme.entities.tutorial.Tutorial;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
@@ -74,7 +79,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "retailPrice", "furtherInformation");
+		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
 	}
 
 	@Override
@@ -85,7 +90,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 		if (!super.getBuffer().getErrors().hasErrors("title")) {
 			final String title = object.getTitle();
-			super.state(!antiSpam.isSpam(title), "title", "lecturer.Tutorial.form.error.spamTitle");
+			super.state(!antiSpam.isSpam(title), "title", "assistant.tutorial.form.error.spamTitle");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("summary")) {
@@ -100,7 +105,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 			super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+		if (!super.getBuffer().getErrors().hasErrors("estimatedTime"))
 			super.state(object.getEstimatedTime() > 0 && object.getEstimatedTime() < 1000000, "estimatedTime", "assistant.tutorial.form.error.outOfRangeEstimatedTime");
 
 	}
@@ -114,13 +119,19 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 	@Override
 	public void unbind(final Tutorial object) {
+		Collection<Course> courses;
+		String assistant;
+		SelectChoices choices;
 		Tuple tuple;
-		final String assistantName = object.getAssistant().getUserAccount().getUsername();
-		final String courseTitle = object.getCourse().getTitle();
+
+		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+		assistant = object.getAssistant().getUserAccount().getUsername();
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
-		tuple.put("assistantName", assistantName);
-		tuple.put("courseTitle", courseTitle);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+		tuple.put("assistant", assistant);
 
 		super.getResponse().setData(tuple);
 	}

@@ -22,8 +22,9 @@
 	<acme:input-checkbox code = "assistant.tutorial.form.label.draftMode" path="draftMode" readonly="true"/>
 	<acme:input-money code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.assistant" path="assistantName"/>
-	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courseList}"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.assistant" path="assistant"/>
+
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	
 	
 	
@@ -35,6 +36,7 @@
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
-		</jstl:when>		
+		</jstl:when>
+				
 	</jstl:choose>
 </acme:form>

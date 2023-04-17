@@ -54,11 +54,14 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void load() {
 		Tutorial object;
 		Assistant assistant;
+		final Course course;
 
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
+		//course = new Course();
 		object = new Tutorial();
 		object.setDraftMode(true);
 		object.setAssistant(assistant);
+		//object.setCourse(course);
 
 		super.getBuffer().setData(object);
 	}
@@ -67,7 +70,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode", "course");
+		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
 	}
 
 	@Override
@@ -105,20 +108,26 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void unbind(final Tutorial object) {
-		Tuple tuple;
+		assert object != null;
+
 		Collection<Course> courses;
+		String assistant;
 		SelectChoices choices;
-		final String assistantName = object.getAssistant().getUserAccount().getUsername();
+		Tuple tuple;
 
-		courses = this.repository.findAllCourse().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
+		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
 		choices = SelectChoices.from(courses, "title", object.getCourse());
+		assistant = object.getAssistant().getUserAccount().getUsername();
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode", "course");
-		tuple.put("courseList", choices);
-		tuple.put("selectedCourse", choices.getSelected().getKey());
-		System.out.println(choices.getSelected().getLabel());
+		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+		tuple.put("assistant", assistant);
+
+		System.out.println(choices.getSelected());
 		System.out.println(choices.getSelected().getKey());
-		tuple.put("assistantName", assistantName);
+		System.out.println(choices.getSelected().getLabel());
+		System.out.println(tuple);
 
 		super.getResponse().setData(tuple);
 	}

@@ -23,7 +23,8 @@ assistant.tutorial.form.label.draftMode = Borrador:
 assistant.tutorial.form.label.courseTitle = Título del curso:
 assistant.tutorial.form.label.assistantName = Nombre de asistente:
 assistant.tutorial.form.label.courseList = Lista de cursos:
-
+assistant.tutorial.form.label.assistant = Asistente:
+assistant.tutorial.form.label.course = Curso:
 
 assistant.tutorial.form.button.update = Actualizar
 assistant.tutorial.form.button.delete = Borrar
