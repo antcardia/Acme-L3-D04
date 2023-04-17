@@ -52,7 +52,7 @@ public class AuthenticatedPracticaShowService extends AbstractService<Authentica
 		final String courseTitle = object.getCourse().getTitle();
 		final String companyName = object.getCompany().getUserAccount().getUsername();
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime");
+		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime");
 		tuple.put("courseTitle", courseTitle);
 		tuple.put("companyName", companyName);
 
