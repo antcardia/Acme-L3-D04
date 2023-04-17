@@ -68,7 +68,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "courseCode");
+		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "studentName", "courseTitle");
 	}
 
 	@Override
@@ -99,8 +99,11 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
-		final String courseCode = object.getCourse().getTitle();
-		tuple.put("courseCode", courseCode);
+
+		final String studentName = object.getStudent().getUserAccount().getUsername();
+		final String titleCourse = object.getCourse().getTitle();
+		tuple.put("studentName", studentName);
+		tuple.put("courseTitle", titleCourse);
 
 		super.getResponse().setData(tuple);
 	}

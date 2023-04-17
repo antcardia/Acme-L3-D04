@@ -15,7 +15,10 @@ package acme.features.student.activity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Nature;
 import acme.entities.enrolment.Activity;
+import acme.entities.enrolment.Enrolment;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -51,9 +54,10 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findActivityById(id);
+		object = this.repository.findActivityByIdFinalised(id);
 
 		super.getBuffer().setData(object);
+
 	}
 
 	@Override
@@ -61,6 +65,11 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		assert object != null;
 
 		super.bind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
+		final Integer enrolmentId = super.getRequest().getData("enrolment", int.class);
+		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
+		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		enrolment.setStudent(student);
+		object.setEnrolment(enrolment);
 	}
 
 	@Override
@@ -81,7 +90,13 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
+		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "startTime", "finishTime", "link");
+		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
+		tuple.put("atype", choices.getSelected().getKey());
+		tuple.put("activityType", choices);
+		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolment(), "code", object.getEnrolment());
+		tuple.put("enrolment", choicesE.getSelected().getKey());
+		tuple.put("enrolmentSelect", choicesE);
 
 		super.getResponse().setData(tuple);
 	}

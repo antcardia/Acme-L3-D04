@@ -21,7 +21,8 @@
 	<acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
 	<acme:input-double code="student.enrolment.form.label.workTime" path="workTime"/>
 	<acme:input-checkbox code="student.enrolment.form.label.draftMode" path="draftMode" readonly="true"/>
-	<acme:input-textbox code="student.enrolment.form.label.courseCode" path="courseCode"/>
+	<acme:input-textbox code="student.enrolment.form.label.studentName" path="studentName" readonly="true"/>
+	<acme:input-textbox code="student.enrolment.form.label.courseTitle" path="courseTitle" readonly="true"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>

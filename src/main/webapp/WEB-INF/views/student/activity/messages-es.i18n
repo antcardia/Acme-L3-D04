@@ -17,6 +17,7 @@ student.activity.form.label.workbookName=Cuaderno de Trabajo
 student.activity.form.label.atype=Tipo de actividad
 student.activity.form.label.startTime=Momento de inicio
 student.activity.form.label.finishTime=Momento de finalizacion
+student.activity.form.label.enrolment=Codigo del registro
 student.activity.form.label.link=Link
 student.activity.form.button.create = Crear
 student.activity.form.button.update = Actualizar

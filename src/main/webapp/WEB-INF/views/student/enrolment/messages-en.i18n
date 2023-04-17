@@ -16,7 +16,8 @@ student.enrolment.form.label.motivation=Motivation
 student.enrolment.form.label.goals=Goals
 student.enrolment.form.label.workTime=Work time
 student.enrolment.form.label.draftMode=Draft Mode
-student.enrolment.form.label.courseCode=Name of course
+student.enrolment.form.label.studentName=Name of student
+student.enrolment.form.label.courseTitle=Course title
 
 
 

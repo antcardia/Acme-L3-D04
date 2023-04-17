@@ -19,9 +19,10 @@
 	<acme:input-textbox code="student.activity.form.label.tittle" path="tittle"/>	
 	<acme:input-textarea code="student.activity.form.label.abstract$" path="abstract$"/>
 	<acme:input-textbox code="student.activity.form.label.workbookName" path="workbookName"/>
-	<acme:input-textbox code="student.activity.form.label.atype" path="atype"/>
+	<acme:input-select code="student.activity.form.label.atype" path="atype" choices="${activityType}"/>
 	<acme:input-moment code="student.activity.form.label.startTime" path="startTime"/>
 	<acme:input-moment code="student.activity.form.label.finishTime" path="finishTime"/>
+	<acme:input-select code="student.activity.form.label.enrolment" path="enrolment" choices="${enrolmentSelect}"/>
 	<acme:input-url code="student.activity.form.label.link" path="link"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
