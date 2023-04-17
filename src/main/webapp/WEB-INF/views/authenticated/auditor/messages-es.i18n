@@ -4,3 +4,4 @@ authenticated.auditor.form.label.certifications = Certificaciones
 authenticated.auditor.form.label.link = Enlace
 
 authenticated.auditor.form.button.create = Registrarse
+authenticated.auditor.form.button.update = Actualizar

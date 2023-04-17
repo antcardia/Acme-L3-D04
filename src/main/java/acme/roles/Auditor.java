@@ -1,17 +1,12 @@
 
 package acme.roles;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.audits.Audit;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,9 +36,4 @@ public class Auditor extends AbstractRole {
 
 	@URL
 	protected String			furtherInformation;
-
-	// Relationships ----------------------------------------------------------
-	@Valid
-	@OneToMany(mappedBy = "auditor")
-	protected List<Audit>		audits;
 }

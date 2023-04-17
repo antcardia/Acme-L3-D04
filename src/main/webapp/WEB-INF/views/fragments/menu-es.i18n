@@ -90,6 +90,7 @@ master.menu.lecturer.my-dashboard = Mi panel
 master.menu.lecturer = Profesor
 
 master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor
 
 # Peeps ####################################################
 master.menu.peep.list=Comentarios
