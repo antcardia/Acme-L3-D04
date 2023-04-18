@@ -1,45 +1,49 @@
 
-package acme.features.authenticated.audit;
+package acme.features.auditor.audit;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audits.Audit;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Auditor;
 
 @Service
-public class AuthenticatedAuditListService extends AbstractService<Authenticated, Audit> {
+public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAuditRepository repository;
+	protected AuditorAuditRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		final boolean status = super.getRequest().hasData("courseId", int.class);
+		final boolean status = true;
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		final boolean status = super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		final boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Audit> objects;
-		final int id = super.getRequest().getData("courseId", int.class);
+		List<Audit> objects;
+		int auditorId;
 
-		objects = this.repository.findAllPublishedAuditsByCourseId(id);
-
+		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findAllAuditsByAuditorId(auditorId);
 		super.getBuffer().setData(objects);
 	}
 
@@ -50,8 +54,11 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "conclusion");
-		tuple.put("auditor", object.getAuditor().getIdentity().getFullName());
+		tuple.put("courseCode", object.getCourse().getCode());
+		tuple.put("course", object.getCourse().getTitle());
+		tuple.put("draft", object.getDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
+
 }

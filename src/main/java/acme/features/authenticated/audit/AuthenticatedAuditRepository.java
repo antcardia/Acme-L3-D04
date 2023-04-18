@@ -13,13 +13,13 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedAuditRepository extends AbstractRepository {
 
-	@Query("select audit from Audit audit where audit.course.id = :courseId")
-	List<Audit> findAllAuditsByCourseId(int courseId);
+	@Query("select audit from Audit audit where audit.draftMode = false and audit.course.id = :courseId")
+	List<Audit> findAllPublishedAuditsByCourseId(int courseId);
 
 	@Query("select audit from Audit audit where audit.id = :id")
 	Audit findAuditById(int id);
 
-	@Query("select ar.mark from AuditRecord ar where ar.audit.id = :id")
-	List<Mark> findAllMarksByAuditId(int id);
+	@Query("select ar.mark from AuditRecord ar where ar.draftMode = false and ar.audit.id = :id")
+	List<Mark> findAllPublishedMarksByAuditId(int id);
 
 }

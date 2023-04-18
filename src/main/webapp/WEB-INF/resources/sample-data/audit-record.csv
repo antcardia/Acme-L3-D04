@@ -1,11 +1,11 @@
-key,key:audit,subject,assesment,period-start,period-end,mark,link
-audit-record-01,audit-01,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,APLUS,null
-audit-record-02,audit-02,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,A,null
-audit-record-03,audit-03,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,B,null
-audit-record-04,audit-04,"subject ej","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,C,null
-audit-record-05,audit-05,"subject ej","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,A,null
-audit-record-06,audit-06,"subject ej","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,F,"https://es.wikipedia.org/wiki/Trollface"
-audit-record-07,audit-07,"subject ej","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,D,"https://es.wikipedia.org/wiki/Trollface"
-audit-record-08,audit-08,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,FMINUS,"https://es.wikipedia.org/wiki/Trollface"
-audit-record-09,audit-09,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,B,null
-audit-record-10,audit-10,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,C,null
+key,key:audit,subject,assesment,period-start,period-end,mark,link,draft-mode
+audit-record-01,audit-01,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,APLUS,null,false
+audit-record-02,audit-02,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,A,null,false
+audit-record-03,audit-03,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,B,null,true
+audit-record-04,audit-04,"subject ej","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,C,null,true
+audit-record-05,audit-05,"subject ej","100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts",2021/03/12 00:00,2021/03/12 00:30,A,null,false
+audit-record-06,audit-06,"subject ej","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,F,"https://es.wikipedia.org/wiki/Trollface",false
+audit-record-07,audit-07,"subject ej","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,D,"https://es.wikipedia.org/wiki/Trollface",true
+audit-record-08,audit-08,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,FMINUS,"https://es.wikipedia.org/wiki/Trollface",false
+audit-record-09,audit-09,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,B,null,false
+audit-record-10,audit-10,"75 caracteres75 caracteres75 caracteres75 caracteres75 caracteres75 caracte","Standard assesment",2021/03/12 00:00,2021/03/12 00:30,C,null,false
