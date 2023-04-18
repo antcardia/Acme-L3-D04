@@ -31,6 +31,7 @@ master.menu.anonymous.all-courses = List courses
 master.menu.authenticated = Authenticated
 
 master.menu.authenticated.tutorials = List tutorials
+master.menu.authenticated.practicum = List practicas
 master.menu.authenticated.note.list = List notes
 master.menu.authenticated.bulletin = List Bulletin
 master.menu.authenticated.offer.list = List Offer
@@ -67,6 +68,7 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.student = Student
 master.menu.student.my-courses = My courses
 master.menu.student.my-enrolments = My enrolments
+master.menu.student.my-workbooks = My workbooks
 
 # master.menu.assistant ##########################################################
 
@@ -97,6 +99,7 @@ master.menu.lecturer.my-dashboard = My dashboard
 master.menu.lecturer = Lecturer
 
 master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
 
 # Peeps ####################################################
 master.menu.peep.list=Peeps

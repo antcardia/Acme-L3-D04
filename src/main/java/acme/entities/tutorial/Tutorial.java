@@ -51,6 +51,7 @@ public class Tutorial extends AbstractEntity {
 	@NotNull
 	protected boolean			draftMode;
 
+	@NotNull
 	@ManyToOne(optional = false)
 	@Valid
 	protected Course			course;

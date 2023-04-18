@@ -1,0 +1,8 @@
+audit.label.code = Audit Code
+audit.label.conclusion = Conclusion
+audit.label.strongPoints = Strong Points
+audit.label.weakPoints = Weak Points
+audit.label.auditorName = Auditor Full Name
+audit.label.courseName = Course
+audit.label.courseLecturer = Lecturer
+audit.label.marks = Marks

@@ -8,14 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.course.list.label.title = Título:
-any.course.list.label.retailPrice = Precio de venta al público:
-
-any.course.form.label.code = Código:
-any.course.form.label.title = Título:
-any.course.form.label.abstract$ = Resumen:
-any.course.form.label.draftMode = Modo edición:
-any.course.form.label.retailPrice = Precio de venta al público:
-any.course.form.label.furtherInformation = Más información:
-
-lecturer.course.button.audits = Auditorías del curso
+authenticated.practicum.list.label.code=Código
+authenticated.practicum.list.label.title=Título
+authenticated.practicum.form.label.abstract$=Resumen
+authenticated.practicum.form.label.goals=Objetivos
+authenticated.practicum.form.label.estimatedTotalTime=Tiempo estimado total
+authenticated.practicum.form.label.course=Curso
+authenticated.practicum.form.label.company=Compañía

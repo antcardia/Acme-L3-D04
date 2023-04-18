@@ -17,3 +17,5 @@ any.course.form.label.abstract$ = Abstract:
 any.course.form.label.draftMode = Draft mode:
 any.course.form.label.retailPrice = Retail price:
 any.course.form.label.furtherInformation = Further information:
+
+lecturer.course.button.audits = Audits of the course

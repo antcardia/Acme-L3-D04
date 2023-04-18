@@ -22,4 +22,5 @@
 	<acme:input-checkbox code="any.course.form.label.draftMode" path="draftMode" readonly="true"/>	
 	<acme:input-money code="any.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-url code="any.course.form.label.furtherInformation" path="furtherInformation"/>
+	<acme:button test="${_command != 'create' && draftMode == false && authenticated}" code="lecturer.course.button.audits" action="/authenticated/audit/list?courseId=${id}"/>
 </acme:form>
