@@ -68,6 +68,10 @@ master.menu.student.my-courses = Mis cursos
 master.menu.student.my-enrolments = Mis registros
 master.menu.student.my-workbooks = Mis libros de trabajo
 
+# master.menu.auditor ####################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audits = Mis auditorías
 
 # master.menu.user-account ####################################################
 

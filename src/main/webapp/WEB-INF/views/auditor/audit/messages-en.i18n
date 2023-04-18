@@ -1,0 +1,21 @@
+auditor.audit.label.code = Audit Code
+auditor.audit.label.conclusion = Conclusion
+auditor.audit.label.course = Course
+auditor.audit.label.courseCode = Course Code
+auditor.audit.label.draft = Draft
+auditor.audit.label.lecturer = Lecturer
+auditor.audit.label.strongPoints = Strong Points
+auditor.audit.label.weakPoints = Weak Points
+auditor.audit.label.marks = Marks
+
+auditor.audit.error.code.duplicated = Audit code already exists
+auditor.audit.error.course.draft = This course has not been published
+
+auditor.audit.form.button.update = Update
+auditor.audit.form.button.delete = Delete
+auditor.audit.form.button.publish = Publish
+auditor.audit.form.button.create = Create
+
+auditor.audit.form.error.spamconclusion = Conclusion contains spam banned words
+auditor.audit.form.error.spamstrongpoints = Strong points contains spam banned words
+auditor.audit.form.error.spamweakpoints = Weak points contains spam banned words
