@@ -30,8 +30,8 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 	@Override
 	public void load() {
-		Collection<Activity> objects;
-		objects = this.repository.findAllActivity();
+		final Collection<Activity> objects;
+		objects = this.repository.findActivityByStudentId(super.getRequest().getPrincipal().getActiveRoleId());
 
 		super.getBuffer().setData(objects);
 	}

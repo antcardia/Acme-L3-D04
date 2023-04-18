@@ -35,6 +35,7 @@ public class Student extends AbstractRole {
 
 	@URL
 	protected String			optionalLink;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

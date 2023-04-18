@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolment.Enrolment;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -21,13 +22,27 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	@Override
 	public void check() {
 
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Enrolment enrolment;
+		Student student;
+
+		masterId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(masterId);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -48,13 +63,15 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "lowFourNibbleCreditCard", "holderName");
 
-		final String studentName = object.getStudent().getUserAccount().getUsername();
-		final String titleCourse = object.getCourse().getTitle();
-		tuple.put("studentName", studentName);
-		tuple.put("courseTitle", titleCourse);
+		final Student student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 
+		tuple.put("student", student.getUserAccount().getUsername());
+		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllCourse(), "code", object.getCourse());
+		tuple.put("course", choicesE.getSelected().getKey());
+		tuple.put("courseSelect", choicesE);
+		tuple.put("readonly", !object.isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 }

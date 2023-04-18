@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
 import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
@@ -63,7 +64,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "draftMode", "retailPrice", "furtherInformation");
-
+		tuple.put("authenticated", super.getRequest().getPrincipal().hasRole(Authenticated.class));
 		super.getResponse().setData(tuple);
 	}
 
