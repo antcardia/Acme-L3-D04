@@ -42,6 +42,11 @@ public class Enrolment extends AbstractEntity {
 
 	protected boolean			draftMode;
 
+	protected Integer			lowFourNibbleCreditCard;
+
+	@NotBlank
+	protected String			holderName;
+
 	@NotNull
 	@Valid
 	@ManyToOne

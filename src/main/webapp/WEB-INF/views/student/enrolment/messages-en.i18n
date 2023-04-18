@@ -17,12 +17,14 @@ student.enrolment.form.label.goals=Goals
 student.enrolment.form.label.workTime=Work time
 student.enrolment.form.label.draftMode=Draft Mode
 student.enrolment.form.label.course= Course name
-
+student.enrolment.form.label.lowFourNibbleCreditCard = Low four nibble credit card
+student.enrolment.form.label.holderName = Holder name
 
 
 student.enrolment.form.button.create = Create
 student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
+student.enrolment.form.button.publish = Publish
 
 student.enrolment.form.error.workTime = Must be greater than 0
 student.enrolment.form.error.spamTitle= Spam motivation detected
