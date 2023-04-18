@@ -93,6 +93,7 @@ master.menu.lecturer.my-dashboard = My dashboard
 master.menu.lecturer = Lecturer
 
 master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
 
 # Peeps ####################################################
 master.menu.peep.list=Peeps
