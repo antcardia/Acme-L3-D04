@@ -74,7 +74,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 		Collection<SessionPracticum> sessions;
 
-		sessions = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
+		sessions = this.repository.findManySessionPracticumByPracticumId(object.getId());
 		this.repository.deleteAll(sessions);
 		this.repository.delete(object);
 	}
