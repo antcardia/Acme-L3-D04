@@ -52,14 +52,11 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void load() {
 		Tutorial object;
 		Assistant assistant;
-		final Course course;
 
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-		//course = new Course();
 		object = new Tutorial();
 		object.setDraftMode(true);
 		object.setAssistant(assistant);
-		//object.setCourse(course);
 
 		super.getBuffer().setData(object);
 	}
@@ -94,10 +91,11 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Tutorial existing;
-
+			final Tutorial tutorial = this.repository.findOneTutorialById(object.getId());
 			existing = this.repository.findOneTutorialByCode(object.getCode());
-			super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
+			super.state(existing == null || tutorial.equals(existing), "code", "lecturer.course.form.error.duplicated");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("estimatedTime"))
 			super.state(object.getEstimatedTime() > 0 && object.getEstimatedTime() < 1000000, "estimatedTime", "assistant.tutorial.form.error.outOfRangeRetailPrice");
 	}
