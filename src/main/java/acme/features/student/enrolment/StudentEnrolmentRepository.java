@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.courses.Course;
 import acme.entities.enrolment.Enrolment;
+import acme.entities.system.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
@@ -29,4 +30,18 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("select e from Enrolment e where e.code = :code")
 	Enrolment findOneEnrolmentByCode(String code);
 
+	@Query("select c from Course c inner join Enrolment e on e.course = c where e.id = :id")
+	Course findCourseByEnrolmentId(Integer id);
+
+	@Query("select c from Course c where c.draftMode = false")
+	List<Course> findAllCourse();
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
+
+	@Query("select c from Course c where c.id = :courseId")
+	Course findCourseById(int courseId);
+
+	@Query("select c from Course c where c.code = :code")
+	Course findOneCourseByCode(String code);
 }

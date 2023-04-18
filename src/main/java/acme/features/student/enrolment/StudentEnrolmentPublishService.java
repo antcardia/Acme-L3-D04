@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderUpdateService.java
+ * EmployerJobPublishService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -25,30 +25,15 @@ import acme.roles.Student;
 import antiSpamFilter.AntiSpamFilter;
 
 @Service
-public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentPublishService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------ç
+	// AbstractService interface ----------------------------------------------
 
-
-	@Override
-	public void authorise() {
-		boolean status;
-		int masterId;
-		Enrolment enrolment;
-		Student student;
-
-		masterId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentById(masterId);
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
-
-		super.getResponse().setAuthorised(status);
-	}
 
 	@Override
 	public void check() {
@@ -60,14 +45,27 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	}
 
 	@Override
+	public void authorise() {
+		boolean status;
+		int courseId;
+		Enrolment enrolment;
+		Student student;
+
+		courseId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(courseId);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+
+		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
 	public void load() {
 		Enrolment object;
-		object = new Enrolment();
-		object.setDraftMode(true);
-		final Student student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
-		final Course course = this.repository.findCourseByEnrolmentId(object.getId());
-		object.setCourse(course);
-		object.setStudent(student);
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -87,7 +85,6 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-
 		final SystemConfiguration config = this.repository.findSystemConfiguration();
 		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
 
@@ -108,20 +105,18 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 			final String goals = object.getGoals();
 			super.state(!antiSpam.isSpam(goals), "goals", "student.enrolment.form.error.spamTitle2");
 		}
-
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
-		assert object != null;
-
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "lowFourNibbleCreditCard", "holderName");
@@ -133,4 +128,5 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		tuple.put("courseSelect", choicesE);
 		super.getResponse().setData(tuple);
 	}
+
 }
