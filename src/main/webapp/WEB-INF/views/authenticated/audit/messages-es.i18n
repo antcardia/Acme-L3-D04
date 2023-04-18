@@ -1,0 +1,8 @@
+audit.label.code = Código de Auditoría
+audit.label.conclusion = Conclusión
+audit.label.strongPoints = Fortalezas
+audit.label.weakPoints = Debilidades
+audit.label.auditorName = Nombre del Auditor
+audit.label.courseName = Curso
+audit.label.courseLecturer = Profesor
+audit.label.marks = Calificaciones
