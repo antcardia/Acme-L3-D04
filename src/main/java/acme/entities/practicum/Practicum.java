@@ -14,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,4 +59,9 @@ public class Practicum extends AbstractEntity {
 	@NotNull
 	@Valid
 	protected Course			course;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Company			company;
 }
