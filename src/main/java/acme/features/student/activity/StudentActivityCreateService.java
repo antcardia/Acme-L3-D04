@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AdministratorCompanyCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,35 +10,30 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.course;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.enrolment.Activity;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class AnyCourseShowService extends AbstractService<Any, Course> {
+public class StudentActivityCreateService extends AbstractService<Student, Activity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected StudentActivityRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -48,23 +43,40 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 	@Override
 	public void load() {
-		Course object;
-		int id;
+		Activity object;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		object = new Activity();
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void bind(final Activity object) {
+		assert object != null;
+
+		super.bind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
+	}
+
+	@Override
+	public void validate(final Activity object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Activity object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final Activity object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "draftMode", "retailPrice", "furtherInformation");
-		tuple.put("authenticated", super.getRequest().getPrincipal().hasRole(Authenticated.class));
+		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
+
 		super.getResponse().setData(tuple);
 	}
 

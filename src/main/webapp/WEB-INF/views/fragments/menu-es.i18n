@@ -29,6 +29,7 @@ master.menu.anonymous.all-courses = Ver cursos
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autenticado
+master.menu.authenticated.practicum = Ver prácticas
 master.menu.authenticated.note.list = Ver notas
 master.menu.authenticated.bulletin = Ver boletín
 master.menu.authenticated.offer.list = Ver ofertas
@@ -65,6 +66,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.student = Estudiante
 master.menu.student.my-courses = Mis cursos
 master.menu.student.my-enrolments = Mis registros
+master.menu.student.my-workbooks = Mis libros de trabajo
+
 
 # master.menu.user-account ####################################################
 
@@ -88,6 +91,7 @@ master.menu.lecturer.my-dashboard = Mi panel
 master.menu.lecturer = Profesor
 
 master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor
 
 # Peeps ####################################################
 master.menu.peep.list=Comentarios
