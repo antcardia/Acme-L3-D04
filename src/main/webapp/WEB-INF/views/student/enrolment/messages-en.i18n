@@ -16,8 +16,7 @@ student.enrolment.form.label.motivation=Motivation
 student.enrolment.form.label.goals=Goals
 student.enrolment.form.label.workTime=Work time
 student.enrolment.form.label.draftMode=Draft Mode
-student.enrolment.form.label.studentName=Name of student
-student.enrolment.form.label.courseTitle=Course title
+student.enrolment.form.label.course= Course name
 
 
 
@@ -26,3 +25,6 @@ student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
 
 student.enrolment.form.error.workTime = Must be greater than 0
+student.enrolment.form.error.spamTitle= Spam motivation detected
+student.enrolment.form.error.spamTitle2 = Spam goals detected
+student.enrolment.form.error.duplicated =Not support duplicated

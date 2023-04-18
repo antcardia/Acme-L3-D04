@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.enrolment.Activity;
-import acme.entities.enrolment.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -45,7 +44,13 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Activity object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findActivityById(id);
+		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		super.getResponse().setAuthorised(object.getEnrolment().getStudent().equals(student) && object.getEnrolment().equals(false));
 	}
 
 	@Override
@@ -54,7 +59,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findActivityByIdFinalised(id);
+		object = this.repository.findActivityById(id);
 
 		super.getBuffer().setData(object);
 
@@ -65,11 +70,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 		assert object != null;
 
 		super.bind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
-		final Integer enrolmentId = super.getRequest().getData("enrolment", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
-		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
-		enrolment.setStudent(student);
-		object.setEnrolment(enrolment);
+
 	}
 
 	@Override
