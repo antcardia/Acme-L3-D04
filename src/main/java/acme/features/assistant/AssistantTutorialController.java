@@ -49,6 +49,7 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 
 	@PostConstruct
 	protected void initialise() {
+
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
