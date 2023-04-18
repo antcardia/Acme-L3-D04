@@ -12,9 +12,13 @@
 
 package acme.features.assistant;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
+import acme.entities.tutorial.Session;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -69,8 +73,13 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
+		Course course;
+		final int courseId = super.getRequest().getData("course", int.class);
+
+		course = this.repository.findCourseById(courseId);
 
 		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		object.setCourse(course);
 	}
 
 	@Override
@@ -81,6 +90,11 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	@Override
 	public void perform(final Tutorial object) {
 		assert object != null;
+
+		final Collection<Session> sessions = this.repository.findManySessionsByTutorialId(object.getId());
+
+		for (final Session s : sessions)
+			this.repository.delete(s);
 
 		this.repository.delete(object);
 	}

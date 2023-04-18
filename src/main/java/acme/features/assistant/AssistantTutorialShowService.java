@@ -79,7 +79,7 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		Tuple tuple;
 
 		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		assistant = object.getAssistant().getUserAccount().getUsername();
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");

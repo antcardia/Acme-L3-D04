@@ -78,8 +78,13 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
+		Course course;
+		final int courseId = super.getRequest().getData("course", int.class);
+
+		course = this.repository.findCourseById(courseId);
 
 		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		object.setCourse(course);
 	}
 
 	@Override
@@ -101,8 +106,8 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Tutorial existing;
 
-			existing = this.repository.findOneTutorialByCode(object.getCode());
-			super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
+			//existing = this.repository.findOneTutorialByCode(object.getCode());
+			//super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("estimatedTime"))
@@ -125,7 +130,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		Tuple tuple;
 
 		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		assistant = object.getAssistant().getUserAccount().getUsername();
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");

@@ -23,8 +23,6 @@ import acme.entities.system.SystemConfiguration;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 import antiSpamFilter.AntiSpamFilter;
@@ -69,8 +67,13 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
+		Course course;
+		final int courseId = super.getRequest().getData("course", int.class);
+
+		course = this.repository.findCourseById(courseId);
 
 		super.bind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
+		object.setCourse(course);
 	}
 
 	@Override
@@ -116,7 +119,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		Tuple tuple;
 
 		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		assistant = object.getAssistant().getUserAccount().getUsername();
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "estimatedTime", "draftMode");
@@ -130,12 +133,6 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		System.out.println(tuple);
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }
