@@ -19,6 +19,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.Statistic;
 import acme.datatypes.Nature;
 import acme.forms.LecturerDashboard;
 import acme.framework.components.models.Tuple;
@@ -63,10 +64,14 @@ public class LecturerLecturerDashboardShowService extends AbstractService<Lectur
 		dashboard.setMaximumLearningTimeOfLectures(maxLearningTimeLectures);
 
 		final Collection<Double> courseEstimatedLearningTime = this.repository.findManyEstimatedLearningTimeByCourse(lecturer);
-		dashboard.averageCalc(courseEstimatedLearningTime);
-		dashboard.deviationCalc(courseEstimatedLearningTime);
-		dashboard.minimumCalc(courseEstimatedLearningTime);
-		dashboard.maximumCalc(courseEstimatedLearningTime);
+		final Double average = Statistic.averageCalc(courseEstimatedLearningTime);
+		final Double deviation = Statistic.deviationCalc(courseEstimatedLearningTime, average);
+		final Double minimum = Statistic.minimumCalc(courseEstimatedLearningTime);
+		final Double maximum = Statistic.maximumCalc(courseEstimatedLearningTime);
+		dashboard.setAverageLearningTimeOfCourses(average);
+		dashboard.setDeviationLearningTimeOfCourses(deviation);
+		dashboard.setMinimumLearningTimeOfCourses(minimum);
+		dashboard.setMaximumLearningTimeOfCourses(maximum);
 
 		final Map<String, Integer> lecturesByType = new HashMap<String, Integer>();
 		final Integer handsOnLectures = this.repository.totalLecturesByType(lecturer, Nature.HANDS_ON).orElse(0);
