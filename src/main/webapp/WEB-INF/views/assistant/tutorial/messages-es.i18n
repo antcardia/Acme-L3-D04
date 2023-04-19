@@ -8,31 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-assistant.tutorial.list.label.title = Title
-assistant.tutorial.list.label.estimatedTime = Estimated Time
+assistant.session.list.label.title = Título
+assistant.session.list.label.sessionType = Tipo de sesión:
 
-assistant.tutorial.list.button.create = Create
+assistant.session.list.button.create = Crear
 
 
-assistant.tutorial.form.label.code = Código:
-assistant.tutorial.form.label.title = Titulo:
-assistant.tutorial.form.label.summary = Resumen:
-assistant.tutorial.form.label.estimatedTime = Tiempo estimado:
-assistant.tutorial.form.label.goals = Objetivos:
-assistant.tutorial.form.label.draftMode = Borrador:
-assistant.tutorial.form.label.courseTitle = Título del curso:
-assistant.tutorial.form.label.assistantName = Nombre de asistente:
-assistant.tutorial.form.label.courseList = Lista de cursos:
-assistant.tutorial.form.label.assistant = Asistente:
-assistant.tutorial.form.label.course = Curso:
+assistant.session.form.label.title = Título:
+assistant.session.form.label.summary = Resumen:
+assistant.session.form.label.sessionType = Tipo de sesión:
+assistant.session.form.label.start = Comienzo:
+assistant.session.form.label.end = Fin:
+assistant.session.form.label.furtherInformation = Más información:
+assistant.session.form.label.tutorial = Tutorial:
+assistant.session.form.label.assistant = Asistente:
 
-assistant.tutorial.form.button.update = Actualizar
-assistant.tutorial.form.button.delete = Borrar
-assistant.tutorial.form.button.publish = Publicar
-assistant.tutorial.form.button.create = Crear
+assistant.session.form.button.update = Actualizar
+assistant.session.form.button.delete = Borrar
+assistant.session.form.button.create = Crear
 
-assistant.tutorial.form.error.duplicated = Este código ya está siendo utilizado
-assistant.tutorial.form.error.spamTitle = Este título contiene spam
-assistant.tutorial.form.error.spamSummary = El resumen contiene spam
-assistant.tutorial.form.error.outOfRangeEstimatedTime = El tiempo estimado está fuera de rango
-assistant.tutorial.form.error.tutorial-not-found = No se han encontrado tutoriales
+assistant.session.form.error.duplicated = El código está cogido
+assistant.session.form.error.spamTitle = El título contiene spam
+assistant.session.form.error.spamSummary = El resumen contiene spam

@@ -1,5 +1,5 @@
 
-package acme.features.assistant;
+package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

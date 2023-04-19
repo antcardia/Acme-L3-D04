@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderCreateService.java
+ * AuthenticatedProviderUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant;
+package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -23,40 +23,54 @@ import acme.entities.system.SystemConfiguration;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 import antiSpamFilter.AntiSpamFilter;
 
 @Service
-public class AssistantTutorialCreateService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
 
-	// AbstractService<Authenticated, Provider> ---------------------------
+	// AbstractService interface ----------------------------------------------ç
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Tutorial tutorial;
+		Assistant assistant;
+
+		masterId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialById(masterId);
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void load() {
 		Tutorial object;
-		Assistant assistant;
+		int id;
 
-		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Tutorial();
-		object.setDraftMode(true);
-		object.setAssistant(assistant);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTutorialById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -81,12 +95,12 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		if (!super.getBuffer().getErrors().hasErrors("title")) {
 			final String title = object.getTitle();
-			super.state(!antiSpam.isSpam(title), "title", "lecturer.course.form.error.spamTitle");
+			super.state(!antiSpam.isSpam(title), "title", "assistant.tutorial.form.error.spamTitle");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("abstract$")) {
+		if (!super.getBuffer().getErrors().hasErrors("summary")) {
 			final String summary = object.getSummary();
-			super.state(!antiSpam.isSpam(summary), "summary", "assistant.tutorial.form.error.spamAbstract");
+			super.state(!antiSpam.isSpam(summary), "summary", "assistant.tutorial.form.error.spamSummary");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -97,7 +111,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("estimatedTime"))
-			super.state(object.getEstimatedTime() > 0 && object.getEstimatedTime() < 1000000, "estimatedTime", "assistant.tutorial.form.error.outOfRangeRetailPrice");
+			super.state(object.getEstimatedTime() > 0 && object.getEstimatedTime() < 1000000, "estimatedTime", "assistant.tutorial.form.error.outOfRangeEstimatedTime");
+
 	}
 
 	@Override
@@ -109,8 +124,6 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void unbind(final Tutorial object) {
-		assert object != null;
-
 		Collection<Course> courses;
 		String assistant;
 		SelectChoices choices;
@@ -125,12 +138,13 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		tuple.put("courses", choices);
 		tuple.put("assistant", assistant);
 
-		System.out.println(choices.getSelected());
-		System.out.println(choices.getSelected().getKey());
-		System.out.println(choices.getSelected().getLabel());
-		System.out.println(tuple);
-
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
 	}
 
 }

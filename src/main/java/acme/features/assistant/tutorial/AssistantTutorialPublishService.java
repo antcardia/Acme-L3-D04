@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant;
+package acme.features.assistant.tutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +52,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		courseId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialById(courseId);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant) && !this.repository.findManySessionsByTutorialId(tutorial.getId()).isEmpty();
 
 		super.getResponse().setAuthorised(status);
 	}
