@@ -20,11 +20,11 @@ public class CompanySessionPracticumUpdateService extends AbstractService<Compan
 
 	// Constants --------------------------------------------------------------
 	protected static final String[]				PROPERTIES_BIND		= {
-		"title", "abstract$", "description", "startTime", "finishTime", "furtherInformation"
+		"title", "abstract$", "startTime", "finishTime", "furtherInformation"
 	};
 
 	protected static final String[]				PROPERTIES_UNBIND	= {
-		"title", "abstractSession", "description", "start", "end", "link", "additional", "confirmed"
+		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "confirmed"
 	};
 
 	public static final int						ONE_WEEK			= 1;

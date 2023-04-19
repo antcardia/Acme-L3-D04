@@ -16,7 +16,7 @@ public class CompanySessionPracticumShowService extends AbstractService<Company,
 
 	// Constants --------------------------------------------------------------
 	protected static final String[]				PROPERTIES	= {
-		"title", "abstract$", "description", "startTime", "finishTime", "furtherInformation", "additional", "confirmed"
+		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "confirmed"
 	};
 
 	// Internal state ---------------------------------------------------------
