@@ -85,21 +85,21 @@ public class CompanySessionPracticumUpdateService extends AbstractService<Compan
 	public void validate(final SessionPracticum sessionPracticum) {
 		assert sessionPracticum != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("start") || !super.getBuffer().getErrors().hasErrors("end")) {
-			Date start;
-			Date end;
+		if (!super.getBuffer().getErrors().hasErrors("startTime") || !super.getBuffer().getErrors().hasErrors("finishTime")) {
+			Date startTime;
+			Date finishTime;
 			Date inAWeekFromNow;
 			Date inAWeekFromStart;
 
-			start = sessionPracticum.getStartTime();
-			end = sessionPracticum.getFinishTime();
+			startTime = sessionPracticum.getStartTime();
+			finishTime = sessionPracticum.getFinishTime();
 			inAWeekFromNow = MomentHelper.deltaFromCurrentMoment(CompanySessionPracticumUpdateService.ONE_WEEK, ChronoUnit.WEEKS);
-			inAWeekFromStart = MomentHelper.deltaFromMoment(start, CompanySessionPracticumUpdateService.ONE_WEEK, ChronoUnit.WEEKS);
+			inAWeekFromStart = MomentHelper.deltaFromMoment(startTime, CompanySessionPracticumUpdateService.ONE_WEEK, ChronoUnit.WEEKS);
 
 			if (!super.getBuffer().getErrors().hasErrors("startTime"))
-				super.state(MomentHelper.isAfter(start, inAWeekFromNow), "startTime", "company.session-practicum.error.start-after-now");
+				super.state(MomentHelper.isAfter(startTime, inAWeekFromNow), "startTime", "company.session-practicum.error.start-after-now");
 			if (!super.getBuffer().getErrors().hasErrors("finishTime"))
-				super.state(MomentHelper.isAfter(end, inAWeekFromStart), "finishTime", "company.session-practicum.error.end-after-start");
+				super.state(MomentHelper.isAfter(finishTime, inAWeekFromStart), "finishTime", "company.session-practicum.error.end-after-start");
 		}
 	}
 

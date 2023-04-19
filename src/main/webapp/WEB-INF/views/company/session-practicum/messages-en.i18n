@@ -10,7 +10,7 @@
 
 # Messages for label in form
 company.session-practicum.form.label.title = Title
-company.session-practicum.form.label.abstract$ = Abstract
+company.session-practicum.form.label.abstract = Abstract
 company.session-practicum.form.label.startTime = Start Time
 company.session-practicum.form.label.finishTime = Finish Time
 company.session-practicum.form.label.furtherInformation = Further Information
@@ -38,4 +38,4 @@ company.session-practicum.list.button.create = Create
 
 # Messages for error in form
 company.session-practicum.error.start-after-now = The start date must be after today
-company.session-practicum.error.end-after-start = The end date must be after the start date
+company.session-practicum.error.end-after-start = The end date must be a week after the start date
