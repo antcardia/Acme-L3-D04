@@ -56,7 +56,7 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
 		tuple.put("atype", choices.getSelected().getKey());
 		tuple.put("activityType", choices);
-		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolment(), "code", object.getEnrolment());
+		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolmentByStudentId(super.getRequest().getPrincipal().getActiveRoleId()), "code", object.getEnrolment());
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 		tuple.put("enrolmentSelect", choicesE);
 
