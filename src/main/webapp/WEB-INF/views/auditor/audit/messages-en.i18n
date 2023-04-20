@@ -19,3 +19,7 @@ auditor.audit.form.button.create = Create
 auditor.audit.form.error.spamconclusion = Conclusion contains spam banned words
 auditor.audit.form.error.spamstrongpoints = Strong points contains spam banned words
 auditor.audit.form.error.spamweakpoints = Weak points contains spam banned words
+
+auditor.audit.form.button.auditrecords = Audit Records
+auditor.audit.form.button.addAuditrecord = Add new Audit Record
+auditor.audit.form.button.addCorrectionAuditRecord = Add a correction Audit Record

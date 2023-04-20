@@ -21,10 +21,17 @@
 			<acme:submit code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
 			<acme:submit code="auditor.audit.form.button.delete" action="/auditor/audit/delete"/>
 			<acme:submit code="auditor.audit.form.button.publish" action="/auditor/audit/publish"/>
+			<acme:button code="auditor.audit.form.button.addAuditrecord" action="/auditor/audit-record/create?auditId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${(_command == 'show') && draftMode==false}">
+			<acme:button code="auditor.audit.form.button.addCorrectionAuditRecord" action="/auditor/audit-record/correct?auditId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.audit.form.button.create" action="/auditor/audit/create"/>
 		</jstl:when>		
 	</jstl:choose>
+	<jstl:if test="${_command != 'create'}">
+			<acme:button code="auditor.audit.form.button.auditrecords" action="/auditor/audit-record/list?auditId=${id}"/>
+	</jstl:if>
 	
 </acme:form>
