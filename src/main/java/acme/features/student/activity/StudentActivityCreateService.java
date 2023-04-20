@@ -82,6 +82,9 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 			final String goals = object.getAbstract$();
 			super.state(!antiSpam.isSpam(goals), "abstract$", "student.activity.form.error.spamTitle3");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
+
 	}
 
 	@Override

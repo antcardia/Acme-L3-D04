@@ -22,3 +22,9 @@ student.activity.form.label.link=Link
 student.activity.form.button.create = Create
 student.activity.form.button.update = Update
 student.activity.form.button.delete = Delete
+
+
+student.enrolment.form.error.spamTitle= Spam title detected
+student.enrolment.form.error.spamTitle2 = Spam workbook name detected
+student.enrolment.form.error.spamTitle3 = Spam abstract detected
+student.activity.form.error.atype = Not can be balanced
