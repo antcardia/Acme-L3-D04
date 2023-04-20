@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.company;
+package acme.features.company.practicum;
 
 import javax.annotation.PostConstruct;
 

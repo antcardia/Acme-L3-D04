@@ -1,19 +1,17 @@
 
-package acme.features.authenticated.company;
-
-import java.util.Collection;
+package acme.features.company.practicum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicum.Practicum;
-import acme.entities.practicum.SessionPracticum;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumShowService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -26,7 +24,6 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void check() {
 		boolean status;
-
 		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
@@ -40,7 +37,6 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		practicum = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
 		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
-
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -53,30 +49,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		object = this.repository.findPracticumById(id);
 
 		super.getBuffer().setData(object);
-	}
 
-	@Override
-	public void bind(final Practicum object) {
-		assert object != null;
-
-		super.bind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime", "draftMode");
-	}
-
-	@Override
-	public void validate(final Practicum object) {
-		assert object != null;
-
-	}
-
-	@Override
-	public void perform(final Practicum object) {
-		assert object != null;
-
-		Collection<SessionPracticum> sessions;
-
-		sessions = this.repository.findManySessionPracticumByPracticumId(object.getId());
-		this.repository.deleteAll(sessions);
-		this.repository.delete(object);
 	}
 
 	@Override
@@ -84,8 +57,12 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		assert object != null;
 
 		Tuple tuple;
+		SelectChoices choices;
+		choices = SelectChoices.from(this.repository.findAllCourses(), "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime", "draftMode");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

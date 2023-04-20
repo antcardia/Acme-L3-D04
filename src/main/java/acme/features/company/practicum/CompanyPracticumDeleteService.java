@@ -1,20 +1,19 @@
 
-package acme.features.authenticated.company;
+package acme.features.company.practicum;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.practicum.Practicum;
-import acme.framework.components.jsp.SelectChoices;
+import acme.entities.practicum.SessionPracticum;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumUpdateService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -40,7 +39,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 		practicum = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
-		status = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -48,64 +47,47 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 	@Override
 	public void load() {
 		Practicum object;
-		int practicumId;
+		int id;
 
-		practicumId = super.getRequest().getData("id", int.class);
-		object = this.repository.findPracticumById(practicumId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findPracticumById(id);
+
 		super.getBuffer().setData(object);
 	}
+
 	@Override
 	public void bind(final Practicum object) {
 		assert object != null;
-		int courseId;
-		Course course;
 
 		super.bind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime", "draftMode");
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-		object.setCourse(course);
-
 	}
 
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Practicum existing;
-
-			existing = this.repository.findPracticumByCode(object.getCode());
-			super.state(existing == null || existing.getCode().equals(object.getCode()), "code", "company.practicum.error.code.duplicated");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
-			super.state(object.isDraftMode() == true, "draftMode", "company.practicum.error.draftMode.negative");
-
 	}
+
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
 
-		this.repository.save(object);
+		Collection<SessionPracticum> sessions;
+
+		sessions = this.repository.findManySessionPracticumByPracticumId(object.getId());
+		this.repository.deleteAll(sessions);
+		this.repository.delete(object);
 	}
+
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
 
 		Tuple tuple;
-		SelectChoices choices;
-		choices = SelectChoices.from(this.repository.findAllCourses(), "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime", "draftMode");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }

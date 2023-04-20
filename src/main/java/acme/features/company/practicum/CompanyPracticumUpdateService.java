@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.company;
+package acme.features.company.practicum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumCreateService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumUpdateService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -26,14 +26,21 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		Practicum practicum;
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		practicum = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
+
+		status = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -41,18 +48,12 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	@Override
 	public void load() {
 		Practicum object;
-		int userAccountId;
-		Company company;
+		int practicumId;
 
-		userAccountId = super.getRequest().getPrincipal().getActiveRoleId();
-		company = this.repository.findCompanyById(userAccountId);
-
-		object = new Practicum();
-		object.setCompany(company);
-		object.setDraftMode(true);
+		practicumId = super.getRequest().getData("id", int.class);
+		object = this.repository.findPracticumById(practicumId);
 		super.getBuffer().setData(object);
 	}
-
 	@Override
 	public void bind(final Practicum object) {
 		assert object != null;
@@ -74,18 +75,18 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 			Practicum existing;
 
 			existing = this.repository.findPracticumByCode(object.getCode());
-			super.state(existing == null, "code", "company.practicum.error.code.duplicated");
+			super.state(existing == null || existing.getCode().equals(object.getCode()), "code", "company.practicum.error.code.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
+			super.state(object.isDraftMode() == true, "draftMode", "company.practicum.error.draftMode.negative");
 
 	}
-
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
-
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;

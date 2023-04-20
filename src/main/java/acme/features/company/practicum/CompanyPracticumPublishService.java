@@ -1,17 +1,16 @@
 
-package acme.features.authenticated.company;
+package acme.features.company.practicum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicum.Practicum;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumShowService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumPublishService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -24,6 +23,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 	@Override
 	public void check() {
 		boolean status;
+
 		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
@@ -37,6 +37,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		practicum = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
 		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -49,7 +50,33 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		object = this.repository.findPracticumById(id);
 
 		super.getBuffer().setData(object);
+	}
 
+	@Override
+	public void bind(final Practicum object) {
+		assert object != null;
+
+		super.bind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime", "draftMode");
+	}
+
+	@Override
+	public void validate(final Practicum object) {
+		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Practicum existing;
+
+			existing = this.repository.findPracticumByCode(object.getCode());
+			super.state(existing == null || existing.getId() == object.getId(), "code", "company.practicum.error.code.duplicated");
+		}
+
+	}
+	@Override
+	public void perform(final Practicum object) {
+		assert object != null;
+
+		object.setDraftMode(false);
+
+		this.repository.save(object);
 	}
 
 	@Override
@@ -57,12 +84,8 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		assert object != null;
 
 		Tuple tuple;
-		SelectChoices choices;
-		choices = SelectChoices.from(this.repository.findAllCourses(), "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "estimatedTotalTime", "draftMode");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

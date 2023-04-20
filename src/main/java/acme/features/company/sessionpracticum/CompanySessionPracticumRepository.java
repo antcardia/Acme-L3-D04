@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.sessionpracticum;
+package acme.features.company.sessionpracticum;
 
 import java.util.Collection;
 
@@ -15,6 +15,9 @@ public interface CompanySessionPracticumRepository extends AbstractRepository {
 
 	@Query("select p from Practicum p where p.id = ?1")
 	Practicum findOnePracticumById(int practicumId);
+
+	@Query("select c from Practicum c")
+	Collection<Practicum> findManyPracticums();
 
 	@Query("select s from SessionPracticum s where s.id = ?1")
 	SessionPracticum findOneSessionPracticumById(int sessionPracticumId);

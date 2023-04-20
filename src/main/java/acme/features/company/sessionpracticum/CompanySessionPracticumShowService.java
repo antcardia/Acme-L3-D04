@@ -1,5 +1,7 @@
 
-package acme.features.authenticated.sessionpracticum;
+package acme.features.company.sessionpracticum;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,16 +9,17 @@ import org.springframework.stereotype.Service;
 import acme.entities.practicum.Practicum;
 import acme.entities.practicum.SessionPracticum;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanySessionPracticumDeleteService extends AbstractService<Company, SessionPracticum> {
+public class CompanySessionPracticumShowService extends AbstractService<Company, SessionPracticum> {
 
 	// Constants --------------------------------------------------------------
 	protected static final String[]				PROPERTIES	= {
-		"title", "abstract$", "description", "startTime", "finishTime", "furtherInformation"
+		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "draftMode"
 	};
 
 	// Internal state ---------------------------------------------------------
@@ -39,24 +42,15 @@ public class CompanySessionPracticumDeleteService extends AbstractService<Compan
 		boolean status;
 		int sessionPracticumId;
 		SessionPracticum sessionPracticum;
-		Principal principal;
 		Practicum practicum;
-		Boolean isDraftMode;
-		Boolean isAdditional;
+		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
 		sessionPracticumId = super.getRequest().getData("id", int.class);
 		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
-		status = false;
+		practicum = this.repository.findOnePracticumBySessionPracticumId(sessionPracticumId);
 
-		if (sessionPracticum != null) {
-			practicum = sessionPracticum.getPracticum();
-
-			isDraftMode = practicum.isDraftMode();
-			isAdditional = !sessionPracticum.isDraftMode() && !isDraftMode;
-
-			status = (isDraftMode || isAdditional) && principal.hasRole(practicum.getCompany());
-		}
+		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.isDraftMode() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -73,35 +67,22 @@ public class CompanySessionPracticumDeleteService extends AbstractService<Compan
 	}
 
 	@Override
-	public void bind(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
-
-		super.bind(sessionPracticum, CompanySessionPracticumDeleteService.PROPERTIES);
-	}
-
-	@Override
-	public void validate(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
-	}
-
-	@Override
-	public void perform(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
-
-		this.repository.delete(sessionPracticum);
-	}
-
-	@Override
 	public void unbind(final SessionPracticum sessionPracticum) {
 		assert sessionPracticum != null;
 
 		Practicum practicum;
 		Tuple tuple;
 
+		final Collection<Practicum> practicums = this.repository.findManyPracticums();
+
 		practicum = sessionPracticum.getPracticum();
 		tuple = super.unbind(sessionPracticum, CompanySessionPracticumUpdateService.PROPERTIES_UNBIND);
 		tuple.put("masterId", practicum.getId());
 		tuple.put("draftMode", practicum.isDraftMode());
+
+		final SelectChoices choices = SelectChoices.from(practicums, "code", sessionPracticum.getPracticum());
+		tuple.put("practicum", choices.getSelected().getKey());
+		tuple.put("practicums", choices);
 
 		super.getResponse().setData(tuple);
 	}

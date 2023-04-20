@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.sessionpracticum;
+package acme.features.company.sessionpracticum;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
