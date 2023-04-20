@@ -49,6 +49,10 @@ public class SessionPracticum extends AbstractEntity {
 	@URL
 	protected String			furtherInformation;
 
+	private boolean				additional;
+
+	private boolean				draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

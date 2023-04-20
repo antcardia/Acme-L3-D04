@@ -51,6 +51,9 @@ public class Practicum extends AbstractEntity {
 	// haga un cálculo del tiempo total con todas las sesiones +/- 10%
 	protected Integer			estimatedTotalTime;
 
+	@NotNull
+	protected boolean			draftMode;
+
 	// Derived attributes ----------------------------------------------------
 
 	// Relationships ---------------------------------------------------------
@@ -64,4 +67,5 @@ public class Practicum extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Company			company;
+
 }

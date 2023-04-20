@@ -50,6 +50,8 @@ master.menu.administrator.offer.list = Lista de ofertas
 # master.menu.company ########################################################
 master.menu.company = Compañía
 master.menu.company.user-accounts = Perfil
+master.menu.company.practicum = Mis prácticas
+master.menu.company.session-practicum = Mis sesiones
 
 # master.menu.provider ########################################################
 

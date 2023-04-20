@@ -1,0 +1,12 @@
+
+company.practicum.list.label.code = Código
+company.practicum.list.label.title = Titulo
+company.practicum.list.label.abstract$ = Resumen
+company.practicum.list.label.estimatedTotalTime = Tiempo Total Estimado
+company.practicum.list.label.goals = Metas
+company.practicum.error.code.duplicated = Error, codigo de la práctica duplicado 
+company.practicum.list.label.draftMode = Borrador
+company.practicum.button.create= Crear prática
+company.practicum.button.update= Actualizar
+company.practicum.button.delete= Borrar
+company.practicum.button.publish= Publicar

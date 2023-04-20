@@ -1,0 +1,40 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# Messages for label in form
+company.session-practicum.form.label.title = Título
+company.session-practicum.form.label.abstract = Resumen
+company.session-practicum.form.label.startTime = Fecha de inicio
+company.session-practicum.form.label.finishTime = Fecha de fin
+company.session-practicum.form.label.furtherInformation = Enlace
+
+# Messages for button in form
+company.session-practicum.form.button.create = Crear
+company.session-practicum.form.button.update = Actualizar
+company.session-practicum.form.button.delete = Eliminar
+company.session-practicum.form.button.draftMode = Draft Mode
+
+# Messages for label in list
+company.session-practicum.list.label.title = Título
+company.session-practicum.list.label.abstract = Resumen
+company.session-practicum.list.label.finishTime = Fecha de fin
+company.session-practicum.list.label.startTime = Fecha de inicio
+company.session-practicum.list.label.additional = Adicional
+company.session-practicum.list.label.draftMode = Draft Mode
+company.session-practicum.list.label.yes = Si
+company.session-practicum.list.label.no = No
+company.session-practicum.list.label.exact-duration = Duración exacta
+
+# Messages for button in list
+company.session-practicum.list.button.create = Crear
+
+# Messages for error in form
+company.session-practicum.error.start-after-now = La fecha de inicio debe ser posterior a la fecha actual.
+company.session-practicum.error.end-before-start = La fecha de fin debe ser una semana posterior a la fecha de inicio.
