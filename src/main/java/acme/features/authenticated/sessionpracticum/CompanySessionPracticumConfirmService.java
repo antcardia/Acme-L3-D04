@@ -24,7 +24,7 @@ public class CompanySessionPracticumConfirmService extends AbstractService<Compa
 	};
 
 	protected static final String[]				PROPERTIES_UNBIND	= {
-		"title", "abstract", "startTime", "finishTime", "furtherInformation", "additional", "confirmed"
+		"title", "abstract", "startTime", "finishTime", "furtherInformation", "additional", "draftMode"
 	};
 	public static final int						ONE_WEEK			= 1;
 
@@ -62,7 +62,7 @@ public class CompanySessionPracticumConfirmService extends AbstractService<Compa
 
 			principal = super.getRequest().getPrincipal();
 			hasExtraAvailable = this.repository.findManySessionPracticumsByExtraAvailableAndPracticumId(practicum.getId()).isEmpty();
-			isPublishedAndHasExtraAvailable = !sessionPracticum.isConfirmed() && !practicum.isDraftMode() && hasExtraAvailable;
+			isPublishedAndHasExtraAvailable = !sessionPracticum.isDraftMode() && !practicum.isDraftMode() && hasExtraAvailable;
 
 			status = isPublishedAndHasExtraAvailable && principal.hasRole(practicum.getCompany());
 		}
@@ -77,7 +77,7 @@ public class CompanySessionPracticumConfirmService extends AbstractService<Compa
 
 		sessionPracticumId = super.getRequest().getData("id", int.class);
 		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
-		sessionPracticum.setConfirmed(true);
+		sessionPracticum.setDraftMode(true);
 
 		super.getBuffer().setData(sessionPracticum);
 	}
@@ -115,7 +115,7 @@ public class CompanySessionPracticumConfirmService extends AbstractService<Compa
 	public void perform(final SessionPracticum sessionPracticum) {
 		assert sessionPracticum != null;
 
-		sessionPracticum.setConfirmed(true);
+		sessionPracticum.setDraftMode(true);
 		this.repository.save(sessionPracticum);
 	}
 

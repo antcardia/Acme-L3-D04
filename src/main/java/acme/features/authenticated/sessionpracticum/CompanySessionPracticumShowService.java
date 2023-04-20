@@ -16,7 +16,7 @@ public class CompanySessionPracticumShowService extends AbstractService<Company,
 
 	// Constants --------------------------------------------------------------
 	protected static final String[]				PROPERTIES	= {
-		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "confirmed"
+		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "draftMode"
 	};
 
 	// Internal state ---------------------------------------------------------
@@ -47,7 +47,7 @@ public class CompanySessionPracticumShowService extends AbstractService<Company,
 		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
 		practicum = this.repository.findOnePracticumBySessionPracticumId(sessionPracticumId);
 
-		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.isConfirmed() || principal.hasRole(practicum.getCompany()));
+		status = practicum != null && (!practicum.isDraftMode() && sessionPracticum.isDraftMode() || principal.hasRole(practicum.getCompany()));
 
 		super.getResponse().setAuthorised(status);
 	}

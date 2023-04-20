@@ -16,11 +16,11 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/" %>
 
 <acme:list>
-    <acme:list-column code="company.session-practicum.list.label.title" path="title" width="70%"/>
+    <acme:list-column code="company.session-practicum.list.label.title" path="title" width="50%"/>
     <acme:list-column code="company.session-practicum.list.label.startTime" path="startTime" width="5%"/>
     <acme:list-column code="company.session-practicum.list.label.finishTime" path="finishTime" width="5%"/>
     <acme:list-column code="company.session-practicum.list.label.additional" path="additional" width="5%"/>
-    <acme:list-column code="company.session-practicum.list.label.confirmed" path="confirmed" width="5%"/>
+    <acme:list-column code="company.session-practicum.list.label.draftMode" path="draftMode" width="5%"/>
 </acme:list>
 <jstl:if test="${extraAvailable}">
     	<acme:button code="company.session-practicum.list.button.create" action="/company/session-practicum/create?masterId=${masterId}"/>

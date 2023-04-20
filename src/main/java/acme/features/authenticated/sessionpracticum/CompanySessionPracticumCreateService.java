@@ -24,7 +24,7 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 	};
 
 	protected static final String[]				PROPERTIES_UNBIND	= {
-		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "confirmed"
+		"title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional", "draftMode"
 	};
 	public static final int						ONE_WEEK			= 1;
 
@@ -80,7 +80,7 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 		sessionPracticum = new SessionPracticum();
 		sessionPracticum.setPracticum(practicum);
 		sessionPracticum.setAdditional(!draftMode);
-		sessionPracticum.setConfirmed(draftMode);
+		sessionPracticum.setDraftMode(draftMode);
 
 		super.getBuffer().setData(sessionPracticum);
 	}

@@ -19,7 +19,7 @@ company.session-practicum.form.label.furtherInformation = Further Information
 company.session-practicum.form.button.create = Create
 company.session-practicum.form.button.update = Update
 company.session-practicum.form.button.delete = Delete
-company.session-practicum.form.button.confirm = Confirm
+company.session-practicum.form.button.draftMode = Draft Mode
 
 # Messages for label in list
 company.session-practicum.list.label.title = Title
@@ -27,7 +27,7 @@ company.session-practicum.list.label.abstract = Abstract
 company.session-practicum.list.label.finishTime = Finish Time
 company.session-practicum.list.label.startTime = Start Time
 company.session-practicum.list.label.additional = Additional
-company.session-practicum.list.label.confirmed = Confirmed
+company.session-practicum.list.label.draftMode = Draft Mode
 company.session-practicum.list.label.yes = Yes
 company.session-practicum.list.label.no = No
 company.session-practicum.list.label.exact-duration = Exact duration

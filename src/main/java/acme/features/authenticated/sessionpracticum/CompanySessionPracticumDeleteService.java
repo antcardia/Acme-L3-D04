@@ -53,7 +53,7 @@ public class CompanySessionPracticumDeleteService extends AbstractService<Compan
 			practicum = sessionPracticum.getPracticum();
 
 			isDraftMode = practicum.isDraftMode();
-			isAdditional = !sessionPracticum.isConfirmed() && !isDraftMode;
+			isAdditional = !sessionPracticum.isDraftMode() && !isDraftMode;
 
 			status = (isDraftMode || isAdditional) && principal.hasRole(practicum.getCompany());
 		}

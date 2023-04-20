@@ -51,7 +51,7 @@ public class SessionPracticum extends AbstractEntity {
 
 	private boolean				additional;
 
-	private boolean				confirmed;
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
