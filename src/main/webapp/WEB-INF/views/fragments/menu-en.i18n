@@ -75,7 +75,7 @@ master.menu.student.my-workbooks = My workbooks
 # master.menu.assistant ##########################################################
 
 master.menu.assistant = Assistant
-master.menu.assistant.my-courses = My courses
+master.menu.assistant.my-sessions = My sessions
 master.menu.assistant.my-tutorials = My tutorials
 
 # master.menu.auditor ####################################################

@@ -1,0 +1,23 @@
+
+assistant.session.list.label.title = Título
+assistant.session.list.label.sessionType = Tipo de sesión:
+
+assistant.session.list.button.create = Crear
+
+
+assistant.session.form.label.title = Título:
+assistant.session.form.label.summary = Resumen:
+assistant.session.form.label.sessionType = Tipo de sesión:
+assistant.session.form.label.start = Comienzo:
+assistant.session.form.label.end = Fin:
+assistant.session.form.label.furtherInformation = Más información:
+assistant.session.form.label.tutorial = Tutorial:
+assistant.session.form.label.assistant = Asistente:
+
+assistant.session.form.button.update = Actualizar
+assistant.session.form.button.delete = Borrar
+assistant.session.form.button.create = Crear
+
+assistant.session.form.error.duplicated = El código está cogido
+assistant.session.form.error.spamTitle = El título contiene spam
+assistant.session.form.error.spamSummary = El resumen contiene spam

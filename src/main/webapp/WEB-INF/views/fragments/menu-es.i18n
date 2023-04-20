@@ -33,6 +33,7 @@ master.menu.authenticated.practicum = Ver prácticas
 master.menu.authenticated.note.list = Ver notas
 master.menu.authenticated.bulletin = Ver boletín
 master.menu.authenticated.offer.list = Ver ofertas
+master.menu.authenticated.tutorials = Ver tutoriales
 
 # master.menu.administrator ###################################################
 

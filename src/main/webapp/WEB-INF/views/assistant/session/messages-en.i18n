@@ -1,0 +1,24 @@
+
+assistant.session.list.label.title = Title
+assistant.session.list.label.sessionType = Session Type:
+
+assistant.session.list.button.create = Create
+
+
+assistant.session.form.label.title = Title:
+assistant.session.form.label.summary = Summary:
+assistant.session.form.label.sessionType = Session Type:
+assistant.session.form.label.start = Start:
+assistant.session.form.label.end = End:
+assistant.session.form.label.furtherInformation = Further Information:
+assistant.session.form.label.tutorial = Tutorial:
+assistant.session.form.label.assistant = Assistant:
+assistant.session.form.label.course = Course:
+
+assistant.session.form.button.update = Update
+assistant.session.form.button.delete = Delete
+assistant.session.form.button.create = Create
+
+assistant.session.form.error.duplicated = This code is taken
+assistant.session.form.error.spamTitle = The title contains spam
+assistant.session.form.error.spamSummary = The summary contains spam

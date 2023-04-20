@@ -1,5 +1,5 @@
 
-package acme.features.assistant;
+package acme.features.assistant.session;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -7,16 +7,16 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.tutorial.Tutorial;
+import acme.entities.tutorial.Session;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialListService extends AbstractService<Assistant, Tutorial> {
+public class AssistantSessionListService extends AbstractService<Assistant, Session> {
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AssistantSessionRepository repository;
 
 
 	@Override
@@ -31,22 +31,23 @@ public class AssistantTutorialListService extends AbstractService<Assistant, Tut
 
 	@Override
 	public void load() {
-		Collection<Tutorial> objects;
-		Assistant assistant;
+		Collection<Session> objects;
+		Assistant principal;
 
-		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-		objects = this.repository.findAllTutorial().stream().filter(x -> x.getAssistant() == assistant).collect(Collectors.toList());
+		principal = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
+
+		objects = this.repository.findAllSession().stream().filter(x -> x.getTutorial().getAssistant() == principal).collect(Collectors.toList());
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Tutorial object) {
+	public void unbind(final Session object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title");
+		tuple = super.unbind(object, "title", "sessionType");
 
 		super.getResponse().setData(tuple);
 	}
