@@ -2,6 +2,7 @@
 package acme.features.assistant.session;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,11 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 	@Override
 	public void load() {
 		Collection<Session> objects;
+		Assistant principal;
 
-		objects = this.repository.findAllSession();
+		principal = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
+
+		objects = this.repository.findAllSession().stream().filter(x -> x.getTutorial().getAssistant() == principal).collect(Collectors.toList());
 
 		super.getBuffer().setData(objects);
 	}

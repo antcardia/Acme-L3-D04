@@ -1,15 +1,3 @@
-<%--
-- form.jsp
--
-- Copyright (C) 2012-2023 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -17,7 +5,7 @@
 
 <acme:form>
 	<acme:input-textbox code="assistant.session.form.label.title" path="title"/>
-	<acme:input-textarea code="assistant.session.form.label.title" path="summary"/>
+	<acme:input-textarea code="assistant.session.form.label.summary" path="summary"/>
 	<acme:input-select choices="${sessionTypes}" code="assistant.session.form.label.sessionType" path="sessionType"/>	
 	<acme:input-moment code = "assistant.session.form.label.start" path="start"/>
 	<acme:input-moment code="assistant.session.form.label.end" path="end"/>
@@ -31,7 +19,7 @@
 	
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && status}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && status && isPublished}">
 			<acme:submit code="assistant.session.form.button.update" action="/assistant/session/update"/>
 			<acme:submit code="assistant.session.form.button.delete" action="/assistant/session/delete"/>
 		</jstl:when>

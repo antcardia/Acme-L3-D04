@@ -81,10 +81,12 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 		Boolean status;
 		final Assistant assistant;
 		Tutorial objectTutorial;
+		Boolean isPublished;
 
 		objectTutorial = object.getTutorial();
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 		status = object.getTutorial().getAssistant().getId() == assistant.getId();
+		isPublished = objectTutorial.isDraftMode();
 
 		tutorials = this.repository.findAllTutorial().stream().filter(x -> x.getAssistant() == assistant).collect(Collectors.toList());
 
@@ -101,6 +103,7 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 
 		tuple.put("sessionType", natures.getSelected().getKey());
 		tuple.put("status", status);
+		tuple.put("isPublished", isPublished);
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,33 +1,31 @@
 # messages-en.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
-
-assistant.session.list.label.title = Title
-assistant.session.list.label.sessionType = Session Type:
-
-assistant.session.list.button.create = Create
 
 
-assistant.session.form.label.title = Title:
-assistant.session.form.label.summary = Summary:
-assistant.session.form.label.sessionType = Session Type:
-assistant.session.form.label.start = Start:
-assistant.session.form.label.end = End:
-assistant.session.form.label.furtherInformation = Further Information:
-assistant.session.form.label.tutorial = Tutorial:
-assistant.session.form.label.assistant = Assistant:
-assistant.session.form.label.course = Course:
+assistant.tutorial.list.label.title = Title
+assistant.tutorial.list.label.estimatedTime = Estimated Time
 
-assistant.session.form.button.update = Update
-assistant.session.form.button.delete = Delete
-assistant.session.form.button.create = Create
+assistant.tutorial.list.button.create = Create
 
-assistant.session.form.error.duplicated = This code is taken
-assistant.session.form.error.spamTitle = The title contains spam
-assistant.session.form.error.spamSummary = The summary contains spam
+
+assistant.tutorial.form.label.code = Code:
+assistant.tutorial.form.label.title = Title:
+assistant.tutorial.form.label.summary = Summary:
+assistant.tutorial.form.label.estimatedTime = Estimated time:
+assistant.tutorial.form.label.goals = Goals:
+assistant.tutorial.form.label.draftMode = Draft mode:
+assistant.tutorial.form.label.courseTitle = Course title:
+assistant.tutorial.form.label.assistantName = Assistant name:
+assistant.tutorial.form.label.courseList = Course List:
+assistant.tutorial.form.label.assistant = Assistant:
+assistant.tutorial.form.label.course = Course:
+
+assistant.tutorial.form.button.update = Update
+assistant.tutorial.form.button.delete = Delete
+assistant.tutorial.form.button.publish = Publish
+assistant.tutorial.form.button.create = Create
+
+assistant.tutorial.form.error.duplicated = This code is taken
+assistant.tutorial.form.error.spamTitle = The title contains spam
+assistant.tutorial.form.error.spamSummary = The summary contains spam
+assistant.tutorial.form.error.outOfRangeEstimatedTime = The estimated time is out of range
+assistant.tutorial.form.error.tutorial-not-found = No tutorials have been found

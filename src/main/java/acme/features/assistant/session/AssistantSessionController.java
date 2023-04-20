@@ -27,22 +27,19 @@ public class AssistantSessionController extends AbstractController<Assistant, Se
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionListMineService	listMineService;
+	protected AssistantSessionShowService	showService;
 
 	@Autowired
-	protected AssistantSessionShowService		showService;
+	protected AssistantSessionCreateService	createService;
 
 	@Autowired
-	protected AssistantSessionCreateService		createService;
+	protected AssistantSessionUpdateService	updateService;
 
 	@Autowired
-	protected AssistantSessionUpdateService		updateService;
+	protected AssistantSessionDeleteService	deleteService;
 
 	@Autowired
-	protected AssistantSessionDeleteService		deleteService;
-
-	@Autowired
-	protected AssistantSessionListService		listService;
+	protected AssistantSessionListService	listService;
 
 	// Constructors -----------------------------------------------------------
 

@@ -71,8 +71,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
-			<acme:menu-suboption code="master.menu.assistant.my-courses" action="/assistant/course/list"/>
 			<acme:menu-suboption code="master.menu.assistant.my-tutorials" action="/assistant/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.assistant.my-sessions" action="/assistant/session/list"/>
 		</acme:menu-option>
 		
     <acme:menu-option code="master.menu.peep.list" action="/any/peep/list"/>

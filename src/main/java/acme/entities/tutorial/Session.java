@@ -62,16 +62,6 @@ public class Session extends AbstractEntity {
 	@Valid
 	protected Tutorial			tutorial;
 
-
-	public Session() {
-		this.title = "";
-		this.summary = "";
-		this.sessionType = Nature.BALANCED;
-		this.start = new Date();
-		this.start = new Date();
-
-	}
-
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

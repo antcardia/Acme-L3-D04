@@ -66,9 +66,12 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 		assert object != null;
 		Tutorial tutorial;
 		final int tutorialId = super.getRequest().getData("tutorial", int.class);
+		Nature sessionType;
+		sessionType = super.getRequest().getData("sessionType", Nature.class);
 
 		tutorial = this.repository.findOneTutorialById(tutorialId);
 		object.setTutorial(tutorial);
+		object.setSessionType(sessionType);
 
 		super.bind(object, "title", "summary", "sessionType", "start", "end", "furtherInformation");
 	}
@@ -97,6 +100,11 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 		if (!super.getBuffer().getErrors().hasErrors("end")) {
 			final Date start = object.getStart();
 			super.state(start.compareTo(object.getEnd()) <= 0, "end", "assistant.session.form.error.badDate");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("sessionType")) {
+			final Nature sessionType = object.getSessionType();
+			super.state(sessionType != Nature.BALANCED, "sessionType", "assistant.session.form.error.badSessionType");
 		}
 	}
 
