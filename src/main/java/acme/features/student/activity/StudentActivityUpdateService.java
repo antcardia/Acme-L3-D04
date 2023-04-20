@@ -109,13 +109,13 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "startTime", "finishTime", "link", "atype", "enrolment");
 
-		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
-		tuple.put("atype", choices.getSelected().getKey());
-		tuple.put("activityType", choices);
-
 		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolmentByStudentId(super.getRequest().getPrincipal().getActiveRoleId()), "code", object.getEnrolment());
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 		tuple.put("enrolmentSelect", choicesE);
+
+		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
+		tuple.put("atype", choices.getSelected().getKey());
+		tuple.put("activityType", choices);
 
 		super.getResponse().setData(tuple);
 	}
