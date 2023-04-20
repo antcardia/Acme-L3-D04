@@ -19,7 +19,8 @@ company.session-practicum.form.label.furtherInformation = Further Information
 company.session-practicum.form.button.create = Create
 company.session-practicum.form.button.update = Update
 company.session-practicum.form.button.delete = Delete
-company.session-practicum.form.button.draftMode = Draft Mode
+company.session-practicum.form.button.draftMode = Publish
+company.session-practicum.form.button.practicum = Practicum
 
 # Messages for label in list
 company.session-practicum.list.label.title = Title
