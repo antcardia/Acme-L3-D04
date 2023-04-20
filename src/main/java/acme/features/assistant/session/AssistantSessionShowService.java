@@ -66,6 +66,8 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneSessionById(id);
+		final Tutorial tutorial = this.repository.findOneTutorialById(object.getTutorial().getId());
+		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
 	}
