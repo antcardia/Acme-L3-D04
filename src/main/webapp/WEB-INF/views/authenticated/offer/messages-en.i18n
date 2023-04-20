@@ -12,3 +12,6 @@ authenticated.offer.form.label.link=Link
 authenticated.offer.form.button.create = Create
 authenticated.offer.form.button.update = Update
 authenticated.offer.form.button.delete = Delete
+
+authenticated.offer.form.error.spam1 = Spam in heading
+authenticated.offer.form.error.spam2 = Spam in abstract

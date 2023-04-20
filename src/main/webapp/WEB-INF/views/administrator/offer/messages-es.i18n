@@ -12,3 +12,8 @@ administrator.offer.form.label.link=Link
 administrator.offer.form.button.create = Crear
 administrator.offer.form.button.update = Actualizar
 administrator.offer.form.button.delete = Borrar
+
+
+
+authenticated.offer.form.error.spam1 = Spam en el titular
+authenticated.offer.form.error.spam2 = Spam en el resumen
