@@ -57,8 +57,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findActivityByIdFinalised(id);
-		final Integer enrolmentId = super.getRequest().getData("enrolment", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
+		final Enrolment enrolment = this.repository.findEnrolmentById(object.getEnrolment().getId());
 		object.setEnrolment(enrolment);
 
 		super.getBuffer().setData(object);

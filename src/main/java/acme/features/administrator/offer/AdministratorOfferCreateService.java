@@ -16,9 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.offer.Offer;
+import acme.entities.system.SystemConfiguration;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import antiSpamFilter.AntiSpamFilter;
 
 @Service
 public class AdministratorOfferCreateService extends AbstractService<Administrator, Offer> {
@@ -60,6 +62,19 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 	@Override
 	public void validate(final Offer object) {
 		assert object != null;
+
+		final SystemConfiguration config = this.repository.findSystemConfiguration();
+		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
+
+		if (!super.getBuffer().getErrors().hasErrors("heading")) {
+			final String title = object.getHeading();
+			super.state(!antiSpam.isSpam(title), "heading", "authenticated.offer.form.error.spam1");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("abstract$")) {
+			final String message = object.getAbstract$();
+			super.state(!antiSpam.isSpam(message), "abstract$", "authenticated.offer.form.error.spam2");
+		}
 	}
 
 	@Override
