@@ -19,7 +19,8 @@ company.session-practicum.form.label.furtherInformation = Enlace
 company.session-practicum.form.button.create = Crear
 company.session-practicum.form.button.update = Actualizar
 company.session-practicum.form.button.delete = Eliminar
-company.session-practicum.form.button.draftMode = Draft Mode
+company.session-practicum.form.button.draftMode = Publicar
+company.session-practicum.form.button.practicum = Práctica
 
 # Messages for label in list
 company.session-practicum.list.label.title = Título
@@ -27,7 +28,7 @@ company.session-practicum.list.label.abstract = Resumen
 company.session-practicum.list.label.finishTime = Fecha de fin
 company.session-practicum.list.label.startTime = Fecha de inicio
 company.session-practicum.list.label.additional = Adicional
-company.session-practicum.list.label.draftMode = Draft Mode
+company.session-practicum.list.label.draftMode = Modo edición
 company.session-practicum.list.label.yes = Si
 company.session-practicum.list.label.no = No
 company.session-practicum.list.label.exact-duration = Duración exacta
