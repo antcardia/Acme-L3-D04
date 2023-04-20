@@ -3,10 +3,12 @@ package acme.forms;
 
 import java.util.Map;
 
-import acme.datatypes.UserIdentity;
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AdministratorDashboard extends AbstractForm {
 	// Serialisation identifier -----------------------------------------------
 
@@ -14,14 +16,14 @@ public class AdministratorDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<UserIdentity, Integer>	totalNumberOfPrincipalsByRole;
-	Double						peepsWithEmailAddressAndLinkRatio;
-	Double						criticalBulletinsRatio;
-	Double						nonCriticalBulletinsRatio;
-	Map<Money, Double>			averageBudgetByCurrency;
-	Map<Money, Double>			minBudgetByCurrency;
-	Map<Money, Double>			maxBudgetByCurrency;
-	Map<Money, Double>			budgetDeviationByCurrency;
+	Map<String, Integer>		totalNumberOfPrincipalsByRole;
+	Integer						peepsWithEmailAddressAndLinkRatio;
+	Integer						criticalBulletinsRatio;
+	Integer						nonCriticalBulletinsRatio;
+	Map<String, Double>			averageBudgetByCurrency;
+	Map<String, Double>			minBudgetByCurrency;
+	Map<String, Double>			maxBudgetByCurrency;
+	Map<String, Double>			budgetDeviationByCurrency;
 	Double						averageNotesPosted;
 	Double						minNotesPosted;
 	Double						maxNotesPosted;
