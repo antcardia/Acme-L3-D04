@@ -1,0 +1,25 @@
+auditor.auditrecord.label.subject = Subject
+auditor.auditrecord.label.assessment = Assessment
+auditor.auditrecord.label.start = Start
+auditor.auditrecord.label.finish = Finish
+auditor.auditrecord.label.link = Aditional Link
+auditor.auditrecord.label.mark = Mark
+auditor.auditrecord.label.hours = Hours
+auditor.auditrecord.label.draft = Draft
+auditor.auditrecord.label.confirm = Confirm Creation
+
+auditor.auditrecord.error.date.startAfterFinish = The start date must be before the end date
+auditor.auditrecord.error.date.shortPeriod = The time period must be at least one hour long
+auditor.auditrecord.correction.confirmation = You must confirm the creation of the Correction Record
+
+auditor.auditrecord.form.button.create = Create
+auditor.auditrecord.form.button.update = Update
+auditor.auditrecord.form.button.delete = Delete
+auditor.auditrecord.form.button.publish = Publish
+auditor.auditrecord.form.button.correct = Create Correction
+
+auditor.auditrecord.message.correction = Correction Auditing Record
+auditor.auditrecord.message.correction.disclaimer = ATENTION: This record will be published automatically as it is created
+
+auditor.auditrecord.error.form.spamsubject= The subject contains common spam words.
+auditor.auditrecord.error.form.spamassessment= The assessment contains common spam words.

@@ -1,0 +1,22 @@
+auditor.auditrecord.label.subject = Asignatura
+auditor.auditrecord.label.assessment = Tarea
+auditor.auditrecord.label.start = Comienzo
+auditor.auditrecord.label.finish = Fin
+auditor.auditrecord.label.link = Link
+auditor.auditrecord.label.mark = Nota
+auditor.auditrecord.label.hours = Horas
+auditor.auditrecord.label.draft = Borrador
+auditor.auditrecord.label.confirm = Confirmar creación
+
+auditor.auditrecord.error.date.startAfterFinish = La fecha de comienzo debe ser anterior a la de fin
+auditor.auditrecord.error.date.shortPeriod = El periodo de tiempo debe ser de al menos una hora
+auditor.auditrecord.correction.confirmation = Debes confirmar la creación del registro de corrección.
+
+auditor.auditrecord.form.button.create = Crear
+auditor.auditrecord.form.button.update = Actualizar
+auditor.auditrecord.form.button.delete = Borrar
+auditor.auditrecord.form.button.publish = Publicar
+auditor.auditrecord.form.button.correct = Crear corrección
+
+auditor.auditrecord.message.correction = Registro de auditoría de corrección
+auditor.auditrecord.message.correction.disclaimer = ATENCIÓN: El registro de creación se publicará automáticamente al ser creado.
