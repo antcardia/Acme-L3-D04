@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.dashboard.form.title.general-indicators = Indicadores generales
+administrator.dashboard.form.title.application-statuses = Estados de solicitud
+
+administrator.dashboard.form.label.principals = Total de usuarios por rol
+administrator.dashboard.form.label.peepsRatio = Ratio de comentarios con email y link
+administrator.dashboard.form.label.criticalBulletinRatio = Ratio de boletines críticos
+administrator.dashboard.form.label.nonCriticalBulletinRatio = Ratio de boletines no críticos
+administrator.dashboard.form.label.avgBudget = Media de precios por moneda del sistema
+administrator.dashboard.form.label.devBudget = Desviación estándar de precios por monedas del sistema
+administrator.dashboard.form.label.minBudget = Mínimo de precios por moneda del sistema
+administrator.dashboard.form.label.maxBudget = Máximo de precios por moneda del sistema
+administrator.dashboard.form.label.avgNotes = Media de notas publicadas
+administrator.dashboard.form.label.minNotes = Mínimo de notas publicadas
+administrator.dashboard.form.label.maxNotes = Máximo de notas publicadas
+administrator.dashboard.form.label.devNotes = Desviación estándar de notas publicadas
+

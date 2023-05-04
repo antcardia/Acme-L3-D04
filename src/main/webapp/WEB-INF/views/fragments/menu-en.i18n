@@ -40,6 +40,7 @@ master.menu.authenticated.offer.list = List Offer
 
 master.menu.administrator = Administrator
 master.menu.administrator.bulletin = Create Bulletin
+master.menu.administrator.administrator-dashboard = Administrator dashboard
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)

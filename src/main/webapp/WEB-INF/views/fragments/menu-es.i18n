@@ -39,6 +39,7 @@ master.menu.authenticated.tutorials = Ver tutoriales
 
 master.menu.administrator = Administrador
 master.menu.administrator.bulletin = Crear Boletín
+master.menu.administrator.administrator-dashboard = Panel del administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)

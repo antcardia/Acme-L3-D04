@@ -1,0 +1,26 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.dashboard.form.title.general-indicators = General indicators
+administrator.dashboard.form.title.application-statuses = Application statuses  
+
+administrator.dashboard.form.label.principals = Total principals by role
+administrator.dashboard.form.label.peepsRatio = Peeps with email and link ratio
+administrator.dashboard.form.label.criticalBulletinRatio = Critical bulletins ratio
+administrator.dashboard.form.label.nonCriticalBulletinRatio = No critical bulletins ratio
+administrator.dashboard.form.label.avgBudget = Average budget by currency
+administrator.dashboard.form.label.devBudget = Deviation budget by currency
+administrator.dashboard.form.label.minBudget = Minimum budget by currency
+administrator.dashboard.form.label.maxBudget = Maximum budget by currency
+administrator.dashboard.form.label.avgNotes = Average notes posted
+administrator.dashboard.form.label.minNotes = Minimum notes posted
+administrator.dashboard.form.label.maxNotes = Maximum notes posted
+administrator.dashboard.form.label.devNotes = Deviation notes posted
+
