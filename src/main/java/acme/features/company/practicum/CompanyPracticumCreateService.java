@@ -8,8 +8,6 @@ import acme.entities.courses.Course;
 import acme.entities.practicum.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -100,11 +98,4 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 		super.getResponse().setData(tuple);
 	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
-	}
-
 }

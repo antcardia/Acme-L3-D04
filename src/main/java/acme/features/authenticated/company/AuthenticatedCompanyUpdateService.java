@@ -1,13 +1,5 @@
-package acme.features.authenticated.company;
 
-/*
- * AuthenticatedConsumerUpdateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * @@ -10,110 +13,78 @@
- * they accept any liabilities with respect to them.
- */
+package acme.features.authenticated.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,14 +1,3 @@
-/*
- * AuthenticatedProviderCreateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.course;
 
@@ -18,8 +7,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 import antiSpamFilter.AntiSpamFilter;
@@ -32,7 +19,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Autowired
 	protected LecturerCourseRepository repository;
 
-	// AbstractService<Authenticated, Provider> ---------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -106,11 +93,4 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 		super.getResponse().setData(tuple);
 	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
-	}
-
 }

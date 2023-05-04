@@ -11,8 +11,6 @@ import acme.entities.courses.Course;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 import antiSpamFilter.AntiSpamFilter;
@@ -114,11 +112,5 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 }

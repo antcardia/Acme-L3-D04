@@ -20,7 +20,7 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 	@Autowired
 	protected AuthenticatedAuditorRepository repository;
 
-	// AbstractService<Authenticated, Lecturer> ---------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override

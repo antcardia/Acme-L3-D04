@@ -10,9 +10,7 @@ import acme.entities.audits.AuditRecord;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 import antiSpamFilter.AntiSpamFilter;
@@ -105,11 +103,5 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 }
