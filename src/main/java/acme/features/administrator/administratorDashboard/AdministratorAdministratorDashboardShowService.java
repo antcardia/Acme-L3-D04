@@ -74,17 +74,18 @@ public class AdministratorAdministratorDashboardShowService extends AbstractServ
 		principalsByRole.put("Lecturer", countLecturers);
 		principalsByRole.put("Provider", countProviders);
 		principalsByRole.put("Student", countStudents);
+		dashboard.setTotalNumberOfPrincipalsByRole(principalsByRole);
 
 		final int countPeeps = this.repository.countAllPeeps().orElse(0);
 		final int countPeepsWithEmailAndLink = this.repository.countAllPeepsWithEmailAddressAndLink().orElse(0);
-		dashboard.setPeepsWithEmailAddressAndLinkRatio(countPeepsWithEmailAndLink / countPeeps);
+		dashboard.setPeepsWithEmailAddressAndLinkRatio((double) countPeepsWithEmailAndLink / countPeeps);
 
 		final int countBulletins = this.repository.countAllBulletins().orElse(0);
 		final int countAllCriticalBulletins = this.repository.countAllCriticalBulletins().orElse(0);
 		final int countAllNonCriticalBulletins = this.repository.countAllNonCriticalBulletins().orElse(0);
 
-		dashboard.setCriticalBulletinsRatio(countAllCriticalBulletins / countBulletins);
-		dashboard.setNonCriticalBulletinsRatio(countAllNonCriticalBulletins / countBulletins);
+		dashboard.setCriticalBulletinsRatio((double) countAllCriticalBulletins / countBulletins);
+		dashboard.setNonCriticalBulletinsRatio((double) countAllNonCriticalBulletins / countBulletins);
 
 		final Collection<Money> pricesOfOffers = this.repository.findAllPricesOfOffers();
 

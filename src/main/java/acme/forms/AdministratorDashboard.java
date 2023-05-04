@@ -17,9 +17,9 @@ public class AdministratorDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	Map<String, Integer>		totalNumberOfPrincipalsByRole;
-	Integer						peepsWithEmailAddressAndLinkRatio;
-	Integer						criticalBulletinsRatio;
-	Integer						nonCriticalBulletinsRatio;
+	Double						peepsWithEmailAddressAndLinkRatio;
+	Double						criticalBulletinsRatio;
+	Double						nonCriticalBulletinsRatio;
 	Map<String, Double>			averageBudgetByCurrency;
 	Map<String, Double>			minBudgetByCurrency;
 	Map<String, Double>			maxBudgetByCurrency;
