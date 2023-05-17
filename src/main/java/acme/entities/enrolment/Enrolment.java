@@ -42,11 +42,6 @@ public class Enrolment extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	protected Integer			lowFourNibbleCreditCard;
-
-	@NotBlank
-	protected String			holderName;
-
 	@NotNull
 	@Valid
 	@ManyToOne
@@ -56,4 +51,10 @@ public class Enrolment extends AbstractEntity {
 	@NotNull
 	@Valid
 	protected Course			course;
+
+	@Length(max = 255)
+	public String				holderName;
+
+	@Pattern(regexp = "^\\d{4}$")
+	public String				creditCardFourLowNibble;
 }

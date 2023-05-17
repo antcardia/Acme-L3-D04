@@ -1,6 +1,8 @@
 
 package acme.features.student.activity;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import acme.entities.enrolment.Enrolment;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 import antiSpamFilter.AntiSpamFilter;
@@ -79,6 +82,16 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		}
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
+		if (!super.getBuffer().getErrors().hasErrors("startTime")) {
+			final Date startTime = object.getStartTime();
+			final Date finishTime = object.getFinishTime();
+			super.state(startTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime) && (MomentHelper.isPast(startTime) || MomentHelper.isFuture(startTime)), "startTime", "student.activity.form.error.startTime");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
+			final Date finishTime = object.getFinishTime();
+			final Date startTime = object.getStartTime();
+			super.state(finishTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime) && (MomentHelper.isPast(finishTime) || MomentHelper.isFuture(finishTime)), "finishTime", "student.activity.form.error.finishTime");
+		}
 
 	}
 

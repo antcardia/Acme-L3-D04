@@ -63,7 +63,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "lowFourNibbleCreditCard", "holderName");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "creditCardFourLowNibble", "holderName");
 
 		final Student student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 

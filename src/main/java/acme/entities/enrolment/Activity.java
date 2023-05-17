@@ -43,12 +43,10 @@ public class Activity extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	// Validacion de que la fecha de inicio sea anterior a la del final
 	protected Date				startTime;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	// Validacion de que la fecha de inicio sea anterior a la del final
 	protected Date				finishTime;
 
 	@URL

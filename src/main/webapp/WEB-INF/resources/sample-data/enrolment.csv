@@ -1,11 +1,11 @@
-key,key:student,key:course,code,motivation,goals,work-time,draft-mode,low-four-nibble-credit-card,holder-name
-enrolment-01,student-01,course-10,ZBT156,Esto es para ver hasta setenta y cinco palabras de limite como restriccions,Ganar,2.5,true,2222,Paquito El Chocolatero
-enrolment-02,student-01,course-11,VDT135,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.5,false,1455,Mari Luz de la Fuente
-enrolment-03,student-03,course-10,AFC222,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sol,5.9,true,1234,Jing Wei
-enrolment-04,student-04,course-10,ZZZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,5874,Hou Yi
-enrolment-05,student-05,course-11,AAA000,quiero ganar,Ganar,2.0,true,0690,Felipe Peña Lipin
-enrolment-06,student-06,course-10,ZZZ000,quiero ganar,Perder,6.4,true,2332,Julio Ribas el Capo
-enrolment-07,student-07,course-11,FEW568,quiero ganar,Ganar,2.3,true,6900,David Reyes Niño React
-enrolment-08,student-08,course-10,FGR125,quiero ganar,Perder,4.2,false,0069,Pablo Mera Colombia
-enrolment-09,student-09,course-10,WTH236,quiero ganar,Perder,6.7,true,0691,Guaje Fifa
-enrolment-10,student-10,course-10,FDB158,quiero ganar,Ganar,5.6,false,1265,Serra Serrin
+key,key:student,key:course,code,motivation,goals,work-time,draft-mode,holder-name,credit-card-four-low-nibble
+enrolment-01,student-01,course-10,ZBT156,Esto es para ver hasta setenta y cinco palabras de limite como restriccions,Ganar,2.5,true,null,null
+enrolment-02,student-01,course-11,VDT135,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.5,false,Tor,6358
+enrolment-03,student-03,course-10,AFC222,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sol,5.9,true,null,null
+enrolment-04,student-04,course-10,ZZZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,null,null
+enrolment-05,student-05,course-11,AAA000,quiero ganar,Ganar,2.0,true,null,null
+enrolment-06,student-06,course-10,ZZZ000,quiero ganar,Perder,6.4,true,null,null
+enrolment-07,student-07,course-11,FEW568,quiero ganar,Ganar,2.3,true,null,null
+enrolment-08,student-08,course-10,FGR125,quiero ganar,Perder,4.2,false,Laura,4523
+enrolment-09,student-09,course-10,WTH236,quiero ganar,Perder,6.7,true,null,null
+enrolment-10,student-10,course-10,FDB158,quiero ganar,Ganar,5.6,false,Jose,1254

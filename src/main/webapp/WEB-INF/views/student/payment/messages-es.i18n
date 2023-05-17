@@ -1,0 +1,9 @@
+student.payment.form.label.holderName = Nombre del titular
+student.payment.form.label.creditCard = Tarjeta de credito 
+student.payment.form.label.expirationDate= Dia de expiracion
+student.payment.form.label.securityCode= Codigo de seguridad
+
+student.payment.form.button.publish = Publicar
+
+student.payment.form.error.spamTitle = Spam en el nombre del titular
+

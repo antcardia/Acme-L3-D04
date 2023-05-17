@@ -1,0 +1,9 @@
+student.payment.form.label.holderName = Holder Name
+student.payment.form.label.creditCard = CreditCard 
+student.payment.form.label.expirationDate= Expiration Date
+student.payment.form.label.securityCode= Security Code
+
+student.payment.form.button.publish = Publish
+
+student.payment.form.error.spamTitle = Spam holder name detected
+

@@ -1,0 +1,8 @@
+recordIndex,reference,contractor,title,deadline,salary,score,moreInfo,description
+5,EMP01-JOB06,"Acme, Inc.",Title 6,2040/12/11 23:59,"EUR 1,000.98",99.99,http://www.example.com,Lorem ipsum sit dolor amet.
+6,EMP01-JOB07,"Acme, Inc.",Title 7,2040/12/11 00:00,"USD 1,000.99",99.98,http://www.example.com,Lorem ipsum sit dolor amet.
+7,EMP01-JOB08,"BlinkerSoft, Ltd.",Title 8,2040/02/28 10:00,"USD 1,000.50",99.97,http://www.acme.com/master/welcome,Lorem ipsum sit dolor amet.
+8,EMP01-JOB09,"BlinkerSoft, Ltd.",Title 9,2040/03/01 11:00,"EUR 2,345.01",50.00,http://www.acme.org,Lorem ipsum sit dolor amet.
+9,EMP01-JOB10,"World Change, Org.",Title 10,2040/04/02 12:00,"BGP 2,000.99",0.03,http://localhost,Lorem ipsum sit dolor amet.
+10,EMP01-JOB11,"World Change, Org.",Title 11,2040/05/03 13:00,THB 300.00,0.02,,Lorem ipsum sit dolor amet.
+11,EMP01-JOB12,"World Change, Org.",Title 12,2040/06/05 13:00,THB 300.25,0.01,,Lorem ipsum sit dolor amet.

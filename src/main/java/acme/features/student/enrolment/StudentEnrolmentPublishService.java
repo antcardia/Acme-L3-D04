@@ -94,6 +94,10 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 			final String goals = object.getGoals();
 			super.state(!antiSpam.isSpam(goals), "goals", "student.enrolment.form.error.spamTitle2");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("workTime")) {
+			final Double workTime = object.getWorkTime();
+			super.state(workTime > 0, "workTime", "student.enrolment.form.error.workTime");
+		}
 	}
 
 	@Override
