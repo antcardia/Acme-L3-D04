@@ -9,5 +9,5 @@
 	<acme:input-textbox code="student.payment.form.label.creditCard" path="creditCard"/>
 	<acme:input-textarea code="student.payment.form.label.expirationDate" path="expirationDate"/>
 	<acme:input-double code="student.payment.form.label.securityCode" path="securityCode"/>
-	<acme:submit code="student.payment.form.button.publish" action="/student/payment/create?enrolmentId=${masterId}"/>	
+	<acme:submit code="student.payment.form.button.publish" action="/student/payment/create?masterId=${masterId}"/>	
 </acme:form>

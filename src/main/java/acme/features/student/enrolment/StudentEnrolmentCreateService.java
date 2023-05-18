@@ -53,7 +53,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		Course course;
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "lowFourNibbleCreditCard", "holderName");
+		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "creditCardFourLowNibble", "holderName");
 		object.setCourse(course);
 
 	}
@@ -99,7 +99,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "lowFourNibbleCreditCard", "holderName");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "creditCardFourLowNibble", "holderName");
 		final Student student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		tuple.put("student", student.getUserAccount().getUsername());

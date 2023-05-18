@@ -10,7 +10,7 @@
 	<acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
 	<acme:input-double code="student.enrolment.form.label.workTime" path="workTime"/>
 	<acme:input-checkbox code="student.enrolment.form.label.draftMode" path="draftMode" readonly="true"/>
-	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courseSelsect}"/>
+	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courseSelect}"/>
 	<acme:input-textbox code="student.enrolment.form.label.holderName" path="holderName" readonly="true"/>
 	<acme:input-textbox code="student.enrolment.form.label.creditCardFourLowNibble" path="creditCardFourLowNibble" readonly="true"/> 
 	<jstl:choose>
