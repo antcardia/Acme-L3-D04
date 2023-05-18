@@ -70,7 +70,7 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 	public void bind(final Session object) {
 		assert object != null;
 		Tutorial tutorial;
-		final int tutorialId = super.getRequest().getData("tutorial", int.class);
+		final int tutorialId = super.getRequest().getData("tutorial_proxy", int.class);
 		Nature sessionType;
 		sessionType = super.getRequest().getData("sessionType", Nature.class);
 
