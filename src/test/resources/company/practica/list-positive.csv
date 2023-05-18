@@ -1,0 +1,6 @@
+key,key:course,key:company,code,title,abstract$,goals,draft-mode,estimated-total-time
+practicum-01,course-01,company-01,ABC123,"Practicum de desarrollo web","Practicum enfocado en el desarrollo de aplicaciones web","Desarrollar aplicaciones web utilizando tecnologias modernas",true,120
+practicum-02,course-01,company-01,DEF456,"Practicum de analisis de datos","Practicum enfocado en el analisis de datos y estadisticas","Analizar conjuntos de datos utilizando herramientas estadisticas",false,90
+practicum-03,course-01,company-03,GHI789,"Practicum de diseno grafico","Practicum enfocado en el diseno grafico y la creacion de contenido visual","Crear diseños graficos utilizando software especializado",true,150
+practicum-04,course-01,company-02,JKL012,"Practicum de programacion movil","Practicum enfocado en el desarrollo de aplicaciones moviles","Desarrollar aplicaciones moviles utilizando plataformas como Android o iOS",true,180
+practicum-05,course-01,company-02,MNO345,"Practicum de marketing digital","Practicum enfocado en estrategias de marketing digital","Crear campanas de marketing en linea para empresas y marcas",false,120
