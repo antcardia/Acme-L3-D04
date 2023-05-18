@@ -10,7 +10,7 @@ import acme.testing.TestHarness;
 public class CompanyPracticaListTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practica/practicum.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/company/practica/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$) {
 		// HINT: this test authenticates as an employer and checks that he or
 		// HINT+ she can display the expected announcements.
