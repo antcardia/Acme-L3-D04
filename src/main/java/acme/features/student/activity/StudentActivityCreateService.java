@@ -44,6 +44,10 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		object = new Activity();
 
+		final Integer enrolmentId = super.getRequest().getData("masterId", int.class);
+		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
+		object.setEnrolment(enrolment);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -51,10 +55,10 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
-		final Integer enrolmentId = super.getRequest().getData("enrolment", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
-		object.setEnrolment(enrolment);
+		super.bind(object, "tittle", "abstract$", "workbookName", "startTime", "finishTime", "link");
+		Nature atype;
+		atype = super.getRequest().getData("atype", Nature.class);
+		object.setAtype(atype);
 	}
 
 	@Override
@@ -107,12 +111,10 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
 		tuple.put("atype", choices.getSelected().getKey());
 		tuple.put("activityType", choices);
-
-		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolmentByStudentId(super.getRequest().getPrincipal().getActiveRoleId()), "code", object.getEnrolment());
-		tuple.put("enrolment", choicesE.getSelected().getKey());
-		tuple.put("enrolmentSelect", choicesE);
+		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().setData(tuple);
+
 	}
 
 }

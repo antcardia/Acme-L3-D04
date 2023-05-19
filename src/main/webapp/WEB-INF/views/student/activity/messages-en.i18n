@@ -8,12 +8,11 @@ student.activity.form.label.workbookName=Workbook Name
 student.activity.form.label.atype=Type of Activity
 student.activity.form.label.startTime=Start Time
 student.activity.form.label.finishTime=Finish Time
-student.activity.form.label.enrolment=Enrolment Code
 student.activity.form.label.link=Link
 student.activity.form.button.create = Create
 student.activity.form.button.update = Update
 student.activity.form.button.delete = Delete
-
+student.activity.form.button.activities= Activities
 
 student.enrolment.form.error.spamTitle= Spam title detected
 student.enrolment.form.error.spamTitle2 = Spam workbook name detected

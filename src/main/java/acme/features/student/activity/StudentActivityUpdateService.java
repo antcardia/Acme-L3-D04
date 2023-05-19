@@ -32,14 +32,26 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("masterId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Activity activity;
+		Enrolment enrolment;
+		Student student;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		activity = this.repository.findActivityById(masterId);
+		enrolment = activity == null ? null : activity.getEnrolment();
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = activity != null && !activity.getEnrolment().isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -49,8 +61,6 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findActivityByIdFinalised(id);
-		final Enrolment enrolment = this.repository.findEnrolmentById(object.getEnrolment().getId());
-		object.setEnrolment(enrolment);
 
 		super.getBuffer().setData(object);
 
@@ -60,7 +70,10 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "tittle", "abstract$", "workbookName", "atype", "startTime", "finishTime", "link");
+		super.bind(object, "tittle", "abstract$", "workbookName", "startTime", "finishTime", "link");
+		Nature atype;
+		atype = super.getRequest().getData("atype", Nature.class);
+		object.setAtype(atype);
 	}
 
 	@Override
@@ -80,18 +93,20 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 			final String goals = object.getAbstract$();
 			super.state(!antiSpam.isSpam(goals), "abstract$", "student.activity.form.error.spamTitle3");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
-			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
 		if (!super.getBuffer().getErrors().hasErrors("startTime")) {
 			final Date startTime = object.getStartTime();
 			final Date finishTime = object.getFinishTime();
-			super.state(startTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime) && (MomentHelper.isPast(startTime) || MomentHelper.isFuture(startTime)), "startTime", "student.activity.form.error.startTime");
+			super.state(startTime != MomentHelper.getCurrentMoment() || MomentHelper.isBefore(startTime, finishTime) || MomentHelper.isPast(startTime) || MomentHelper.isFuture(startTime), "startTime", "student.activity.form.error.startTime");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
 			final Date finishTime = object.getFinishTime();
 			final Date startTime = object.getStartTime();
-			super.state(finishTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime) && (MomentHelper.isPast(finishTime) || MomentHelper.isFuture(finishTime)), "finishTime", "student.activity.form.error.finishTime");
+			super.state(finishTime != MomentHelper.getCurrentMoment() || MomentHelper.isBefore(startTime, finishTime) || MomentHelper.isPast(finishTime) || MomentHelper.isFuture(finishTime), "finishTime", "student.activity.form.error.finishTime");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
+
+	
 
 	}
 
@@ -108,11 +123,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "startTime", "finishTime", "link", "atype", "enrolment");
-
-		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolmentByStudentId(super.getRequest().getPrincipal().getActiveRoleId()), "code", object.getEnrolment());
-		tuple.put("enrolment", choicesE.getSelected().getKey());
-		tuple.put("enrolmentSelect", choicesE);
+		tuple = super.unbind(object, "tittle", "abstract$", "workbookName", "startTime", "finishTime", "link");
 
 		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
 		tuple.put("atype", choices.getSelected().getKey());

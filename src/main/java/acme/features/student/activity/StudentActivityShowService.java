@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.enrolment.Activity;
+import acme.entities.enrolment.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -32,7 +33,19 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	@Override
 	public void authorise() {
 
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Activity activity;
+		Enrolment enrolment;
+		Student student;
+
+		masterId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findActivityById(masterId);
+		enrolment = activity == null ? null : activity.getEnrolment();
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = activity != null && !activity.getEnrolment().isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -56,9 +69,6 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		final SelectChoices choices = SelectChoices.from(Nature.class, object.getAtype());
 		tuple.put("atype", choices.getSelected().getKey());
 		tuple.put("activityType", choices);
-		final SelectChoices choicesE = SelectChoices.from(this.repository.findAllEnrolmentByStudentId(super.getRequest().getPrincipal().getActiveRoleId()), "code", object.getEnrolment());
-		tuple.put("enrolment", choicesE.getSelected().getKey());
-		tuple.put("enrolmentSelect", choicesE);
 
 		super.getResponse().setData(tuple);
 	}

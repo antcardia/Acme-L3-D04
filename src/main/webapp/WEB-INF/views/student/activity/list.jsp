@@ -9,4 +9,4 @@
 	<acme:list-column code="student.activity.form.label.workbookName" path="workbookName" width="30%"/>
 </acme:list>
 
-<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
+<acme:button code="student.activity.form.button.create" action="/student/activity/create?masterId=${masterId}"/>

@@ -28,8 +28,8 @@ public interface StudentActivityRepository extends AbstractRepository {
 	@Query("select a from Activity a where a.id = :id and a.enrolment.draftMode = false")
 	Activity findActivityByIdFinalised(int id);
 
-	@Query("select a from Activity a inner join Enrolment e on a.enrolment = e inner join Student s on a.enrolment.student = s where a.enrolment.student.id = :studentId")
-	List<Activity> findActivityByStudentId(Integer studentId);
+	@Query("select a from Activity a where a.enrolment.id = :enrolmentId")
+	List<Activity> findActivitiesByEnrolmentId(Integer enrolmentId);
 
 	@Query("select e from Enrolment e inner join Activity a on a.enrolment = e where a.id = :activityId")
 	Enrolment findEnrolmentByActivityId(Integer activityId);
@@ -42,5 +42,8 @@ public interface StudentActivityRepository extends AbstractRepository {
 
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration findSystemConfiguration();
+
+	@Query("select e from Enrolment e where e.student.id = :studentId")
+	Enrolment findEnrolmentByStudentId(Integer studentId);
 
 }

@@ -55,6 +55,5 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 255)
 	public String				holderName;
 
-	@Pattern(regexp = "^\\d{4}$")
 	public String				creditCardFourLowNibble;
 }

@@ -54,8 +54,6 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		object = new Enrolment();
 		object.setDraftMode(true);
 		final Student student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
-		final Course course = this.repository.findCourseByEnrolmentId(object.getId());
-		object.setCourse(course);
 		object.setStudent(student);
 
 		super.getBuffer().setData(object);

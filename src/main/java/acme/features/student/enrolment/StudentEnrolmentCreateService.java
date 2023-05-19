@@ -55,7 +55,6 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		course = this.repository.findCourseById(courseId);
 		super.bind(object, "code", "motivation", "goals", "workTime", "draftMode", "creditCardFourLowNibble", "holderName");
 		object.setCourse(course);
-
 	}
 
 	@Override
