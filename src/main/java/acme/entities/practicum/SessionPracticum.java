@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -49,13 +50,22 @@ public class SessionPracticum extends AbstractEntity {
 	@URL
 	protected String			furtherInformation;
 
+	protected Boolean			isAddendum;
+
 	// Derived attributes -----------------------------------------------------
 
+
+	@Transient
+	public Boolean isDraftMode() {
+		return this.practicum.isDraftMode();
+	}
+
 	// Relationships ----------------------------------------------------------
+
 
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
-	protected Practicum			practicum;
+	protected Practicum practicum;
 
 }
