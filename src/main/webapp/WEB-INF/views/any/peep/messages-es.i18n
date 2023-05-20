@@ -7,3 +7,9 @@ any.peep.form.label.message=Mensaje
 any.peep.form.label.email=Correo electronico
 any.peep.form.label.link=Link
 any.peep.form.button.create=Crear
+
+any.peep.form.error.spamTitle = Este título contiene spam
+any.peep.form.error.spamNick = Este nick contiene spam
+any.peep.form.error.spamMessage = Este mensaje contiene spam
+any.peep.form.error.spamEmail = Este email contiene spam
+any.peep.form.error.spamLink = Este link contiene spam

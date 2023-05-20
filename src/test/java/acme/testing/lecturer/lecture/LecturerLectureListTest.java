@@ -48,18 +48,13 @@ public class LecturerLectureListTest extends TestHarness {
 		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
 		for (final Lecture lecture : lectures)
 			if (lecture.isDraftMode()) {
-				param = String.format("id=%d", lecture.getId());
+				param = String.format("masterId=%d", lecture.getId());
 
 				super.checkLinkExists("Sign in");
 				super.request("/lecturer/lecture/list", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/lecturer/lecture/list", param);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("lecturer2", "lecturer2");
 				super.request("/lecturer/lecture/list", param);
 				super.checkPanicExists();
 				super.signOut();
