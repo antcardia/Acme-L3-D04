@@ -19,6 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-1" action="http://www.youtube.com/"/>
       		<acme:menu-suboption code="master.menu.anonymous.favourite-link-2" action="https://es.wikipedia.org/wiki/Michael_Jackson"/>
       		<acme:menu-suboption code="master.menu.anonymous.favourite-link-3" action="https://store.steampowered.com/?l=spanish"/>

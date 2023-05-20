@@ -34,4 +34,5 @@ lecturer.lecture.form.error.spamTitle = El título contiene spam
 lecturer.lecture.form.error.spamAbstract = El resumen contiene spam
 lecturer.lecture.form.error.spamBody = El cuerpo contiene spam
 lecturer.lecture.form.error.estimatedLearningTime = Debe ser superior a 0
+lecturer.lecture.form.error.estimatedLearningTimeNotNull = Este campo no puede ser nulo
 lecturer.lecture.form.error.lectureType = No puedes elegir esa opción

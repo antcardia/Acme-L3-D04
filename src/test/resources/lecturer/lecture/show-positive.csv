@@ -1,0 +1,5 @@
+recordIndex,title,abstract$,estimatedLearningTime,body,lectureType,furtherInformation
+0,Clase actualizada de configuración del entorno,Explicación de cómo se configura el entorno de desarrollo,11.30,ในส่วนนี้เราจะอธิบายโดยละเอียดถึงโปรแกรมทั้งหมดที่จำเป็นในการดำเนินโครงการ, THEORETICAL,
+1,Clase de configuración del entorno,Explicación de cómo se configura el entorno de desarrollo,19.25,Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto, THEORETICAL, http://google.com
+2,Clase de configuración del entorno,Forklare hvordan IDE-enheden er konfigureret,39.80,Aquí vamos a explicar detalladamente todos los programas necesarios para hacer funcionar el proyecto, THEORETICAL,
+3,Clase de iniciación,Esta es la primera clase del curso donde se da a conocer los criterios de evaluación del curso,25.40,Aquí desarrollamos en qué va a consistir la clase, HANDS_ON,
