@@ -1,14 +1,3 @@
-/*
- * EmployerJobPublishTest.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.testing.lecturer.lecture;
 
@@ -35,8 +24,6 @@ public class LecturerLecturePublishTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title) {
-		// HINT: this test authenticates as an employer, lists his or her jobs,
-		// HINT: then selects one of them, and publishes it.
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -69,7 +56,6 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to publish a job with a role other than "Employer".
 
 		Collection<Lecture> lectures;
 		String params;
@@ -97,7 +83,6 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test tries to publish a published job that was registered by the principal.
 
 		Collection<Lecture> lectures;
 		String params;
@@ -114,8 +99,6 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@Test
 	public void test302Hacking() {
-		// HINT: this test tries to publish a job that wasn't registered by the principal,
-		// HINT+ be it published or unpublished.
 
 		Collection<Lecture> lectures;
 		String params;

@@ -70,8 +70,6 @@ public class LecturerCourseCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to create a job using principals with
-		// HINT+ inappropriate roles.
 
 		super.checkLinkExists("Sign in");
 		super.request("/lecturer/course/create");

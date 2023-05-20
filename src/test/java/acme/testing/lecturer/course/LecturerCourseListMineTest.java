@@ -12,8 +12,6 @@ public class LecturerCourseListMineTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/list-mine-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String retailPrice) {
-		// HINT: this test authenticates as an employer, lists his or her jobs only,
-		// HINT+ and then checks that the listing has the expected data.
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -29,8 +27,6 @@ public class LecturerCourseListMineTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there aren't any negative tests for this feature since it's a listing that
-		// HINT+ doesn't involve entering any data into any forms.
 	}
 
 	@Test

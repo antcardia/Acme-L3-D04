@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -60,14 +59,9 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		assert objects != null;
 
 		int masterId;
-		Course course;
-		final boolean showCreate;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		course = this.repository.findOneCourseById(masterId);
-		showCreate = course.isDraftMode() && super.getRequest().getPrincipal().hasRole(course.getLecturer());
 
 		super.getResponse().setGlobal("masterId", masterId);
-		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 }
