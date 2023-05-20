@@ -78,6 +78,9 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
+			super.state(object.getEstimatedLearningTime() != null, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTimeNotNull");
+
+		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
 			super.state(object.getEstimatedLearningTime() > 0, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
 
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
