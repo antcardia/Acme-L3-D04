@@ -11,21 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.enrolment.Activity;
 import acme.testing.TestHarness;
 
-public class StudentActivityShowTest extends TestHarness {
-
-	// Internal state ---------------------------------------------------------
+public class StudentActivityDeleteTest extends TestHarness {
 
 	@Autowired
 	protected StudentActivityTestRepository repository;
 
-	// Test data --------------------------------------------------------------
-
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
-		// HINT: this test signs in as an employer, lists all of the jobs, click on  
-		// HINT+ one of them, and checks that the form has the expected data.
+	@CsvFileSource(resources = "/student/activity/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String code, final String motivation) {
 
 		super.signIn("student1", "student1");
 
@@ -36,14 +30,8 @@ public class StudentActivityShowTest extends TestHarness {
 		super.clickOnButton("Activities");
 		super.clickOnListingRecord(recordIndex);
 
-		super.checkFormExists();
-		super.checkInputBoxHasValue("tittle", tittle);
-		super.checkInputBoxHasValue("abstract$", abstract$);
-		super.checkInputBoxHasValue("workbookName", workbookName);
-		super.checkInputBoxHasValue("atype", atype);
-		super.checkInputBoxHasValue("startTime", startTime);
-		super.checkInputBoxHasValue("finishTime", finishTime);
-		super.checkInputBoxHasValue("link", link);
+		super.clickOnSubmit("Delete");
+		super.checkNotErrorsExist();
 
 		super.signOut();
 	}
@@ -54,14 +42,12 @@ public class StudentActivityShowTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show an unpublished job by someone who is not the principal.
-
 		Collection<Activity> activities;
 		String param;
 
 		activities = this.repository.findManyActivitiesByStudentUsername("student1");
-		for (final Activity activity : activities) {
-			param = String.format("id=%d", activity.getId());
+		for (final Activity a : activities) {
+			param = String.format("id=%d", a.getId());
 
 			super.checkLinkExists("Sign in");
 			super.request("/student/activity/show", param);
@@ -82,6 +68,5 @@ public class StudentActivityShowTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 		}
-
 	}
 }
