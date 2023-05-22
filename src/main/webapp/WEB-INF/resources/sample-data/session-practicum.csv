@@ -1,12 +1,12 @@
-key,key:practicum,title,abstract$,start-time,finish-time,further-information,additional,draft-mode
-session-practicum-01,practicum-01,"Sesion 1","Esta es una sesion introductoria",2023/03/20 10:00,2023/03/20 12:00,null,false,true
-session-practicum-02,practicum-01,"Sesion 2","Esta sesion cubrira los fundamentos de la programacion",2023/03/27 10:00,2023/03/27 12:00,https://example.com/session2,false,true
-session-practicum-03,practicum-02,"Sesion 3","En esta sesion hablaremos sobre patrones de diseno",2023/04/01 14:00,2023/04/01 16:00,https://example.com/session3,false,true
-session-practicum-04,practicum-02,"Sesion 4","Esta sesion sera una revision del material cubierto en la sesion anterior",2023/04/08 14:00,2023/04/08 16:00,null,false,true
-session-practicum-05,practicum-03,"Sesion 5","Hoy discutiremos las ultimas tendencias en tecnologia de bases de datos",2023/04/15 16:00,2023/04/15 18:00,https://example.com/session5,false,true
-session-practicum-06,practicum-03,"Sesion 6","Esta sesion se centrara en el diseno de bases de datos",2023/04/22 16:00,2023/04/22 18:00,null,false,true
-session-practicum-08,practicum-04,"Sesion 8","En esta sesion profundizaremos en temas avanzados de redes",2023/05/06 10:00,2023/05/06 12:00,null,true,false
-session-practicum-07,practicum-04,"Sesion 7","Hoy hablaremos sobre los conceptos basicos de redes",2023/04/29 10:00,2023/04/29 12:00,https://example.com/session7,true,false
-session-practicum-09,practicum-05,"Sesion 9","Hablaremos sobre las tecnologias de la nube y su impacto en la industria",2023/05/13 14:00,2023/05/13 16:00,https://example.com/session9,true,false
-session-practicum-10,practicum-05,"Sesion 10","En esta sesion se revisaran casos de estudio de implementacion de soluciones en la nube",2023/05/20 14:00,2023/05/20 16:00,null,true,false
-session-practicum-11,practicum-01,"Sesion 11","En esta sesion se discutiran las herramientas de analisis de datos mas populares",2023/05/27 16:00,2023/05/27 18:00,https://example.com/session11,true,false
+key,key:practicum,title,abstract$,start-time,finish-time,further-information,is-addendum
+session-practicum-01,practicum-01,"Sesion 1","Esta es una sesion introductoria",2023/03/20 10:00,2023/03/20 12:00,null,true
+session-practicum-02,practicum-01,"Sesion 2","Esta sesion cubrira los fundamentos de la programacion",2023/03/27 10:00,2023/03/27 12:00,https://example.com/session2,false
+session-practicum-03,practicum-02,"Sesion 3","En esta sesion hablaremos sobre patrones de diseno",2023/04/01 14:00,2023/04/01 16:00,https://example.com/session3,false
+session-practicum-04,practicum-02,"Sesion 4","Esta sesion sera una revision del material cubierto en la sesion anterior",2023/04/08 14:00,2023/04/08 16:00,null,false
+session-practicum-05,practicum-03,"Sesion 5","Hoy discutiremos las ultimas tendencias en tecnologia de bases de datos",2023/04/15 16:00,2023/04/15 18:00,https://example.com/session5,false
+session-practicum-06,practicum-03,"Sesion 6","Esta sesion se centrara en el diseno de bases de datos",2023/04/22 16:00,2023/04/22 18:00,null,false
+session-practicum-07,practicum-04,"Sesion 7","Hoy hablaremos sobre los conceptos basicos de redes",2023/04/29 10:00,2023/04/29 12:00,https://example.com/session7,false
+session-practicum-08,practicum-04,"Sesion 8","En esta sesion profundizaremos en temas avanzados de redes",2023/05/06 10:00,2023/05/06 12:00,null,false
+session-practicum-09,practicum-05,"Sesion 9","Hablaremos sobre las tecnologias de la nube y su impacto en la industria",2023/05/13 14:00,2023/05/13 16:00,https://example.com/session9,false
+session-practicum-10,practicum-05,"Sesion 10","En esta sesion se revisaran casos de estudio de implementacion de soluciones en la nube",2023/05/20 14:00,2023/05/20 16:00,null,false
+session-practicum-11,practicum-01,"Sesion 11","En esta sesion se discutiran las herramientas de analisis de datos mas populares",2023/05/27 16:00,2023/05/27 18:00,https://example.com/session11,false

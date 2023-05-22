@@ -21,6 +21,7 @@ company.session-practicum.form.button.update = Update
 company.session-practicum.form.button.delete = Delete
 company.session-practicum.form.button.draftMode = Publish
 company.session-practicum.form.button.practicum = Practicum
+company.session-practicum.button.create = Create Session
 
 # Messages for label in list
 company.session-practicum.list.label.title = Title

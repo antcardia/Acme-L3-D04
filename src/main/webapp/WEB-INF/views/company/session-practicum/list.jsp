@@ -15,6 +15,8 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/" %>
 
+<acme:button code="company.session-practicum.button.create" action="/company/session-practicum/create?practicumId=${practicumId}" />    
+
 <acme:list>
     <acme:list-column code="company.session-practicum.list.label.title" path="title" width="50%"/>
     <acme:list-column code="company.session-practicum.list.label.startTime" path="startTime" width="5%"/>
@@ -22,6 +24,3 @@
     <acme:list-column code="company.session-practicum.list.label.additional" path="additional" width="5%"/>
     <acme:list-column code="company.session-practicum.list.label.draftMode" path="draftMode" width="5%"/>
 </acme:list>
-<jstl:if test="${extraAvailable}">
-    	<acme:button code="company.session-practicum.list.button.create" action="/company/session-practicum/create?masterId=${masterId}"/>
-</jstl:if>

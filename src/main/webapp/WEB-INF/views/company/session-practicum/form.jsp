@@ -22,18 +22,15 @@
     <acme:input-moment code="company.session-practicum.form.label.finishTime" path="finishTime"/>
     <acme:input-url code="company.session-practicum.form.label.furtherInformation" path="furtherInformation"/>
     <acme:input-select code="company.session-practicum.form.button.practicum" path="practicum" choices="${practicums}"/>
-    <jstl:choose>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
-            <acme:submit code="company.session-practicum.form.button.update" action="/company/session-practicum/update"/>
-            <acme:submit code="company.session-practicum.form.button.delete" action="/company/session-practicum/delete"/>
-        </jstl:when>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|confirm') && draftMode == false }">
-            <acme:submit code="company.session-practicum.form.button.update" action="/company/session-practicum/update"/>
-            <acme:submit code="company.session-practicum.form.button.delete" action="/company/session-practicum/delete"/>
-            <acme:submit code="company.session-practicum.form.button.confirm" action="/company/session-practicum/confirm"/>
-        </jstl:when>
-        <jstl:when test="${_command == 'create'}">
-            <acme:submit code="company.session-practicum.form.button.create" action="/company/session-practicum/create?masterId=${masterId}"/>
-        </jstl:when>
-    </jstl:choose>
+    
+		<jstl:if test="${_command == 'create'}">
+			<acme:submit code="company.session-practicum.form.button.create" action="/company/session-practicum/create?practicumId=${practicumId}"/>
+		</jstl:if>
+	
+		 
+		
+		<jstl:if test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+			<acme:submit code="company.session-practicum.form.button.update" action="/company/session-practicum/update"/>
+			<acme:submit code="company.session-practicum.form.button.delete" action="/company/session-practicum/delete"/>
+		</jstl:if>
 </acme:form>
