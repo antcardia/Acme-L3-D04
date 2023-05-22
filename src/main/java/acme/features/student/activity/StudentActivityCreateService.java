@@ -78,15 +78,11 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 			final String goals = object.getAbstract$();
 			super.state(!antiSpam.isSpam(goals), "abstract$", "student.activity.form.error.spamTitle3");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("startTime")) {
+		if (!super.getBuffer().getErrors().hasErrors("startTime") && !super.getBuffer().getErrors().hasErrors("finishTime")) {
 			final Date startTime = object.getStartTime();
 			final Date finishTime = object.getFinishTime();
-			super.state(startTime != MomentHelper.getCurrentMoment() || MomentHelper.isBefore(startTime, finishTime) || MomentHelper.isPast(startTime) || MomentHelper.isFuture(startTime), "startTime", "student.activity.form.error.startTime");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
-			final Date finishTime = object.getFinishTime();
-			final Date startTime = object.getStartTime();
-			super.state(finishTime != MomentHelper.getCurrentMoment() || MomentHelper.isBefore(startTime, finishTime) || MomentHelper.isPast(finishTime) || MomentHelper.isFuture(finishTime), "finishTime", "student.activity.form.error.finishTime");
+			super.state(startTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime), "startTime", "student.activity.form.error.startTime");
+			super.state(finishTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime), "finishTime", "student.activity.form.error.finishTime");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");

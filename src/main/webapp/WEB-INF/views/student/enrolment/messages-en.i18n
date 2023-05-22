@@ -17,7 +17,7 @@ student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
 student.enrolment.form.button.payment = Create Payment
 
-student.enrolment.form.error.workTime = Must be greater than 0
+
 student.enrolment.form.error.spamTitle= Spam motivation detected
 student.enrolment.form.error.spamTitle2 = Spam goals detected
 student.enrolment.form.error.duplicated =Not support duplicated

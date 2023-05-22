@@ -18,8 +18,11 @@ public class StudentActivityListTest extends TestHarness {
 		super.clickOnMenu("Student", "My enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
+		super.clickOnListingRecord(recordIndex);
 		super.clickOnButton("Activities");
 
+		super.checkListingExists();
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, tittle);
 		super.checkColumnHasValue(recordIndex, 1, workbookName);
 

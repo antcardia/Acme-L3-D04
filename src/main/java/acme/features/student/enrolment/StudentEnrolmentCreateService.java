@@ -69,8 +69,6 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 			existing = this.repository.findOneEnrolmentByCode(object.getCode());
 			super.state(existing == null, "code", "student.enrolment.form.error.duplicated");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("workTime"))
-			super.state(object.getWorkTime() > 0, "workTime", "student.enrolment.form.error.negative-workTime");
 
 		if (!super.getBuffer().getErrors().hasErrors("motivation")) {
 			final String motivation = object.getMotivation();

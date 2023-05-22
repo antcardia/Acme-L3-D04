@@ -32,24 +32,20 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Activity activity;
-		Enrolment enrolment;
-		Student student;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		activity = this.repository.findActivityById(masterId);
-		enrolment = activity == null ? null : activity.getEnrolment();
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = activity != null && !activity.getEnrolment().isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+		final boolean status;
+		final int masterId;
+		final Integer activityId = super.getRequest().getData("id", int.class);
+		final Enrolment enrolment;
+		final Student student;
+		final Activity activity = this.repository.findActivityById(activityId);
+		status = activity.getEnrolment().getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -93,20 +89,14 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 			final String goals = object.getAbstract$();
 			super.state(!antiSpam.isSpam(goals), "abstract$", "student.activity.form.error.spamTitle3");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("startTime")) {
+		if (!super.getBuffer().getErrors().hasErrors("startTime") && !super.getBuffer().getErrors().hasErrors("finishTime")) {
 			final Date startTime = object.getStartTime();
 			final Date finishTime = object.getFinishTime();
-			super.state(startTime != MomentHelper.getCurrentMoment() || MomentHelper.isBefore(startTime, finishTime) || MomentHelper.isPast(startTime) || MomentHelper.isFuture(startTime), "startTime", "student.activity.form.error.startTime");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
-			final Date finishTime = object.getFinishTime();
-			final Date startTime = object.getStartTime();
-			super.state(finishTime != MomentHelper.getCurrentMoment() || MomentHelper.isBefore(startTime, finishTime) || MomentHelper.isPast(finishTime) || MomentHelper.isFuture(finishTime), "finishTime", "student.activity.form.error.finishTime");
+			super.state(startTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime), "startTime", "student.activity.form.error.startTime");
+			super.state(finishTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime), "finishTime", "student.activity.form.error.finishTime");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
-
-	
 
 	}
 

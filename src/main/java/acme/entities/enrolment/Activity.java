@@ -31,7 +31,7 @@ public class Activity extends AbstractEntity {
 	protected String			tittle;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 20)
 	protected String			workbookName;
 
 	@NotBlank

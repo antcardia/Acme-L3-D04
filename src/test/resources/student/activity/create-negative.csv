@@ -1,18 +1,13 @@
-recordIndex,reference,contractor,title,deadline,salary,score,moreInfo,description
-0,,---,,,,,,
-0,EMP,"Acme, Inc.",Title X,2040/12/11 00:00,"USD 1,000.99",99.98,http://www.example.com,Lorem ipsum dolor sit amet.
-0,EMP01-JOB9999999999999999,"Acme, Inc.",Title X,2040/02/28 10:00,USD 1.50,99.97,http://www.acme.com/master/welcome,Consectetur adipiscing elit.
-0,,"Acme, Inc.",Title X,2040/03/01 11:00,"EUR 2,345.01",50.00,http://www.acme.org,Maecenas sit amet odio semper.
-0,EMP01-JOB13,---,Title X,2040/04/02 12:00,"BGP 2,000.99",0.03,http://localhost,Fusce quis vulputate turpis
-0,EMP01-JOB14,"Acme, Inc.",,2040/04/02 12:00,"BGP 2,000.99",0.03,http://localhost,"Gravida nulla ut, volutpat justo"
-0,EMP01-JOB15,"Acme, Inc.",Title X,,"EUR 1,000.00",0.02,,Donec ullamcorper dolor eget velit posuere convallis.
-0,EMP01-JOB16,"Acme, Inc.",Title X,2000/06/05 13:00,THB 300.25,0.01,,Mauris velit sapien.
-0,EMP01-JOB17,"Acme, Inc.",Title X,Tomorrow,YEN 1.00,0.00,http://www.example.com,Suscipit non scelerisque id.
-0,EMP01-JOB18,"Acme, Inc.",Title X,2040/07/09 00:00,,0.02,,Commodo non magna.
-0,EMP01-JOB19,"Acme, Inc.",Title X,2040/08/31 00:01,EUR -500.00,0.10,http://somewhere.com,Donec nec metus id elit porttitor tempus quis vel turpis.
-0,EMP01-JOB20,"Acme, Inc.",Title X,2028/02/29 23:59,A lot of money,89.00,,"Maecenas varius, nisi id dignissim pretium, lacus odio blandit sapien"
-0,EMP01-JOB21,"Acme, Inc.",Title X,2030/01/01 01:01,EUR 100.99,,,A iaculis ante justo ut nibh.
-0,EMP01-JOB22,"Acme, Inc.",Title X,2030/03/03 01:01,"EUR 1,000.99",-89.00,,Morbi eget pulvinar elit.
-0,EMP01-JOB23,"Acme, Inc.",Title X,2030/12/03 01:01,"EUR 2,345.75",189.00,,Non lobortis velit.
-0,EMP01-JOB24,"Acme, Inc.",Title X,2030/12/15 01:01,EUR 1.99,89.1234,,Etiam consequat imperdiet elit id cursus
-0,EMP01-JOB25,"Acme, Inc.",Title Y,2040/01/08 02:01,EUR 1.99,1.00,not-a-url,Etiam consequat imperdiet elit id cursus
+recordIndex,tittle,abstract$,workbookName,atype,startTime,finishTime,link
+0,ato es para ver hasta setenta y cinco palabras de limite como restriccionnnnnn,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,mates,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+1,bto es para ver hasta setenta y cinco palabras de limite como restriccionnnnn,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,conocimiento del medio,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+2,cto es para ver hasta setenta y cinco palabras de limite como restriccion,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos soless,lengua,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+3,dto es para ver hasta setenta y cinco palabras de limite como restriccion,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos soles,fisica,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+5,fsto es para ver hasta setenta y cinco palabras de limite como restriccion,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,con esto llego a lass,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+6,gsto es para ver hasta setenta y cinco palabras de limite como restriccion,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,con esto llego a las,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+7,hsto es para ver hasta setenta y cinco palabras de limite como restriccion,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,con esto llego a la,BALANCED,2021/03/12 00:00,2021/03/13 00:00,
+8,isto es para ver hasta setenta y cinco palabras de limite como restriccion,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,con esto llego a la,HANDS-ON,2021/03/13 00:00,2021/03/12 00:00,
+9,nigeria,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,con esto llego a la,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+10,ks,nigeria,con esto llego a la,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+11,lsto es para ver hasta setenta y cinco palabras de limite como restriccion,E,nigeria,THEORICAL,2021/03/12 00:00,2021/03/13 00:00,
+13,,,,,,

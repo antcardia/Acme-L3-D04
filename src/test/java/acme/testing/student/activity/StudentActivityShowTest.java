@@ -29,11 +29,14 @@ public class StudentActivityShowTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Student", "My workbooks");
+		super.clickOnMenu("Student", "My enrolments");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+		super.clickOnButton("Activities");
+		super.clickOnListingRecord(recordIndex);
 
+		super.checkFormExists();
 		super.checkInputBoxHasValue("tittle", tittle);
 		super.checkInputBoxHasValue("abstract$", abstract$);
 		super.checkInputBoxHasValue("workbookName", workbookName);

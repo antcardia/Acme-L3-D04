@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.student.activity;
+package acme.testing.student.enrolment;
 
 import java.util.Collection;
 
@@ -21,9 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.enrolment.Enrolment;
 import acme.testing.TestHarness;
-import acme.testing.student.enrolment.StudentEnrolmentTestRepository;
 
-public class StudentActivityCreateTest extends TestHarness {
+public class StudentEnrolmentCreateTest extends TestHarness {
 
 	@Autowired
 	protected StudentEnrolmentTestRepository repository;
@@ -31,72 +30,56 @@ public class StudentActivityCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
+	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String workTime, final String course) {
 		// HINT: this test authenticates as an employer and then lists his or her
 		// HINT: jobs, creates a new one, and check that it's been created properly.
 
 		super.signIn("student1", "student1");
 
 		super.clickOnMenu("Student", "My enrolments");
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
+		super.checkListingExists();
 
 		super.clickOnButton("Create");
-		super.fillInputBoxIn("tittle", tittle);
-		super.fillInputBoxIn("abstract$", abstract$);
-		super.fillInputBoxIn("workbookName", workbookName);
-		super.fillInputBoxIn("atype", atype);
-		super.fillInputBoxIn("startTime", startTime);
-		super.fillInputBoxIn("finishTime", finishTime);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("motivation", motivation);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("workTime", workTime);
+		super.fillInputBoxIn("course", course);
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Student", "My enrolments");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
-		super.checkColumnHasValue(recordIndex, 0, tittle);
-		super.checkColumnHasValue(recordIndex, 1, abstract$);
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 1, motivation);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("tittle", tittle);
-		super.checkInputBoxHasValue("abstract$", abstract$);
-		super.checkInputBoxHasValue("workbookName", workbookName);
-		super.checkInputBoxHasValue("atype", atype);
-		super.checkInputBoxHasValue("startTime", startTime);
-		super.checkInputBoxHasValue("finishTime", finishTime);
-		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("motivation", motivation);
+		super.checkInputBoxHasValue("goals", goals);
+		super.checkInputBoxHasValue("workTime", workTime);
+		super.checkInputBoxHasValue("course", course);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
+	public void test200Negative(final int recordIndex, final String code, final String motivation, final String goals, final String workTime, final String course) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
 		super.signIn("student1", "student1");
 
 		super.clickOnMenu("Student", "My enrolments");
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnButton("Create");
 		super.checkFormExists();
-		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
 
-		super.fillInputBoxIn("tittle", tittle);
-		super.fillInputBoxIn("abstract$", abstract$);
-		super.fillInputBoxIn("workbookName", workbookName);
-		super.fillInputBoxIn("atype", atype);
-		super.fillInputBoxIn("startTime", startTime);
-		super.fillInputBoxIn("finishTime", finishTime);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("motivation", motivation);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("workTime", workTime);
+		super.fillInputBoxIn("course", course);
 
 		super.clickOnSubmit("Create");
 
