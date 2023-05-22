@@ -30,6 +30,7 @@ lecturer.course.form.button.create = Create
 lecturer.course.form.error.duplicated = This code is taken
 lecturer.course.form.error.spamTitle = The title contains spam
 lecturer.course.form.error.spamAbstract = The abstract contains spam
+lecturer.course.form.error.notAcceptedCurrency = The currency is not accepted by the system
 lecturer.course.form.error.outOfRangeRetailPrice = The retail price is out of range
 lecturer.course.form.error.lecture-not-found = No lectures have been found
 lecturer.course.form.error.no-hands-on-lecture = The course must contain at least one hands-on lecture

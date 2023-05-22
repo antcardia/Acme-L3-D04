@@ -1,6 +1,9 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,6 +71,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 		final SystemConfiguration config = this.repository.findSystemConfiguration();
+		final List<String> currencies = Arrays.asList(config.getAcceptedCurrencies().split(","));
 		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
 
 		if (!super.getBuffer().getErrors().hasErrors("title")) {
@@ -82,10 +86,12 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course existing;
-			final Course course = this.repository.findOneCourseById(object.getId());
 			existing = this.repository.findOneCourseByCode(object.getCode());
-			super.state(existing == null || course.equals(existing), "code", "lecturer.course.form.error.duplicated");
+			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.form.error.notAcceptedCurrency");
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
 			super.state(object.getRetailPrice().getAmount() > 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");

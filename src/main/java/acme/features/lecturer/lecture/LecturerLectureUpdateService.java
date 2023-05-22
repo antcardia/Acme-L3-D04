@@ -35,7 +35,17 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Lecture lecture;
+		Lecturer lecturer;
+
+		masterId = super.getRequest().getData("id", int.class);
+		lecture = this.repository.findOneLectureById(masterId);
+		lecturer = lecture == null ? null : lecture.getLecturer();
+		status = lecture != null && lecture.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -78,7 +88,10 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
-			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
+			super.state(object.getEstimatedLearningTime() != null, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTimeNotNull");
+
+		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
+			super.state(object.getEstimatedLearningTime() > 0, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
 
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.lectureType");
