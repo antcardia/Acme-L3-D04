@@ -30,19 +30,16 @@ public class StudentActivityCreateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/enrolment/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
-		// HINT: this test authenticates as an employer and then lists his or her
-		// HINT: jobs, creates a new one, and check that it's been created properly.
 
 		super.signIn("student1", "student1");
 
 		super.clickOnMenu("Student", "My enrolments");
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
 
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("tittle", tittle);
@@ -56,12 +53,11 @@ public class StudentActivityCreateTest extends TestHarness {
 
 		super.clickOnMenu("Student", "My enrolments");
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
 		super.checkColumnHasValue(recordIndex, 0, tittle);
-		super.checkColumnHasValue(recordIndex, 1, abstract$);
+		super.checkColumnHasValue(recordIndex, 1, workbookName);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -77,7 +73,7 @@ public class StudentActivityCreateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/enrolment/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
@@ -88,8 +84,8 @@ public class StudentActivityCreateTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
 
+		super.clickOnButton("Create");
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("abstract$", abstract$);
 		super.fillInputBoxIn("workbookName", workbookName);
