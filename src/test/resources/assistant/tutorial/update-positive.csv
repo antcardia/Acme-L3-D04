@@ -1,11 +1,6 @@
-recordIndex,code,motivation,goals,workTime,course
-0,ABC123,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.50,AAA001
-0,BCD123,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA007
-0,CCD456,E,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA007
-0,DCD789,Es,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA006
-0,ECD987,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregreg,2.50,AAA007
-0,FCD654,perder,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregre,2.50,AAA006
-0,GCD321,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La,2.50,AAA007
-0,HCD123,perder,L,2.50,AAA001
-0,ICD123,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,0.10,AAA001
-0,JCD123,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,0.20,AAA006
+recordIndex,code,title,summary,goals,estimatedTime,course
+0,AKO222,Tutorial de ejemplo 1,Hacer ejemplos de tutoriales,Meta de ejemplo,1.50,AAA001
+1,BBS121,Tutorial de ejemplo 2,Como crear ficheros,Meta de ejemplo,2.60,AAA001
+2,CFC343,Tutorial de ejemplo 3,Ejemplo de cambio,Meta,2.20,AAA006
+3,DDD333,Tutorial de ejemplo 4,Hacer ejemplos de tutoriales,Meta de ejemplo,1.80,AAA001
+4,PGA211,Tutorial de ejemplo 5,Hacer ejemplos de tutoriales,Meta de ejemplo,1.50,AAA006

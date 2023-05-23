@@ -11,36 +11,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.tutorial.Tutorial;
 import acme.testing.TestHarness;
 
-public class AssistantTutorialCreateTest extends TestHarness {
+public class AssistantTutorialUpdateTest extends TestHarness {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AssistantTutorialTestRepository repository;
 
+	// Test methods ------------------------------------------------------------
+
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String summary, final String goals, final String estimatedTime, final String course) {
-		// HINT: this test authenticates as an assistant and then lists his or her
-		// HINT: sessions, creates a new one, and check that it's been created properly.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant2", "assistant2");
 
 		super.clickOnMenu("Assistant", "My tutorials");
 		super.checkListingExists();
+		super.sortListing(0, "asc");
 
-		super.clickOnButton("Create");
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("estimatedTime", estimatedTime);
 		super.fillInputBoxIn("course", course);
-		super.clickOnSubmit("Create");
+		super.clickOnSubmit("Update");
 
 		super.clickOnMenu("Assistant", "My tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
 
@@ -57,23 +60,24 @@ public class AssistantTutorialCreateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String summary, final String goals, final String estimatedTime, final String course) {
-		// HINT: this test attempts to create jobs with incorrect data.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant2", "assistant2");
 
 		super.clickOnMenu("Assistant", "My tutorials");
 		super.checkListingExists();
+		super.sortListing(0, "asc");
 
-		super.clickOnButton("Create");
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("estimatedTime", estimatedTime);
 		super.fillInputBoxIn("course", course);
-		super.clickOnSubmit("Create");
+		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
 
@@ -82,16 +86,15 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-
 		Collection<Tutorial> tutorials;
 		String param;
 
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
-		for (final Tutorial t : tutorials) {
-			param = String.format("id=%d", t.getId());
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
+		for (final Tutorial e : tutorials) {
+			param = String.format("id=%d", e.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/assistant/tutorial/show", param);
+			super.request("/assistant/session/show", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
@@ -99,16 +102,15 @@ public class AssistantTutorialCreateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("assistant1", "assistant1");
-			super.request("/assistant/tutorial/show", param);
+			super.signIn("assistant2", "assistant2");
+			super.request("/assistant/session/show", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/assistant/activity/show", param);
+			super.request("/assistant/session/show", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
 	}
-
 }

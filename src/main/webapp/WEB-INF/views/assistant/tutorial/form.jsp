@@ -11,7 +11,6 @@
 	<acme:input-checkbox code = "assistant.tutorial.form.label.draftMode" path="draftMode" readonly="true"/>
 	<acme:input-money code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.assistant" path="assistant"/>
 
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	
