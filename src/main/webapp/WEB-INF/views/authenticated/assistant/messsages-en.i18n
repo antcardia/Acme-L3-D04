@@ -13,5 +13,10 @@ authenticated.assistant.form.label.expertiseFields = Resume:
 authenticated.assistant.form.label.resume = List of qualifications:
 authenticated.assistant.form.label.furtherInformation = Further information:
 
+authenticated.assistant.form.error.spamSupervisor = The introduced text is Spam.
+authenticated.assistant.form.error.spamResume = The introduced text is Spam.
+authenticated.assistant.form.error.spamExpertiseFields = The introduced text is Spam.
+authenticated.assistant.form.error.spamFurtherInformation = The introduced link is Spam.
+
 authenticated.assistant.form.button.create = Register
 authenticated.assistant.form.button.update = Update
