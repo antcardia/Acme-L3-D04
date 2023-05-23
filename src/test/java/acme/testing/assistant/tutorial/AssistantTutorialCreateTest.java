@@ -1,5 +1,5 @@
 
-package acme.testing.assistant.session;
+package acme.testing.assistant.tutorial;
 
 import java.util.Collection;
 
@@ -8,18 +8,18 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.tutorial.Session;
+import acme.entities.tutorial.Tutorial;
 import acme.testing.TestHarness;
 
-public class AssistantSessionCreateTest extends TestHarness {
+public class AssistantTutorialCreateTest extends TestHarness {
 
 	@Autowired
-	protected AssistantSessionTestRepository repository;
+	protected AssistantTutorialTestRepository repository;
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/session/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String title, final String summary, final String sessionType, final String start, final String end, final String furtherInformation) {
+	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String code, final String title, final String summary, final String goals, final String estimatedTime, final String course) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: sessions, creates a new one, and check that it's been created properly.
 
@@ -27,35 +27,31 @@ public class AssistantSessionCreateTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "My tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(0);
-
-		super.clickOnButton("Sessions");
 		super.clickOnButton("Create");
 
+		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("summary", summary);
-		super.fillInputBoxIn("sessionType", sessionType);
-		super.fillInputBoxIn("start", start);
-		super.fillInputBoxIn("end", end);
-		super.fillInputBoxIn("furtherInformation", furtherInformation);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("estimatedTime", estimatedTime);
+		super.fillInputBoxIn("course", course);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Assistant", "My sessions");
+		super.clickOnMenu("Assistant", "My tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		//super.checkColumnHasValue(recordIndex, 0, title);
-		//super.checkColumnHasValue(recordIndex, 1, summary);
-		//super.checkColumnHasValue(recordIndex, 2, sessionType);
+
+		super.checkColumnHasValue(recordIndex, 0, title);
+		super.checkColumnHasValue(recordIndex, 1, code);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("summary", summary);
-		super.checkInputBoxHasValue("sessionType", sessionType);
-		super.checkInputBoxHasValue("start", start);
-		super.checkInputBoxHasValue("end", end);
-		super.checkInputBoxHasValue("furtherInformation", furtherInformation);
+		super.checkInputBoxHasValue("goals", goals);
+		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
+		super.checkInputBoxHasValue("course", course);
 
 		super.signOut();
 	}
@@ -92,12 +88,12 @@ public class AssistantSessionCreateTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 
-		Collection<Session> sessions;
+		Collection<Tutorial> tutorials;
 		String param;
 
-		sessions = this.repository.findManySessionsByAssistantUsername("assistant1");
-		for (final Session s : sessions) {
-			param = String.format("id=%d", s.getId());
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		for (final Tutorial t : tutorials) {
+			param = String.format("id=%d", t.getId());
 
 			super.checkLinkExists("Sign in");
 			super.request("/assistant/session/show", param);

@@ -10,6 +10,6 @@ import acme.framework.repositories.AbstractRepository;
 
 public interface AssistantSessionTestRepository extends AbstractRepository {
 
-	@Query("select a from Activity a inner join Enrolment e on a.enrolment = e where e.student.userAccount.username = :username")
+	@Query("select s from Session s where s.tutorial.assistant.userAccount.username = :username")
 	Collection<Session> findManySessionsByAssistantUsername(String username);
 }

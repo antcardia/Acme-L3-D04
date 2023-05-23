@@ -1,8 +1,8 @@
 key,title,summary,session-type,start,end,further-information,key:tutorial
-session-01,First Session,We are in the first session of tutorial one,THEORETICAL,2021/03/12 00:00,2021/03/12 00:00,,tutorial-01
-session-02,Second Session,We are in the second session of tutorial one,THEORETICAL,2022/05/28 08:51,2022/05/29 08:51,https://www.google.com,tutorial-01
-session-03,Third Session,We are in the third session of tutorial one,THEORETICAL,2021/03/12 00:00,2021/03/12 00:00,,tutorial-01
-session-04,Sample Session,We are in the sample session of tutorial one,HANDS_ON,2021/03/12 00:00,2021/03/12 00:00,,tutorial-01
+session-01,First Session,We are in the first session of tutorial one,THEORETICAL,2021/03/12 00:00,2021/03/12 00:00,,tutorial-02
+session-02,Second Session,We are in the second session of tutorial one,THEORETICAL,2022/05/28 08:51,2022/05/29 08:51,https://www.google.com,tutorial-02
+session-03,Third Session,We are in the third session of tutorial one,THEORETICAL,2021/03/12 00:00,2021/03/12 00:00,,tutorial-02
+session-04,Sample Session,We are in the sample session of tutorial one,HANDS_ON,2021/03/12 00:00,2021/03/12 00:00,,tutorial-02
 session-05,Sample Session,We are in the sample session of tutorial two,THEORETICAL,2021/03/12 00:00,2021/03/12 00:00,,tutorial-02
 session-06,Sample Session,We are in the sample session of tutorial three,HANDS_ON,2021/03/12 00:00,2021/03/12 00:00,,tutorial-03
 session-07,Sample Session,We are in the sample session of tutorial four,THEORETICAL,2021/03/12 00:00,2021/03/12 00:00,https://www.wikipedia.es,tutorial-04

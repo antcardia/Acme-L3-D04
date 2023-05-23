@@ -3,6 +3,7 @@
 
 assistant.tutorial.list.label.title = Title
 assistant.tutorial.list.label.estimatedTime = Estimated Time
+assistant.tutorial.list.label.code = Code
 
 assistant.tutorial.list.button.create = Create
 
