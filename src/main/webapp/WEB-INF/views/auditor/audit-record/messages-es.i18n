@@ -20,3 +20,4 @@ auditor.auditrecord.form.button.correct = Crear corrección
 
 auditor.auditrecord.message.correction = Registro de auditoría de corrección
 auditor.auditrecord.message.correction.disclaimer = ATENCIÓN: El registro de creación se publicará automáticamente al ser creado.
+auditor.auditrecord.form.error.outOfRangeLink = Enlace fuera de rango

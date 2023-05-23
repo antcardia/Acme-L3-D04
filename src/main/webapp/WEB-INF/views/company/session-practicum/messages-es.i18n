@@ -39,3 +39,4 @@ company.session-practicum.list.button.create = Crear
 # Messages for error in form
 company.session-practicum.error.start-after-now = La fecha de inicio debe ser posterior a la fecha actual.
 company.session-practicum.error.end-before-start = La fecha de fin debe ser una semana posterior a la fecha de inicio.
+company.session-practicum.form.error.outOfRangeLink = Enlace fuera de rango

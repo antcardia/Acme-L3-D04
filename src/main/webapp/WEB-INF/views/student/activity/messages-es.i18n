@@ -21,3 +21,4 @@ student.enrolment.form.error.spamTitle3 = Spam del resumen detectado
 student.activity.form.error.atype = No puede ser balaced
 student.activity.form.error.startTime = El tiempo de inicio no puede ser hoy o mayor que el de finalizacion 
 student.activity.form.error.finishTime = El tiempo de finalizacion no puede ser hoy o menor al inicio
+student.activity.form.error.outOfRangeLink = Enlace fuera de rango

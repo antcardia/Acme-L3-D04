@@ -12,6 +12,12 @@ authenticated.assistant.form.label.supervisor = Supervisor:
 authenticated.assistant.form.label.expertiseFields = Campos de conocimiento:
 authenticated.assistant.form.label.resume = Resumen: 
 authenticated.assistant.form.label.furtherInformation = Más información:
+authenticated.assistant.form.error.outOfRangeLink = Enlace fuera de rango
+
+authenticated.assistant.form.error.spamSupervisor = El texto introducido es Spam.
+authenticated.assistant.form.error.spamResume = El texto introducido es Spam.
+authenticated.assistant.form.error.spamExpertiseFields = El texto introducido es Spam.
+authenticated.assistant.form.error.spamFurtherInformation = El link introducido es Spam.
 
 authenticated.assistant.form.button.create = Registrar
 authenticated.assistant.form.button.update = Actualizar

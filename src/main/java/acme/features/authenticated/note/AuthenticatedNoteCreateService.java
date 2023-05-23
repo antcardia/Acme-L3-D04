@@ -75,6 +75,12 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 			super.state(!antiSpam.isSpam(message), "message", "authenticated.note.form.error.spamMessage");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("email"))
+			super.state(object.getEmail().length() < 255, "email", "authenticated.note.form.error.outOfRangeEmail");
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "authenticated.note.form.error.outOfRangeLink");
+
 		super.state(super.getRequest().getData("confirmation", boolean.class), "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 

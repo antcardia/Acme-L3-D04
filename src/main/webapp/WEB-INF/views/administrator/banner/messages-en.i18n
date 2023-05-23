@@ -5,10 +5,21 @@ administrator.banner.list.label.endPeriod=End
 administrator.banner.list.label.linkPicture=Image Link
 administrator.banner.list.label.slogan=Slogan
 administrator.banner.list.label.linkWebDocument=Doc
+administrator.banner.form.label.moment=Moment
+administrator.banner.form.label.startPeriod=Start
+administrator.banner.form.label.endPeriod=End
+administrator.banner.form.label.linkPicture=Image Link
+administrator.banner.form.label.slogan=Slogan
+administrator.banner.form.label.linkWebDocument=Doc
 administrator.banner.list.button.create = Create
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.error.badDate1 = The start period date must be after the instantiation moment.
+administrator.banner.form.error.badDate2 = The end period date must be after the start date.
+administrator.banner.form.error.spamLink = The introduced link is spam.
+administrator.banner.form.error.spam = The introduced text is spam.
 
 
 

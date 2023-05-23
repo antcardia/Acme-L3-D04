@@ -1,6 +1,9 @@
 
 package acme.features.authenticated.offer;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +11,7 @@ import acme.entities.offer.Offer;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import antiSpamFilter.AntiSpamFilter;
 
@@ -63,6 +67,21 @@ public class AuthenticatedOfferCreateService extends AbstractService<Authenticat
 		if (!super.getBuffer().getErrors().hasErrors("abstract$")) {
 			final String message = object.getAbstract$();
 			super.state(!antiSpam.isSpam(message), "abstract$", "authenticated.offer.form.error.spam2");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(object.getLink().length() < 255, "link", "authenticated.offer.form.error.outOfRangeLink");
+
+		if (!super.getBuffer().getErrors().hasErrors("price"))
+			super.state(object.getPrice().getAmount() > 0, "price", "authenticated.offer.form.error.price");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDay") && !super.getBuffer().getErrors().hasErrors("lastDay")) {
+			final Date startDay = object.getStartDay();
+			final Date lastDay = object.getLastDay();
+			final Date instantiationMoment = object.getInstantiationMoment();
+
+			super.state(MomentHelper.isLongEnough(startDay, instantiationMoment, 1, ChronoUnit.DAYS), "startDay", "authenticated.offer.form.error.startDay");
+			super.state(MomentHelper.isLongEnough(lastDay, startDay, 7, ChronoUnit.DAYS), "lastDay", "authenticated.offer.form.error.lastDay");
+
 		}
 	}
 

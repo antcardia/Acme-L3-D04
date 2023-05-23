@@ -13,5 +13,6 @@ authenticated.student.form.label.strongFeatures = Aspectos Fuertes:
 authenticated.student.form.label.weakFeatures = Aspectos Debiles: 
 authenticated.student.form.label.optionalLink = Link Opcional: 
 
+authenticated.student.form.error.outOfRangeLink = Enlace fuera de rango
 authenticated.student.form.button.create = Registrar
 authenticated.student.form.button.update = Actualizar

@@ -12,11 +12,14 @@
 
 package acme.testing.student.activity;
 
+import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.enrolment.Activity;
 import acme.testing.TestHarness;
 
 public class StudentActivityUpdateTest extends TestHarness {
@@ -30,73 +33,73 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/employer/job/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String reference, final String contractor, final String title, final String deadline, final String salary, final String score, final String moreInfo, final String description) {
-		// HINT: this test logs in as an employer, lists his or her jobs, 
-		// HINT+ selects one of them, updates it, and then checks that 
-		// HINT+ the update has actually been performed.
+	@CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
 
-		super.signIn("employer1", "employer1");
+		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Employer", "List my jobs");
-		super.checkListingExists();
+		super.clickOnMenu("Student", "My enrolments");
 		super.sortListing(0, "asc");
+		super.clickOnListingRecord(1);
+		super.checkFormExists();
+		super.clickOnButton("Activities");
 
-		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("reference", reference);
-		super.fillInputBoxIn("contractor", contractor);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("deadline", deadline);
-		super.fillInputBoxIn("salary", salary);
-		super.fillInputBoxIn("score", score);
-		super.fillInputBoxIn("moreInfo", moreInfo);
-		super.fillInputBoxIn("description", description);
+		super.fillInputBoxIn("tittle", tittle);
+		super.fillInputBoxIn("abstract$", abstract$);
+		super.fillInputBoxIn("workbookName", workbookName);
+		super.fillInputBoxIn("atype", atype);
+		super.fillInputBoxIn("startTime", startTime);
+		super.fillInputBoxIn("finishTime", finishTime);
+		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 
+		super.clickOnMenu("Student", "My enrolments");
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(1);
+		super.checkFormExists();
+		super.clickOnButton("Activities");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, reference);
-		super.checkColumnHasValue(recordIndex, 1, deadline);
-		super.checkColumnHasValue(recordIndex, 2, title);
+		super.checkColumnHasValue(recordIndex, 0, tittle);
+		super.checkColumnHasValue(recordIndex, 1, workbookName);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("reference", reference);
-		super.checkInputBoxHasValue("contractor", contractor);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("deadline", deadline);
-		super.checkInputBoxHasValue("salary", salary);
-		super.checkInputBoxHasValue("score", score);
-		super.checkInputBoxHasValue("moreInfo", moreInfo);
-		super.checkInputBoxHasValue("description", description);
+		super.checkInputBoxHasValue("tittle", tittle);
+		super.checkInputBoxHasValue("abstract$", abstract$);
+		super.checkInputBoxHasValue("workbookName", workbookName);
+		super.checkInputBoxHasValue("atype", atype);
+		super.checkInputBoxHasValue("startTime", startTime);
+		super.checkInputBoxHasValue("finishTime", finishTime);
+		super.checkInputBoxHasValue("link", link);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/employer/job/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String reference, final String contractor, final String title, final String deadline, final String salary, final String score, final String moreInfo, final String description) {
+	@CsvFileSource(resources = "/student/activity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
 		// HINT: this test attempts to update a job with wrong data.
 
-		super.signIn("employer1", "employer1");
+		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Employer", "List my jobs");
-		super.checkListingExists();
+		super.clickOnMenu("Student", "My enrolments");
 		super.sortListing(0, "asc");
+		super.clickOnListingRecord(1);
+		super.checkFormExists();
+		super.clickOnButton("Activities");
 
-		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("reference", reference);
-		super.fillInputBoxIn("contractor", contractor);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("deadline", deadline);
-		super.fillInputBoxIn("salary", salary);
-		super.fillInputBoxIn("score", score);
-		super.fillInputBoxIn("moreInfo", moreInfo);
-		super.fillInputBoxIn("description", description);
+		super.fillInputBoxIn("tittle", tittle);
+		super.fillInputBoxIn("abstract$", abstract$);
+		super.fillInputBoxIn("workbookName", workbookName);
+		super.fillInputBoxIn("atype", atype);
+		super.fillInputBoxIn("startTime", startTime);
+		super.fillInputBoxIn("finishTime", finishTime);
+		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
@@ -106,35 +109,33 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to update a job with a role other than "Employer",
-		// HINT+ or using an employer who is not the owner.
 
-		//	Collection<Job>	jobs;
-		final String param;
+		Collection<Activity> activities;
+		String param;
 
-		//	jobs = this.repository.findManyJobsByEmployerUsername("employer1");
-		//for (final Job job : jobs) {
-		//	param = String.format("id=%d", job.getId());
+		activities = this.repository.findManyActivitiesByStudentUsername("student1");
+		for (final Activity activity : activities) {
+			param = String.format("id=%d", activity.getId());
 
-		//			super.checkLinkExists("Sign in");
-		//			super.request("/employer/job/update", param);
-		//			super.checkPanicExists();
-		//
-		//			super.signIn("administrator", "administrator");
-		//			super.request("/employer/job/update", param);
-		//			super.checkPanicExists();
-		//			super.signOut();
-		//
-		//			super.signIn("employer2", "employer2");
-		//			super.request("/employer/job/update", param);
-		//			super.checkPanicExists();
-		//			super.signOut();
-		//
-		//			super.signIn("worker1", "worker1");
-		//			super.request("/employer/job/update", param);
-		//			super.checkPanicExists();
-		//			super.signOut();
+			super.checkLinkExists("Sign in");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+
+			super.signIn("administrator", "administrator");
+			super.request("/employer/job/show", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("student2", "student2");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
+		}
 	}
-}
 
-//}
+}
