@@ -3,5 +3,6 @@ authenticated.auditor.form.label.professionalId = Professional ID
 authenticated.auditor.form.label.certifications = Certifications
 authenticated.auditor.form.label.link = Link
 
+authenticated.auditor.form.error.outOfRangeLink = Link is out of range 
 authenticated.auditor.form.button.create = Register
 authenticated.auditor.form.button.update = Update

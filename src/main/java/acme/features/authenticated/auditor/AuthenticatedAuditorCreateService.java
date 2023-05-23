@@ -62,6 +62,8 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Auditor object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "authenticated.auditor.form.error.outOfRangeLink");
 	}
 
 	@Override

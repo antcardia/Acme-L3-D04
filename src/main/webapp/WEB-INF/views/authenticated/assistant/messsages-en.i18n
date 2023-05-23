@@ -12,6 +12,7 @@ authenticated.assistant.form.label.supervisor = Alma mater:
 authenticated.assistant.form.label.expertiseFields = Resume:
 authenticated.assistant.form.label.resume = List of qualifications:
 authenticated.assistant.form.label.furtherInformation = Further information:
+authenticated.assistant.form.error.outOfRangeLink = Link is out of range
 
 authenticated.assistant.form.button.create = Register
 authenticated.assistant.form.button.update = Update

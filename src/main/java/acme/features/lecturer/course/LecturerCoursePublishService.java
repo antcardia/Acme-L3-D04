@@ -1,6 +1,7 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -74,6 +75,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	public void validate(final Course object) {
 		assert object != null;
 		final SystemConfiguration config = this.repository.findSystemConfiguration();
+		final List<String> currencies = Arrays.asList(config.getAcceptedCurrencies().split(","));
 		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
 
 		if (!super.getBuffer().getErrors().hasErrors("title")) {
@@ -94,7 +96,13 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-			super.state(object.getRetailPrice().getAmount() > 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
+			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.form.error.notAcceptedCurrency");
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() >= 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.course.form.error.outOfRangeLink");
 
 		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
 		super.state(!lectures.isEmpty(), "courseNature", "lecturer.course.form.error.lecture-not-found");

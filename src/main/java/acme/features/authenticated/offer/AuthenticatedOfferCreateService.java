@@ -64,6 +64,9 @@ public class AuthenticatedOfferCreateService extends AbstractService<Authenticat
 			final String message = object.getAbstract$();
 			super.state(!antiSpam.isSpam(message), "abstract$", "authenticated.offer.form.error.spam2");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(object.getLink().length() < 255, "link", "authenticated.offer.form.error.outOfRangeLink");
 	}
 
 	@Override

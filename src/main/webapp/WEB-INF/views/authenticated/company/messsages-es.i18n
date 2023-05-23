@@ -13,5 +13,7 @@ authenticated.company.form.label.VATnumber = Número VAT:
 authenticated.company.form.label.summary = Resumen:
 authenticated.company.form.label.link = Link:
 
+authenticated.company.form.error.outOfRangeLink = Enlace fuera de rango
+
 authenticated.company.form.button.create = Register
 authenticated.company.form.button.update = Update

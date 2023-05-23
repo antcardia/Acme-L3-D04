@@ -112,6 +112,8 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 			if (!super.getBuffer().getErrors().hasErrors("end"))
 				super.state(MomentHelper.isAfter(end, inAWeekFromStart), "end", "company.session-practicum.error.end-after-start");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(sessionPracticum.getFurtherInformation().length() < 255, "furtherInformation", "company.session-practicum.form.error.outOfRangeLink");
 	}
 
 	@Override

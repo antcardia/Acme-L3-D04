@@ -75,6 +75,8 @@ public class AuthenticatedLecturerUpdateService extends AbstractService<Authenti
 			final String listOfQualifications = object.getListOfQualifications();
 			super.state(!antiSpam.isSpam(listOfQualifications), "listOfQualifications", "authenticated.lecturer.form.error.spamListOfQualifications");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "authenticated.lecturer.form.error.outOfRangeLink");
 	}
 
 	@Override

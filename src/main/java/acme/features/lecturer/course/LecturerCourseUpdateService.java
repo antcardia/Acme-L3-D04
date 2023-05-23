@@ -94,8 +94,10 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.form.error.notAcceptedCurrency");
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-			super.state(object.getRetailPrice().getAmount() > 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
+			super.state(object.getRetailPrice().getAmount() >= 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
 
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.course.form.error.outOfRangeLink");
 	}
 
 	@Override

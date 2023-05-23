@@ -35,3 +35,4 @@ lecturer.course.form.error.outOfRangeRetailPrice = The retail price is out of ra
 lecturer.course.form.error.lecture-not-found = No lectures have been found
 lecturer.course.form.error.no-hands-on-lecture = The course must contain at least one hands-on lecture
 lecturer.course.form.error.no-published-lecture = All the lectures in the course must be published
+lecturer.course.form.error.outOfRangeLink = Link is out of range

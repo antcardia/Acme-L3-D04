@@ -85,6 +85,9 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.lectureType");
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.lecture.form.error.outOfRangeLink");
 	}
 
 	@Override

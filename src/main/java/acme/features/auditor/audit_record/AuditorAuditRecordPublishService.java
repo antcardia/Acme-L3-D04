@@ -80,6 +80,8 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 			final String conclusion = object.getAssessment();
 			super.state(!antiSpam.isSpam(conclusion), "assessment", "auditor.auditrecord.form.error.spamassessment");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(object.getLink().length() < 255, "link", "auditor.auditrecord.form.error.outOfRangeLink");
 	}
 
 	@Override
