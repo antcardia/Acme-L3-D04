@@ -73,7 +73,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			super.state(!antiSpam.isSpam(title), "title", "lecturer.course.form.error.spamTitle");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("abstract$")) {
+		if (!super.getBuffer().getErrors().hasErrors("summary")) {
 			final String summary = object.getSummary();
 			super.state(!antiSpam.isSpam(summary), "summary", "assistant.tutorial.form.error.spamAbstract");
 		}

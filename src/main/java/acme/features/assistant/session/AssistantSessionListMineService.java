@@ -12,7 +12,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantSessionListService extends AbstractService<Assistant, Session> {
+public class AssistantSessionListMineService extends AbstractService<Assistant, Session> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -35,9 +35,10 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 	@Override
 	public void load() {
 		Collection<Session> objects;
-		int masterId;
-		masterId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findManySessionsByTutorialId(masterId);
+		int assistantId;
+
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findManySessionsByAssistantId(assistantId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -49,19 +50,7 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "sessionType");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void unbind(final Collection<Session> objects) {
-		assert objects != null;
-
-		int masterId;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-
-		super.getResponse().setGlobal("masterId", masterId);
 	}
 }

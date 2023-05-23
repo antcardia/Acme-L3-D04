@@ -1,9 +1,7 @@
 
 package acme.features.assistant.session;
 
-import java.util.Collection;
 import java.util.Date;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,8 +40,12 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 	@Override
 	public void load() {
 		final Session object;
+		final Integer tutorialId = super.getRequest().getData("masterId", int.class);
+		Tutorial tutorial;
 
 		object = new Session();
+		tutorial = this.repository.findOneTutorialById(tutorialId);
+		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
 	}
@@ -51,13 +53,9 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 	@Override
 	public void bind(final Session object) {
 		assert object != null;
-		Tutorial tutorial;
-		final int tutorialId = super.getRequest().getData("tutorial", int.class);
 		Nature sessionType;
 		sessionType = super.getRequest().getData("sessionType", Nature.class);
 
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		object.setTutorial(tutorial);
 		object.setSessionType(sessionType);
 
 		super.bind(object, "title", "summary", "sessionType", "start", "end", "furtherInformation");
@@ -106,24 +104,14 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 	public void unbind(final Session object) {
 		Tuple tuple;
 		SelectChoices natures;
-		SelectChoices tutorialOptions;
-		Collection<Tutorial> tutorials;
-		final Assistant assistant;
-
-		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		tutorials = this.repository.findAllTutorial().stream().filter(x -> x.getAssistant() == assistant).collect(Collectors.toList());
 
 		tuple = super.unbind(object, "title", "summary", "sessionType", "start", "end", "furtherInformation");
 
 		natures = SelectChoices.from(Nature.class, object.getSessionType());
 		tuple.put("sessionTypes", natures);
 
-		tutorialOptions = SelectChoices.from(tutorials, "code", object.getTutorial());
-		tuple.put("tutorial", tutorialOptions.getSelected().getKey());
-		tuple.put("tutorialOptions", tutorialOptions);
-
 		tuple.put("sessionType", natures.getSelected().getKey());
+		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().setData(tuple);
 	}

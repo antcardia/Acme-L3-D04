@@ -1,9 +1,7 @@
 
 package acme.features.assistant.session;
 
-import java.util.Collection;
 import java.util.Date;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.Nature;
 import acme.entities.system.SystemConfiguration;
 import acme.entities.tutorial.Session;
-import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -32,14 +29,11 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
 		Session session;
-		Assistant assistant;
+		final Integer sessionId = super.getRequest().getData("id", int.class);
 
-		masterId = super.getRequest().getData("id", int.class);
-		session = this.repository.findOneSessionById(masterId);
-		assistant = session == null ? null : session.getTutorial().getAssistant();
-		status = session != null && super.getRequest().getPrincipal().hasRole(assistant);
+		session = this.repository.findOneSessionById(sessionId);
+		status = session.getTutorial().getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,8 +54,6 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneSessionById(id);
-		final Tutorial tutorial = this.repository.findOneTutorialById(object.getTutorial().getId());
-		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
 	}
@@ -69,15 +61,10 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 	@Override
 	public void bind(final Session object) {
 		assert object != null;
-		Tutorial tutorial;
-		final int tutorialId = super.getRequest().getData("tutorial_proxy", int.class);
+
 		Nature sessionType;
 		sessionType = super.getRequest().getData("sessionType", Nature.class);
-
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		object.setTutorial(tutorial);
 		object.setSessionType(sessionType);
-
 		super.bind(object, "title", "summary", "sessionType", "start", "end", "furtherInformation");
 	}
 
@@ -126,28 +113,15 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 
 		Tuple tuple;
 		SelectChoices natures;
-		SelectChoices tutorialOptions;
-		Collection<Tutorial> tutorials;
 		Boolean status;
 		final Assistant assistant;
-		Tutorial objectTutorial;
 
-		objectTutorial = object.getTutorial();
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 		status = object.getTutorial().getAssistant().getId() == assistant.getId();
-
-		tutorials = this.repository.findAllTutorial().stream().filter(x -> x.getAssistant() == assistant).collect(Collectors.toList());
-
 		natures = SelectChoices.from(Nature.class, object.getSessionType());
 
 		tuple = super.unbind(object, "title", "summary", "sessionType", "start", "end", "furtherInformation");
 		tuple.put("sessionTypes", natures);
-		if (status) {
-			tutorialOptions = SelectChoices.from(tutorials, "code", object.getTutorial());
-			tuple.put("tutorial", tutorialOptions.getSelected().getKey());
-			tuple.put("tutorialOptions", tutorialOptions);
-		} else
-			tuple.put("tutorial", objectTutorial.getCode());
 
 		tuple.put("sessionType", natures.getSelected().getKey());
 		tuple.put("status", status);

@@ -9,5 +9,5 @@
 </acme:list>
 
 
-<acme:button code="assistant.tutorial.list.button.create" action="/assistant/session/create"/>
+<acme:button code="assistant.tutorial.list.button.create" action="/assistant/session/create?masterId=${masterId}"/>
 

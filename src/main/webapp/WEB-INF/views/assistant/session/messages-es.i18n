@@ -17,6 +17,7 @@ assistant.session.form.label.assistant = Asistente:
 assistant.session.form.button.update = Actualizar
 assistant.session.form.button.delete = Borrar
 assistant.session.form.button.create = Crear
+assistant.session.form.button.sessions = Sesiones
 
 assistant.session.form.error.duplicated = El código está cogido
 assistant.session.form.error.spamTitle = El título contiene spam
