@@ -36,6 +36,7 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstract$;
 
+	@NotNull
 	@Digits(integer = 3, fraction = 2)
 	protected Double			estimatedLearningTime;
 
