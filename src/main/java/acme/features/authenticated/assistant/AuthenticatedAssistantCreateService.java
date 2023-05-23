@@ -4,6 +4,7 @@ package acme.features.authenticated.assistant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.system.SystemConfiguration;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.accounts.UserAccount;
@@ -12,6 +13,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
+import antiSpamFilter.AntiSpamFilter;
 
 @Service
 public class AuthenticatedAssistantCreateService extends AbstractService<Authenticated, Assistant> {
@@ -65,8 +67,29 @@ public class AuthenticatedAssistantCreateService extends AbstractService<Authent
 	@Override
 	public void validate(final Assistant object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
-			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "authenticated.assistant.form.error.outOfRangeLink");
+
+		final SystemConfiguration config = this.repository.findSystemConfiguration();
+		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
+
+		if (!super.getBuffer().getErrors().hasErrors("supervisor")) {
+			final String supervisor = object.getSupervisor();
+			super.state(!antiSpam.isSpam(supervisor), "supervisor", "authenticated.assistant.form.error.spamSupervisor");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("expertiseFields")) {
+			final String expertiseFields = object.getExpertiseFields();
+			super.state(!antiSpam.isSpam(expertiseFields), "expertiseFields", "authenticated.assistant.form.error.spamExpertiseFields");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("resume")) {
+			final String resume = object.getResume();
+			super.state(!antiSpam.isSpam(resume), "resume", "authenticated.assistant.form.error.spamResume");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation")) {
+			final String furtherInformation = object.getFurtherInformation();
+			super.state(!antiSpam.isSpam(furtherInformation), "furtherInformation", "authenticated.assistant.form.error.spamFurtherInformation");
+		}
 	}
 
 	@Override
