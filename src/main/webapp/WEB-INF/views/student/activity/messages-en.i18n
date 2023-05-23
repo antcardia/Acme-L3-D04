@@ -20,3 +20,4 @@ student.enrolment.form.error.spamTitle3 = Spam abstract detected
 student.activity.form.error.atype = Not can be balanced
 student.activity.form.error.startTime = The start time can't be today or higher than finish time 
 student.activity.form.error.finishTime = The finish time can't be today or lower than start time
+student.activity.form.error.outOfRangeLink = Link is out of range

@@ -67,6 +67,7 @@ public class AuthenticatedAssistantCreateService extends AbstractService<Authent
 	@Override
 	public void validate(final Assistant object) {
 		assert object != null;
+
 		final SystemConfiguration config = this.repository.findSystemConfiguration();
 		final AntiSpamFilter antiSpam = new AntiSpamFilter(config.getThreshold(), config.getSpamWords());
 
@@ -89,7 +90,6 @@ public class AuthenticatedAssistantCreateService extends AbstractService<Authent
 			final String furtherInformation = object.getFurtherInformation();
 			super.state(!antiSpam.isSpam(furtherInformation), "furtherInformation", "authenticated.assistant.form.error.spamFurtherInformation");
 		}
-
 	}
 
 	@Override

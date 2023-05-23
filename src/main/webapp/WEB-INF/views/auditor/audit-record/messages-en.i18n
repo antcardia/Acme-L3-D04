@@ -23,3 +23,4 @@ auditor.auditrecord.message.correction.disclaimer = ATENTION: This record will b
 
 auditor.auditrecord.error.form.spamsubject= The subject contains common spam words.
 auditor.auditrecord.error.form.spamassessment= The assessment contains common spam words.
+auditor.auditrecord.form.error.outOfRangeLink = Link is out of range

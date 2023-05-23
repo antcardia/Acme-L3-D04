@@ -19,3 +19,4 @@ authenticated.lecturer.form.button.update = Update
 authenticated.lecturer.form.error.spamAlmaMater = The alma-mater contains spam
 authenticated.lecturer.form.error.spamResume = The resume contains spam
 authenticated.lecturer.form.error.spamListOfQualifications = The list of qualifications contains spam
+authenticated.lecturer.form.error.outOfRangeLink = Link is out of range

@@ -98,6 +98,8 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
 
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(object.getLink().length() < 255, "link", "student.activity.form.error.outOfRangeLink");
 	}
 
 	@Override
