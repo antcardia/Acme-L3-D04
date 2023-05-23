@@ -2,10 +2,16 @@ key,key:student,key:course,code,motivation,goals,work-time,draft-mode,holder-nam
 enrolment-01,student-01,course-10,PBT156,Esto es para ver hasta setenta y cinco palabras de limite como restriccions,Ganar,2.5,true,,
 enrolment-02,student-01,course-05,VDT135,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.5,false,Tor,6358
 enrolment-03,student-03,course-10,AFC222,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sol,5.9,true,,
-enrolment-04,student-04,course-10,ZZZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
-enrolment-05,student-05,course-05,AAA000,quiero ganar,Ganar,2.0,true,,
-enrolment-06,student-06,course-10,ZZZ000,quiero ganar,Perder,6.4,true,,
-enrolment-07,student-07,course-05,FEW568,quiero ganar,Ganar,2.3,true,,
+enrolment-04,student-01,course-10,ZEZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
+enrolment-05,student-01,course-05,ZAA000,quiero ganar,Ganar,2.0,true,,
+enrolment-06,student-01,course-10,ZDZ000,quiero ganar,Perder,6.4,true,,
+enrolment-07,student-01,course-05,ZBW568,quiero ganar,Ganar,2.3,true,,
 enrolment-08,student-08,course-10,FGR125,quiero ganar,Perder,4.2,false,Laura,4523
-enrolment-09,student-09,course-10,WTH236,quiero ganar,Perder,6.7,true,,
+enrolment-09,student-01,course-10,ZCH236,quiero ganar,Perder,6.7,true,,
 enrolment-10,student-10,course-10,FDB158,quiero ganar,Ganar,5.6,false,Jose,1254
+enrolment-11,student-01,course-10,ZGZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
+enrolment-12,student-01,course-10,ZH999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
+enrolment-13,student-01,course-10,ZIZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
+enrolment-14,student-01,course-10,ZJZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
+enrolment-15,student-01,course-10,ZKZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,
+enrolment-16,student-01,course-10,ZLZ999,quiero ganar,Esto es una prueba para llegar a las noventa y nueve palabras en esta asignatura llamada dp dos sole,2.1,true,,

@@ -50,6 +50,7 @@ public class Activity extends AbstractEntity {
 	protected Date				finishTime;
 
 	@URL
+	@Length(max = 255)
 	protected String			link;
 
 	@ManyToOne(optional = false)
