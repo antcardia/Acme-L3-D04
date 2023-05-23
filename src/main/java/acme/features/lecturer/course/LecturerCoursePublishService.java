@@ -101,6 +101,9 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
 			super.state(object.getRetailPrice().getAmount() >= 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
 
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.course.form.error.outOfRangeLink");
+
 		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
 		super.state(!lectures.isEmpty(), "courseNature", "lecturer.course.form.error.lecture-not-found");
 		if (!lectures.isEmpty()) {

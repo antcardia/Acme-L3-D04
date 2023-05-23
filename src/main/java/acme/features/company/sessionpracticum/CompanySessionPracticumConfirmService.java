@@ -109,6 +109,8 @@ public class CompanySessionPracticumConfirmService extends AbstractService<Compa
 			if (!super.getBuffer().getErrors().hasErrors("finishTime"))
 				super.state(MomentHelper.isAfter(end, inAWeekFromStart), "finishTime", "company.sessionpracticum.error.end-after-start");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(sessionPracticum.getFurtherInformation().length() < 255, "furtherInformation", "company.sessionpracticum.form.error.outOfRangeLink");
 	}
 
 	@Override

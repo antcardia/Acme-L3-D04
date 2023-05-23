@@ -60,6 +60,8 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Student object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("optionalLink"))
+			super.state(object.getOptionalLink().length() < 255, "optionalLink", "authenticated.student.form.error.outOfRangeLink");
 	}
 
 	@Override

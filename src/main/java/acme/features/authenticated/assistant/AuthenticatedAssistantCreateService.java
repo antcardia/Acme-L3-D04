@@ -65,6 +65,8 @@ public class AuthenticatedAssistantCreateService extends AbstractService<Authent
 	@Override
 	public void validate(final Assistant object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "authenticated.assistant.form.error.outOfRangeLink");
 	}
 
 	@Override

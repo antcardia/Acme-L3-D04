@@ -13,6 +13,6 @@ authenticated.offer.form.button.create = Crear
 authenticated.offer.form.button.update = Actualizar
 authenticated.offer.form.button.delete = Eliminar
 
-
+authenticated.offer.form.error.outOfRangeLink = Enlace fuera de rango
 authenticated.offer.form.error.spam1 = Spam en el titular
 authenticated.offer.form.error.spam2 = Spam en el resumen

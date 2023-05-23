@@ -35,3 +35,4 @@ lecturer.course.form.error.outOfRangeRetailPrice = El precio de venta al públic
 lecturer.course.form.error.lecture-not-found = No se han encontrado clases
 lecturer.course.form.error.no-hands-on-lecture = El curso debe contener al menos una clase de tipo hands-on
 lecturer.course.form.error.no-published-lecture = Todas las clases del curso deben ser publicadas
+lecturer.course.form.error.outOfRangeLink = Enlace fuera de rango

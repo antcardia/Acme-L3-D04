@@ -40,3 +40,4 @@ company.session-practicum.list.button.create = Create
 # Messages for error in form
 company.session-practicum.error.start-after-now = The start date must be after today
 company.session-practicum.error.end-after-start = The end date must be a week after the start date
+company.session-practicum.form.error.outOfRangeLink = Link is out of range
