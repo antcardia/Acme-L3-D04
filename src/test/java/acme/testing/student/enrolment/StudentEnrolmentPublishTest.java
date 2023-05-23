@@ -23,11 +23,11 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code) {
+	public void test100Positive(final int recordIndex, final String code, final String holderName, final String creditCard, final String expirationDate, final String securityCode) {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Student", "My enrolment");
+		super.clickOnMenu("Student", "My enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
@@ -35,10 +35,15 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("draftMode", "true");
+		super.clickOnButton("Create Payment");
+		super.fillInputBoxIn("holderName", holderName);
+		super.fillInputBoxIn("creditCard", creditCard);
+		super.fillInputBoxIn("expirationDate", expirationDate);
+		super.fillInputBoxIn("securityCode", securityCode);
 		super.clickOnSubmit("Publish");
 		super.checkNotErrorsExist();
 
-		super.clickOnMenu("Student", "My enrolment");
+		super.clickOnMenu("Student", "My enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
@@ -50,8 +55,28 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Test
-	public void test200Negative() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/student/enrolment/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int recordIndex, final String code, final String holderName, final String creditCard, final String expirationDate, final String securityCode) {
+		super.signIn("student1", "student1");
+
+		super.clickOnMenu("Student", "My enrolments");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
+		super.checkInputBoxHasValue("draftMode", "true");
+		super.clickOnButton("Create Payment");
+		super.fillInputBoxIn("holderName", holderName);
+		super.fillInputBoxIn("creditCard", creditCard);
+		super.fillInputBoxIn("expirationDate", expirationDate);
+		super.fillInputBoxIn("securityCode", securityCode);
+		super.clickOnSubmit("Publish");
+		super.checkErrorsExist();
+
+		super.signOut();
 	}
 
 	@Test
