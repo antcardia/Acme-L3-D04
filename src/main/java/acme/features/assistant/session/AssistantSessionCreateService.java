@@ -80,6 +80,7 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 		if (!super.getBuffer().getErrors().hasErrors("start")) {
 			final Date start = object.getStart();
 			super.state(start.compareTo(object.getEnd()) <= 0, "start", "assistant.session.form.error.badDate");
+			super.state(start != null, "start", "assistant.session.form.error.badDate");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("end")) {

@@ -45,9 +45,8 @@ public class AssistantSessionCreateTest extends TestHarness {
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		//super.checkColumnHasValue(recordIndex, 0, title);
-		//super.checkColumnHasValue(recordIndex, 1, summary);
-		//super.checkColumnHasValue(recordIndex, 2, sessionType);
+		super.checkColumnHasValue(recordIndex, 0, title);
+		super.checkColumnHasValue(recordIndex, 1, sessionType);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -63,16 +62,16 @@ public class AssistantSessionCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/session/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String title, final String summary, final String sessionType, final String start, final String end, final String furtherInformation, final String tutorial) {
+	public void test200Negative(final int recordIndex, final String title, final String summary, final String sessionType, final String start, final String end, final String furtherInformation) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
 		super.signIn("assistant2", "assistant2");
 
-		super.clickOnMenu("Assistant", "My Tutorial");
+		super.clickOnMenu("Assistant", "My tutorials");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
-		super.clickOnMenu("Assistant", "My sessions");
+		super.clickOnButton("Sessions");
 		super.clickOnButton("Create");
 
 		super.fillInputBoxIn("title", title);
@@ -81,7 +80,6 @@ public class AssistantSessionCreateTest extends TestHarness {
 		super.fillInputBoxIn("start", start);
 		super.fillInputBoxIn("end", end);
 		super.fillInputBoxIn("furtherInformation", furtherInformation);
-		super.fillInputBoxIn("tutorial", tutorial);
 
 		super.clickOnSubmit("Create");
 
@@ -96,7 +94,7 @@ public class AssistantSessionCreateTest extends TestHarness {
 		Collection<Session> sessions;
 		String param;
 
-		sessions = this.repository.findManySessionsByAssistantUsername("assistant1");
+		sessions = this.repository.findManySessionsByAssistantUsername("assistant2");
 		for (final Session s : sessions) {
 			param = String.format("id=%d", s.getId());
 

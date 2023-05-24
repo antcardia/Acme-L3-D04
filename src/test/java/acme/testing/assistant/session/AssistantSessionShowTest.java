@@ -22,28 +22,24 @@ public class AssistantSessionShowTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String tittle, final String abstract$, final String workbookName, final String atype, final String startTime, final String finishTime, final String link) {
+	@CsvFileSource(resources = "/assistant/session/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String title, final String summary, final String sessionType, final String start, final String end, final String furtherInformation) {
 		// HINT: this test signs in as an employer, lists all of the jobs, click on  
 		// HINT+ one of them, and checks that the form has the expected data.
 
-		super.signIn("student1", "student1");
+		super.signIn("assistant2", "assistant2");
 
-		super.clickOnMenu("Student", "My enrolments");
+		super.clickOnMenu("Assistant", "My sessions");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.clickOnButton("Activities");
-		super.clickOnListingRecord(recordIndex);
 
 		super.checkFormExists();
-		super.checkInputBoxHasValue("tittle", tittle);
-		super.checkInputBoxHasValue("abstract$", abstract$);
-		super.checkInputBoxHasValue("workbookName", workbookName);
-		super.checkInputBoxHasValue("atype", atype);
-		super.checkInputBoxHasValue("startTime", startTime);
-		super.checkInputBoxHasValue("finishTime", finishTime);
-		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("summary", summary);
+		super.checkInputBoxHasValue("sessionType", sessionType);
+		super.checkInputBoxHasValue("start", start);
+		super.checkInputBoxHasValue("end", end);
+		super.checkInputBoxHasValue("furtherInformation", furtherInformation);
 
 		super.signOut();
 	}
@@ -59,12 +55,12 @@ public class AssistantSessionShowTest extends TestHarness {
 		Collection<Session> sessions;
 		String param;
 
-		sessions = this.repository.findManySessionsByAssistantUsername("assistant1");
+		sessions = this.repository.findManySessionsByAssistantUsername("assistant2");
 		for (final Session s : sessions) {
 			param = String.format("id=%d", s.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/student/activity/show", param);
+			super.request("/assistant/session/show", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
@@ -72,13 +68,13 @@ public class AssistantSessionShowTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("student2", "student2");
-			super.request("/student/activity/show", param);
+			super.signIn("assistant1", "assistant1");
+			super.request("/assistant/activity/show", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/student/activity/show", param);
+			super.request("/assistant/activity/show", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
