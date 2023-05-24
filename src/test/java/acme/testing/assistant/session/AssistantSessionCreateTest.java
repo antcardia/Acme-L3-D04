@@ -1,14 +1,3 @@
-/*
- * EmployerJobCreateTest.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.testing.assistant.session;
 
@@ -36,21 +25,14 @@ public class AssistantSessionCreateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "My sessions");
+		super.clickOnMenu("Assistant", "My tutorials");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("summary", summary);
-		super.checkInputBoxHasValue("sessionType", sessionType);
-		super.checkInputBoxHasValue("start", start);
-		super.checkInputBoxHasValue("end", end);
-		super.checkInputBoxHasValue("furtherInformation", furtherInformation);
-		super.clickOnMenu("Assistant", "My Tutorials");
+		super.clickOnListingRecord(0);
 
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
 		super.clickOnButton("Sessions");
+		super.clickOnButton("Create");
+
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("sessionType", sessionType);
@@ -60,7 +42,12 @@ public class AssistantSessionCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Assistant", "My sessions");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
+		//super.checkColumnHasValue(recordIndex, 0, title);
+		//super.checkColumnHasValue(recordIndex, 1, summary);
+		//super.checkColumnHasValue(recordIndex, 2, sessionType);
+
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("title", title);

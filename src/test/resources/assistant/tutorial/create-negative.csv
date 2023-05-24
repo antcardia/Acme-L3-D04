@@ -1,13 +1,11 @@
-recordIndex,code,motivation,goals,workTime,course
-0,KBC123,Esto es para ver hasta setenta y cinco palabras de limite como restriccionnn,Perder,3.50,AAA001
-1,KCD123,Esto es para ver hasta setenta y cinco palabras de limite como restriccionnnn,La vida es como una bicicleta para mantener el equilibrio debes seguir adelante,2.50,AAA007
-2,KCDC56,E,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA007
-3,KC4789,Es,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA006
-4,KCD987,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregreg,-1.10,AAA007
-5,KCD654,perder,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregregggg,2.50,AAA006
-6,KCD654,perder,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregreggggg,2.50,AAA006
-7,KCD321,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La,0.00,AAA007
-8,,,,,---
-9,ABC123,Esto es para ver hasta setenta y cinco palabras de limite como restriccion,Perder,3.50,AAA001
-10,KCD321,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La arquitectura ventim,0.00,AAA007
-11,KCD321,Esto es para ver hasta setenta y cinco palabras de limite como restriccio,La arquitectura ventimm,0.00,AAA007
+recordIndex,code,title,summary,goals,estimatedTime,course
+0,ACD123,Titulo 1,Esto es para ver hasta setenta y cinco palabras de limite como restriccionnn,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA001
+1,BCD456,Titulo de setenta y cinco carácteres para comprobar si funcionan las restr,Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,Esto es para ver hasta setenta y cinco palabras de limite como restriccionnn,2.50,AAA001
+2,CCD789,NIGERIA NIGERIA NIGERIA,Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,2.50,AAA001
+3,DCD987,Titulo 4,Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregreg,2.50,AAA001
+4,ECD654,Titulo de setenta y cinco carácteres para comprobar si funcionan las restr,Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,La vida es como una bicicleta para mantener el equilibrio debes seguir adelantfewsfewffewtrrgregre,2.50,AAA006
+5,GCD321,Titulo 5,Esto es para ver hasta setenta y cinco palabras de limite como restriccionnn,La,0.0,AAA006
+6,ZZZ111,Titulo de setenta y cinco carácteres para comprobar si funcionan las restr,Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,L,2.50,AAA006
+7,ZZZ111,"FALKSJFWOIPJFP) J)""PAMFSJ W) JFQW JOPF JPASefasrfasdfasdfa",Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,0.10,AAA001
+8,ZZZ111,Titulo 8,Para comprobar si se pueden escribir hasta 100 carácteres estoy escribiendo este texto veremos -Çwa,La vida es como una bicicleta para mantener el equilibrio debes seguir adelant,0.20,AAA006
+9,,,,,,---

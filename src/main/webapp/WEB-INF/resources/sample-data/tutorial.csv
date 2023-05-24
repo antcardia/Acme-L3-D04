@@ -1,11 +1,16 @@
 key,code,title,summary,goals,estimated-time,draft-mode,key:assistant,key:course
-tutorial-01,AAA111,Tutorial de ejemplo 1,Hacer ejemplos de tutoriales,Meta de ejemplo,1.5,true,assistant-01,course-05
-tutorial-02,AAA112,Tutorial de ejemplo 2,Como crear ficheros,Meta de ejemplo,2.3,true,assistant-02,course-10
-tutorial-03,AAA113,Tutorial de ejemplo 3,Hacer ejemplos de tutoriales,Meta,2.2,true,assistant-03,course-11
-tutorial-04,ABC123,Tutorial de ejemplo 4,Hacer ejemplos de tutoriales,Meta de ejemplo,1.8,true,assistant-04,course-05
+tutorial-01,ZZZ111,Tutorial de ejemplo 1,Hacer ejemplos de tutoriales,Meta de ejemplo,1.5,true,assistant-01,course-05
+tutorial-02,ZZZ112,Tutorial de ejemplo 2,Como crear ficheros,Meta de ejemplo,2.3,true,assistant-02,course-10
+tutorial-03,ZZZ113,Tutorial de ejemplo 3,Hacer ejemplos de tutoriales,Meta,2.2,true,assistant-03,course-11
+tutorial-04,ZZZ123,Tutorial de ejemplo 4,Hacer ejemplos de tutoriales,Meta de ejemplo,1.8,true,assistant-04,course-05
 tutorial-05,ZZZ555,Tutorial de ejemplo 5,Hacer ejemplos de tutoriales,Meta de ejemplo,1.5,true,assistant-05,course-10
-tutorial-06,ABC124,Tutorial de ejemplo 6,Hacer ejemplos de tutoriales,Meta de ejemplo,2.0,true,assistant-06,course-11
-tutorial-07,ABC125,Tutorial de ejemplo 7,Hacer ejemplos de tutoriales,Meta de ejemplo,1.2,true,assistant-07,course-05
-tutorial-08,ABC126,Tutorial de ejemplo 8,Hacer ejemplos de tutoriales,Meta de ejemplo,1.6,true,assistant-08,course-10
-tutorial-09,ABC127,Tutorial de ejemplo 9,Hacer ejemplos de tutoriales,Meta de ejemplo,1.2,true,assistant-09,course-11
-tutorial-10,THC420,Tutorial de ejemplo 10,Comprobar draft,Meta,1.2,false,assistant-01,course-05
+tutorial-06,ZZZ124,Tutorial de ejemplo 6,Hacer ejemplos de tutoriales,Meta de ejemplo,2.0,true,assistant-06,course-11
+tutorial-07,ZZZ125,Tutorial de ejemplo 7,Hacer ejemplos de tutoriales,Meta de ejemplo,1.2,true,assistant-07,course-05
+tutorial-08,ZZZ126,Tutorial de ejemplo 8,Hacer ejemplos de tutoriales,Meta de ejemplo,1.6,true,assistant-08,course-10
+tutorial-09,ZBC127,Tutorial de ejemplo 9,Hacer ejemplos de tutoriales,Meta de ejemplo,1.2,true,assistant-09,course-11
+tutorial-10,ZHC420,Tutorial de ejemplo 10,Comprobar draft,Meta,1.2,false,assistant-01,course-05
+tutorial-11,AAA222,Tutorial de ejemplo 11,Hacer ejemplos de tutoriales,Meta,2.2,true,assistant-02,course-05
+tutorial-12,BBB111,Tutorial de ejemplo 12,Hacer ejemplos de tutoriales,Meta de ejemplo,1.8,true,assistant-02,course-05
+tutorial-13,CCC333,Tutorial de ejemplo 13,Hacer ejemplos de tutoriales,Meta de ejemplo,1.5,true,assistant-02,course-05
+tutorial-14,DDD333,Tutorial de ejemplo 14,Hacer ejemplos de tutoriales,Meta de ejemplo,2.0,true,assistant-02,course-05
+tutorial-15,GGG222,Tutorial de ejemplo 15,Hacer ejemplos de tutoriales,Meta de ejemplo,1.2,true,assistant-02,course-05
