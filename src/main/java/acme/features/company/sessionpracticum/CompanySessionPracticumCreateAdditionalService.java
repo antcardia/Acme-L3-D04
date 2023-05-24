@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanySessionPracticumCreateService extends AbstractService<Company, SessionPracticum> {
+public class CompanySessionPracticumCreateAdditionalService extends AbstractService<Company, SessionPracticum> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -38,11 +38,13 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 	public void authorise() {
 		boolean status;
 		int masterId;
+		SessionPracticum addendumSession;
 		Practicum practicum;
 
 		masterId = super.getRequest().getData("masterId", int.class);
+		addendumSession = this.repository.findOneAddendumSessionByPracticumId(masterId);
 		practicum = this.repository.findOnePracticumById(masterId);
-		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		status = addendumSession == null && practicum != null && !practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,8 +64,7 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 		object.setStartTime(MomentHelper.getCurrentMoment());
 		object.setFinishTime(MomentHelper.getCurrentMoment());
 		object.setFurtherInformation("");
-		object.setAdditional(false);
-
+		object.setAdditional(true);
 		object.setPracticum(practicum);
 
 		super.getBuffer().setData(object);
@@ -79,6 +80,11 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 	@Override
 	public void validate(final SessionPracticum object) {
 		assert object != null;
+
+		boolean isAccepted;
+
+		isAccepted = this.getRequest().getData("accept", boolean.class);
+		super.state(isAccepted, "accept", "company.addendum-session.form.error.must-accept");
 
 		if (!super.getBuffer().getErrors().hasErrors("startTime")) {
 			boolean startTimeError;
@@ -102,15 +108,15 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 			super.state(startTimeStatus, "startTime", "company.practicum-session.form.error.date-out-of-bounds");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
-			boolean finishTimeError;
+		if (!super.getBuffer().getErrors().hasErrors("endTime")) {
+			boolean endTimeError;
 
-			finishTimeError = MomentHelper.isBefore(object.getStartTime(), object.getFinishTime());
+			endTimeError = MomentHelper.isBefore(object.getStartTime(), object.getFinishTime());
 
-			super.state(finishTimeError, "finishTime", "company.practicum-session.form.error.end-before-start");
+			super.state(endTimeError, "finishTime", "company.practicum-session.form.error.end-before-start");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("endTime")) {
+		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
 			boolean finishTimeErrorDuration;
 
 			finishTimeErrorDuration = !MomentHelper.isLongEnough(object.getStartTime(), object.getFinishTime(), (long) 1000 * 60 * 60 * 24 * 7 + 1, ChronoUnit.MILLIS);
@@ -120,14 +126,14 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 
 		if (!super.getBuffer().getErrors().hasErrors("finishTime")) {
 			boolean finishTimeStatus;
-			Date inferiorLimitTime;
-			Date upperLimitTime;
+			Date inferiorLimitDate;
+			Date upperLimitDate;
 
-			inferiorLimitTime = new Date(946681200000l); // HINT This is Jan 1 2000 at 00:00
-			upperLimitTime = new Date(4133977140000l); // HINT This is Dec 31 2100 at 23:59
+			inferiorLimitDate = new Date(946681200000l); // HINT This is Jan 1 2000 at 00:00
+			upperLimitDate = new Date(4133977140000l); // HINT This is Dec 31 2100 at 23:59
 
-			finishTimeStatus = MomentHelper.isAfterOrEqual(object.getFinishTime(), inferiorLimitTime);
-			finishTimeStatus &= MomentHelper.isBeforeOrEqual(object.getFinishTime(), upperLimitTime);
+			finishTimeStatus = MomentHelper.isAfterOrEqual(object.getFinishTime(), inferiorLimitDate);
+			finishTimeStatus &= MomentHelper.isBeforeOrEqual(object.getFinishTime(), upperLimitDate);
 
 			super.state(finishTimeStatus, "finishTime", "company.practicum-session.form.error.date-out-of-bounds");
 		}
@@ -150,7 +156,7 @@ public class CompanySessionPracticumCreateService extends AbstractService<Compan
 
 		tuple = super.unbind(object, "title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional");
 		tuple.put("masterId", masterId);
-		tuple.put("confirmation", "false");
+		tuple.put("confirmation", "true");
 
 		super.getResponse().setData(tuple);
 	}

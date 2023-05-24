@@ -13,21 +13,18 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface CompanySessionPracticumRepository extends AbstractRepository {
 
-	@Query("select p from Practicum p where p.id = ?1")
-	Practicum findOnePracticumById(int practicumId);
+	@Query("SELECT s FROM Practicum s WHERE s.id= :id")
+	Practicum findOnePracticumById(int id);
 
-	@Query("select c from Practicum c")
-	Collection<Practicum> findManyPracticums();
+	@Query("SELECT s FROM SessionPracticum s WHERE s.practicum.id = :id")
+	Collection<SessionPracticum> findManyPracticumSessionsByPracticumId(int id);
 
-	@Query("select s from SessionPracticum s where s.id = ?1")
-	SessionPracticum findOneSessionPracticumById(int sessionPracticumId);
+	@Query("SELECT s FROM SessionPracticum s WHERE s.id= :id")
+	SessionPracticum findOnePracticumSessionById(int id);
 
 	@Query("select s from SessionPracticum s inner join Practicum p on s.practicum.id = p.id where p.company.id = ?1")
 	Collection<SessionPracticum> findManySessionPracticumsByCompanyId(int companyId);
 
-	@Query("select sp.practicum from SessionPracticum sp where sp.id = ?1")
-	Practicum findOnePracticumBySessionPracticumId(int sessionPracticumId);
-
-	@Query("select sp from SessionPracticum sp where sp.practicum.id != ?1 and sp.draftMode = false")
-	Collection<SessionPracticum> findManySessionPracticumsByExtraAvailableAndPracticumId(int id);
+	@Query("select ps from SessionPracticum ps where ps.practicum.id = :masterId AND ps.additional = 1")
+	SessionPracticum findOneAddendumSessionByPracticumId(int masterId);
 }
