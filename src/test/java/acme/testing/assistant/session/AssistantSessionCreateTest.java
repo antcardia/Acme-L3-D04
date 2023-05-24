@@ -23,12 +23,10 @@ public class AssistantSessionCreateTest extends TestHarness {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: sessions, creates a new one, and check that it's been created properly.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant2", "assistant2");
 
 		super.clickOnMenu("Assistant", "My tutorials");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 
 		super.clickOnButton("Sessions");
 		super.clickOnButton("Create");
@@ -41,7 +39,10 @@ public class AssistantSessionCreateTest extends TestHarness {
 		super.fillInputBoxIn("furtherInformation", furtherInformation);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Assistant", "My sessions");
+		super.clickOnMenu("Assistant", "My tutorials");
+		super.clickOnListingRecord(1);
+		super.clickOnButton("Sessions");
+
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		//super.checkColumnHasValue(recordIndex, 0, title);
@@ -65,11 +66,11 @@ public class AssistantSessionCreateTest extends TestHarness {
 	public void test200Negative(final int recordIndex, final String title, final String summary, final String sessionType, final String start, final String end, final String furtherInformation, final String tutorial) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant2", "assistant2");
 
-		super.clickOnMenu("Assistant", "My sessions");
+		super.clickOnMenu("Assistant", "My Tutorial");
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.clickOnMenu("Assistant", "My sessions");
 		super.clickOnButton("Create");

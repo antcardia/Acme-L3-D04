@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.enrolment.Activity;
+import acme.entities.tutorial.Session;
 import acme.testing.TestHarness;
 
 public class AssistantSessionShowTest extends TestHarness {
@@ -56,12 +56,12 @@ public class AssistantSessionShowTest extends TestHarness {
 	public void test300Hacking() {
 		// HINT: this test tries to show an unpublished job by someone who is not the principal.
 
-		Collection<Activity> activities;
+		Collection<Session> sessions;
 		String param;
 
-		activities = this.repository.findManyActivitiesByStudentUsername("student1");
-		for (final Activity activity : activities) {
-			param = String.format("id=%d", activity.getId());
+		sessions = this.repository.findManySessionsByAssistantUsername("assistant1");
+		for (final Session s : sessions) {
+			param = String.format("id=%d", s.getId());
 
 			super.checkLinkExists("Sign in");
 			super.request("/student/activity/show", param);

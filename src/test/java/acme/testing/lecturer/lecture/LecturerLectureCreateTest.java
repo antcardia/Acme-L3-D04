@@ -11,7 +11,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String title, final String abstract$, final String estimatedLearningTime, final String body, final String lectureType, final String furtherInformation, final String code) {
+	public void test100Positive(final int recordIndex, final String title, final String abstract$, final String estimatedLearningTime, final String body, final String lectureType, final String furtherInformation) {
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -25,7 +25,6 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("lectureType", lectureType);
 		super.fillInputBoxIn("furtherInformation", furtherInformation);
-		super.fillInputBoxIn("code", code);
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Lecturer", "My lectures");
