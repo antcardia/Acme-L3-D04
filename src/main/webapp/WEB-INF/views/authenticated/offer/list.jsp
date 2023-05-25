@@ -9,5 +9,4 @@
 	<acme:list-column code="authenticated.offer.list.label.price" path="price" width="30%"/>
 </acme:list>
 
-<acme:button code="authenticated.offer.list.button.create" action="/authenticated/offer/create"/>
 
