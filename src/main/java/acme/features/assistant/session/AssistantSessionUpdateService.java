@@ -28,12 +28,19 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 
 	@Override
 	public void authorise() {
-		boolean status;
+		final boolean status;
+		final Assistant assistant;
+		int assistantId;
 		Session session;
-		final Integer sessionId = super.getRequest().getData("id", int.class);
+		int id;
 
-		session = this.repository.findOneSessionById(sessionId);
-		status = session.getTutorial().getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		id = super.getRequest().getData("id", int.class);
+
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		session = this.repository.findOneSessionById(id);
+		assistant = session.getTutorial().getAssistant();
+
+		status = super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
 
 		super.getResponse().setAuthorised(status);
 	}

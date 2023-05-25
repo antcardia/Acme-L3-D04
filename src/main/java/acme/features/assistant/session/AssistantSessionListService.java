@@ -29,6 +29,7 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 

@@ -19,14 +19,20 @@
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="assistant.session.form.button.sessions" action="/assistant/session/list?masterId=${id}"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode }">
 			<acme:button code="assistant.session.form.button.sessions" action="/assistant/session/list?masterId=${id}"/>
 			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
 			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
-			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
+		</jstl:when>
+				
+	</jstl:choose>
+	
+	<jstl:choose>	 
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode  && status}">
+			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
 		</jstl:when>
 				
 	</jstl:choose>

@@ -29,7 +29,21 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		final boolean status;
+		final Assistant assistant;
+		int assistantId;
+		Tutorial tutorial;
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		tutorial = this.repository.findOneTutorialById(masterId);
+		assistant = tutorial.getAssistant();
+
+		status = super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

@@ -29,15 +29,19 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
+		final boolean status;
+		final Assistant assistant;
+		int assistantId;
 		Tutorial tutorial;
-		Assistant assistant;
+		int id;
 
-		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
+		id = super.getRequest().getData("id", int.class);
+
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		tutorial = this.repository.findOneTutorialById(id);
+		assistant = tutorial.getAssistant();
+
+		status = super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
 
 		super.getResponse().setAuthorised(status);
 	}

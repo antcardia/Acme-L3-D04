@@ -41,12 +41,14 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 		Session session;
 		Tutorial tutorial;
 		Assistant assistant;
+		int assistantId;
 
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
 		masterId = super.getRequest().getData("id", int.class);
 		session = this.repository.findOneSessionById(masterId);
 		tutorial = session == null ? null : session.getTutorial();
 		assistant = tutorial == null ? null : session.getTutorial().getAssistant();
-		status = session != null && super.getRequest().getPrincipal().hasRole(assistant);
+		status = session != null && super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
 
 		super.getResponse().setAuthorised(status);
 	}

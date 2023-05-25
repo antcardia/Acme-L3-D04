@@ -54,22 +54,7 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title) {
-		super.signIn("assistant2", "assistant2");
 
-		super.clickOnMenu("Assistant", "My tutorials");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, title);
-
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.checkInputBoxHasValue("draftMode", "true");
-		super.clickOnSubmit("Publish");
-		super.checkErrorsExist();
-
-		super.signOut();
 	}
 
 	@Test

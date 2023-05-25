@@ -29,7 +29,16 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final boolean status;
+		final Assistant assistant;
+		int assistantId;
+
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		assistant = this.repository.findOneAssistantById(assistantId);
+
+		status = super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
