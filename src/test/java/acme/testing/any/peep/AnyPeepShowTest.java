@@ -15,9 +15,11 @@ public class AnyPeepShowTest extends TestHarness {
 	@CsvFileSource(resources = "/any/peep/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String instantiation, final String title, final String nick, final String message, final String email, final String link) {
 
+		//Comprueba que todos los campos son los esperados
+
 		super.checkLinkExists("Sign in");
 
-		super.clickOnMenu("Peeps");
+		super.clickOnMenu("Any", "Peeps");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
@@ -35,9 +37,11 @@ public class AnyPeepShowTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
+		//No hay caso negativo
 	}
 
 	@Test
 	public void test300Hacking() {
+		//No hay caso hacking
 	}
 }

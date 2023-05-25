@@ -13,6 +13,9 @@ public class LecturerLectureCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String abstract$, final String estimatedLearningTime, final String body, final String lectureType, final String furtherInformation) {
 
+		//Creo una nueva clase y compruebo que se ha
+		//creado con éxito
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My lectures");
@@ -50,6 +53,9 @@ public class LecturerLectureCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String abstract$, final String estimatedLearningTime, final String body, final String lectureType, final String furtherInformation) {
 
+		//Compruebo que a la hora de crear una clase
+		//se produzcan errores esperados
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My lectures");
@@ -71,6 +77,9 @@ public class LecturerLectureCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+
+		//Compruebo que no pueda crear una clase 
+		//un rol diferente al profesor
 
 		super.checkLinkExists("Sign in");
 		super.request("/lecturer/lecture/create");

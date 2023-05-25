@@ -21,6 +21,10 @@ public class LecturerLectureCourseDeleteTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lectureCourse/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code) {
 
+		//Escojo una clase y le borro un curso que
+		//tiene vinculado y compruebo que
+		//el curso no contiene la clase borrada
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My lectures");
@@ -49,6 +53,9 @@ public class LecturerLectureCourseDeleteTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lectureCourse/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code) {
 
+		//Compruebo que el curso al que quiero borrar
+		//la clase me produzca un error esperado
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My lectures");
@@ -65,6 +72,11 @@ public class LecturerLectureCourseDeleteTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+
+		//Pruebo que no pueda borrar una clase
+		//de un curso de otro profesor o de cualquier otro
+		//rol
+
 		Collection<Lecture> lectures;
 		String param;
 

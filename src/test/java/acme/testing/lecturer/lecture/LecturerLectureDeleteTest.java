@@ -21,6 +21,9 @@ public class LecturerLectureDeleteTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String estimatedLearningTime, final String type) {
 
+		//Escojo una clase que no esté todavía publicada
+		//para borrarla con éxito
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My courses");
@@ -43,10 +46,15 @@ public class LecturerLectureDeleteTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
+		//No existe caso negativo para el borrado
 	}
 
 	@Test
 	public void test300Hacking() {
+
+		//Compruebo que una clase de un profesor no pueda
+		//ser borrada por otro profesor o cualquier otro rol
+
 		Collection<Lecture> lectures;
 		String param;
 

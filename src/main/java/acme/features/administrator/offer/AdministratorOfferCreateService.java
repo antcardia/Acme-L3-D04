@@ -79,7 +79,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 			final Date lastDay = object.getLastDay();
 			final Date instantiationMoment = object.getInstantiationMoment();
 
-			super.state(MomentHelper.isLongEnough(startDay, instantiationMoment, 1, ChronoUnit.DAYS), "startDay", "administrator.offer.form.error.startDay");
+			super.state(!startDay.equals(instantiationMoment) && MomentHelper.isBefore(instantiationMoment, startDay) && MomentHelper.isLongEnough(startDay, instantiationMoment, 1, ChronoUnit.DAYS), "startDay", "administrator.offer.form.error.startDay");
 			super.state(MomentHelper.isLongEnough(lastDay, startDay, 7, ChronoUnit.DAYS), "lastDay", "administrator.offer.form.error.lastDay");
 
 		}

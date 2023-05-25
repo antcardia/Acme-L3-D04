@@ -3,7 +3,7 @@ course-01,lecturer-02,ABC123,Curso de informática,Este curso está dedicado par
 course-02,lecturer-01,ZZZ999,Curso de ciberseguridad,Curso preparado para aquellos que les interese la seguridad en internet,true,EUR 15.99,null
 course-03,lecturer-03,ZZZ000,Curso de literatura,Este curso se enfoca en el aprendizaje y entendimiento de la historia al completo,true,EUR 15.99,null
 course-04,lecturer-01,AAA000,Curso de ciber,Curso preparado para aquellos que les interese la seguridad en internet,true,EUR 15.99,null
-course-05,lecturer-03,AAA001,Curso de videojuegos para todas las edades y asequible para todo el mundo,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,false,EUR 15.99,null
+course-05,lecturer-03,AAA001,Curso de videojuegos para todas las edades y asequible para todo el mundo,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,true,EUR 15.99,null
 course-06,lecturer-03,AAA002,Video game course for all ages and affordable for everyone!,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,true,EUR 15.99,null
 course-07,lecturer-02,AAA003,Курсы видеоигр для всех возрастов и доступные для всех,Este curso está pensado para todos los públicos. También para los que tienen conocimientos previos,true,EUR 15.99,null
 course-08,lecturer-02,AAA004,Curso de videojuegos para todas las edades y asequible para todo el mundo,This course is designed for all audiences. Also for those who have previous knowledge,true,EUR 15.99,null

@@ -26,11 +26,19 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Integer studentId;
+
+		studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		final Student s = this.repository.findOneStudentById(studentId);
+		status = super.getRequest().getPrincipal().hasRole(s);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void check() {
+
 		super.getResponse().setChecked(true);
 	}
 

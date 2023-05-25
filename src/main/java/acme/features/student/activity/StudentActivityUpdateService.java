@@ -1,6 +1,7 @@
 
 package acme.features.student.activity;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,18 +35,18 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		status = super.getRequest().hasData("id", int.class);
 
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		final boolean status;
-		final int masterId;
+		boolean status;
+
+		final Collection<Enrolment> list = this.repository.findAllEnrolmentByStudentId(super.getRequest().getPrincipal().getActiveRoleId());
 		final Integer activityId = super.getRequest().getData("id", int.class);
-		final Enrolment enrolment;
-		final Student student;
-		final Activity activity = this.repository.findActivityById(activityId);
-		status = activity.getEnrolment().getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		final Enrolment enrolment = this.repository.findEnrolmentByActivityId(activityId);
+
+		status = list.contains(enrolment);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -95,8 +96,9 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 			super.state(startTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime), "startTime", "student.activity.form.error.startTime");
 			super.state(finishTime != MomentHelper.getCurrentMoment() && MomentHelper.isBefore(startTime, finishTime), "finishTime", "student.activity.form.error.finishTime");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
-			super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
+		if (object.getAtype() != null)
+			if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+				super.state(!object.getAtype().equals(Nature.BALANCED), "atype", "student.activity.form.error.atype");
 
 		if (!super.getBuffer().getErrors().hasErrors("link"))
 			super.state(object.getLink().length() < 255, "link", "student.activity.form.error.outOfRangeLink");

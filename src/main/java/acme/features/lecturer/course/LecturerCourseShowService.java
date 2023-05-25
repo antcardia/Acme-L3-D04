@@ -44,7 +44,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		masterId = super.getRequest().getData("id", int.class);
 		course = this.repository.findOneCourseById(masterId);
 		lecturer = course == null ? null : course.getLecturer();
-		status = super.getRequest().getPrincipal().hasRole(lecturer) || course != null && !course.isDraftMode();
+		status = super.getRequest().getPrincipal().hasRole(lecturer) && course != null;
 
 		super.getResponse().setAuthorised(status);
 	}
