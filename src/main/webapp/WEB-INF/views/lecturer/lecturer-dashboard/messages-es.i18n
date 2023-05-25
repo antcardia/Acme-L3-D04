@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.lecturer-dashboard.form.title.general-indicators = Indicadores generales
-lecturer.lecturer-dashboard.form.title.application-statuses = Estados de solicitud
+lecturer.lecturer-dashboard.form.title.general-indicators = Resumen general
+lecturer.lecturer-dashboard.form.title.application-statuses = Gráficas
 
 lecturer.lecturer-dashboard.form.label.totalTheoreticalLectures =  Total de clases theoretical
 lecturer.lecturer-dashboard.form.label.totalHandsOnLectures =  Total de clases hands-on
