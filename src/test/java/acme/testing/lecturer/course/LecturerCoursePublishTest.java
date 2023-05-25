@@ -25,6 +25,12 @@ public class LecturerCoursePublishTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/course/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title) {
 
+		//A la hora de publicar, compruebo que el
+		//curso todavía no esté publicado y escojo
+		//un curso que ya tiene las clases publicadas
+		//para poder publicar el curso. Luego compruebo
+		//que el curso está publicado
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My courses");
@@ -52,10 +58,14 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
+		//No se ha considerado ningún caso negativo
 	}
 
 	@Test
 	public void test300Hacking() {
+
+		//Pruebo que otro rol distinto al profesor
+		//no pueda publicar un curso
 
 		Collection<Course> courses;
 		String params;
@@ -84,6 +94,9 @@ public class LecturerCoursePublishTest extends TestHarness {
 	@Test
 	public void test301Hacking() {
 
+		//Pruebo que no se pueda publicar un curso ya
+		//publicado previamente
+
 		Collection<Course> courses;
 		String params;
 
@@ -99,6 +112,9 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 	@Test
 	public void test302Hacking() {
+
+		//Pruebo que un profesor no pueda publicar un
+		//curso que no es suyo
 
 		Collection<Course> courses;
 		String params;

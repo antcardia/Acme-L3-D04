@@ -9,6 +9,11 @@ administrator.banner.form.button.create = Crear
 administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.delete = Borrar
 
+administrator.banner.form.error.badDate1 = La fecha de comienzo debe ir despúés que el momento de instanciación.
+administrator.banner.form.error.badDate2 = La fecha de finalización debe ir después que la fecha de comienzo.
+administrator.banner.form.error.spamLink = El link introducido es spam.
+administrator.banner.form.error.spam = El texto introducido es spam.
+
 
 
 

@@ -13,6 +13,10 @@ public class LecturerCourseCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/course/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$, final String retailPrice, final String furtherInformation) {
 
+		//Creamos un curso, comprobamos que los campos
+		//sean los rellenados anteriormente y que la
+		//lista de clases esté vacía
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My courses");
@@ -50,6 +54,9 @@ public class LecturerCourseCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/course/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String abstract$, final String retailPrice, final String furtherInformation) {
 
+		//Intentamos crear un curso que provoque
+		//algún error esperado en cualquier campo
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My courses");
@@ -70,6 +77,9 @@ public class LecturerCourseCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+
+		//Probamos que no se pueda crear un curso
+		//desde un rol que no sea profesor
 
 		super.checkLinkExists("Sign in");
 		super.request("/lecturer/course/create");

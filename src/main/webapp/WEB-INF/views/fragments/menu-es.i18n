@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.any = Cualquiera
 
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link-1 = 77932269N: Carretero Díaz, Antonio
@@ -25,7 +26,8 @@ master.menu.anonymous.favourite-link-2 = 77933507P: Pizarro Lopez, Eduardo
 master.menu.anonymous.favourite-link-3 = 29504757N: Reyes Alés, David
 master.menu.anonymous.favourite-link-4 = 49729535Q: Romero González, Juan
 master.menu.anonymous.favourite-link-5 = 54437473S: Galeano de Paz, Guillermo
-master.menu.anonymous.all-courses = Ver cursos
+master.menu.any.course = Listar cursos
+master.menu.any.peep = Comentarios
 
 # master.menu.authenticated #######################################################
 
@@ -101,6 +103,3 @@ master.menu.lecturer = Profesor
 
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos de auditor
-
-# Peeps ####################################################
-master.menu.peep.list=Comentarios

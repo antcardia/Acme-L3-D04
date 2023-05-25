@@ -35,7 +35,17 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Lecture lecture;
+		Lecturer lecturer;
+
+		masterId = super.getRequest().getData("id", int.class);
+		lecture = this.repository.findOneLectureById(masterId);
+		lecturer = lecture == null ? null : lecture.getLecturer();
+		status = lecture != null && lecture.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -85,6 +95,9 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.lectureType");
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.lecture.form.error.outOfRangeLink");
 	}
 
 	@Override

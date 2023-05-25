@@ -13,9 +13,12 @@ public class AnyPeepCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/any/peep/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String nick, final String message, final String email, final String link) {
 
+		//Creo un nuevo comentario y compruebo que se
+		//ha creado con éxito
+
 		super.checkLinkExists("Sign in");
 
-		super.clickOnMenu("Peeps");
+		super.clickOnMenu("Any", "Peeps");
 		super.checkListingExists();
 		super.clickOnButton("Create");
 
@@ -28,7 +31,7 @@ public class AnyPeepCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 		super.checkNotErrorsExist();
 
-		super.clickOnMenu("Peeps");
+		super.clickOnMenu("Any", "Peeps");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
@@ -48,9 +51,12 @@ public class AnyPeepCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/any/peep/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String nick, final String message, final String email, final String link) {
 
+		//Compruebo que a la hora de crear un nuevo
+		//comentario se produzcan errores esperados
+
 		super.checkLinkExists("Sign in");
 
-		super.clickOnMenu("Peeps");
+		super.clickOnMenu("Any", "Peeps");
 		super.checkListingExists();
 		super.clickOnButton("Create");
 
@@ -66,5 +72,6 @@ public class AnyPeepCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+		//No hay caso hacking
 	}
 }

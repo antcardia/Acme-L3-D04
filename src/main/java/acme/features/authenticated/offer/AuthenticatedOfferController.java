@@ -14,19 +14,10 @@ import acme.framework.controllers.AbstractController;
 public class AuthenticatedOfferController extends AbstractController<Authenticated, Offer> {
 
 	@Autowired
-	protected AuthenticatedOfferListService		service;
+	protected AuthenticatedOfferListService	service;
 
 	@Autowired
-	protected AuthenticatedOfferShowService		showService;
-
-	@Autowired
-	protected AuthenticatedOfferCreateService	createService;
-
-	@Autowired
-	protected AuthenticatedOfferDeleteService	deleteService;
-
-	@Autowired
-	protected AuthenticatedOfferUpdateService	updateService;
+	protected AuthenticatedOfferShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -35,8 +26,6 @@ public class AuthenticatedOfferController extends AbstractController<Authenticat
 	protected void initialise() {
 		super.addBasicCommand("list", this.service);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("delete", this.deleteService);
+
 	}
 }

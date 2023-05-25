@@ -22,5 +22,7 @@ authenticated.note.form.label.furtherInformation = Más información:
 authenticated.note.form.label.confirmation = Confirmación:
 authenticated.note.form.button.create = Crear
 
+authenticated.note.form.error.outOfRangeEmail = Email fuera de rango
+authenticated.note.form.error.outOfRangeLink = Enlace fuera de rango
 authenticated.note.form.error.spamTitle = El título contiene spam
 authenticated.note.form.error.spamMessage = El mensaje contiene spam

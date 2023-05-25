@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.banner.Banner;
+import acme.entities.system.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -17,5 +18,8 @@ public interface AdministratorBannerRepository extends AbstractRepository {
 
 	@Query("select b from Banner b")
 	List<Banner> findAllBanners();
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 
 }

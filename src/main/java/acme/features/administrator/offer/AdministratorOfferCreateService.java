@@ -1,6 +1,9 @@
 
 package acme.features.administrator.offer;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +11,7 @@ import acme.entities.offer.Offer;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import antiSpamFilter.AntiSpamFilter;
 
@@ -57,13 +61,29 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 		if (!super.getBuffer().getErrors().hasErrors("heading")) {
 			final String title = object.getHeading();
-			super.state(!antiSpam.isSpam(title), "heading", "authenticated.offer.form.error.spam1");
+			super.state(!antiSpam.isSpam(title), "heading", "administrator.offer.form.error.spam1");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("abstract$")) {
 			final String message = object.getAbstract$();
-			super.state(!antiSpam.isSpam(message), "abstract$", "authenticated.offer.form.error.spam2");
+			super.state(!antiSpam.isSpam(message), "abstract$", "administrator.offer.form.error.spam2");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(object.getLink().length() < 255, "link", "administrator.offer.form.error.outOfRangeLink");
+
+		if (!super.getBuffer().getErrors().hasErrors("price"))
+			super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.price");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDay") && !super.getBuffer().getErrors().hasErrors("lastDay")) {
+			final Date startDay = object.getStartDay();
+			final Date lastDay = object.getLastDay();
+			final Date instantiationMoment = object.getInstantiationMoment();
+
+			super.state(!startDay.equals(instantiationMoment) && MomentHelper.isBefore(instantiationMoment, startDay) && MomentHelper.isLongEnough(startDay, instantiationMoment, 1, ChronoUnit.DAYS), "startDay", "administrator.offer.form.error.startDay");
+			super.state(MomentHelper.isLongEnough(lastDay, startDay, 7, ChronoUnit.DAYS), "lastDay", "administrator.offer.form.error.lastDay");
+
+		}
+
 	}
 
 	@Override

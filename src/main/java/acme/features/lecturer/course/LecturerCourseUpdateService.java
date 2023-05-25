@@ -85,17 +85,19 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Course existing;
-			existing = this.repository.findOneCourseByCode(object.getCode());
-			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
+			final Course course = object.getCode().equals(null) ? null : this.repository.findOneCourseById(object.getId());
+			final Course existing = this.repository.findOneCourseByCode(object.getCode());
+			super.state(existing == null || course.equals(existing), "code", "lecturer.course.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.form.error.notAcceptedCurrency");
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-			super.state(object.getRetailPrice().getAmount() > 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
+			super.state(object.getRetailPrice().getAmount() >= 0 && object.getRetailPrice().getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.outOfRangeRetailPrice");
 
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.course.form.error.outOfRangeLink");
 	}
 
 	@Override

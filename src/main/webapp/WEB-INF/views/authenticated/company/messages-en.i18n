@@ -13,4 +13,6 @@ company.company.form.label.VATnumber = VAT Number:
 company.company.form.label.summary = Summary:
 company.company.form.label.link = Link:
 
+authenticated.company.form.error.outOfRangeLink = Link is out of range
+
 company.company.form.button.update = Update

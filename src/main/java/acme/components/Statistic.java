@@ -19,7 +19,7 @@ public class Statistic {
 		Double aux = 0.0;
 		if (!values.isEmpty()) {
 			for (final Double value : values)
-				aux = Math.pow(value + average, 2);
+				aux = Math.pow(value - average, 2);
 			res = Math.sqrt(aux / values.size());
 		}
 		return res;

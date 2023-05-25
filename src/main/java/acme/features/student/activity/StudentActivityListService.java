@@ -21,11 +21,13 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 	@Override
 	public void check() {
+
 		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 

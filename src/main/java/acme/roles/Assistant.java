@@ -35,6 +35,7 @@ public class Assistant extends AbstractRole {
 	protected String			resume;
 
 	@URL
+	@Length(max = 255)
 	protected String			furtherInformation;
 
 }

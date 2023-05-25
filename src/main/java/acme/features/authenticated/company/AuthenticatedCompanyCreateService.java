@@ -65,6 +65,8 @@ public class AuthenticatedCompanyCreateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Company object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(object.getLink().length() < 255, "link", "authenticated.company.form.error.outOfRangeLink");
 	}
 
 	@Override
