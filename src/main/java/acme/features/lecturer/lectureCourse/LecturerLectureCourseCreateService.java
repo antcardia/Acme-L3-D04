@@ -42,7 +42,7 @@ public class LecturerLectureCourseCreateService extends AbstractService<Lecturer
 		lectureId = super.getRequest().getData("lectureId", int.class);
 		lecture = this.repository.findOneLectureById(lectureId);
 		lecturer = lecture == null ? null : lecture.getLecturer();
-		status = super.getRequest().getPrincipal().hasRole(lecturer) || lecture != null && !lecture.isDraftMode();
+		status = lecture != null && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}

@@ -34,14 +34,14 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		final int id;
 		Lecture lecture;
 		Lecturer lecturer;
 
-		masterId = super.getRequest().getData("id", int.class);
-		lecture = this.repository.findOneLectureById(masterId);
+		id = super.getRequest().getData("id", int.class);
+		lecture = this.repository.findOneLectureById(id);
 		lecturer = lecture == null ? null : lecture.getLecturer();
-		status = super.getRequest().getPrincipal().hasRole(lecturer) || lecture != null && !lecture.isDraftMode();
+		status = lecture != null && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}

@@ -21,6 +21,9 @@ public class LecturerLectureListTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String estimatedLearningTime, final String type) {
 
+		//Compruebo todos los campos de la lista 
+		//de clases de un curso
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My courses");
@@ -38,10 +41,15 @@ public class LecturerLectureListTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
+		//No existe caso negativo en listado
 	}
 
 	@Test
 	public void test300Hacking() {
+
+		//Pruebo que no pueda acceder a la lista de sus clases
+		//de su curso cualquier otro rol diferente al profesor
+
 		Collection<Lecture> lectures;
 		String param;
 

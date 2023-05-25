@@ -90,7 +90,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course existing;
-			final Course course = this.repository.findOneCourseById(object.getId());
+			final Course course = object.getCode().equals(null) ? null : this.repository.findOneCourseById(object.getId());
 			existing = this.repository.findOneCourseByCode(object.getCode());
 			super.state(existing == null || course.equals(existing), "code", "lecturer.course.form.error.duplicated");
 		}

@@ -25,6 +25,9 @@ public class LecturerLectureUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String abstract$, final String estimatedLearningTime, final String body, final String lectureType, final String furtherInformation) {
 
+		//Relleno los campos con datos válidos y 
+		//compruebo que se ha actualizado con éxito
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My lectures");
@@ -63,6 +66,9 @@ public class LecturerLectureUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String abstract$, final String estimatedLearningTime, final String body, final String lectureType, final String furtherInformation) {
 
+		//Compruebo que a la hora de actualizar una clase
+		//se produzcan errores esperados
+
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My lectures");
@@ -86,6 +92,10 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+
+		//Pruebo que una clase no pueda ser actualizada
+		//por un profesor que no le pertenece ni cualquier
+		//otro usuario que no tenga el rol de profesor
 
 		Collection<Lecture> lectures;
 		String param;
