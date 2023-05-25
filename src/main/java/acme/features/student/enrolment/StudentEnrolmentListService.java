@@ -19,13 +19,14 @@ public class StudentEnrolmentListService extends AbstractService<Student, Enrolm
 
 
 	@Override
-	public void check() {
-		super.getResponse().setChecked(true);
+	public void authorise() {
+
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
-	public void authorise() {
-		super.getResponse().setAuthorised(true);
+	public void check() {
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
