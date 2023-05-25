@@ -92,11 +92,8 @@ public interface CompanyDashboardRepository extends AbstractRepository {
 		if (practicum.size() < 2)
 			return null;
 		final Double mean = this.averageTimeOfPracticumOfCompany(id);
-		final List<Double> durationsOfPracticum = practicum.stream() //
-			.map(x -> this.getTotalTime(x.getId())) //
-			.collect(Collectors.toList());
-		final Double numerator = durationsOfPracticum.stream() //
-			.mapToDouble(x -> (x - mean) * (x - mean)).sum();
+		final List<Double> durationsOfPracticum = practicum.stream().map(x -> this.getTotalTime(x.getId())).collect(Collectors.toList());
+		final Double numerator = durationsOfPracticum.stream().mapToDouble(x -> (x - mean) * (x - mean)).sum();
 		return Math.sqrt(numerator / durationsOfPracticum.size());
 	}
 
