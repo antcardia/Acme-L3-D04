@@ -43,11 +43,11 @@
 
 </acme:footer-panel>
 
-<acme:footer-panel>
+
 <jstl:if test="${banner != null}">
-	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
-		<img src="${banner.linkPicture}" alt="<acme:message code='master.banner.alt'/>" height="100" width="800" style="margin-left: 90px"/>
+	<div class="panel-body" style="margin: 1em 6em 1em 0em; text-align: center;">	
+		<img src="${banner.linkPicture}" alt="<acme:message code='master.banner.alt'/>" height="100" width="1000" style="margin-left: 90px"/>
 	</div>
 </jstl:if>
-</acme:footer-panel>
+
 

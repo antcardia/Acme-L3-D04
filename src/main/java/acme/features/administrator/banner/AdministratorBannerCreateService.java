@@ -33,6 +33,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 
@@ -65,7 +66,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod")) {
 			final Date endPeriod = object.getEndPeriod();
 			super.state(endPeriod.compareTo(object.getStartPeriod()) > 0, "startPeriod", "administrator.banner.form.error.badDate2");
-			super.state(MomentHelper.isLongEnough(endPeriod, object.getStartPeriod(), 7, ChronoUnit.DAYS), "lastDay", "administrator.banner.form.error.badDate3");
+			super.state(MomentHelper.isLongEnough(endPeriod, object.getStartPeriod(), 7, ChronoUnit.DAYS), "endPeriod", "administrator.banner.form.error.badDate3");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("linkPicture")) {
