@@ -2,7 +2,6 @@
 package acme.features.assistant.session;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +14,12 @@ import acme.roles.Assistant;
 @Service
 public class AssistantSessionListService extends AbstractService<Assistant, Session> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected AssistantSessionRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -26,17 +29,16 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Collection<Session> objects;
-		Assistant principal;
-
-		principal = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		objects = this.repository.findAllSession().stream().filter(x -> x.getTutorial().getAssistant() == principal).collect(Collectors.toList());
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		objects = this.repository.findManySessionsByTutorialId(masterId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -48,7 +50,19 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "sessionType");
+		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void unbind(final Collection<Session> objects) {
+		assert objects != null;
+
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+
+		super.getResponse().setGlobal("masterId", masterId);
 	}
 }

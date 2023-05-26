@@ -1,6 +1,7 @@
 
 package acme.features.administrator.banner;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import acme.entities.banner.Banner;
 import acme.entities.system.SystemConfiguration;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import antiSpamFilter.AntiSpamFilter;
 
@@ -64,11 +66,12 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod")) {
 			final Date startPeriod = object.getStartPeriod();
-			super.state(startPeriod.compareTo(object.getMoment()) > 0, "startPeriod", "administrator.banner.form.error.badDate");
+			super.state(startPeriod.compareTo(object.getMoment()) > 0, "startPeriod", "administrator.banner.form.error.badDate1");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod")) {
 			final Date endPeriod = object.getEndPeriod();
-			super.state(endPeriod.compareTo(object.getStartPeriod()) > 0, "startPeriod", "administrator.banner.form.error.badDate");
+			super.state(endPeriod.compareTo(object.getStartPeriod()) > 0, "startPeriod", "administrator.banner.form.error.badDate2");
+			super.state(MomentHelper.isLongEnough(endPeriod, object.getStartPeriod(), 7, ChronoUnit.DAYS), "endPeriod", "administrator.banner.form.error.badDate3");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("linkPicture")) {

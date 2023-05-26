@@ -31,6 +31,9 @@ public interface AssistantSessionRepository extends AbstractRepository {
 	@Query("select t from Tutorial t")
 	Collection<Tutorial> findAllTutorial();
 
+	@Query("select t from Tutorial t where t.assistant.id = :id")
+	Collection<Tutorial> findManyTutorialsByAssistantId(int id);
+
 	@Query("select c from Course c")
 	Collection<Course> findAllCourses();
 
@@ -42,6 +45,9 @@ public interface AssistantSessionRepository extends AbstractRepository {
 
 	@Query("select s from Session s where s.tutorial.id =:id")
 	Collection<Session> findManySessionsByTutorialId(int id);
+
+	@Query("select s from Session s where s.tutorial.assistant.id = :id")
+	Collection<Session> findManySessionsByAssistantId(int id);
 
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration findSystemConfiguration();

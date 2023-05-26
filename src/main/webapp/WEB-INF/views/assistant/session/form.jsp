@@ -10,22 +10,15 @@
 	<acme:input-moment code = "assistant.session.form.label.start" path="start"/>
 	<acme:input-moment code="assistant.session.form.label.end" path="end"/>
 	<acme:input-url code="assistant.session.form.label.furtherInformation" path="furtherInformation"/>
-	<jstl:if test="${status}">
-		<acme:input-select code="assistant.session.form.label.tutorial" path="tutorial" choices="${tutorialOptions}"/>
-	</jstl:if>
-	<jstl:if test="${!status && status != null}">
-		<acme:input-textbox code="assistant.session.form.label.tutorial" path="tutorial"/>
-	</jstl:if>
 	
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && status && isPublished}">
-			<acme:submit code="assistant.session.form.button.update" action="/assistant/session/update"/>
-			<acme:submit code="assistant.session.form.button.delete" action="/assistant/session/delete"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished}">
+			<acme:submit code="assistant.session.form.button.update" action="/assistant/session/update?id=${id}"/>
+			<acme:submit code="assistant.session.form.button.delete" action="/assistant/session/delete?id=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-select code="assistant.session.form.label.tutorial" path="tutorial" choices="${tutorialOptions}"/>
-			<acme:submit code="assistant.session.form.button.create" action="/assistant/session/create"/>
+			<acme:submit code="assistant.session.form.button.create" action="/assistant/session/create?masterId=${masterId}"/>
 		</jstl:when>
 				
 	</jstl:choose>

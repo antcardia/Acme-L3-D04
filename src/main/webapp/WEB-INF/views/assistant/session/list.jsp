@@ -8,6 +8,9 @@
 	<acme:list-column code="assistant.session.list.label.sessionType" path="sessionType" width="20%"/>		
 </acme:list>
 
-
-<acme:button code="assistant.tutorial.list.button.create" action="/assistant/session/create"/>
+<jstl:choose>	 
+		<jstl:when test="${_command == 'list'}">
+			<acme:button code="assistant.tutorial.list.button.create" action="/assistant/session/create?masterId=${masterId}"/>
+		</jstl:when>		
+</jstl:choose>
 

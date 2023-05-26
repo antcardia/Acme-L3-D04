@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.entities.tutorial.Session;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -37,14 +38,16 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int id;
 		Tutorial tutorial;
 		Assistant assistant;
+		int assistantId;
 
-		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = super.getRequest().getPrincipal().hasRole(assistant) || tutorial != null && !tutorial.isDraftMode();
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		id = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialById(id);
+		assistant = tutorial.getAssistant();
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -66,6 +69,12 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		String assistant;
 		SelectChoices choices;
 		Tuple tuple;
+		boolean status;
+		Collection<Session> sessions;
+
+		sessions = this.repository.findManySessionsByTutorialId(object.getId());
+
+		status = !(sessions == null || sessions.isEmpty());
 
 		courses = this.repository.findAllCourses().stream().filter(x -> !x.isDraftMode()).collect(Collectors.toList());
 		choices = SelectChoices.from(courses, "code", object.getCourse());
@@ -75,6 +84,7 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		tuple.put("assistant", assistant);
+		tuple.put("status", status);
 
 		super.getResponse().setData(tuple);
 

@@ -40,10 +40,16 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 		boolean status;
 		int masterId;
 		Session session;
+		Tutorial tutorial;
+		Assistant assistant;
+		int assistantId;
 
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
 		masterId = super.getRequest().getData("id", int.class);
 		session = this.repository.findOneSessionById(masterId);
-		status = session != null;
+		tutorial = session == null ? null : session.getTutorial();
+		assistant = tutorial == null ? null : session.getTutorial().getAssistant();
+		status = session != null && super.getRequest().getPrincipal().hasRole(assistant) && assistant == this.repository.findOneAssistantById(assistantId);
 
 		super.getResponse().setAuthorised(status);
 	}
