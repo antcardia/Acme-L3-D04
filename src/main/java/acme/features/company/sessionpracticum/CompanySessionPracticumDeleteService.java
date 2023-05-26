@@ -4,9 +4,7 @@ package acme.features.company.sessionpracticum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
 import acme.entities.practicum.SessionPracticum;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -14,17 +12,10 @@ import acme.roles.Company;
 @Service
 public class CompanySessionPracticumDeleteService extends AbstractService<Company, SessionPracticum> {
 
-	// Constants --------------------------------------------------------------
-	protected static final String[]				PROPERTIES	= {
-		"title", "abstract$", "description", "startTime", "finishTime", "furtherInformation"
-	};
-
-	// Internal state ---------------------------------------------------------
 	@Autowired
-	private CompanySessionPracticumRepository	repository;
+	protected CompanySessionPracticumRepository repository;
 
 
-	// AbstractService Interface ----------------------------------------------
 	@Override
 	public void check() {
 		boolean status;
@@ -37,72 +28,51 @@ public class CompanySessionPracticumDeleteService extends AbstractService<Compan
 	@Override
 	public void authorise() {
 		boolean status;
-		int sessionPracticumId;
-		SessionPracticum sessionPracticum;
-		Principal principal;
-		Practicum practicum;
-		Boolean isDraftMode;
-		Boolean isAdditional;
+		SessionPracticum ps;
 
-		principal = super.getRequest().getPrincipal();
-		sessionPracticumId = super.getRequest().getData("id", int.class);
-		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
-		status = false;
+		ps = this.repository.findOnePracticumSessionById(super.getRequest().getData("id", int.class));
 
-		if (sessionPracticum != null) {
-			practicum = sessionPracticum.getPracticum();
-
-			isDraftMode = practicum.isDraftMode();
-			isAdditional = !sessionPracticum.isDraftMode() && !isDraftMode;
-
-			status = (isDraftMode || isAdditional) && principal.hasRole(practicum.getCompany());
-		}
+		status = ps != null && super.getRequest().getPrincipal().hasRole(ps.getPracticum().getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		SessionPracticum sessionPracticum;
-		int sessionPracticumId;
+		SessionPracticum object;
+		int id;
 
-		sessionPracticumId = super.getRequest().getData("id", int.class);
-		sessionPracticum = this.repository.findOneSessionPracticumById(sessionPracticumId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOnePracticumSessionById(id);
 
-		super.getBuffer().setData(sessionPracticum);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
+	public void bind(final SessionPracticum object) {
+		assert object != null;
 
-		super.bind(sessionPracticum, CompanySessionPracticumDeleteService.PROPERTIES);
+		super.bind(object, "title", "abstract$", "startTime", "finishTime", "furtherInformation");
+	}
+	@Override
+	public void validate(final SessionPracticum object) {
+		assert object != null;
+
 	}
 
 	@Override
-	public void validate(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
+	public void perform(final SessionPracticum object) {
+		assert object != null;
+		this.repository.delete(object);
 	}
 
 	@Override
-	public void perform(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
+	public void unbind(final SessionPracticum object) {
+		assert object != null;
 
-		this.repository.delete(sessionPracticum);
-	}
+		final Tuple tuple;
 
-	@Override
-	public void unbind(final SessionPracticum sessionPracticum) {
-		assert sessionPracticum != null;
-
-		Practicum practicum;
-		Tuple tuple;
-
-		practicum = sessionPracticum.getPracticum();
-		tuple = super.unbind(sessionPracticum, CompanySessionPracticumUpdateService.PROPERTIES_UNBIND);
-		tuple.put("masterId", practicum.getId());
-		tuple.put("draftMode", practicum.isDraftMode());
-
+		tuple = super.unbind(object, "title", "abstract$", "startTime", "finishTime", "furtherInformation", "additional");
 		super.getResponse().setData(tuple);
 	}
 }

@@ -58,6 +58,7 @@ master.menu.company = Company
 master.menu.company.user-accounts = Profile
 master.menu.company.practicum = My practicums
 master.menu.company.session-practicum = My sessions
+master.menu.company.practicum.dashboard= Statistics
 
 # master.menu.provider ########################################################
 
