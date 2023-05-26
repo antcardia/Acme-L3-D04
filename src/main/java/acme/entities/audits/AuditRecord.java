@@ -57,6 +57,7 @@ public class AuditRecord extends AbstractEntity {
 	protected Mark				mark;
 
 	@URL
+	@Length(max = 254)
 	protected String			link;
 
 	@NotNull

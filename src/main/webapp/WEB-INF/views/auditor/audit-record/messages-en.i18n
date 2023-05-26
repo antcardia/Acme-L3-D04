@@ -6,6 +6,7 @@ auditor.auditrecord.label.link = Aditional Link
 auditor.auditrecord.label.mark = Mark
 auditor.auditrecord.label.hours = Hours
 auditor.auditrecord.label.draft = Draft
+auditor.auditrecord.label.correction = Correction
 auditor.auditrecord.label.confirm = Confirm Creation
 
 auditor.auditrecord.error.date.startAfterFinish = The start date must be before the end date

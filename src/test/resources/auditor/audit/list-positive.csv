@@ -1,0 +1,4 @@
+recordIndex,auditCode,conclusion,courseCode,published
+0,AAA003,a,AAA006,false
+1,AAA004,a,AAA001,true
+2,ABC123,100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts100caracts,AAA001,true
