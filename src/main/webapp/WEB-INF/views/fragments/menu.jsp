@@ -1,15 +1,3 @@
-<%--
-- menu.jsp
--
-- Copyright (C) 2012-2023 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -85,15 +73,11 @@
 			<acme:menu-suboption code="master.menu.assistant.my-tutorials" action="/assistant/tutorial/list"/>
 			<acme:menu-suboption code="master.menu.assistant.my-sessions" action="/assistant/session/list-mine"/>
 		</acme:menu-option>
-		
-    <acme:menu-option code="master.menu.peep.list" action="/any/peep/list"/>
-			<acme:menu-suboption code="master.menu.assistant.my-sessions" action="/assistant/session/list"/>
-		</acme:menu-option>		
 
     
     <acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.audits" action="/auditor/audit/list"/>
-		</acme:menu-option>
+	</acme:menu-option>
    
 	</acme:menu-left>
 
