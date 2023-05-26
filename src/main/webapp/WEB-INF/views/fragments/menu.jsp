@@ -25,11 +25,15 @@
       		<acme:menu-suboption code="master.menu.anonymous.favourite-link-3" action="https://store.steampowered.com/?l=spanish"/>
       		<acme:menu-suboption code="master.menu.anonymous.favourite-link-4" action="https://www.gorillaz.com/home/"/>
       		<acme:menu-suboption code="master.menu.anonymous.favourite-link-5" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-			<acme:menu-suboption code="master.menu.anonymous.all-courses" action="/any/course/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+			<acme:menu-suboption code="master.menu.any.peep" action="/any/peep/list"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.anonymous.all-courses" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.practicum" action="/authenticated/practicum/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.offer.list" action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
@@ -69,6 +73,7 @@
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.practicum" action="/company/practicum/list"/>
 			<acme:menu-suboption code="master.menu.company.session-practicum" action="/company/session-practicum/list"/>
+			<acme:menu-suboption code="master.menu.company.practicum.dashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>    
     
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
@@ -79,9 +84,7 @@
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.assistant.my-tutorials" action="/assistant/tutorial/list"/>
 			<acme:menu-suboption code="master.menu.assistant.my-sessions" action="/assistant/session/list"/>
-		</acme:menu-option>
-		
-    <acme:menu-option code="master.menu.peep.list" action="/any/peep/list"/>
+		</acme:menu-option>		
     
     <acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.audits" action="/auditor/audit/list"/>

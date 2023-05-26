@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = General indicators
-administrator.dashboard.form.title.application-statuses = Application statuses  
+administrator.dashboard.form.title.general-indicators = Overview
+administrator.dashboard.form.title.application-statuses = Charts  
 
 administrator.dashboard.form.label.principals = Total principals by role
 administrator.dashboard.form.label.peepsRatio = Peeps with email and link ratio

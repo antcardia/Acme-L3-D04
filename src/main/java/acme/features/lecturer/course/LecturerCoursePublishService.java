@@ -90,7 +90,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course existing;
-			final Course course = this.repository.findOneCourseById(object.getId());
+			final Course course = object.getCode().equals(null) ? null : this.repository.findOneCourseById(object.getId());
 			existing = this.repository.findOneCourseByCode(object.getCode());
 			super.state(existing == null || course.equals(existing), "code", "lecturer.course.form.error.duplicated");
 		}
@@ -105,12 +105,12 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 			super.state(object.getFurtherInformation().length() < 255, "furtherInformation", "lecturer.course.form.error.outOfRangeLink");
 
 		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
-		super.state(!lectures.isEmpty(), "courseNature", "lecturer.course.form.error.lecture-not-found");
+		super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.lecture-not-found");
 		if (!lectures.isEmpty()) {
 			final boolean handsOnLecture = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
-			super.state(handsOnLecture, "courseNature", "lecturer.course.form.error.no-hands-on-lecture");
+			super.state(handsOnLecture, "*", "lecturer.course.form.error.no-hands-on-lecture");
 			final boolean publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
-			super.state(publishedLectures, "courseNature", "lecturer.course.form.error.no-published-lecture");
+			super.state(publishedLectures, "*", "lecturer.course.form.error.no-published-lecture");
 		}
 	}
 
