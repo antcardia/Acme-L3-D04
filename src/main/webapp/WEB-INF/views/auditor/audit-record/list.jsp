@@ -8,7 +8,7 @@
 	<acme:list-column code="auditor.auditrecord.label.mark" path="mark" width="20%"/>
 	<acme:list-column code="auditor.auditrecord.label.hours" path="hours" width="20%"/>
 	<acme:list-column code="auditor.auditrecord.label.draft" path="draft" width="20%"/>
-	<acme:list-column code="auditor.auditrecord.label.correction" path="draft" width="20%"/>
+	<acme:list-column code="auditor.auditrecord.label.correction" path="correction" width="20%"/>
 </acme:list>
 <%-- <jstl:if test="${draftmode==true}">
 	<acme:button code="auditor.audit.form.button.create" action="/auditor/audit-record/create?auditId=${id}"/>

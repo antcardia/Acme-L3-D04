@@ -76,7 +76,7 @@ public class AuditorAuditRecordCorrectionService extends AbstractService<Auditor
 			if (!MomentHelper.isBefore(object.getPeriodStart(), object.getPeriodEnd()))
 				super.state(false, "periodStart", "auditor.auditrecord.error.date.startAfterFinish");
 			else
-				super.state(object.getHoursFromPeriod() > 1, "startDate", "auditor.auditrecord.error.date.shortPeriod");
+				super.state(object.getHoursFromPeriod() > 1, "periodEnd", "auditor.auditrecord.error.date.shortPeriod");
 
 		if (!super.getBuffer().getErrors().hasErrors("subject")) {
 			final String conclusion = object.getSubject();
@@ -93,6 +93,8 @@ public class AuditorAuditRecordCorrectionService extends AbstractService<Auditor
 	@Override
 	public void perform(final AuditRecord object) {
 		assert object != null;
+		object.setDraftMode(false);
+		object.setCorrection(true);
 		this.repository.save(object);
 	}
 

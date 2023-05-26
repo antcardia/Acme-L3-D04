@@ -71,7 +71,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 			if (!MomentHelper.isBefore(object.getPeriodStart(), object.getPeriodEnd()))
 				super.state(false, "periodStart", "auditor.auditrecord.error.date.startAfterFinish");
 			else
-				super.state(object.getHoursFromPeriod() > 1, "startDate", "auditor.auditrecord.error.date.shortPeriod");
+				super.state(object.getHoursFromPeriod() > 1.0, "startDate", "auditor.auditrecord.error.date.shortPeriod");
 		if (!super.getBuffer().getErrors().hasErrors("subject")) {
 			final String conclusion = object.getSubject();
 			super.state(!antiSpam.isSpam(conclusion), "subject", "auditor.auditrecord.form.error.spamsubject");
